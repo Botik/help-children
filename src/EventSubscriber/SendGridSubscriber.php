@@ -3,8 +3,10 @@
 namespace App\EventSubscriber;
 
 use App\Entity\SendGridSchedule;
+use App\Entity\Child;
 use App\Event\EmailConfirm;
 use App\Event\RecurringPaymentFailure;
+use App\Event\PaymentFailure;
 use App\Event\RecurringPaymentRemove;
 use App\Event\DonateReminderEvent;
 use App\Event\PayoutRequestEvent;
@@ -124,14 +126,20 @@ class SendGridSubscriber implements EventSubscriberInterface
     {
         $req = $event->getRequest();
         $user = $req->getUser();
+        $childs= $this->em->getRepository(\App\Entity\Child::class)->getOpened();
+        $chnames=[];
+        foreach ($childs as $child) {
+            $chnames[]=$child->getName();
+        }
         $mail = $this->sendGrid->getMail(
             $user->getEmail(),
             $user->getFirstName(),
             [
-                'first_name' => $user->getFirstName()
+                'first_name' => $user->getFirstName(),
+                'childs' => implode("<br>", $chnames)
             ]
         );
-        $mail->setTemplateId('d-3d5e14962a0e4a1b9068da44577c4b83');
+        $mail->setTemplateId('d-02ff4902809d434fb76e194fe6df761e');
 
         return $this->sendGrid->send($mail);
     }
@@ -140,14 +148,20 @@ class SendGridSubscriber implements EventSubscriberInterface
     {
         $req = $event->getRequest();
         $user = $req->getUser();
+        $childs= $this->em->getRepository(\App\Entity\Child::class)->getOpened();
+        $chnames=[];
+        foreach ($childs as $child) {
+            $chnames[]=$child->getName();
+        }
         $mail = $this->sendGrid->getMail(
             $user->getEmail(),
             $user->getFirstName(),
             [
-                'first_name' => $user->getFirstName()
+                'first_name' => $user->getFirstName(),
+                'childs' => implode("<br> ", $chnames)
             ]
         );
-        $mail->setTemplateId('d-02ff4902809d434fb76e194fe6df761e');
+        $mail->setTemplateId('d-3d5e14962a0e4a1b9068da44577c4b83');
 
         return $this->sendGrid->send($mail);
     }
@@ -308,14 +322,41 @@ class SendGridSubscriber implements EventSubscriberInterface
         return $this->sendGrid->send($mail);
     }
 
+    public function onPaymentFailure(PaymentFailure $event)
+    {
+        $user = $event->getRequest()->getUser();
+        $childs= $this->em->getRepository(\App\Entity\Child::class)->getOpened();
+        $chnames=[];
+        foreach ($childs as $child) {
+            $chnames[]=$child->getName();
+        }
+        $mail = $this->sendGrid->getMail(
+            $user->getEmail(),
+            $user->getFirstName(),
+            [
+                'first_name' => $user->getFirstName(),
+                'childs' => implode("<br>", $chnames)
+            ]
+        );
+        $mail->setTemplateId('d-a48d63b8f41c4020bd112a9f1ad31426');
+
+        return $this->sendGrid->send($mail);
+    }
+
     public function onRecurringPaymentRemove(RecurringPaymentRemove $event)
     {
         $user = $event->getRecurringPayment()->getUser();
+        $childs= $this->em->getRepository(\App\Entity\Child::class)->getOpened();
+        $chnames=[];
+        foreach ($childs as $child) {
+            $chnames[]=$child->getName();
+        }
         $this->em->persist((new SendGridSchedule())
             ->setEmail($user->getEmail())
             ->setName($user->getFirstName())
             ->setBody([
-                'first_name' => $user->getFirstName()
+                'first_name' => $user->getFirstName(),
+                'childs' => implode("<br>", $chnames)
             ])
             ->setTemplateId('d-eaae4848c985425f90e2b968d9364630')
             ->setSendAt(
@@ -330,12 +371,18 @@ class SendGridSubscriber implements EventSubscriberInterface
 
     public function onSendReminder(SendReminderEvent $event) {
         $today = $event->getToday();
+        $childs= $this->em->getRepository(\App\Entity\Child::class)->getOpened();
+        $chnames=[];
+        foreach ($childs as $child) {
+            $chnames[]=$child->getName();
+        }
         if ($today) {
             $this->em->persist((new SendGridSchedule())
             ->setEmail($event->getEmail())
             ->setName($event->getName())
             ->setBody([
                 'first_name' => $event->getName(),
+                'childs' => implode("<br>", $chnames),
                 'donate_url' => $this->generator->generate('donate', [
                     'email' => $event->getEmail(),
                     'name' => $event->getName(),
@@ -389,6 +436,7 @@ class SendGridSubscriber implements EventSubscriberInterface
             'user.emailConfirm' => 'onEmailConfirm',
             'user.resetPassword' => 'onResetPassword',
             'recurring_payment.failure' => 'onRecurringPaymentFailure',
+            'payment.failure' => 'onPaymentFailure',
             'recurring_payment.remove' => 'onRecurringPaymentRemove',
             'sendReminder' => 'onSendReminder',
             'halfYearRecurrent' => 'onHalfYearRecurrent',
