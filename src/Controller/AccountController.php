@@ -74,6 +74,8 @@ class AccountController extends AbstractController
 
         if ($request->isMethod('post')) {            
             $form_errors = $this->validate($form);
+            // $puser = $this->doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = ". $data['phone'])->getOneOrNullResult();
+            // $phoneEr=
             if (!$encoder->isPasswordValid($user, $form['oldPassword']))
                 $errors[] = 'Неверный текущий пароль';
             $current_user = $this->getUser();
@@ -84,6 +86,7 @@ class AccountController extends AbstractController
                     'email' => $form['email']
                 ]);
                 if ($user1) {
+                    $errors[]='Email уже зарегистрирован';
                     return $this->render('account/myAccount.twig', [
                         'userData' => $user,
                         'errors' => $errors,
@@ -96,6 +99,23 @@ class AccountController extends AbstractController
                 }
                 $doctrine->getManager()->getRepository(SendGridSchedule::class)->changeEmail($current_email, $form['email']);  
                 $user->setConfirmed(0);
+            }
+            $current_phone = $current_user->getPhone();
+            if ($form['phone'] !== $current_phone) {
+                $doctrine = $this->getDoctrine();
+                $user1 = $doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = ". $form['phone'])->getOneOrNullResult();
+                if ($user1) {
+                    $errors[]='Номер телефона уже зарегистрирован';
+                    return $this->render('account/myAccount.twig', [
+                        'userData' => $user,
+                        'errors' => $errors,
+                        'formErrors' => $form_errors,
+                        'referral_url' => $request->getScheme()
+                            .'://'
+                            .idn_to_utf8($request->getHost())
+                            .$generator->generate('referral', ['id' => $this->getUser()->getId()])
+                    ]);
+                }
             }
             
             if ($form_errors->count() === 0 && $encoder->isPasswordValid($user, $form['oldPassword'])) {
@@ -219,7 +239,7 @@ class AccountController extends AbstractController
         $history_repository = $this->getDoctrine()->getRepository(\App\Entity\Request::class);
         $childCount = $history_repository->getChildrenSuccessPaymentWithUser($user->getId());
         $referrCount = $repository->aggregateCountReferWithUser($user);
-
+        if ($childCount==0 && $donate!==0) $childCount = $this->getDoctrine()->getRepository(\App\Entity\Child::class)->aggregateTotalCountChild();
         $hash = $this->getResultHash($user->getId(), $donateSum, $childCount, $referrCount, $name);        
 
         if ($user->getResultHash() === $hash) {
@@ -332,14 +352,31 @@ class AccountController extends AbstractController
      */
     public function recurrent()
     {
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL,"https://api.cloudpayments.ru/subscriptions/find");
+          curl_setopt($ch, CURLOPT_POST, 1);
+          curl_setopt($ch, CURLOPT_USERPWD, "pk_51de50fd3991dbf5b3610e65935d1:ecbe13569e824fa22e85774015784592");
+          curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+          curl_setopt($ch, CURLOPT_POSTFIELDS, "accountId=".$this->getUser()->getId());
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          $urrs = json_decode(curl_exec ($ch))->Model;
+
+          $rrs=[];
+          curl_close ($ch);
+          if ($urrs) {
+              foreach ($urrs as $urr) {
+                if ($urr->Status=="Active")
+                $rrs[]=[
+                    'id'=> $urr->Id,
+                    'status'=>$urr->Status,
+                    'sum'=>$urr->Amount,
+                ];
+              }
+          }
         return $this->render(
             'account/recurrent.twig',
             [
-                'payments' => $this->getDoctrine()
-                    ->getRepository(RecurringPayment::class)
-                    ->findBy([
-                        'user' => $this->getUser()
-                    ])
+                'payments' => $rrs
             ]
         );
     }
@@ -359,30 +396,31 @@ class AccountController extends AbstractController
      * @throws \Exception
      */
     public function recurrent_remove(
-        int $id,
+        $id,
         Request $request,
         UrlGeneratorInterface $generator,
         EventDispatcherInterface $dispatcher
     ) {
+        $SubscriptionsId=$id;
         if (!$this->isCsrfTokenValid('delete-item', $request->request->get('token'))) {
             return $this->redirect($generator->generate('account_recurrent'));
         }
 
         $doctrine = $this->getDoctrine();
         /** @var RecurringPayment $payment */
-        $payment = $doctrine->getRepository(RecurringPayment::class)->find($id);
+        $payment = $doctrine->getRepository(RecurringPayment::class)->findOneById($this->getUser()->getId());
 
-        if (!$payment || $payment->getUser()->getId() !== $this->getUser()->getId()) {
-            throw $this->createNotFoundException(
-                'Нет платежа с id '.$id
-            );
-        }
+        // if (!$payment || $payment->getUser()->getId() !== $this->getUser()->getId()) {
+        //     throw $this->createNotFoundException(
+        //         'Нет платежа с id '.$id
+        //     );
+        // }
 
-        $entityManager = $this->getDoctrine()->getManager();
-        /** @var \App\Entity\Request $req */
-        $req = $entityManager->getRepository(\App\Entity\Request::class)->find($id);
+        // $entityManager = $this->getDoctrine()->getManager();
+        // /** @var \App\Entity\Request $req */
+        // $req = $entityManager->getRepository(\App\Entity\Request::class)->find($id);
 
-        $SubscriptionsId = $req->getSubscriptionsId();
+        // $SubscriptionsId = $req->getSubscriptionsId();
 
         if (trim($SubscriptionsId)) {
           $ch = curl_init();
@@ -401,11 +439,12 @@ class AccountController extends AbstractController
               $entityManager = $doctrine->getManager();
 
             // удаление соответствующего письма №10
-              $mail_date = \DateTimeImmutable::createFromMutable(
+              if($payment){
+                $mail_date = \DateTimeImmutable::createFromMutable(
                         (new \DateTime($payment->getCreatedAt()->format('Y-m-d')))
                             ->add(new \DateInterval('P28D'))
                             ->setTime(12, 0, 0));
-              $email = $req->getUser()->getEmail();  
+              $email = $this->getUser()->getEmail();  
               $template_id = 'd-1836d6b43e9c437d8f7e436776d1a489';
               
               $sgs_ten = $entityManager->getRepository(SendGridSchedule::class)->findOneBy([
@@ -417,11 +456,11 @@ class AccountController extends AbstractController
               if ($sgs_ten)
                 $entityManager->remove($sgs_ten);
 
-              $entityManager->remove($payment);
-
+              $payment->setDelAt(new \DateTime());
+            
               /** @noinspection PhpMethodParametersCountMismatchInspection */
               $dispatcher->dispatch(new RecurringPaymentRemove($payment), RecurringPaymentRemove::NAME);
-              $entityManager->flush();
+              $entityManager->flush();}
           }
         }
 

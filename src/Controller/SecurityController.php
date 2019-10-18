@@ -20,7 +20,7 @@ class SecurityController extends AbstractController
      * @return Response
      * @throws \LogicException
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(Request $request, AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->isGranted('ROLE_USER')) {
             return $this->redirect('/account');
@@ -29,7 +29,7 @@ class SecurityController extends AbstractController
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
+        $lastUsername = $request->query->get('inputEmail') ?? $authenticationUtils->getLastUsername();
 
         return $this->render('auth/login.twig', ['email' => $lastUsername, 'error' => $error]);
     }
@@ -152,11 +152,16 @@ class SecurityController extends AbstractController
         $current_user = $this->getUser();
         $doctrine = $this->getDoctrine();
         $mail = $request->request->get('email');
+        $phone = $request->request->get('phone');
         $user = $doctrine->getRepository(User::class)->findOneBy(['email' => $mail]);
         if ($user) {
             if ($current_user && ($mail === $current_user->getEmail()))
                 return new Response('same');
             return new Response('exist');
+        }
+        $old_user = $doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = ". $phone)->getResult();
+        if ($old_user) {
+            return new Response('phone');
         }
         return new Response('free');
     }

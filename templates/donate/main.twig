@@ -37,17 +37,17 @@
 
 
                         <div class="ohf-row uni"
-                             style="display:{{ 'eq' == form['payment-type'] ? 'flex' : 'flex' }}; width: 100%">
+                             style="display:{{ 'eq' == form['payment-type'] ? 'flex' : 'none' }}; width: 100%">
                              <div class="ohf-row__col ohf-col-label"><span>&nbsp</span></div>
                             <div class="ohf-row__col emoney">
                                 <label>
-                                <input class="toggle-field__input" type="radio" name="EMoneyType" value="1" checked>
+                                <input class="toggle-field__input" type="radio" name="EMoneyType" value="1" {{ form.EMoneyType==1 ? 'checked' }}>
                                 <div class="emon"><img src="/images/ya.svg"  height="68px" width="113px"></div>
                                 </label><label>
-                                <input class="toggle-field__input" type="radio" name="EMoneyType" value="13">
-                                <div class="emon">&nbsp<img src="/images/cash.svg"><label>Оплата наличными</label></div>
+                                <input class="toggle-field__input" type="radio" name="EMoneyType" value="13" {{ form.EMoneyType==13 ? 'checked' }}>
+                                <div class="emon cash">&nbsp<img src="/images/cash.svg">Оплата наличными</div>
                                 </label><label>
-                                <input class="toggle-field__input" type="radio" name="EMoneyType" value="29">
+                                <input class="toggle-field__input" type="radio" name="EMoneyType" value="29" {{ form.EMoneyType==29 ? 'checked' }}>
                                 <div class="emon"><img src="/images/wm.svg" height="68px" width="113px"></div>
                                 </label>
                             </div>
@@ -79,6 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="ohf-col-input__row">
+
                                     <div class="form-group ohf-col-input__row-item">
                                         <input id='phone' class="input-rounded input-fullwidth input-type-phone" type="text" name="phone"
                                                placeholder="Введите номер телефона*" data-type="phone"
@@ -86,7 +87,7 @@
                                         <div id="phoneError" class="form-error-tooltip" style="display: none; position: relative; left: 0; top: -1px; width: 265px">
                                             <div class="form-error-tooltip__arrow"></div>
                                             <p class="form-error-tooltip__notice">Введите правильный номер</p>
-                                        </div>
+                                        </div>{% if auth_errors %} <div class="form-error-tooltip" style="display: block; position: relative; left: 0; top: -1px; width: 265px"><div class="form-error-tooltip__arrow"></div> <p class="form-error-tooltip__notice"> {{auth_errors}} </p> </div>{% endif %}
                                     </div>
                                     <div class="form-group ohf-col-input__row-item ohf-col-input__row-item__notfirst">
                                         <input id='email' class="input-rounded input-fullwidth" type="email" name="email"
@@ -176,7 +177,7 @@
                                     <div class="input-radio payment-count-field">
                                         <label class="input-radio__label">
                                             <input class="input-radio__input" type="radio" name="recurent" value="true"
-                                                    {{ form.recurent ? 'checked' }}>
+                                                    {{ form['recurent'] ? 'checked' }}>
                                             <span class="input-radio__radiomark"></span>
                                             <span class="input-radio__label">Ежемесячная оплата</span>
                                         </label>
@@ -184,7 +185,7 @@
                                     <div class="input-radio payment-count-field">
                                         <label class="input-radio__label">
                                             <input class="input-radio__input" type="radio" name="recurent" id="rad_not_rec" value=""
-                                                    {{ not form.recurent ? 'checked' }}>
+                                                    {{ not form['recurent'] ? 'checked' }}>
                                             <span class="input-radio__radiomark"></span>
                                             <span class="input-radio__label">Единоразовая оплата</span>
                                         </label>
@@ -420,14 +421,30 @@
             },
             radioHandler = e => setPaymentMethod(e.target.value);
 
-        setPaymentMethod('{{ form['payment-type'] }}');
-
+        setPaymentMethod("{{ form['payment-type'] }}");
+        if ("eq" === "{{ form['payment-type'] }}"){
+                    $('#buttonLater')[0].style.display = 'none';
+                    $('.ohf-col-input__row--start')[0].style.display = 'none';
+                    $('.donate-form-payment-systems__cards-onDonatPage')[0].style.display = 'none';
+                    $('.uni')[0].style.display = 'flex';
+                    $('#rad_not_rec').click();
+                 }
+                 else{
+                    $('#buttonLater')[0].style.display = 'block';
+                    $('.ohf-col-input__row--start')[0].style.display = 'flex';
+                    $('.donate-form-payment-systems__cards-onDonatPage')[0].style.display = 'inline';
+                    $('.uni')[0].style.display = 'none';
+                    
+                 }
         switch (0 | sum.value) {
             case 300: radioSums[0].checked = true; break;
             case 500: radioSums[1].checked = true; break;
             case 700: radioSums[2].checked = true; break;
             default:
                 textSum.classList.add('checked');
+                radioSums[0].checked = false
+                radioSums[1].checked = false
+                radioSums[2].checked = false
                 textSum.value = sum.value;
         }
 

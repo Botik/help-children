@@ -67,6 +67,7 @@ class DonateController extends AbstractController
                     $req->setSum($amount)
                         ->setUser($user)
                         ->setStatus(2)
+                        ->setJson(["payment-type"=>"sms"])
                         ->setOrder_id('');
                 $this->referralHistory($req);
                     $EM->persist($req);
@@ -119,11 +120,11 @@ class DonateController extends AbstractController
      */
     public function no(Request $request, EventDispatcherInterface $dispatcher)
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         if ($request->isMethod('post')) {
             $id  = $request->request->get('order_id');
             $EM  = $this->getDoctrine()->getManager();
-            $req = $this->getDoctrine()>getRepository(\App\Entity\Request::class)->find($id);
+            $req = $this->getDoctrine()->getRepository(\App\Entity\Request::class)->find($id);
             if (!$req) return new Response('order not found', 404);
             $req->setStatus(1);
             $EM->persist($req);
@@ -134,6 +135,18 @@ class DonateController extends AbstractController
             $id  = $request->query->get('Order_ID');
             $EM  = $this->getDoctrine()->getManager();
             $req = $EM->getRepository(\App\Entity\Request::class)->find($id);
+            $jsn = json_decode($req->getJson());
+            $data=[
+                "email"     => $jsn->email,
+                "name"      => $jsn->name,
+            // "lastname"   => $jsn->lastname,
+                "firstname"   => $jsn->surname,
+                "recurent"     => $jsn->recurent,
+                "phone"     => $jsn->phone,
+                "sum"     => $jsn->sum,
+                "payment-type"     => $jsn->{'payment-type'},
+                "EMoneyType"     => $jsn->EMoneyType
+            ];
             if (!$req) return new Response('order not found', 404);
             $req->setStatus(1);
             $EM->persist($req);
@@ -143,7 +156,7 @@ class DonateController extends AbstractController
             else{
                 $dispatcher->dispatch(new PaymentFailure($req), PaymentFailure::NAME);}
             // return new Response(json_encode(["code"=>'0']), Response::HTTP_OK, ['content-type' => 'text/html']);
-            return $this->redirectToRoute('account_history');
+            return $this->redirectToRoute('donate', $data);
         }
         #help https://symfony.com/doc/current/components/http_foundation.html
         // return $this->redirectToRoute('account_history');
@@ -195,7 +208,7 @@ class DonateController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
         /** @var \App\Entity\Request $req */
-        if (array_key_exists('InvoiceId', $form)){
+        if (array_key_exists('SubscriptionId', $form)){
             $req = $entityManager->getRepository(\App\Entity\Request::class)->find($form['InvoiceId']);
 
             // Если не нашёл такого платежа - возможно, он рекуррентный
@@ -215,11 +228,12 @@ class DonateController extends AbstractController
                 }
 
                 $req = new \App\Entity\Request();
-                $req->setChild($subscr_req->getChild)
+                $req->setChild($subscr_req->getChild())
                     ->setUser($subscr_req->getUser())
                     ->setSum($subscr_req->getSum())
                     ->setTransactionId($form['TransactionId'])
-                    ->setJson(json_encode($form))
+                    // ->setJson(json_encode($form))
+                    ->setOrder_id('')
                     ->setStatus(2)
                     ->setRecurent(0);
 
@@ -230,8 +244,8 @@ class DonateController extends AbstractController
                 /** @noinspection PhpMethodParametersCountMismatchInspection */
                 $dispatcher->dispatch(new RequestSuccessEvent($req), RequestSuccessEvent::NAME);
 
-                $startDate = new \DateTime($rp->getCreatedAt()->format('Y-m-d'));
-                $endDate = new \DateTime();
+                $startDate = (new \DateTime($rp->getCreatedAt()->format('Y-m-d')))->getTimestamp();
+                $endDate = (new \DateTime())->getTimestamp();
                 $numberOfMonths = abs((date('Y', $endDate) - date('Y', $startDate))*12 + (date('m', $endDate) - date('m', $startDate)));
 
                 if ($numberOfMonths == 6)
@@ -255,7 +269,7 @@ class DonateController extends AbstractController
                 case 'Completed':
                     $req->setStatus(2);
                     $req->setTransactionId($form['TransactionId']); #avtorkoda
-                    $req->setJson(json_encode($form));              #avtorkoda
+                    // $req->setJson(json_encode($form));              #avtorkoda
 
                     // Убрать напоминание о завершении платежа
                     $urs = $entityManager->getRepository(SendGridSchedule::class)->findUnfinished($req->getUser()->getEmail());
@@ -263,8 +277,7 @@ class DonateController extends AbstractController
                         $entityManager->remove($ur);
                     }
                     $entityManager->flush();
-
-                    $user_requests = $entityManager->getRepository(RequestRepository::class)->findRequestsWithUser($req->getUser());
+                    $user_requests = $entityManager->getRepository(\App\Entity\Request::class)->findRequestsWithUser($req->getUser());
                     if (count($user_requests) > 1) {
                         /** @noinspection PhpMethodParametersCountMismatchInspection */
                         $dispatcher->dispatch(new RequestSuccessEvent($req), RequestSuccessEvent::NAME);
@@ -297,25 +310,6 @@ class DonateController extends AbstractController
 
                     if ($req -> isRecurent()) {//оформление подписки
 
-                        // $ch = curl_init("https://api.cloudpayments.ru/subscriptions/create");
-                        // curl_setopt($ch, CURLOPT_URL,"https://api.cloudpayments.ru/subscriptions/create");
-                        // curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-                        // curl_setopt($ch, CURLOPT_USERPWD, "pk_51de50fd3991dbf5b3610e65935d1:ecbe13569e824fa22e85774015784592");
-                        // curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-                        // curl_setopt($ch, CURLOPT_POST, true);
-                        // curl_setopt($ch, CURLOPT_POSTFIELDS, "token=".$form['Token']."&accountId=".$form['AccountId']."&description=Ежемесячня подписка на сервис ПомогитеДетям.рф&email=".$form['Email']."&amount=".$form['Amount']."&currency=RUB&requireConfirmation=false&startDate=".gmdate("Y-m-d\TH:i:s\Z", strtotime("+1 month"))."&interval=Month&period=1");
-                        // curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);
-                        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                        // $server_output = curl_exec ($ch);
-                        // curl_close ($ch);
-                        // $a = file_get_contents('php://input');
-                        // if (!$server_output)
-                        //     file_put_contents(dirname(__DIR__)."/../var/logs/recurent.log", date("d.m.Y H:i:s")."; Error curl"."\n", FILE_APPEND);
-                        // $json = json_decode($server_output, true);
-                        // file_put_contents(dirname(__DIR__)."/../var/logs/recurent.log", date("d.m.Y H:i:s").";".print_r($json, true)."\n".print_r($a, true)."\n".print_r($server_output, true)."\n", FILE_APPEND);
-                        // $success = $json['Success'];
-
-                        // $subscription_id = $json['Model']['Id'];
                         $subscription_id = $form['SubscriptionId'];
                         $req->setSubscriptionsId($subscription_id);
 
@@ -406,9 +400,14 @@ class DonateController extends AbstractController
         $name = $request->query->get('name');
         $email = $request->query->get('email');
         $code = $request->query->get('code');
-        $lastName = $request->query->get('lastName');
+        $firstName = $request->query->get('firstname');
         $phone = $request->query->get('phone');
 
+            $phone = preg_replace(
+                '/^[78]/',
+                '+7',
+                $phone
+            );
         if (!$this->isGranted('ROLE_USER') && isset($code)) {
             $doctrine = $this->getDoctrine();
             $user = $doctrine->getRepository(User::class)->findOneBy([
@@ -428,28 +427,32 @@ class DonateController extends AbstractController
 
         $user = $this->getUser();
         $form_errors = [];
+        $auth_errors='';
         $child_id = (int) $request->request->filter('child_id', null, FILTER_VALIDATE_INT);
         $form = [
-            'payment-type' => trim($request->request->get('payment-type', 'visa')),
-            'child_id' => $child_id === 0 ? null : $child_id,
-            'name' => trim($request->request->get('name', $user ? $user->getFirstName() : $name)),
-            'surname' => trim($request->request->get('surname', $user ? $user->getLastName() : $lastName)),
+            'payment-type' => trim($request->request->get('payment-type', $request->query->get('payment-type') ?? 'visa')),
+            'EMoneyType'   =>      $request->request->get('EMoneyType', $request->query->get('EMoneyType') ),
+            'child_id'     => $child_id === 0 ? null : $child_id,
+            'name'         => trim($request->request->get('name', $user ? $user->getFirstName() : $name)),
+            'surname' => trim($request->request->get('surname', $user ? $user->getLastName() : $firstName)),
             'phone' => preg_replace(
-                '/[^+0-9]/',
-                '',
-                $request->request->get('phone', $user ? $user->getPhone() : $phone)
+                '/^[78]/',
+                '+7',
+                    preg_replace(
+                    '/[^+0-9]/',
+                    '',
+                    $request->request->get('phone', $user ? $user->getPhone() : $phone))
             ),
-            'ref-code' => substr(trim($request->query->get('ref-code', '')), 4),
+            'ref-code' => substr(trim($request->query->get('ref-code', $code)), 4),
             'email' => trim($request->request->filter('email', $user ? $user->getEmail() : $email, FILTER_VALIDATE_EMAIL)),
             'sum' => round(
                 $request->query->filter('sum', null, FILTER_VALIDATE_FLOAT)
                     ?: $request->request->filter('sum', 300, FILTER_VALIDATE_FLOAT),
                 2
             ),
-            'recurent' => (bool) $request->request->get('recurent', true),
+            'recurent' => (bool) $request->request->get('recurent',  $request->query->get('recurent') ??  true),
             'agree' => $request->request->get('agree', 'false')
         ];
-
         if ($request->isMethod('post')) {
             $form_errors = $this->validate($form);
 
@@ -460,12 +463,18 @@ class DonateController extends AbstractController
                 $form['ref_code'] = substr(base64_encode(random_bytes(20)), 0, 16);
 
                 $entityManager = $this->getDoctrine()->getManager();
-                $user          = $usersService->findOrCreateUser($form);
+                [$user, $new]  = $usersService->findOrCreateUser($form);
 
+                if (null==$this->getUser() && !$new){
+                    // return $this->redirectToRoute('app_login', ['inputEmail' => $form['email']]);
+                    $auth_errors='Указанный номер телефона привязан к другой почте';
+                    return $this->render('donate/main.twig', ['form' => $form, 'formErrors' => $form_errors, 'auth_errors' => $auth_errors]);
+                }
                 $req = new \App\Entity\Request();
                 $req->setSum($form['sum'])
                     ->setRecurent($form['recurent'])
                     ->setUser($user)
+                    ->setJson($form)
                     ->setOrder_id('');
                 $entityManager->persist($req);
                 $entityManager->flush();
@@ -480,7 +489,7 @@ class DonateController extends AbstractController
             }
         }
 
-        return $this->render('donate/main.twig', ['form' => $form, 'formErrors' => $form_errors]);
+        return $this->render('donate/main.twig', ['form' => $form, 'formErrors' => $form_errors, 'auth_errors' => $auth_errors]);
     }
 
     /**
@@ -530,6 +539,7 @@ class DonateController extends AbstractController
             $data,
             new Assert\Collection([
                 'payment-type' => new Assert\Choice(['visa', 'requisite-services', 'sms', 'eq']),
+                'EMoneyType' => new Assert\Choice(['1', '13', '29', '0']),
                 'ref-code' => new Assert\Length(['min' => 0, 'max' => 14]),
                 'child_id' => new Assert\GreaterThan(['value' => 0]),
                 'name' => new Assert\Length(['min' => 0, 'max' => 128]),

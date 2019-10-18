@@ -3,15 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Document;
+use App\Entity\User;
 use App\Form\AddDocumentTypes;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use App\Entity\SendGridSchedule;
+use App\Service\SendGridService;
 use App\Repository\DocumentRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
@@ -36,7 +39,7 @@ class DocumentController extends AbstractController
         );
     }
 
-    public function add(Request $request, FileUploader $uploader) {
+    public function add(Request $request, FileUploader $uploader, SendGridService $sg) {
         $document = new Document();
         $form = $this->createForm(AddDocumentTypes::class, $document);
         $form->handleRequest($request);
@@ -52,6 +55,26 @@ class DocumentController extends AbstractController
                 $EM = $this->getDoctrine()->getManager();
                 $EM->persist($document);
                 $EM->flush();
+
+                // SEND MAIL 12
+                $users = $this->getDoctrine()->getRepository(User::class)->getAll();
+                foreach ($users as $user) {
+                    $mail = $sg->getMail(
+                        $user->getEmail(),
+                        $user->getFirstName(),
+                        [
+                            'first_name' => $user->getFirstName(),
+                            'docdate'    => $document->getNameDate(),
+                            'docname'    => $document->getTitle(),
+                            'docsrc'     => $document->getFile(),
+                            'fs'         => $document->getFilesize()
+                        ]
+                    );
+                    $mail->setTemplateId('d-af64459f4a5c46158550ce4336c17892');
+                    $sg->send($mail);
+                }
+                // END SEND
+                
                 return $this->redirect('/panel/documents');
             } catch (FileException $e) {
                 $form->get('file')->addError(new FormError($e->getMessage()));
@@ -59,7 +82,8 @@ class DocumentController extends AbstractController
         }
 
         return $this->render('panel/documents/add.twig', [
-            'form'  => $form->createView()
+            'form'  => $form->createView(),
+            'document'=>$document
         ]);
     }
 
@@ -125,6 +149,13 @@ class DocumentController extends AbstractController
             ->add('id'          , HiddenType::class   , ['mapped' => false, 'constraints' => [new NotBlank()]])
             ->add('title'       , TextType::class     , ['constraints' => [new NotBlank()]])
             ->add('description' , TextareaType::class)
+            ->add('date'        , DateType::class    , [
+                'html5' => True,
+                'widget' => 'choice',
+                'placeholder' => [
+                    'year' => 'Год', 'month' => 'Месяц', 'day' => 'День',
+                ],
+                'format' => 'dd . MM . yyyy'])
             ->add('category'    , ChoiceType::class   , ['choices' => Document::TYPES])
             ->add('save', SubmitType::class, [
                 'label' => 'Сохранить',

@@ -4,12 +4,13 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+// use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+// use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
@@ -34,19 +35,19 @@ class RegistrationFormType extends AbstractType
                 'required' => false                
             ])
             ->add('firstName', TextType::class, [                
-                'required' => false
+                'required' => True
             ])
             ->add('birthday', TextType::class, [   
                 'required' => false            
             ])
             ->add('phone', TextType::class, [
-                'required' => false,
+                'required' => True,
                 'constraints' => [
                     new Length(['min' => 10, 'max' => 13])
                 ]
             ])
             ->add('email', EmailType::class, [
-                'required' => false
+                'required' => True
             ])
             ->add('password', RepeatedType::class, [
                 // instead of being set onto the object directly,
@@ -54,7 +55,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'invalid_message' => 'Поля пароля должны совпадать.',
                 'options' => ['attr' => ['class' => 'password-field']],
-                'required' => false,
+                'required' => True,
                 'first_options' => ['label' => 'Введите пароль'],
                 'second_options' => ['label' => 'Повторите пароль'],
                 'type' => PasswordType::class,

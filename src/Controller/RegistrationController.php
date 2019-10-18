@@ -52,6 +52,11 @@ class RegistrationController extends AbstractController
                 '',
                 $regform['phone']
             );
+            $regform['phone'] = preg_replace(
+                '/^[78]/',
+                '+7',
+                $regform['phone']
+            );
             if ($regform['birthday'] !== null)
                 $regform['birthday'] = \DateTime::createFromFormat("d.m.Y", $regform['birthday']);
             $request->request->set('registration_form', $regform);
@@ -59,6 +64,10 @@ class RegistrationController extends AbstractController
 
         $form->handleRequest($request);
 
+        $regform['birthday'] =null;
+        $request->request->set('registration_form', $regform);
+        $formm = $this->createForm(RegistrationFormType::class, $user);
+        $formm->handleRequest($request);
         if ($form->isSubmitted()) {
             $doctrine = $this->getDoctrine();
             $valid = false;
@@ -73,19 +82,15 @@ class RegistrationController extends AbstractController
                         $user = $old_user;
                     } else {
                         $valid = false;
-                        $form->addError(new FormError('E-mail уже занят'));
+                        $formm->addError(new FormError('E-mail уже занят'));
                     }
                 }
-                // $old_user = $doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = ". $regform['phone'])
-                // ->getResult();
-                // if ($old_user) {
-                //     if (!$old_user->getPass()) {
-                //         $user = $old_user;
-                //     } else {
-                //         $valid = false;
-                //         $form->addError(new FormError('Такой номер телефона уже существует'));
-                //     }
-                // }
+                $old_user = $doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = ". $regform['phone'])->getResult();
+                if ($old_user) {
+                        $valid = false;
+                        $formm->addError(new FormError('Такой номер телефона уже существует'));
+                    
+                }
             }
 
             if ($valid) {                
@@ -112,11 +117,11 @@ class RegistrationController extends AbstractController
                 );                
             }
         }
-
+        // echo ;
         return $this->render(
             'auth/registration.twig',
             [
-                'form' => $form->createView()
+                'form' => $formm->createView()
             ]
         );
     }
@@ -252,6 +257,11 @@ class RegistrationController extends AbstractController
         $check = $request->request->get('check');
         $fund = $request->request->get('fund');
 
+            $phone = preg_replace(
+                '/^[78]/',
+                '+7',
+                $phone
+            );
         if (!$email || !$phone || strlen($phone) < 10)
             return new Response('false');
 
@@ -263,7 +273,9 @@ class RegistrationController extends AbstractController
 
         if ($user)
             return new Response('false (email)');
-
+        $old_user = $doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = ". $phone)->getResult();
+        if ($old_user)
+            return new Response('false (phone)');
         $user = new User();
         $user
         ->setFirstName($firstName)

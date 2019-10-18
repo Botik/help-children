@@ -18,8 +18,9 @@ function validate_registration() {
         document.getElementById('firstNameError').style.display = 'block';
         isValid = false;
     }
-
-    if (phoneNumber.value.replace(/\D/gi, '').length < 10 || phoneNumber.value.replace(/\D/gi, '').length > 13) {        
+    // phoneNumber.valuereplace(/^8/,'+7');
+    // phoneNumber.valuereplace(/^9/,'+79');
+    if (phoneNumber.value.replace(/\D/gi, '').length < 10 || phoneNumber.value.replace(/\D/gi, '').length > 13 || a.indexOf('+7')!=0) {        
         document.getElementById('phone').style.display = 'block';
         isValid = false;
     }
@@ -162,6 +163,7 @@ function resetModal() {
     document.getElementById('firstNameError').style.display = 'none';    
     document.getElementById('emailError').style.display = 'none';
     document.getElementById('emailExist').style.display = 'none';
+    document.getElementById('phoneExist').style.display = 'none';
     document.getElementById('phone').style.display = 'none';
 }
 
@@ -181,7 +183,7 @@ function validate_modal_registration() {
         isValid = false;
     }
 
-    if (phoneInput.length < 10 || phoneInput.length > 13) {        
+    if (phoneInput.length < 10 || phoneInput.length > 13|| phoneInput.indexOf('+7')!=0) {        
         document.getElementById('phone').style.display = 'block';
         isValid = false;
     }
@@ -219,6 +221,9 @@ function modalRegistration() {
         }
         else if (xhr.responseText === 'false (email)') {
             document.querySelector('#emailExist').style.display = 'block';
+        }
+        else if (xhr.responseText === 'false (phone)') {
+            document.querySelector('#phoneExist').style.display = 'block';
         }
     }
     });
@@ -292,6 +297,11 @@ function sendReminder() {
 }
 
 function checkPhone() {
+    ph = document.getElementsByClassName('input-type-phone')[0].value;
+    document.getElementsByClassName('input-type-phone')[0].value=ph.replace(/\D/gi, '')
+    document.getElementsByClassName('input-type-phone')[0].value=ph.replace(/^8/,'+7');
+    document.getElementsByClassName('input-type-phone')[0].value=ph.replace(/^9/,'+79');
+    document.getElementsByClassName('input-type-phone')[0].value=ph.replace(/^7/,'+7');
     let flag = document.getElementsByClassName('selected-flag')[0].title;
     let code = flag.split(': ')[1];    
     let phone = document.getElementsByClassName('input-type-phone')[0].value;
@@ -328,6 +338,7 @@ function validate_myAccount() {
     document.getElementById('firstNameError').style.display = 'none';    
     document.getElementById('emailError').style.display = 'none';
     document.getElementById('emailExist').style.display = 'none';
+    document.getElementById('phoneExist').style.display = 'none';
     document.getElementById('phoneError').style.display = 'none';
     document.getElementById('passwordError').style.display = 'none';
     document.getElementById('newPasswordError').style.display = 'none';
@@ -376,11 +387,12 @@ function validate_myAccount() {
 }
 
 function checkEmailExisting(element) {
-    let emailInput = document.getElementById(element).value;   
+    let emailInput = document.getElementById(element).value;  
+    let phoneInput = document.getElementsByClassName('input-type-phone')[0].value;
 
     document.getElementById('emailExist').style.display = 'none';    
     
-    var data = "email=" + emailInput;
+    var data = "email=" + emailInput  + "&phone=" + phoneInput;
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;    
@@ -394,6 +406,10 @@ function checkEmailExisting(element) {
 
     if (xhr.responseText === 'exist') {
         document.getElementById('emailExist').style.display = 'block';
+        return false;
+    }
+    if (xhr.responseText === 'phone') {
+        document.getElementById('phoneExist').style.display = 'block';
         return false;
     }
     return true;

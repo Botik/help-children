@@ -9,10 +9,12 @@
 
                 var data = {
                     email     : '{{ fields.Email }}',
+                    recurent  : '{{ fields.IsRecurrentStart }}',
                     name      : '{{ fields.Name }}',
                     lastname  : '{{ fields.LastName }}',
                     firstname : '{{ fields.FirstName }}',
-                    phone     : '{{ fields.Phone }}'
+                    phone     : '{{ fields.Phone }}',
+                    sum       : '{{ fields.Subtotal_P }}'
                 };
                 {% if fields.IsRecurrentStart == 1 %}
                 data.cloudPayments = {recurrent: { interval: 'Month', period: 1}}; //создание ежемесячной подписки
@@ -46,9 +48,9 @@
                         $.post('{{ fields.URL_RETURN_NO }}', {
                             'order_id': '{{ fields.Order_IDP }}'
                         }).success(function(ret){
-                            window.location.href = '/account/history';
+                            window.location.href = '/donate?'+$.param(data);
                         }).error(function (req) {
-                            window.location.href = '/account/history';
+                            window.location.href = '/donate?'+$.param(data);
                         });
                     }
                 );
