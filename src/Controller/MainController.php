@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Document;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
@@ -22,6 +23,15 @@ class MainController extends AbstractController
     public function contacts()
     {
         return $this->render('pages/contacts.twig');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \LogicException
+     */
+    public function sms()
+    {
+        return $this->render('pages/sms.twig');
     }
 
     /**
@@ -57,6 +67,16 @@ class MainController extends AbstractController
      */
     public function reports()
     {
-        return $this->render('pages/reports.twig');
+        return $this->render(
+            'pages/reports.twig',
+            [
+                'financial' => $this->getDoctrine()->getRepository(Document::class)->findBy(
+                    ['category' => 'financial'],
+                    ['date' => 'DESC']),
+                'auditor' => $this->getDoctrine()->getRepository(Document::class)->findBy(
+                    ['category' => 'auditor'],
+                    ['date' => 'DESC']),
+            ]
+        );
     }
 }

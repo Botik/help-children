@@ -39,35 +39,32 @@ class UnitellerService
 
     /**
      * @param Request $req
-     *
      * @return array
-     * @throws \Symfony\Component\Routing\Exception\InvalidParameterException
-     * @throws \Symfony\Component\Routing\Exception\MissingMandatoryParametersException
-     * @throws \Symfony\Component\Routing\Exception\RouteNotFoundException
      */
-    public function getFromData(Request $req)
+    public function getFromData(Request $req, $EMoneyType=null)
     {
         $user = $req->getUser();
         $fields = [
-            'Shop_IDP' => $this->shop_idp,
-            'Order_IDP' => $req->getId(),
-            'Subtotal_P' => number_format($req->getSum(), 2, '.', ''),
-            'Lifetime' => self::LIFE_TIME,
-            'Customer_IDP' => $user->getId(),
-            'URL_RETURN' => $this->urlGenerator->generate('donate_status', [], UrlGeneratorInterface::ABSOLUTE_URL),
-            'URL_RETURN_OK' => $this->urlGenerator->generate('donate_ok', [], UrlGeneratorInterface::ABSOLUTE_URL),
-            'URL_RETURN_NO' => $this->urlGenerator->generate('donate_no', [], UrlGeneratorInterface::ABSOLUTE_URL),
-            'Email' => $user->getEmail(),
-            'CallbackFormat' => 'json',
-            'LastName' => $user->getLastName(),
-            'FirstName' => $user->getFirstName(),
-            'MiddleName' => $user->getMiddleName(),
-            'Phone' => $user->getPhone()
+            'Shop_IDP'         => $this->shop_idp,
+            'Order_IDP'        => $req->getId(),
+            'Subtotal_P'       => number_format($req->getSum(), 2, '.', ''),
+            'Lifetime'         => self::LIFE_TIME,
+            'Customer_IDP'     => $user->getId(),
+            'URL_RETURN'       => $this->urlGenerator->generate('donate_status', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            'URL_RETURN_OK'    => $this->urlGenerator->generate('donate_ok', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            'URL_RETURN_NO'    => $this->urlGenerator->generate('donate_no', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            'Email'            => $user->getEmail(),
+            'CallbackFormat'   => 'json',
+            'EMoneyType'       => $EMoneyType,
+            'Name'             => $user->getLastName(),
+            'LastName'         => $user->getLastName(),
+            'FirstName'        => $user->getFirstName(),
+            'MiddleName'       => $user->getMiddleName(),
+            'Phone'            => $user->getPhone(),
+            'IsRecurrentStart' => 0,
         ];
 
-        if ($req->isRecurent()) {
-            $fields['IsRecurrentStart'] = 1;
-        }
+        if ($req->isRecurent()) $fields['IsRecurrentStart'] = 1;
 
         $fields['Signature'] = $this->getSignature($fields);
 
@@ -152,7 +149,7 @@ class UnitellerService
             $data['Order_IDP'],
             $data['Subtotal_P'],
             $data['MeanType'] ?? '',
-            $data['EMoneyType'] ?? '',
+            $data['EMoneyType'],
             $data['Lifetime'] ?? '',
             $data['Customer_IDP'] ?? '',
             $data['Card_IDP'] ?? '',

@@ -63,7 +63,7 @@ class PanelController extends AbstractController
     public function requests()
     {
         /** @var RequestRepository $repository */
-        $repository = $this->getDoctrine()->getRepository(\App\Entity\Request::class);
+        $repository = $this->getDoctrine()->getRepository(Request::class);
 
         return $this->render(
             'panel/requests.twig',

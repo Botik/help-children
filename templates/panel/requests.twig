@@ -10,20 +10,34 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">id реферера</th>
                         <th scope="col">E-mail</th>
                         <th scope="col">Статус</th>
                         <th scope="col">Сумма</th>
+                        <th scope="col">Тип платежа</th>
+                        <th scope="col">Способ платежа</th>
                         <th scope="col">Дата создания</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% set statuses = {0: 'Не завершена', 1: 'Отмена', 2: 'Успешно'} %}
+                    {% set recurents = {0: 'Обычный', 1: 'Рекуррент'} %}
                     {% for req in entities %}
                         <tr>
-                            <th scope="row">{{ req.id }}</th>
+                            <th scope="row">
+                                {% if req.order_id|length %}
+                                    <button class="order_id-copy" data-id="{{ req.order_id }}">Копировать</button>
+                                    <span id="order-id-{{ req.order_id }}">{{ req.order_id }}</span>
+                                {% else %}
+                                    {{ req.id }}
+                                {% endif %}
+                            </th>
+                            <td>{{ req.user.referrer.id|default('') }}</td>
                             <td>{{ req.user.email }}</td>
                             <td>{{ statuses[req.status] }}</td>
                             <td>{{ req.sum|number_format(2, '.', ' ') }}</td>
+                            <td>{{ recurents[req.recurent]}}</td>
+                            <td>{{ req.pm}}</td>
                             <td>{{ req.createdAt|date('d m Y H:i') }}</td>
                         </tr>
                     {% endfor %}
@@ -32,4 +46,26 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function copyOrderID(id){
+            var ta = document.getElementById('order-id-' + id);
+            var range = document.createRange();
+            range.selectNode(ta);
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                alert('Идентификатор скопирован в буфер');
+            } catch (err) {
+                alert('Ошибка копирования в буфер обмена');
+            }
+            window.getSelection().removeAllRanges();
+        }
+
+        $(function(){
+            $('body').on('click', 'button.order_id-copy', function(){
+               var oid = $(this).attr('data-id');
+               copyOrderID(oid);
+            });
+        });
+    </script>
 {% endblock %}

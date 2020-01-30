@@ -19,10 +19,11 @@
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.age }}</td>
+                <td>{{ user.birthday? user.birthday|date('Y.m.d') : ''}}</td>
                 <td>{{ user.Phone }}</td>
                 <td>{{ user.CreatedAt|date('Y.m.d H:i') }}</td>
                 <td><a href="/panel/users/{{ user.id }}">Изменить</a></td>
+                <td><a href="/panel/users/{{ user.id }}/delete">Удалить</a></td>
             </tr>
         {% endfor %}
         </tbody>

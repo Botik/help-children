@@ -1,4 +1,7 @@
 /.idea/
+/public/images/results/
+/public/docs/
+/error.log
 /composer.phar
 /project.iml
 /tmp/
@@ -28,3 +31,8 @@
 
 /.env
 /.php-version
+*.bak
+.htaccess 
+
+.vscode/
+/sms_req.txt

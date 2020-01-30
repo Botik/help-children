@@ -6,6 +6,12 @@ use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
+// use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql as DqlFunctions;
+
+// $config = new \Doctrine\ORM\Configuration();
+// $config->addCustomStringFunction(DqlFunctions\JsonExtract::FUNCTION_NAME, DqlFunctions\JsonExtract::class);
+// $config->addCustomStringFunction(DqlFunctions\JsonValue::FUNCTION_NAME, DqlFunctions\JsonValue::class);
+
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
  * @method User|null findOneBy(array $criteria, array $orderBy = null)
@@ -27,7 +33,7 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
-     * Возвращает рефёрерров с суммами вознаграждений
+     * Возвращает рефёрерров с суммами вознаграждений и их пожертвованиями
      *
      * @param  User  $user
      * @return mixed
@@ -35,10 +41,10 @@ class UserRepository extends ServiceEntityRepository
     public function findReferralsWithSum(User $user)
     {
         return $this->createQueryBuilder('u')
-            ->addSelect('SUM(rh.sum)')
+            ->select('u.email, u.meta, u.createdAt')        
+            ->addSelect('(SELECT rh.sum FROM \App\Entity\ReferralHistory rh WHERE rh.donator=u GROUP BY rh.donator) as reward')            
+            ->addSelect('(SELECT SUM(r.sum) FROM \App\Entity\Request r WHERE r.status=2 AND r.user=u) as donate')
             ->where('u.referrer = :id')
-            ->leftJoin('u.donate_history', 'rh')
-            ->groupBy('u.id')
             ->setParameters([
                 'id' => $user->getId()
             ])
@@ -52,6 +58,26 @@ class UserRepository extends ServiceEntityRepository
             ->addSelect('SUM(rh.sum)')
             ->leftJoin('u.referral_history', 'rh')
             ->groupBy('u.id')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getAll()
+    {
+        return $this->createQueryBuilder('u')            
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getDonatorRewards($user)
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.id')
+            ->addSelect('rh.sum')
+            ->leftJoin('u.referral_history', 'rh')            
+            ->where('rh.user = :id')
+            ->groupBy('rh.donator')
+            ->setParameter('id', $user->getId())
             ->getQuery()
             ->getResult();
     }
@@ -77,6 +103,24 @@ class UserRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleResult();
     }
+
+    public function findByBirthDayToday()
+    {
+        return $this->createQueryBuilder('u')
+            ->where('MONTH(u.birthday) = MONTH(:date) AND DAY(u.birthday) = DAY(:date)')
+            ->setParameter('date', new \DateTime())
+            ->getQuery()
+            ->getResult();
+    }
+
+    // public function findByPhone()
+    // {
+    //     return $this->createQueryBuilder('u')
+    //         ->where('JSON_VALUE(u.meta, "$.phone") = "+79999999999"')
+    //         // ->setParameter('phone', $phone)
+    //         ->getQuery()
+    //         ->getResult();
+    // }
 
     public function findUserSelecting(int $id)
     {
@@ -113,4 +157,14 @@ class UserRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
+
+
+    // public function findChildren($uid)
+    // {
+    //     return $this->createQuery('SELECT distinct c.name FROM children_requests as cr left join requests as r on cr.request = r.id right join children as c on cr.child=c.id where r.user_id='.$uid)->execute();
+    // }
+
+//SELECT r.user_id, r.sum, c.name FROM requests as r right join children as c on r.child_id=c.id 
+//SELECT distinct c.name FROM children_requests as cr left join requests as r on cr.request = r.id right join children as c on cr.child=c.id where r.user_id=871
+
 }

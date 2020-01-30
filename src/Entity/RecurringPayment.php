@@ -18,13 +18,13 @@ class RecurringPayment
 
     /**
      * @ORM\OneToOne(targetEntity="Request")
-     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $request;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="recurring_payments")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $user;
 
@@ -37,6 +37,11 @@ class RecurringPayment
      * @ORM\Column(type="datetime_immutable")
      */
     private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $del_at;
 
     /**
      * RecurringPayment constructor.
@@ -60,8 +65,8 @@ class RecurringPayment
     public function setRequest(Request $request): self
     {
         $this->request = $request;
-        $this->id = $request->getId();
-        $this->user = $request->getUser();
+        $this->id      = $request->getId();
+        $this->user    = $request->getUser();
 
         return $this;
     }
@@ -98,6 +103,18 @@ class RecurringPayment
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getDelAt(): ?\DateTimeInterface
+    {
+        return $this->del_at;
+    }
+
+    public function setDelAt(?\DateTimeInterface $del_at): self
+    {
+        $this->del_at = $del_at;
 
         return $this;
     }

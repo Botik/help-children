@@ -21,21 +21,25 @@
                                 <tr>
                                     <th class="donation-list-table__head-col">Название</th>
                                     <th class="donation-list-table__head-col">Сумма</th>
+                                    <th class="donation-list-table__head-col">Тип пожертвования</th>
                                     <th class="donation-list-table__head-col">Дата</th>
                                 </tr>
                                 </thead>
                                 <tbody class="donation-list-table__body">
-                                {% for req in entities %}
-                                    <tr class="donation-list-table__row">
-                                        <td class="donation-list-table__body-col">
-                                            {{ req.recurent ? 'Регулярное п' : 'П' }}ожертвование {{ req.child is null ? 'фонду' : req.child.name }}
-                                        </td>
-                                        <td class="donation-list-table__body-col">
-                                            {{ req.sum|number_format(2, '.', ' ') }} руб.
-                                        </td>
-                                        <td class="donation-list-table__body-col">{{ req.createdAt|date('d m Y') }}</td>
-                                    </tr>
-                                {% endfor %}
+                                {% if entities is defined %}
+                                    {% for req in entities %}
+                                        <tr class="donation-list-table__row">
+                                            <td class="donation-list-table__body-col">
+                                                {{ req.recurent ? 'Регулярное п' : 'П' }}ожертвование {{ req.child is null ? 'фонду' : req.child.name }}
+                                            </td>
+                                            <td class="donation-list-table__body-col">
+                                                {{ req.sum|number_format(2, '.', ' ') }} руб.
+                                            </td>
+                                            <td class="donation-list-table__body-col">{{ req.pm }}</td>
+                                            <td class="donation-list-table__body-col">{{ req.createdAt|date('d m Y') }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
                                 </tbody>
                             </table>
                         </div>

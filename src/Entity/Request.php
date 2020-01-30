@@ -18,14 +18,19 @@ class Request
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=64, options={"collation":"utf8mb4_unicode_ci"})
+     */
+    private $order_id;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Child", inversedBy="history", fetch="LAZY")
-     * @ORM\JoinColumn(name="child_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="child_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $child;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="requests", fetch="LAZY")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $user;
 
@@ -55,9 +60,24 @@ class Request
     private $createdAt;
 
     /**
-     * @ORM\OneToOne(targetEntity="ReferralHistory", mappedBy="request", fetch="LAZY")
+     * @ORM\OneToOne(targetEntity="ReferralHistory", mappedBy="request", fetch="LAZY", cascade={"persist", "remove"})     
      */
     private $referral_history;
+
+    /**
+     * @ORM\Column(type="text", nullable=true, options={"collation":"utf8mb4_unicode_ci"})
+     */
+    private $json;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $TransactionId;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true, options={"collation":"utf8mb4_unicode_ci"})
+     */
+    private $SubscriptionsId;
 
     /**
      * User constructor.
@@ -72,6 +92,17 @@ class Request
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getOrder_id(): ?string
+    {
+        return $this->order_id;
+    }
+
+    public function setOrder_id($id)
+    {
+        $this->order_id = $id;
+        return $this;
     }
 
     public function getChild(): ?Child
@@ -125,6 +156,55 @@ class Request
         $this->status = $status;
 
         return $this;
+    }
+
+    public function setTransactionId(int $TransactionId): self
+    {
+        $this->TransactionId = $TransactionId;
+
+        return $this;
+    }
+
+    public function getTransactionId(): ?int
+    {
+        return $this->TransactionId;
+    }
+
+    public function setSubscriptionsId($SubscriptionsId): self
+    {
+        $this->SubscriptionsId = $SubscriptionsId;
+
+        return $this;
+    }
+
+    public function getSubscriptionsId()
+    {
+        return $this->SubscriptionsId;
+    }
+
+    public function setJson($Json): self
+    {
+        $this->json = json_encode($Json);
+
+        return $this;
+    }
+
+    public function getJson()
+    {
+        return $this->json;
+    }
+    public function getPm()
+    {
+        $names=["eq"=>"Интернет сервисы", "sms"=>"СМС-оплата", "visa"=>"Оплата картой", "1"=>"Яндекс.Деньги", "13"=>"Наличные", "29"=>"WebMoney"];
+        if ($this->getJson()) {
+            $pm=json_decode($this->json);
+            if ($pm->{"payment-type"}=='eq') 
+                return $names[$pm->{"EMoneyType"}] ?? 'Яндекс.Деньги';
+            else
+                return $names[$pm->{"payment-type"}] ?? 'Оплата картой';
+        }
+
+        else return 'Оплата картой';
     }
 
     public function isRecurent(): ?bool
