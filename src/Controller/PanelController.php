@@ -34,7 +34,7 @@ class PanelController extends AbstractController
         $result = curl_exec($ch);
         preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
         if (isset($matches)) if ($matches[0] != []) $cookie = substr($matches[0][0], 11);
-        echo $result;
+        // echo $result;
         curl_close($ch);
 
 
