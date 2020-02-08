@@ -168,6 +168,7 @@ class ChildController extends AbstractController
             }
 
             $targ->setAttach(json_encode($arrayImg));
+            $targ->setAllowClose($targ->getAllowClose()==0 ? 0 : 1);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($targ);
             $entityManager->flush();

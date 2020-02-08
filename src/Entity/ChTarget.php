@@ -172,7 +172,8 @@ class ChTarget
 
     public function setAllowClose($allowclose): self
     {
-        $this->allowclose = is_array($allowclose) ? $allowclose[0] : $allowclose;
+        $allowclose=is_array($allowclose) ? $allowclose[0] : $allowclose;
+        $this->allowclose = $allowclose==1 ? 1 : 0;
 
         return $this;
     }
