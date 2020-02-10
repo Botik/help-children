@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
 
-                                <div class="hr-child"></div>
+                                <div class="hr-child" style='height:2px;'></div>
                                 {% if closed %}
                                 <h3 class="child-help-form__title">Я хочу помочь детям</h3>
                                 {% endif %}<form class="child-help-form kid-page" action="{{ path('donate') }}"
@@ -522,7 +522,8 @@
                         <input type="hidden" name="child_id" value="{{ child.id }}">
                         {# CLOSE #}
                         {# <h3 class="child-help-form__title">Помочь другим детям</h3> #}
-                        <h3 class="child-help-form__title">Помочь {{ child.name }}</h3>
+                        {#<h3 class="child-help-form__title">Помочь {{ child.name }}</h3>#}
+                        <h3 class="child-help-form__title">Хочу помочь</h3>
                         <div class="child-help-form-row">
                             <div class="child-help-form__col child-help-form__col-label ohf-col-label__notice-title">
                                 Выберите способ оплаты
