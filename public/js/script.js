@@ -151,4 +151,34 @@ $(document).ready(function() {
 
     })
 
+    if ($('.news').length) {
+        $('.news').click(function(){
+            var pagelink = $(this).data('href');
+            //console.log(pagelink);
+            location.href = pagelink;
+        })
+
+    }
+
+    if ($('.mothersletter').length) {
+        var hash = window.location.hash;
+        if (hash == "#needed") {
+            $('.cart-nav>div').each(function() {
+                $(this).removeClass("active");
+            });
+            $('#letter').removeClass('displaytrue');
+            $('#needed').removeClass('displaytrue');
+            $('#kid-news').removeClass('displaytrue');
+    
+            $('.cart-nav .right').addClass("active");
+            
+            $('needed').addClass('displaytrue');
+            var $page = $('html, body');
+            $page.animate({
+                scrollTop: ($('.cart-nav').offset().top - 180)
+            }, 400);
+        }
+
+    }
+
 });
