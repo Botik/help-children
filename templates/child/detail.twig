@@ -376,14 +376,13 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <p class='childnews-item-desc'>
+                                    {% if news.descr %}<p class='childnews-item-desc'>
                                         {{news.descr}}
-                                    </p>
-                                    <a href='#' class='childnews-item-link'>
+                                    </p>{% endif %}
+                                    <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
                                     </a>
-                                    {% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img'>
-                                    {% endif %}
+                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img'>{% endif %}{% endif %}
                                 </div>
                                 {% endif %}
                             </div>
@@ -407,13 +406,13 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <p class='childnews-item-desc'>
+                                    {% if news.descr %}<p class='childnews-item-desc'>
                                         {{news.descr}}
-                                    </p>
-                                    <a href='#' class='childnews-item-link'>
+                                    </p>{% endif %}
+                                    <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
                                     </a>
-                                    {% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img'>{% endif %}
+                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img'>{% endif %}{% endif %}
                                 </div>
                                 {% endif %}
                             </div>

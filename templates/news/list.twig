@@ -194,6 +194,9 @@
                 });
 
             });
+            $( window ).on( "load" ,function() {
+            $('.cart-nav>div')[['#all-news','#kid-news','#fond-news'].indexOf(location.hash)].click();
+});
         </script>
     </main>
 
