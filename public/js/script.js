@@ -175,7 +175,7 @@ $(document).ready(function() {
             $('needed').addClass('displaytrue');
             var $page = $('html, body');
             $page.animate({
-                scrollTop: ($('.cart-nav').offset().top - 50)
+                scrollTop: ($('.cart-nav').offset().top - 180)
             }, 400);
         }
 
