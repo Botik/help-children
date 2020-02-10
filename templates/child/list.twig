@@ -38,19 +38,19 @@
                                     <div class='notification'>
                                         <div>Реабилитация<br>через:</div>
                                         <div class='days'><span id="{{child.id}}days"></span> дней</div>
-                                        <div class='time'><span id="{{child.id}}hours"></span><span id="{{child.id}}delimiter">:</span><span id="{{child.id}}minutes"></span></div>
+                                        <div class='time'><span id="{{child.id}}hours"></span><span id="{{child.id}}delimiter">:</span><span id="{{child.id}}minutes"></span><span id="{{child.id}}delimiter2">:</span><span id="{{child.id}}seconds"></span></div>
                                         <script type="text/javascript">
-                                            function updater(d, h, m, dlm) {
+                                            function updater(d, h, m, s, dlm, dlm2) {
                                             var baseTime = new Date( {{ (child.targets|last).totime|date("Y") }}, {{ (child.targets|last).totime|date("m") }}-1, {{ (child.targets|last).totime|date("d") }}, 14);
 
                                             function update() {
                                                 var cur = new Date();
                                                 var diff = (baseTime - cur);
                                                 // var millis = diff % 1000;
-                                                // diff = Math.floor(diff/1000);
-                                                // var sec = diff % 60;
-                                                // if(sec < 10) sec = "0"+sec;
-                                                diff = Math.floor(diff/60 /1000);
+                                                diff = Math.floor(diff/1000);
+                                                var sec = diff % 60;
+                                                if(sec < 10) sec = "0"+sec;
+                                                diff = Math.floor(diff/60);
                                                 var min = diff % 60;
                                                 if(min < 10) min = "0"+min;
                                                 diff = Math.floor(diff/60);
@@ -60,7 +60,8 @@
                                                 h.innerHTML = hours;
                                                 m.innerHTML = min;
                                                 dlm.innerHTML = dlm.innerHTML==':' ? " " : ":";
-                                                // s.innerHTML = Math.abs(sec);
+                                                dlm2.innerHTML = dlm2.innerHTML==':' ? " " : ":";
+                                                s.innerHTML = (sec);
 
                                                 setTimeout(update, 1000);
                                             }
@@ -68,7 +69,9 @@
                                             }
                                             updater(document.getElementById("{{child.id}}days"),
                                             document.getElementById("{{child.id}}hours"), document.getElementById("{{child.id}}minutes"),
-                                            document.getElementById("{{child.id}}delimiter"));
+                                            document.getElementById("{{child.id}}seconds"),
+                                            document.getElementById("{{child.id}}delimiter"),
+                                            document.getElementById("{{child.id}}delimiter2"));
                                         </script>
                                     </div>
                              {# <!-- Володя, эту парашу я изменил если что-->
@@ -173,38 +176,42 @@
                                     {% if date((child.targets|last).totime) > date( "now")%}
                                 <div class='notification'>
                                     <div>Реабилитация<br>через:</div>
-                                    <div class='days'><span id="{{child.id}}days"></span> дней</div>
-                                    <div class='time'><span id="{{child.id}}hours"></span><span id="{{child.id}}delimiter">:</span><span id="{{child.id}}minutes"></span></div>
-                                    <script type="text/javascript">
-                                    function updater(d, h, m, dlm) {
-                                    var baseTime = new Date( {{ (child.targets|last).totime|date("Y") }}, {{ (child.targets|last).totime|date("m") }}-1, {{ (child.targets|last).totime|date("d") }}, 14);
+                                        <div class='days'><span id="{{child.id}}days"></span> дней</div>
+                                        <div class='time'><span id="{{child.id}}hours"></span><span id="{{child.id}}delimiter">:</span><span id="{{child.id}}minutes"></span><span id="{{child.id}}delimiter2">:</span><span id="{{child.id}}seconds"></span></div>
+                                        <script type="text/javascript">
+                                            function updater(d, h, m, s, dlm, dlm2) {
+                                            var baseTime = new Date( {{ (child.targets|last).totime|date("Y") }}, {{ (child.targets|last).totime|date("m") }}-1, {{ (child.targets|last).totime|date("d") }}, 14);
 
-                                    function update() {
-                                        var cur = new Date();
-                                        var diff = (baseTime - cur);
-                                        // var millis = diff % 1000;
-                                        // diff = Math.floor(diff/1000);
-                                        // var sec = diff % 60;
-                                        // if(sec < 10) sec = "0"+sec;
-                                        diff = Math.floor(diff/60 /1000);
-                                        var min = diff % 60;
-                                        if(min < 10) min = "0"+min;
-                                        diff = Math.floor(diff/60);
-                                        var hours = diff % 24;
-                                        var days = Math.floor(diff / 24);
-                                        d.innerHTML = days;
-                                        h.innerHTML = hours;
-                                        m.innerHTML = min;
-                                        dlm.innerHTML = dlm.innerHTML==':' ? " " : ":";
-                                        // s.innerHTML = Math.abs(sec);
+                                            function update() {
+                                                var cur = new Date();
+                                                var diff = (baseTime - cur);
+                                                // var millis = diff % 1000;
+                                                diff = Math.floor(diff/1000);
+                                                var sec = diff % 60;
+                                                if(sec < 10) sec = "0"+sec;
+                                                diff = Math.floor(diff/60);
+                                                var min = diff % 60;
+                                                if(min < 10) min = "0"+min;
+                                                diff = Math.floor(diff/60);
+                                                var hours = diff % 24;
+                                                var days = Math.floor(diff / 24);
+                                                d.innerHTML = days;
+                                                h.innerHTML = hours;
+                                                m.innerHTML = min;
+                                                dlm.innerHTML = dlm.innerHTML==':' ? " " : ":";
+                                                dlm2.innerHTML = dlm2.innerHTML==':' ? " " : ":";
+                                                s.innerHTML = (sec);
 
-                                        setTimeout(update, 1000);
-                                    }
-                                    setTimeout(update, 0);
-                                    }
-                                    updater(document.getElementById("{{child.id}}days"),
-                                    document.getElementById("{{child.id}}hours"), document.getElementById("{{child.id}}minutes"),
-                                    document.getElementById("{{child.id}}delimiter"));</script>
+                                                setTimeout(update, 1000);
+                                            }
+                                            setTimeout(update, 0);
+                                            }
+                                            updater(document.getElementById("{{child.id}}days"),
+                                            document.getElementById("{{child.id}}hours"), document.getElementById("{{child.id}}minutes"),
+                                            document.getElementById("{{child.id}}seconds"),
+                                            document.getElementById("{{child.id}}delimiter"),
+                                            document.getElementById("{{child.id}}delimiter2"));
+                                        </script>
                                     </div>
                         {% else %}
                             <div class='notification care'>
