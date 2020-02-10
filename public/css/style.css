@@ -995,7 +995,7 @@
  }
  
  .collected-resources__slider .collected-resources {
-     height: 8px;
+     height: 10px;
      display: flex;
      flex: 1;
      background: #E8E8E8;
