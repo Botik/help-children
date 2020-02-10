@@ -83,6 +83,7 @@ class ChildRepository extends ServiceEntityRepository
                 $rows[]=$child;
                 unset($rows[$key]);
             }
+            $rows = array_values($rows);
         }
         return $rows;
     }

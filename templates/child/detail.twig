@@ -519,11 +519,9 @@
                     <div class="hr-child hr-full"></div>
 
                     <form class="child-help-form" action="{{ path('donate') }}" method="POST">
-                        <input type="hidden" name="child_id" value="{{ child.id }}">
-                        {# CLOSE #}
-                        {# <h3 class="child-help-form__title">Помочь другим детям</h3> #}
-                        {#<h3 class="child-help-form__title">Помочь {{ child.name }}</h3>#}
-                        <h3 class="child-help-form__title">Хочу помочь</h3>
+                        {% if closed %}<input type="hidden" name="child_id" value="{{ child.id }}">
+                         <h3 class="child-help-form__title">Помочь другим детям</h3> {% else %}
+                        <h3 class="child-help-form__title">Помочь {{ child.name }}</h3>{% endif %}
                         <div class="child-help-form-row">
                             <div class="child-help-form__col child-help-form__col-label ohf-col-label__notice-title">
                                 Выберите способ оплаты
