@@ -71,7 +71,7 @@
                                             document.getElementById("{{child.id}}delimiter"));
                                         </script>
                                     </div>
-                             <!-- Володя, эту парашу я изменил если что-->
+                             {# <!-- Володя, эту парашу я изменил если что-->
                               <!--<div class="card-child-time">
                                 <p class="card-child-time-title">
                                     Реабилитация <br> через:
@@ -82,7 +82,7 @@
                                 <p class="card-child-time-hours">
                                     <span id="{{child.id}}hours"></span><span id="{{child.id}}delimiter">:</span><span id="{{child.id}}minutes"></span>
                                 </p>-->
-                            <!--</div>-->
+                            <!--</div>--> #}
                         {% else %}
                             <div class='notification care'>
                                     <img src='/images/care.svg'>
@@ -111,7 +111,7 @@
                                                 <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    {# <div><a href='#'>Подробнее</a></div> #}
+                                                    <div><a href='{{ path('children_detail', {'id': child.id}) }}#{{child.targets|length == loop.index  ? 'needed' : 'kid-news'}}'>Подробнее</a></div>
                                                 </div>
                                                 <div class='progress-bar-done {{ (not trg.rehabilitation) ? 'pmj'}}' style="width:{{100*trg.collected/trg.goal}}%"></div>
                                             </div>
@@ -234,7 +234,7 @@
                                                 <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <a href='#'>История пожертвований</a></div> 
+                                                    <div><a href='{{ path('children_detail', {'id': child.id}) }}#{{child.targets|length == loop.index  ? 'needed' : 'kid-news'}}'>Подробнее</a></div> 
                                                 </div>
                                                 <div class='progress-bar-done {{ (not trg.rehabilitation) ? 'pmj'}}' style="width:{{100*trg.collected/trg.goal}}%"></div>
                                             </div>
@@ -318,7 +318,7 @@
                                                 <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    {# <div><a href='#'>История пожертвований</a></div> #}
+                                                    <div><a href='{{ path('children_detail', {'id': child.id}) }}#{{child.targets|length == loop.index  ? 'needed' : 'kid-news'}}'>Подробнее</a></div>
                                                 </div>
                                                 <div class='progress-bar-done {{ (not trg.rehabilitation) ? 'pmj'}}' style="width:{{100*trg.collected/trg.goal}}%"></div>
                                             </div>

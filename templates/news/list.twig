@@ -47,10 +47,10 @@
                                         </div>
                                         <div class='right-half'>
                                             <div class='text'>
-                                                {{n.descr[:600]}}...
+                                                {{(n.descr) ? n.descr[:600]~'...'}}
                                             </div>
                                             <div class='link'>
-                                                <a href='{{ path('news_detail', {'id' : n.id}) }}'>Подробнее</a>
+                                                {% if (n.descr) %}<a href='{{ path('news_detail', {'id' : n.id}) }}'>Подробнее</a>{% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -90,10 +90,10 @@
                                         </div>
                                         <div class='right-half'>
                                             <div class='text'>
-                                                {{n.descr[:600]}}...
+                                                {{(n.descr) ? n.descr[:600]~'...'}}
                                             </div>
                                             <div class='link'>
-                                                <a href='{{ path('news_detail', {'id' : n.id}) }}'>Подробнее</a>
+                                                {% if (n.descr) %}<a href='{{ path('news_detail', {'id' : n.id}) }}'>Подробнее</a>{% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -127,10 +127,10 @@
                                         </div>
                                         <div class='right-half'>
                                             <div class='text'>
-                                                {{n.descr[:600]}}...
+                                                {{(n.descr) ? n.descr[:600]~'...'}}
                                             </div>
                                             <div class='link'>
-                                                <a href='{{ path('news_detail', {'id' : n.id}) }}'>Подробнее</a>
+                                                {% if (n.descr) %}<a href='{{ path('news_detail', {'id' : n.id}) }}'>Подробнее</a>{% endif %}
                                             </div>
                                         </div>
                                     </div>

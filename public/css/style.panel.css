@@ -12,3 +12,8 @@ body {
     padding-left: 15px;
     color: red;
 }
+
+.table td, .table th {
+  /* padding: .75rem; */
+  padding: .7rem !important;
+}

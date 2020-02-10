@@ -105,6 +105,7 @@ class NewsController extends AbstractController
                 ]
             ])
             ->add('descr', TextareaType::class, [
+                'required'=>false
             ])
             ->add('createdAt', DateType::class, [
                 'widget' => 'single_text',

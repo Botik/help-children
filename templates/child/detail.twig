@@ -62,7 +62,7 @@
                             {# таймер ребенка #}
                             {% if (targets|last).allowclose == 0%}
                             {% if date((targets|last).totime) > date( "now")%}
-                            <!--<div class="card-child-time">
+                            {# <!--<div class="card-child-time">
                                 <p class="card-child-time-title">
                                     Реабилитация <br> через:
                                 </p>
@@ -71,7 +71,7 @@
                                 </p>
                                 <p class="card-child-time-hours">
                                     <span id="{{child.id}}hours"></span><span id="{{child.id}}delimiter">:</span><span id="{{child.id}}minutes"></span>
-                                </p>-->
+                                </p>--> #}
                             <div class='notification kid-profile'>
                                 <div>Реабилитация<br>через:</div>
                                 <div class='days'><span id="{{child.id}}days"></span> дней</div>
@@ -203,8 +203,7 @@
                                             <!-- -->
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
-                                                    <div class='info'>Пройдена {{numb[loop.index]}}  реабилитация на сумму {{trg.collected}} рублей
-                                                    </div>
+                                                    <div class='info'>{{trg.name}}</div>
                                                     <div><a href='#'>История пожертвований</a></div>
                                                 </div>
                                             <div class="collected-resources__slider-filled"
@@ -591,6 +590,11 @@
     }
     var sj = new SJ(SJ_setiings);
 
+</script>
+<script type="text/javascript">
+$( window ).on( "load" ,function() {
+    $('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();
+});
 </script>
 
 {% endblock %}
