@@ -77,7 +77,7 @@
  
  .orangebutton {
      padding-left: 78px;
-     margin-left: 1.5rem;
+     margin-left: 2rem;
      background: linear-gradient(160deg, #FF9A00 7.19%, #F08E43 30.84%, #FF5829 86.99%);
      position: relative;
      color: #fff;
@@ -1324,6 +1324,16 @@
  
  .hero-medium__title.kid-cart-close {
      margin-top: 55px;
+ }
+
+ .hero-medium.kid-page .hero-medium__title {
+     margin-top:22px;
+ }
+
+ @media screen and (max-width:992px) {
+    .hero-medium.kid-page .hero-medium__title {
+        margin-top:0;
+    }
  }
  
  .thanks-img {
