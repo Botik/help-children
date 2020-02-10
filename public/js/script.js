@@ -160,11 +160,11 @@ $(document).ready(function() {
 
     }
 
-    if ($('.aid-card').length) {
-        $('.needed').click(function(){
-            var pagelink = $(this).data('href');
-            location.href = pagelink;
-        })
-    }
+    // if ($('.aid-card').length) {
+    //     $('.needed').click(function(){
+    //         var pagelink = $(this).data('href');
+    //         location.href = pagelink;
+    //     })
+    // }
 
 });
