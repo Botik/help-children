@@ -270,6 +270,7 @@
  
  .news {
      margin: 30px 0;
+     cursor:pointer;
  }
  
  .news-block.opened .news {

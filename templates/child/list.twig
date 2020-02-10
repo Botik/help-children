@@ -141,7 +141,7 @@
                                         <div>Необходимо:</div>
                                         <div class='needed-name'><a href='#'>4-ая реабилитация в РЦ "Радуга"</a></div>
                                     </div>
-                                    <div class='wantHelp'><button>Хочу помочь!</button></div>
+                                    <div class='wantHelp'><form action="{{ path('donate') }}" method="POST"><input type="hidden" name="child_id" value="{{ child.id }}"><button type="submit">Хочу помочь!</button></form></div>
 
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@
                                         <div>Необходимо:</div>
                                         <div class='needed-name'><a href='#'>4-ая реабилитация в РЦ "Радуга"</a></div>
                                     </div>
-                                    <div class='wantHelp'><button>Хочу помочь!</button></div>
+                                    <div class='wantHelp'><form action="{{ path('donate') }}" method="POST"><input type="hidden" name="child_id" value="{{ child.id }}"><button type="submit">Хочу помочь!</button></form></div>
 
                                     </div>
                                 </div>
