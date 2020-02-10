@@ -151,8 +151,8 @@ $(document).ready(function() {
 
     })
 
-    if ($('news').length) {
-        $('news').click(function(){
+    if ($('.news').length) {
+        $('.news').click(function(){
             var pagelink = $(this).data('href');
             console.log(pagelink);
             //location.href = pagelink;

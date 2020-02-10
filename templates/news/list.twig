@@ -28,7 +28,7 @@
                             <!-- Все новости -->
                             <div class='news-block all-news'>
                                 {% for n in news %}
-                                <div class='news'>
+                                <div class='news' data-href='{{ path('news_detail', {'id' : n.id}) }}'>
                                     <div class='news-info'>
                                         <a href=''>Новости {{ (n.child==-1) ? "фонда" : "детей"}}</a>
                                         <span>{{n.createdAt|date('d.m.Y')}}</span>
@@ -71,7 +71,7 @@
                             <div class='news-block child-news' style='display:none;'>
                                 {% for n in news %}
                                 {% if (n.child>-1) %}
-                                <div class='news'>
+                                <div class='news' data-href='{{ path('news_detail', {'id' : n.id}) }}'>
                                     <div class='news-info'>
                                         <a href=''>Новости {{ (n.child==-1) ? "фонда" : "детей"}}</a>
                                         <span>{{n.createdAt|date('d.m.Y')}}</span>
@@ -108,7 +108,7 @@
                             <div class='news-block fond-news' style='display:none;'>
                                 {% for n in news %}
                                 {% if (n.child==-1) %}
-                                <div class='news'>
+                                <div class='news' data-href='{{ path('news_detail', {'id' : n.id}) }}'>
                                     <div class='news-info'>
                                         <a href=''>Новости {{ (n.child==-1) ? "фонда" : "детей"}}</a>
                                         <span>{{n.createdAt|date('d.m.Y')}}</span>
