@@ -72,9 +72,10 @@
                             <div class='news-block child-news' style='display:none;'>
                                 {% for n in news %}
                                 {% if (n.child>-1) %}
-                                <div class='news' data-href='{{ path('news_detail', {'id' : n.id}) }}'>
+                                <div class='news'>
+                                    <a href="{{ path('news_detail', {'id' : n.id}) }}">
                                     <div class='news-info'>
-                                        <a href=''>Новости {{ (n.child==-1) ? "фонда" : "детей"}}</a>
+                                        <span class='news-filter-name'>Новости {{ (n.child==-1) ? "фонда" : "детей"}}</span>
                                         <span>{{n.createdAt|date('d.m.Y')}}</span>
                                     </div>
                                     <div class='news-name'>{{n.title}}</div>
@@ -98,6 +99,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                     <div class='social-links'>
                                         <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
                                             <script src="https://yastatic.net/share2/share.js"></script>
@@ -114,9 +116,10 @@
                             <div class='news-block fond-news' style='display:none;'>
                                 {% for n in news %}
                                 {% if (n.child==-1) %}
-                                <div class='news' data-href='{{ path('news_detail', {'id' : n.id}) }}'>
+                                <div class='news'>
+                                    <a href="{{ path('news_detail', {'id' : n.id}) }}">
                                     <div class='news-info'>
-                                        <a href=''>Новости {{ (n.child==-1) ? "фонда" : "детей"}}</a>
+                                        <span class='news-filter-name'>Новости {{ (n.child==-1) ? "фонда" : "детей"}}</span>
                                         <span>{{n.createdAt|date('d.m.Y')}}</span>
                                     </div>
                                     <div class='news-name'>{{n.title}}</div>
@@ -140,6 +143,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                     <div class='social-links'>
                                         <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
                                             <script src="https://yastatic.net/share2/share.js"></script>
