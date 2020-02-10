@@ -272,6 +272,10 @@
      margin: 30px 0;
      cursor:pointer;
  }
+
+ .news a{
+     text-decoration: none;
+ }
  
  .news-block.opened .news {
      margin: 0 0 30px 0;
@@ -991,7 +995,7 @@
  }
  
  .collected-resources__slider .collected-resources {
-     height: 8px;
+     height: 10px;
      display: flex;
      flex: 1;
      background: #E8E8E8;
@@ -1277,6 +1281,13 @@
  .previous-child img {
      margin-top: 27px;
      margin-left: 15px;
+ }
+
+ .news .news-info .news-filter-name {
+    font-size: 14px;
+    line-height: 16px;
+    color: #5F21B3;
+    margin-left:0;
  }
  
  @media screen and (max-width:1260px) {
@@ -1805,10 +1816,11 @@
      .newprogressbarwrapper p {
          margin: 10px 0 0 0;
          width: initial;
+         text-align:center;
      }
      .collected-resources__slider {
-         margin-bottom: 15px;
          margin-left: 0;
+         margin-bottom: 20px !important;
      }
      .aid-card .notification,
      .card-child__col .notification {
