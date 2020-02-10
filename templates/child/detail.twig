@@ -219,7 +219,7 @@
                                 <h3 class="child-help-form__title">Я хочу помочь детям</h3>
                                 {% endif %}<form class="child-help-form kid-page" action="{{ path('donate') }}"
                                     method="POST">
-                                    <input type="hidden" name="child_id" value="{{ child.id }}">
+                                    {% if closed %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}
                                     <!--<div class='donate-form-row'>
                                     <div class="donate-form-row__col donate-sum-fieldgroup toggle-fieldgroup">
                                         <label class="donate-sum-fieldgroup__label toggle-field">
