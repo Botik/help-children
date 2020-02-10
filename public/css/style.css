@@ -272,6 +272,10 @@
      margin: 30px 0;
      cursor:pointer;
  }
+
+ .news a{
+     text-decoration: none;
+ }
  
  .news-block.opened .news {
      margin: 0 0 30px 0;
@@ -1277,6 +1281,13 @@
  .previous-child img {
      margin-top: 27px;
      margin-left: 15px;
+ }
+
+ .news-filter-name {
+    font-size: 14px;
+    line-height: 16px;
+    color: #5F21B3;
+    margin-left:0;
  }
  
  @media screen and (max-width:1260px) {
