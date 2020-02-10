@@ -88,7 +88,7 @@
                     <tbody>
                     {% for trg in targets %}
                         <tr>
-                            <th scope="row">{{ trg.id }}</th>
+                            <th scope="row">{{ loop.index }}</th>
                             <td>{{ trg.name }}</td>
                             <td><a href="/panel/child/{{ child.id }}/t{{ trg.id }}">Изменить</a></td>
                             <td><a href="/panel/child/{{ child.id }}/t{{ trg.id }}/del">Удалить</a></td>
