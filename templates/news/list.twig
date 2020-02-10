@@ -32,7 +32,11 @@
                                     {% if (n.descr) %}<a href="{{ path('news_detail', {'id' : n.id}) }}">
                                     <div class='news-info'>{% endif %}
                                     <div class='news-info'>
-                                        <span class='news-filter-name'>Новости {{ (n.child==-1) ? "фонда" : "детей"}}</span>
+                                        <span class='news-filter-name'> 
+                                        {% if n.child == -1 %}<a href={{path('news_list') ~ '#fond-news'}}>Новости фонда</a>
+                                        {% else %}<a href={{path('news_list') ~ '#child-news'}}>Новости детей</a>
+                                        {% endif %}
+                                        </span>
                                         <span>{{n.createdAt|date('d.m.Y')}}</span>
                                     </div>
                                     <div class='news-name'>{{n.title}}</div>
@@ -195,8 +199,9 @@
 
             });
             $( window ).on( "load" ,function() {
-            $('.cart-nav>div')[['#all-news','#kid-news','#fond-news'].indexOf(location.hash)].click();
+            $('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();
 });
+            $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
         </script>
     </main>
 
