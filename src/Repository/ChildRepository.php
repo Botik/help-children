@@ -77,6 +77,13 @@ class ChildRepository extends ServiceEntityRepository
             $rows[$key]['targets']=$trg;
 
         }
+        foreach ($rows as $key => $child) {
+            $lst=end($child['targets']);
+            if (($lst['collected'] >= $lst['goal']) and $lst['allowclose'] == 0) {
+                $rows[]=$child;
+                unset($rows[$key]);
+            }
+        }
         return $rows;
     }
     /**
