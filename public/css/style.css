@@ -1498,8 +1498,9 @@
          justify-content: space-between;
          height: 60px;
      }
-     .child-navigation>div {
+     .child-navigation>div a {
          display: flex;
+         text-decoration:none;
      }
      .child-navigation>div .link {
          background: #FFFFFF;
