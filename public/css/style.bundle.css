@@ -2841,13 +2841,12 @@ body {
     left: -77px;
 }
 @media screen and (max-width:1440px) and (min-width:1200px) {
-	/* Да простит бог меня за такую хуйню*/
-	body > header > div > div.header-inner > div.header-left > nav > ul > li:nth-child(2) {
+	.dropdown:first-child .dropdown-content {
     left: -63px;
 }
 }
 @media screen and (max-width:1200px) {
-	.dropdown:last-child .dropdown-content{
+	body > header > div > div.header-inner > div.header-left > nav > ul > li:nth-child(2) > div{
 		left:-42%;
 	}
 }
