@@ -265,9 +265,8 @@
                                                 подробнее</a>
                                         </p>
                                     <div class='RaisedMoney'>
-                                        <div>{% if child.targets|last.goal-child.targets|last.collected <= 0 %}Осталось собрать:</div>
-                                        <div class='money'>{{child.targets|last ? child.targets|last.goal-child.targets|last.collected}} руб.{% else %} Сбор на текущую реабилитацию закрыт{% endif %}</div>
-
+                                        <div>{% if (child.targets|last.goal > child.targets|last.collected) %}Осталось собрать:</div>
+                                        <div class='money'>{{child.targets|last ? child.targets|last.goal-child.targets|last.collected}} руб.{% else %} Сбор закрыт{% endif %}</div>
                                     </div>
                                     <div class='needed'>
                                         <div>Необходимо:</div>
