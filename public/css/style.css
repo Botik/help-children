@@ -670,13 +670,13 @@
      }
      .aid-card .notification .days,
      .card-child__col .notification .days {
-         font-size: 16px;
+         font-size: 15px;
          line-height: 18px;
          padding-top: 2px;
      }
      .aid-card .notification .time,
      .card-child__col .notification .time {
-         font-size: 13px;
+         font-size: 12px;
          line-height: 15px
      }
      .aid-card .notification.care,
