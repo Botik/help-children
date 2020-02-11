@@ -346,7 +346,7 @@
                                 {# <div class='name'>Преобретение аппарата сВОШ</div> #}
                                 <div class='name'>{{(targets|last).name}}</div>
 
-                                <div class='info'>Реабилитация от {{(targets|last).totime|date("j")}}
+                                <div class='info'>Реабилитация {{(targets|last).totime|date("j")}}
                                     {{mnths[(targets|last).totime|date("n")]}} {{(targets|last).totime|date("Y")}} года
                                 </div>
                                 <div class="newmoneybutton bottom">
@@ -498,7 +498,7 @@
                     <form class="child-help-form" action="{{ path('donate') }}" method="POST">
                         {% if closed %}
                          <h3 class="child-help-form__title">Помочь другим детям</h3> {% else %}<input type="hidden" name="child_id" value="{{ child.id }}">
-                        <h3 class="child-help-form__title">Помочь {{ child.name }}</h3>{% endif %}
+                        <h3 class="child-help-form__title">Адресная помощь: {{ child.name }}</h3>{% endif %}
                         <div class="child-help-form-row">
                             <div class="child-help-form__col child-help-form__col-label ohf-col-label__notice-title">
                                 Выберите способ оплаты

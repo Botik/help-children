@@ -5027,7 +5027,9 @@ body {
     padding-top: 60px;
     padding-bottom: 0
 }
-
+.reports .section-title {
+	  margin-bottom: 0rem;
+}
 @media (max-width:992px) {
     .reports-content {
         padding-bottom: 0
