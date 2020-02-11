@@ -3632,6 +3632,9 @@ body {
     top: 40px
 }
 
+.header__logo-image {
+	width:140px;
+}
 @media (max-width:992px) {
     .header__logo {
         top: 0;
