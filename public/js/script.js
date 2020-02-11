@@ -201,6 +201,23 @@ $(document).ready(function() {
 					}
 				}
 
+				$('.history-link').click(function(){
+					$('.cart-nav>div').each(function() {
+						$(this).removeClass("active");
+					});
+					$('#letter').removeClass('displaytrue');
+					$('#needed').removeClass('displaytrue');
+					$('#kid-news').removeClass('displaytrue');
+
+					$('.cart-nav .center').addClass("active");
+
+					$('#kid-news').addClass('displaytrue');
+					var $page = $('html, body');
+					$page.animate({
+							scrollTop: ($('.cart-nav').offset().top - 180)
+					}, 400);
+				});
+
     }
 
 });

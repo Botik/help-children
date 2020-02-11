@@ -5023,11 +5023,15 @@ body {
 }
 
 .reports-content {
-    padding-top: 60px;
+    padding-top: 40px;
     padding-bottom: 0
 }
 .reports .section-title {
 	  margin-bottom: 0rem;
+}
+
+.reports .section-title:nth-child(2) {
+		margin-top:4.5rem;
 }
 @media (max-width:992px) {
     .reports-content {
