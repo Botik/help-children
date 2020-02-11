@@ -3213,7 +3213,8 @@ body {
 .toggle-field__input:checked+.toggle-field__text {
     background-image: linear-gradient(-22deg, #2d0e73, #5728b4);
     border-right: 2px solid transparent;
-    color: #fff
+		color: #fff;
+		height:60px;
 }
 
 .toggle-fieldgroup--white .toggle-field__input:checked+.toggle-field__text {
