@@ -2838,7 +2838,18 @@ body {
 }
 
 .dropdown:first-child .dropdown-content {
-    left: -100%
+    left: -77px;
+}
+
+@media screen and (max-width:1440px) and (min-width:1200px) {
+	.dropdown:first-child .dropdown-content {
+    left: -63px;
+}
+}
+@media screen and (max-width:1200px) {
+	.dropdown:last-child .dropdown-content{
+		left:-42%;
+	}
 }
 
 .dropdown-menu {
