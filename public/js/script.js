@@ -193,7 +193,13 @@ $(document).ready(function() {
 					$page.animate({
 							scrollTop: ($('.cart-nav').offset().top - 180)
 					}, 400);
-			}
+				}
+
+				if ($(window).width() <= '768'){
+					if ($('.hero-medium__title').text() == "Долгосрочная опека" || $('.hero-medium__title').text() == "Мы помогли") {
+						$('.hero-medium__title').css('margin-top','10px');
+					}
+				}
 
     }
 
