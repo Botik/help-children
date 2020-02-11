@@ -2842,7 +2842,7 @@ body {
 }
 
 @media screen and (max-width:1440px) and (min-width:1200px) {
-	.dropdown:first-child .dropdown-content {
+	.dropdown:nth-child(2) .dropdown-content {
     left: -63px;
 }
 }
