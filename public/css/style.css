@@ -602,8 +602,8 @@
 
  .aid-card .notification,
  .card-child__col .notification {
-     width: 128px;
-     height: 128px;
+     width: 120px;
+     height: 120px;
      font-size: 12px;
      line-height: 14px;
      color: #BD8CFF;
@@ -647,8 +647,8 @@
 
  .aid-card .notification.care div,
  .card-child__col .notification.care div {
-     font-weight: 600;
-     font-size: 14px;
+     font-weight: 500;
+     font-size: 12px;
      line-height: 14px;
      /* or 100% */
      text-align: center;
@@ -1398,7 +1398,7 @@
      width: 50%;
      height: fit-content;
 		 padding-bottom: 13px;
-		 font-size:18px;
+		 /* font-size:18px; */
  }
 
  .newmoneybutton.bottom span {
