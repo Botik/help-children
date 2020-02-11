@@ -5531,7 +5531,7 @@ body {
 @media (max-width:768px) {
     .ohf-col-label__notice {
         -ms-flex-preferred-size: 100%;
-        flex-basis: 100%
+        /* flex-basis: 100% */
     }
 }
 
