@@ -169,15 +169,54 @@ $(document).ready(function() {
             $('#letter').removeClass('displaytrue');
             $('#needed').removeClass('displaytrue');
             $('#kid-news').removeClass('displaytrue');
-    
+
             $('.cart-nav .right').addClass("active");
-            
-            $('needed').addClass('displaytrue');
+
+            $('.needed').addClass('displaytrue');
             var $page = $('html, body');
             $page.animate({
                 scrollTop: ($('.cart-nav').offset().top - 180)
             }, 400);
-        }
+				}
+				if (hash == "#kid-news") {
+					$('.cart-nav>div').each(function() {
+							$(this).removeClass("active");
+					});
+					$('#letter').removeClass('displaytrue');
+					$('#needed').removeClass('displaytrue');
+					$('#kid-news').removeClass('displaytrue');
+
+					$('.cart-nav .center').addClass("active");
+
+					$('#kid-news').addClass('displaytrue');
+					var $page = $('html, body');
+					$page.animate({
+							scrollTop: ($('.cart-nav').offset().top - 180)
+					}, 400);
+				}
+
+				if ($(window).width() <= '768'){
+					if ($('.hero-medium__title').text() == "Долгосрочная опека" || $('.hero-medium__title').text() == "Мы помогли") {
+						$('.hero-medium__title').css('margin-top','10px');
+					}
+				}
+
+				$('.history-link').click(function(){
+					$('.cart-nav>div').each(function() {
+						$(this).removeClass("active");
+					});
+					$('#letter').removeClass('displaytrue');
+					$('#needed').removeClass('displaytrue');
+					$('#kid-news').removeClass('displaytrue');
+
+					$('.cart-nav .center').addClass("active");
+
+					$('#kid-news').addClass('displaytrue');
+					var $page = $('html, body');
+					$page.animate({
+							scrollTop: ($('.cart-nav').offset().top - 180)
+					}, 400);
+				});
 
     }
 
