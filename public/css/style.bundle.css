@@ -5423,7 +5423,7 @@ body {
     padding: 1rem 0
 }
 .document-item.tab{
-	padding:0;
+	padding:0.5rem 0;
 }
 .document-item__icon {
     margin-right: 3rem
@@ -5432,6 +5432,7 @@ body {
 .document-item__icon.tab {
 		margin-left: 5rem;
 		margin-right:1rem;
+		color:#4e4e4e;
 	}
 
 .document-item__title-link {
