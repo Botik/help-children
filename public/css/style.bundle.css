@@ -5833,6 +5833,12 @@ body {
     overflow: hidden
 }
 
+@media (max-width:1440px) {
+	.card-child-wrapper {
+		padding: 5rem 6.5rem;
+	}
+}
+
 @media (max-width:768px) {
     .card-child-wrapper {
         padding: 3rem
