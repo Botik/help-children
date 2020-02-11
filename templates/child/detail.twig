@@ -148,9 +148,9 @@
 
                             <div class="collected-resources ">
                                 <div class="collected-resources-left newbuttonwrapper">
-                                    {% if closed %}
+                                    {% if closed or (((targets|last).allowclose[0] == 0) and (targets|last).Goal - (targets|last).collected <= 0)%}
                                     <div class="newmoneybutton orangebutton close">
-                                        Сбор на текущую<br>реабилитацию закрыт
+                                        Сбор{{ not closed ? " на текущую<br>реабилитацию"|raw}} закрыт
                                     </div>
                                     <div class='thanks-img'>
                                         <img src='/images/thanks.png'>
@@ -182,7 +182,7 @@
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a class='history-link' href='#kid-news'>История пожертвований</a></div>
+                                                    <div><a href='{{ path('children_detail', {'id': child.id}) }}#{{targets|length == loop.index  ? 'needed' : 'kid-news'}}'>Подробнее</a></div>
                                                 </div>
                                             <div class="collected-resources__slider-filled"
                                                 style="width: {{100*trg.collected/trg.goal}}%">
@@ -388,7 +388,7 @@
                             </div>
 
                             <div class='center'>
-                                <div>{{loop.index}}</div>
+                                <div>{{news_lst|length - loop.index0}}</div>
                             </div>
 
                             <div class='right-half'>
@@ -571,6 +571,7 @@
 $( window ).on( "load" ,function() {
     $('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();
 });
+$(window).on('hashchange', function(){$('.cart-nav>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();}).trigger('hashchange');
 </script>
 
 {% endblock %}
