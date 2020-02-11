@@ -169,15 +169,31 @@ $(document).ready(function() {
             $('#letter').removeClass('displaytrue');
             $('#needed').removeClass('displaytrue');
             $('#kid-news').removeClass('displaytrue');
-    
+
             $('.cart-nav .right').addClass("active");
-            
-            $('needed').addClass('displaytrue');
+
+            $('.needed').addClass('displaytrue');
             var $page = $('html, body');
             $page.animate({
                 scrollTop: ($('.cart-nav').offset().top - 180)
             }, 400);
-        }
+				}
+				if (hash == "#kid-news") {
+					$('.cart-nav>div').each(function() {
+							$(this).removeClass("active");
+					});
+					$('#letter').removeClass('displaytrue');
+					$('#needed').removeClass('displaytrue');
+					$('#kid-news').removeClass('displaytrue');
+
+					$('.cart-nav .center').addClass("active");
+
+					$('#kid-news').addClass('displaytrue');
+					var $page = $('html, body');
+					$page.animate({
+							scrollTop: ($('.cart-nav').offset().top - 180)
+					}, 400);
+			}
 
     }
 
