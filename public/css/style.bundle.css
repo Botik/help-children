@@ -5422,14 +5422,17 @@ body {
     align-items: center;
     padding: 1rem 0
 }
-
+.document-item.tab{
+	padding:0;
+}
 .document-item__icon {
     margin-right: 3rem
 }
 
 .document-item__icon.tab {
-		margin-left: 1rem;
-}
+		margin-left: 5rem;
+		margin-right:1rem;
+	}
 
 .document-item__title-link {
     font-weight: 300;
