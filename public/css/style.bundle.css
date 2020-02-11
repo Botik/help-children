@@ -5427,6 +5427,10 @@ body {
     margin-right: 3rem
 }
 
+.document-item__icon.tab {
+		margin-left: 1rem;
+}
+
 .document-item__title-link {
     font-weight: 300;
     color: #4e4e4e;
