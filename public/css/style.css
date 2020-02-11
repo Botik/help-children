@@ -1395,7 +1395,8 @@
      margin-left: 0;
      width: 50%;
      height: fit-content;
-     padding-bottom: 13px;
+		 padding-bottom: 13px;
+		 font-size:18px;
  }
 
  .newmoneybutton.bottom span {
@@ -1561,6 +1562,7 @@ font-weight:300;
 		}
 		.kid-notice-discription .inner-col.descr {
 				margin-bottom:50px;
+				margin-top: 15px;
 		}
      .ohf-row.newavatar.kid-cart-close .toggle-field__text {
          padding: 0 15px;
