@@ -270,7 +270,6 @@
 
  .news {
      margin: 30px 0;
-     cursor:pointer;
  }
 
  .news a{
@@ -355,7 +354,10 @@
  }
 
  .news .news-flex-block .left-half img {
-     width: 100%;
+		 width: 100%;
+		 height:100%;
+		 border-radius:10px;
+		 display:block;
  }
 
  .news-block.opened .news .news-flex-block .left-half {

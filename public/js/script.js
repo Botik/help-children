@@ -203,6 +203,7 @@ $(document).ready(function() {
 				}
 
 				$('.history-link').click(function(){
+					event.preventDefault();
 					$('.cart-nav>div').each(function() {
 						$(this).removeClass("active");
 					});
