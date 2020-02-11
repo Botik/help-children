@@ -56,7 +56,7 @@ class ChildController extends AbstractController
                 'prevnext'=>[($key==0) ? $child_lst[(count($child_lst)-1)]['id'] :  $child_lst[($key-1) % (count($child_lst)-1)]['id'],$child_lst[($key+1) % (count($child_lst))]['id']],
                 'closed'=> $state=='close',
                 'title'=>['close'=>"Мы помогли",'pmj'=>"Подарки, желания, мечты",'rehab'=>"Долгосрочная опека"][$state],
-                "news_lst" => $this->getDoctrine()->getRepository(News::class)->findByChild($child,['id' => 'DESC'])
+                "news_lst" => $this->getDoctrine()->getRepository(News::class)->findByChild($child,['createdat' => 'DESC'])
             ]
         );
     }

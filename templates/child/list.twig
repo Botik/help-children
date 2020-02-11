@@ -138,11 +138,11 @@
                                         </p>
                                     <div class='RaisedMoney'>
                                         <div>Осталось собрать:</div>
-                                        <div class='money'>{{child.targets|last ? child.targets|last.goal-child.targets|last.collected}} руб.</div>
+                                        <div class='money'>{{child.targets|last ? child.targets|last.goal - child.targets|last.collected}} руб.</div>
                                     </div>
                                     <div class='needed'>
                                         <div>Необходимо:</div>
-                                        <div class='needed-name'><a href='{{ path('children_detail', {'id': child.id}) }}#needed'>4-ая реабилитация в РЦ "Радуга"</a></div>
+                                        <div class='needed-name'><a href='{{ path('children_detail', {'id': child.id}) }}#needed'>{{child.targets|last ? child.targets|last.name}}</a></div>
                                     </div>
                                     <div class='wantHelp'><form action="{{ path('donate') }}" method="POST"><input type="hidden" name="child_id" value="{{ child.id }}"><button type="submit">Хочу помочь!</button></form></div>
 
@@ -270,7 +270,7 @@
                                     </div>
                                     <div class='needed'>
                                         <div>Необходимо:</div>
-                                        <div class='needed-name'><a href='{{ path('children_detail', {'id': child.id}) }}#needed'>4-ая реабилитация в РЦ "Радуга"</a></div>
+                                        <div class='needed-name'><a href='{{ path('children_detail', {'id': child.id}) }}#needed'>{{child.targets|last ? child.targets|last.name}}</a></div>
                                     </div>
                                     <div class='wantHelp'><form action="{{ path('donate') }}" method="POST"><input type="hidden" name="child_id" value="{{ child.id }}"><button type="submit">Хочу помочь!</button></form></div>
 
