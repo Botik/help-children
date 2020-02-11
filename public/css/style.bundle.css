@@ -2840,9 +2840,9 @@ body {
 .dropdown:first-child .dropdown-content {
     left: -77px;
 }
-
 @media screen and (max-width:1440px) and (min-width:1200px) {
-	.dropdown:nth-child(2) .dropdown-content {
+	/* Да простит бог меня за такую хуйню*/
+	body > header > div > div.header-inner > div.header-left > nav > ul > li:nth-child(2) {
     left: -63px;
 }
 }
