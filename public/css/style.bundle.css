@@ -4366,7 +4366,8 @@ body {
 
 @media (max-width:768px) {
     .donate-form-payment-systems__notice {
-        width: 250px;
+				/* width: 250px; */
+				width:fit-content;
         margin: 0 auto
     }
 }
