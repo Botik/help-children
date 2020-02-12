@@ -463,7 +463,8 @@
 
  .news-block.opened .recomend-news-flex-container .recomend-news {
      display: flex;
-     width: 48%;
+     /*width: 48%;*/
+     flex: 0 0 55%
  }
 
  .news-block.opened .recomend-news-flex-container .recomend-news .left-half {}

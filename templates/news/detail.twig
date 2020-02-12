@@ -75,12 +75,12 @@
                                 <div class='recomended-news-block'>
                                     <div class='news-name'>Читайте так же:</div>
                                     <div class='recomend-news-flex-container'>
-                                        {% for nn in news|slice(0,2) if n.id != nn.id %}
+                                        {% for nn in news if ((n.id != nn.id) and nn.descr) %}
                                         <div class='recomend-news'>
                                             <div class='left-half'>
                                                 <div class='img-block'>
-                                                    {% if n.arphotos is not empty %}<img  width="560" height="315" src="/uploads/images/{{nn.arphotos[0]}}" style="object-fit: cover;">
-                                                </div>{% endif %}
+                                                    <img  width="560" height="315" src="{{nn.arphotos is not empty ? '/uploads/images/' ~ nn.arphotos[0] : '/images/logo.png'}}" style="object-fit: cover;">
+                                                </div>
                                             </div>
                                             <div class='right-half'>
                                                 <div class='date'>{{nn.createdAt|date('d.m.Y')}}</div>
