@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -91,6 +91,7 @@ class NewsController extends AbstractController
 
         if (!$n) {
                 $n = new News();
+                $n->setCreatedat(new \DateTime());
         }
 
         // $form = $this->createForm(NewsTypes::class, $n);
@@ -109,9 +110,10 @@ class NewsController extends AbstractController
             ->add('descr', TextareaType::class, [
                 'required'=>false
             ])
-            ->add('createdAt', DateType::class, [
-                'widget' => 'single_text',
-                'required'=>false
+            ->add('createdAt', DateTimeType::class, [
+                'required'=>false,
+                'date_widget' => 'single_text',
+                'time_widget' => 'single_text',
             ])
             ->add(
                 'child', ChoiceType::class, [
