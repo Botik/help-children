@@ -741,7 +741,8 @@
  .progressline-block .progress-bar .progress-bar-done {
      background: #5D20B0;
      border-radius: 8px;
-     height: 8px;
+		 height: 8px;
+		 min-width:9%;
  }
 
  .progressline-block .progress-bar:hover .progress-bar-done {
