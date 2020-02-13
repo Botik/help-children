@@ -20,14 +20,14 @@
  @media (max-width:768px) {
      .cart-nav-container {
          width: 98%;
-         position: initial;
+         position: sticky;
      }
  }
 
  @media (max-width:769px) {
      .cart-nav-container {
          width: 93%;
-         top: 50px;
+         top: 30px;
      }
  }
 
