@@ -56,7 +56,7 @@ class ChildController extends AbstractController
                 'imgs' => json_decode(end($trg)->getAttach()),
                 'prevnext'=>[($key==0) ? $child_lst[(count($child_lst)-1)]['id'] :  $child_lst[($key-1) % (count($child_lst)-1)]['id'],$child_lst[($key+1) % (count($child_lst))]['id']],
                 'closed'=> $state=='close',
-                'title'=>['close'=>"Мы помогли",'pmj'=>"Подарки, желания, мечты",'rehab'=>"Долгосрочная опека"][$state],
+                'title'=>['close'=>"Мы помогли",'pmj'=>"Подарки, мечты, желания",'rehab'=>"Долгосрочная опека"][$state],
                 "news_lst" => $this->getDoctrine()->getRepository(News::class)->findByChild($child,['createdat' => 'ASC'])
             ]
         );
@@ -76,7 +76,7 @@ class ChildController extends AbstractController
                 'closed' => $this->getDoctrine()->getRepository(Child::class)->getCurCh('close'),
                 'tn' => $this->getDoctrine()->getRepository(News::class)->findTrg()
             ]
-        );  
+        );
     }
 
     /**
@@ -124,7 +124,7 @@ class ChildController extends AbstractController
             if (!is_string($oldimages)) foreach ($oldimages as $image) {
                 $arrayImg[] = $image;
             }
-            $childData->setImages($arrayImg); 
+            $childData->setImages($arrayImg);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($childData);
             $entityManager->flush();
@@ -266,7 +266,7 @@ class ChildController extends AbstractController
                     $sg->send($mail);
                 }
                 // END SEND
-                
+
             return $this->redirect('/panel/child');
         }
 
