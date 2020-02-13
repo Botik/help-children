@@ -306,13 +306,13 @@
                                     {{child.comment}}
                                 </div>
                             </div>
-                            <div class='right-half'>
+                            {% if child.video %}<div class='right-half'>
                                 <div class='img-block'>
                                     <iframe width="560" height="315" src="{{child.video}}" frameborder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>
                                 </div>
-                            </div>
+                            </div>{% endif %}
                         </div>
                     </div>
                     <div class="helpmoney" id='needed'>
