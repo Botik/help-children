@@ -750,6 +750,9 @@
  .collected-resources .txt {
      display: none;
  }
+ .collected-resources .txt a{
+	 color:#5F21B3;
+ }
  /*.kid-cart .kid-info .progressline-block .progress-bar img {
     position: absolute;
     bottom: 10px;
@@ -1092,6 +1095,10 @@
      justify-content: space-between;
  }
 
+ .childnews-row .childnews-item .childnews-item-link {
+	 color:#5F21B3 !important;
+ }
+
  .childnews-content {
      position: relative;
  }
@@ -1326,7 +1333,7 @@
 
  .collected-resources .donate-form-row__col.donate-sum-fieldgroup.toggle-fieldgroup .donate-text-field {
      padding: 0 15px;
-     font-size: 1.6rem;
+		 font-size: 1.6rem;
  }
 
  .child-navigation {
@@ -1549,6 +1556,9 @@ font-weight:300;
  }
 
  @media screen and (max-width:768px) {
+	.childnews .childnews-row .childnews-number {
+		padding-top:4px;
+	}
 	.kid-notice-discription {
 				display:flex;
 				justify-content: space-between;
@@ -1674,20 +1684,20 @@ font-weight:300;
      .childnews .childnews-row .center {
          display: none;
      }
-     .childnews .childnews-row:nth-child(2n-1) {
+     .childnews .childnews-row:nth-child(2n) {
          flex-direction: row-reverse;
      }
-     .childnews .childnews-row:nth-child(2n-1) .left-half {
+     .childnews .childnews-row:nth-child(2n) .left-half {
          width: 100%;
          text-align: left;
      }
-     .childnews .childnews-row:nth-child(2n-1) .right-half {
-         display: none;
-     }
-     .childnews .childnews-row:nth-child(2n) .left-half {
-         display: none;
-     }
      .childnews .childnews-row:nth-child(2n) .right-half {
+         display: none;
+     }
+     .childnews .childnews-row:nth-child(2n-1) .left-half {
+         display: none;
+     }
+     .childnews .childnews-row:nth-child(2n-1) .right-half {
          width: 100%;
      }
      .helpmoney-flex-container {
