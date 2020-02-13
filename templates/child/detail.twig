@@ -181,7 +181,7 @@
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a href='{{ path('children_detail', {'id': child.id}) }}#{{targets|length == loop.index  ? 'needed' : 'kid-news'}}'>Подробнее</a></div>
+                                                    <div><a href='{{ tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ ((targets|length == loop.index)  ? 'needed' : 'kid-news')}}'>Подробнее</a></div>
                                                 </div>
                                             <div class="collected-resources__slider-filled"
                                                 style="width: {{100*trg.collected/trg.goal}}%">
@@ -293,7 +293,7 @@
                     <section class='cart-nav-container kid-profile'>
                         <div class='cart-nav kid-profile'>
                             <div class='active left'><span><a href='#letter'>Письмо мамы</a></span></div>
-                            <div class='center'><span><a href='#kid-news'>История ребенка</a></span></div>
+                            <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребенка</a></span></div>
                             <div class='right {{ closed ? 'disabled' }} '><span><a href='#needed'>Необходимо
                                         собрать</a></span></div>
                         </div>

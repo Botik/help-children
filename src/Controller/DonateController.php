@@ -279,7 +279,7 @@ class DonateController extends AbstractController
                     // ->setJson(json_encode($form))
                     ->setOrder_id('')
                     ->setStatus(2)
-                    ->setRecurent(0);
+                    ->setRecurent($form['SubscriptionId'] ? 1 : 0);
 
                 $rp->setWithdrawalAt(new \DateTime());
                 $entityManager->persist($req);

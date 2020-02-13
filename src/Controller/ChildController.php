@@ -52,11 +52,12 @@ class ChildController extends AbstractController
                 ],
                 'yo'=>$child->getAge() . ' ' . ['год', 'года', 'лет'][ (($child->getAge())%100>4 && ($child->getAge())%100<20)? 2: [2, 0, 1, 1, 1, 2][min($child->getAge()%10, 5)]],
                 'targets' => $trg,
+                'tn' => $this->getDoctrine()->getRepository(News::class)->findTrg(),
                 'imgs' => json_decode(end($trg)->getAttach()),
                 'prevnext'=>[($key==0) ? $child_lst[(count($child_lst)-1)]['id'] :  $child_lst[($key-1) % (count($child_lst)-1)]['id'],$child_lst[($key+1) % (count($child_lst))]['id']],
                 'closed'=> $state=='close',
                 'title'=>['close'=>"Мы помогли",'pmj'=>"Подарки, желания, мечты",'rehab'=>"Долгосрочная опека"][$state],
-                "news_lst" => $this->getDoctrine()->getRepository(News::class)->findByChild($child,['createdat' => 'DESC'])
+                "news_lst" => $this->getDoctrine()->getRepository(News::class)->findByChild($child,['createdat' => 'ASC'])
             ]
         );
     }
@@ -72,7 +73,8 @@ class ChildController extends AbstractController
             [
                 'opened' => $this->getDoctrine()->getRepository(Child::class)->getCurCh('rehab'),
                 'pmj' => $this->getDoctrine()->getRepository(Child::class)->getCurCh('pmj'),
-                'closed' => $this->getDoctrine()->getRepository(Child::class)->getCurCh('close')
+                'closed' => $this->getDoctrine()->getRepository(Child::class)->getCurCh('close'),
+                'tn' => $this->getDoctrine()->getRepository(News::class)->findTrg()
             ]
         );  
     }

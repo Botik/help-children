@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\News;
 use App\Entity\Child;
+use App\Entity\ChTarget;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,9 +18,10 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints as Assert;
+
 class NewsController extends AbstractController
 {
 
@@ -42,7 +44,7 @@ class NewsController extends AbstractController
     {
         return $this->render('news/list.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findAll()
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['createdat' => 'DESC'])
             ]);
     }
     /**
@@ -52,11 +54,12 @@ class NewsController extends AbstractController
      */
     public function detail(int $id)
     {
-        return $this->render('news/detail.twig',
+        $n=$this->getDoctrine()->getRepository(News::class)->findOneById($id);
+        return $n ? $this->render('news/detail.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findAll(),
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['createdat' => 'DESC']),
                 'n'  => $this->getDoctrine()->getRepository(News::class)->findOneById($id)
-            ]);
+            ]) : $this->list();
     }
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -89,7 +92,13 @@ class NewsController extends AbstractController
 
         if (!$n) {
                 $n = new News();
+                $n->setCreatedat(new \DateTime());
         }
+        $trgs =[' '=>-1];
+        foreach ($this->getDoctrine()->getRepository(ChTarget::class)
+            ->findBy([],['id'=>'DESC']) as $trg) $trgs[
+            '#'.$trg->getId().' '.$trg->getName().' — '.$this->getDoctrine()->getRepository(Child::class)
+            ->findOneById($trg->getChild())->getName()]=$trg->getId();
 
         // $form = $this->createForm(NewsTypes::class, $n);
         $form = $this->createFormBuilder($n)
@@ -107,13 +116,21 @@ class NewsController extends AbstractController
             ->add('descr', TextareaType::class, [
                 'required'=>false
             ])
-            ->add('createdAt', DateType::class, [
-                'widget' => 'single_text',
-                'required'=>false
+            ->add('createdAt', DateTimeType::class, [
+                'required'=>false,
+                'date_widget' => 'single_text',
+                'time_widget' => 'single_text',
             ])
             ->add(
                 'child', ChoiceType::class, [
                 'choices' => $childs,
+                "expanded" => false,
+                "multiple"=>false
+             ]
+            )
+            ->add(
+                'trg', ChoiceType::class, [
+                'choices' => $trgs,
                 "expanded" => false,
                 "multiple"=>false
              ]

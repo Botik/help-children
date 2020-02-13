@@ -14,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\Range;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -46,8 +46,9 @@ class ChTargetTypes extends AbstractType
             ])
             ->add('descr', TextareaType::class, [
             ])
-            ->add('totime', DateType::class, [
-                'widget' => 'single_text'
+            ->add('totime', DateTimeType::class, [
+                'date_widget' => 'single_text',
+                'time_widget' => 'single_text',
             ])
             ->add('collected', NumberType::class, [
                 'constraints' => [

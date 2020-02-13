@@ -25,9 +25,14 @@
                     {{ form_widget(form.descr, {'attr': {'class':'form-control', 'rows': 6, 'placeholder': 'Описание', 'value': n.descr }}) }}
                 </div>
                 <div class="form-group">
-                    {{ form_label(form.child, 'Тип цели') }}
+                    {{ form_label(form.child, 'Ребенок') }}
                     <div class="err_list form-text text-muted">{{ form_errors(form.child ) }}</div>
                     {{ form_widget(form.child , {'attr': {'class':'form-control', 'value': n.child, "separator":"<br>  "}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.trg, 'Цель') }}
+                    <div class="err_list form-text text-muted">{{ form_errors(form.trg ) }}</div>
+                    {{ form_widget(form.trg , {'attr': {'class':'form-control', 'value': n.trg, "separator":"<br>  "}}) }}
                 </div>
                 
 
