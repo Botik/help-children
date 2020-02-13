@@ -5549,6 +5549,51 @@ line-height: 24px;
 margin-top:0;
 }
 
+.ohf-row.third-row {
+	flex-wrap:nowrap;
+	padding:5rem 0;
+}
+
+.ohf-row.third-row .th-col-input{
+	display: flex;
+		flex-direction: row-reverse;
+		margin-left: 13rem;
+}
+.ohf-row.third-row .th-col-label__number {
+	margin-top:4.5rem;
+}
+.ohf-row.third-row .ohf-col-input__row {
+	margin-left: 20px;
+}
+.ohf-row.third-row .ohf-col-input__row h3{
+	font-size: 24px;
+	line-height: 29px;
+}
+.ohf-row.third-row .ohf-col-input__row p{
+	font-size: 20px;
+	line-height: 24px;
+	margin-top:0
+}
+.ohf-row.third-row .icon {
+	width:4rem !important;
+	height:4rem !important;
+}
+
+.ohf-row.fourth-row img{
+	left:50px !important;
+}
+
+.ohf-row.fourth-row .ohf-col-input__row h3{
+	font-size: 24px;
+	line-height: 29px;
+	font-weight: bold;
+}
+.ohf-row.fourth-row .ohf-col-input__row p{
+		font-size: 20px;
+    line-height: 24px;
+    margin-top: 0;
+}
+
 .ohf-col-label {
     display: -webkit-box;
     display: -ms-flexbox;
