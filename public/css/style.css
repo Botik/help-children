@@ -1378,6 +1378,10 @@
      margin-left: 50px;
  }
 
+ .thanks-img img{
+	 transform:translateY(-10px);
+ }
+
  .ohf-row.newavatar.kid-cart-close {
      padding: 0;
  }
