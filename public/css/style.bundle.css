@@ -4803,7 +4803,7 @@ body {
 
 .aid-list__item {
     -ms-flex-preferred-size: 25%;
-    flex-basis: 33.3%;
+    /* flex-basis: 33.3%; */
     width: 33.3%;
     padding: 0 2.5rem 6rem
 }
