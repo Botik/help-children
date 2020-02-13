@@ -176,7 +176,7 @@
                                     <div class="collected-resources__slider">
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
-                                        <div class='collected-resources'>
+                                        <div class='collected-resources' onclick='location.href={{ tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ ((targets|length == loop.index)  ? 'needed' : 'kid-news')}}'>
                                             <!-- -->
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
