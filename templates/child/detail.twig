@@ -349,7 +349,7 @@
                                     {{mnths[(targets|last).totime|date("n")]}} {{(targets|last).totime|date("Y")}} года
                                 </div>
                                 <div class="newmoneybutton bottom">
-                                    Необходимо<br> <span>{{(targets|last).goal}} руб.</span>
+                                    Необходимо<br> <span>{{(targets|last).goal|number_format(0, '.', ' ') }} руб.</span>
                                 </div>
                                 <div class='descr'>{{(targets|last).descr}}</div>
 
