@@ -1600,7 +1600,8 @@ font-weight:300;
      .btn.btn-dark.btn--big.child-help-form__submit.js-child-help-form-button-submit.bottom.hidden {
          display: block;
          width: 70%;
-         max-width: 240px;
+				 max-width: 240px;
+				 margin-top:15px;
      }
      .orangebutton {
          margin-left: 0;

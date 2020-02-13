@@ -7312,7 +7312,7 @@ body {
         flex-direction: column
     }
     .donate-form-payment-systems__cards:first-child {
-        width: 220px!important
+        /* width: 220px!important */
     }
     .donate-form-payment-systems__cards {
         width: initial!important
@@ -7329,7 +7329,7 @@ body {
         padding: 0 5rem
     }
     #paymentByVisa img {
-        margin: 0 auto
+        /* margin: 0 auto */
     }
     .paymentimgBlock {
         width: 155px
