@@ -19,7 +19,7 @@
 
  @media (max-width:768px) {
      .cart-nav-container {
-         width: 93%;
+         width: 98%;
          position: initial;
      }
  }
@@ -534,6 +534,12 @@
  .cart-nav span a {
      color: #232323;
      text-decoration: none;
+ }
+
+ @media screen and (max-height:343px) {
+	.cart-nav {
+		height:50px;
+	}
  }
 
  .kids-list .cart-content .kids-block {
