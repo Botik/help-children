@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\News;
 use App\Entity\Child;
+use App\Entity\ChTarget;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -93,6 +94,11 @@ class NewsController extends AbstractController
                 $n = new News();
                 $n->setCreatedat(new \DateTime());
         }
+        $trgs =[' '=>-1];
+        foreach ($this->getDoctrine()->getRepository(ChTarget::class)
+            ->findBy([],['id'=>'DESC']) as $trg) $trgs[
+            '#'.$trg->getId().' '.$trg->getName().' — '.$this->getDoctrine()->getRepository(Child::class)
+            ->findOneById($trg->getChild())->getName()]=$trg->getId();
 
         // $form = $this->createForm(NewsTypes::class, $n);
         $form = $this->createFormBuilder($n)
@@ -118,6 +124,13 @@ class NewsController extends AbstractController
             ->add(
                 'child', ChoiceType::class, [
                 'choices' => $childs,
+                "expanded" => false,
+                "multiple"=>false
+             ]
+            )
+            ->add(
+                'trg', ChoiceType::class, [
+                'choices' => $trgs,
                 "expanded" => false,
                 "multiple"=>false
              ]
