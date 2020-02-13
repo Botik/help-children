@@ -397,11 +397,12 @@
      z-index: 5;
      display: flex;
      flex-direction: column;
-     justify-content: space-between;
+     /* justify-content: space-between; */
  }
 
  .news-block.opened .news .news-flex-block .left-half .littleimg-block>div {
-     position: relative;
+		 position: relative;
+		 margin-bottom:20px;
  }
 
  .news-block.opened .news .news-flex-block .left-half .littleimg-block img {
