@@ -871,7 +871,6 @@
 
  .aid-card .needed {
      display: flex;
-     justify-content: space-between;
      font-size: 14px;
      line-height: 16px;
      display: flex;
@@ -889,7 +888,8 @@
  }
 
  .aid-card .needed .needed-name a {
-     color: #461292;
+		 color: #461292;
+		 margin-left:10px;
  }
 
  .aid-card .wantHelp {
@@ -1068,7 +1068,7 @@
  }
 
  .mothersletter .letter-content .left-half {
-     width: 46%;
+     width: 100%;
  }
 
  .mothersletter .letter-content .left-half .title {
@@ -1088,7 +1088,9 @@
 
  .mothersletter .letter-content .right-half {
      width: 50%;
-     margin-top: 13px;
+		 margin-top: 13px;
+		 flex-shrink:0;
+		 margin-left:30px;
  }
 
  .mothersletter .letter-content .right-half .img-block iframe {
@@ -1380,6 +1382,12 @@
 
  .thanks-img img{
 	 transform:translateY(-10px);
+ }
+
+ @media screen and (max-width:768px) {
+	.thanks-img img {
+		transform:translateY(0px);
+	}
  }
 
  .ohf-row.newavatar.kid-cart-close {
