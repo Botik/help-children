@@ -5657,6 +5657,7 @@ line-height: 20px;
 	.ohf-row.fourth-row .ohf-col-input__row h3 {
 		font-size: 17px;
 		line-height: 20px;
+		margin-top: 0;
 	}
 	.ohf-row.fourth-row .ohf-col-input__row p{
 		font-size: 14px;
@@ -5664,6 +5665,9 @@ line-height: 20px;
 	}
 	.ohf-row.fourth-row .ohf-col-input__row p a {
 		font-size:15px;
+	}
+	.ohf-row.fourth-row img {
+		height:165px;
 	}
 }
 
