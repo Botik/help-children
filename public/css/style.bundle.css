@@ -7299,7 +7299,7 @@ body {
 
 @media (max-width:767px) {
     #paymentByVisa div:first-child {
-        display: none
+        /* display: none */
     }
 }
 
