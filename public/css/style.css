@@ -1556,6 +1556,9 @@ font-weight:300;
  }
 
  @media screen and (max-width:768px) {
+	.childnews .childnews-row .childnews-number {
+		padding-top:4px;
+	}
 	.kid-notice-discription {
 				display:flex;
 				justify-content: space-between;

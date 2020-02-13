@@ -17,7 +17,7 @@
         <section class='cart-nav-container'>
             <div class='cart-nav kids-page'>
                 <div class='active left {{ (not opened|length) ? 'disabled' }}'><span><a href='#dolgosrochnaya-opeka'>Долгосрочная опека</a></span></div>
-                <div class='center {{ (not pmj|length) ? 'disabled' }}'><span><a href='#pjm'>Подарки, желания, мечты</a></span></div>
+                <div class='center {{ (not pmj|length) ? 'disabled' }}'><span><a href='#pjm'>Подарки, мечты, желания</a></span></div>
                 <div class='right {{ (not closed|length) ? 'disabled' }}'><span><a href='#we-helped'>Мы помогли</a></span></div>
             </div>
         </section>
@@ -165,7 +165,7 @@
         {% if pmj|length -%}
             <section class="section kids">
             <div class="container container-pagecontent-padding">
-                <h2 class="section-title" id='pjm'>Подарки, желания, мечты</h2>
+                <h2 class="section-title" id='pjm'>Подарки, мечты, желания</h2>
                 <ul class="aid-list">
                         {% for child in pmj -%}
                             {# {% if not (child.targets|last).rehabilitation %} #}
