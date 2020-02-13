@@ -5477,10 +5477,16 @@ body {
     border-radius: 20px
 }
 
+
+
 @media screen and (max-width:394px) {
 	.online-help-wrapper {
 		top:-445px;
 	}
+}
+
+.online-help-wrapper.th-w {
+	top:0;
 }
 
 .ohf-row {
@@ -5496,6 +5502,7 @@ body {
     padding: 5rem 2rem
 }
 
+
 .ohf-row:not(:last-child):after {
     content: "";
     position: absolute;
@@ -5505,6 +5512,41 @@ body {
     height: 1px;
     background: -webkit-gradient(linear, left top, right top, from(#fff), color-stop(0, #fff), color-stop(50%, #dae2e8), to(#fff));
     background: linear-gradient(90deg, #fff 0, #fff 0, #dae2e8 50%, #fff)
+}
+
+.ohf-row.first-row {
+	flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.ohf-row.first-row h1 {
+	font-family: Borsok;
+	font-size:40px;
+}
+
+.ohf-row.first-row p {
+	font-size: 20px;
+  line-height: 24px;
+}
+
+.ohf-row.second-row {
+	justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+.ohf-row.second-row .ohf-col-input{
+	flex:0 0 60% !important;
+}
+.ohf-row.second-row .ohf-col-input h3{
+	font-size: 24px;
+	line-height: 29px;
+}
+.ohf-row.second-row .ohf-col-input p{
+	font-size: 20px;
+line-height: 24px;
+margin-top:0;
 }
 
 .ohf-col-label {
