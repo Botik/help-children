@@ -5469,11 +5469,18 @@ body {
 
 .online-help-wrapper {
     position: relative;
-    top: -430px;
+		/* top: -430px; */
+		top:-460px;
     background: #fff;
     -webkit-box-shadow: 0 0 50px rgba(142, 53, 36, .1);
     box-shadow: 0 0 50px rgba(142, 53, 36, .1);
     border-radius: 20px
+}
+
+@media screen and (max-width:394px) {
+	.online-help-wrapper {
+		top:-445px;
+	}
 }
 
 .ohf-row {
