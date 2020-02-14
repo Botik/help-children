@@ -6085,6 +6085,13 @@ line-height: 20px;
     padding-left: 6rem
 }
 
+@media (min-width:1440px) {
+	.card-child-description {
+		flex-basis:initial;
+		width:65%;
+	}
+}
+
 @media (max-width:994px) {
     .card-child-description {
         -ms-flex-preferred-size: 100%;
