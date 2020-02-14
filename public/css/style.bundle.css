@@ -7543,8 +7543,8 @@ line-height: 20px;
         line-height: 2.5;
         padding: 0 5rem
     }
-    #paymentByVisa img {
-        /* margin: 0 auto */
+    .toggle-field__text.paymentimgBlock img {
+        margin: 0 auto
     }
     .paymentimgBlock {
         width: 155px
