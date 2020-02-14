@@ -7590,7 +7590,10 @@ line-height: 20px;
 }
 
 .WantHelpButtonBlock {
-    display: none
+
+}
+.WantHelpButtonBlock .WantHelpButton {
+	visibility: hidden;
 }
 
 @media (max-width:520px) {
@@ -7612,7 +7615,8 @@ line-height: 20px;
         text-decoration: none
     }
     .WantHelpButton {
-        display: block;
+				display: block;
+				visibility:visible;
         margin: 0 auto;
         color: #fff;
         background-image: linear-gradient(0deg, #2d0e73, #5728b4);
