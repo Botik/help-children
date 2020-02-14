@@ -61,11 +61,8 @@ $(document).ready(function() {
             });
 
 				}
-				var $page = $('html, body');
-				$page.animate({
-					scrollTop: ($('.hr-child.hr-full').offset().top - 80)
-				}, 400);
-        //$(window).scrollTop(scroll);
+
+        $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
         //$(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
     });
 
