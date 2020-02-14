@@ -7616,7 +7616,7 @@ line-height: 20px;
     }
     .WantHelpButton {
 				display: block;
-				visibility:visible;
+				visibility:visible !important;
         margin: 0 auto;
         color: #fff;
         background-image: linear-gradient(0deg, #2d0e73, #5728b4);
