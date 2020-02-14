@@ -6080,7 +6080,8 @@ line-height: 20px;
 
 .card-child-description {
     -ms-flex-preferred-size: 60%;
-    flex-basis: 60%;
+		flex-basis: 60%;
+		width:60%;
     padding-left: 6rem
 }
 
