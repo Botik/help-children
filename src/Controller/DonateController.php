@@ -281,6 +281,10 @@ class DonateController extends AbstractController
                     ->setStatus(2)
                     ->setRecurent($form['SubscriptionId'] ? 1 : 0);
 
+            $targ = $entityManager->getRepository(ChTarget::class)->findByChild($subscr_req->getChild());
+            $targ=end($targ);
+            if ($targ) $targ->setCollected($targ->getCollected()+$subscr_req->getSum());
+
                 $rp->setWithdrawalAt(new \DateTime());
                 $entityManager->persist($req);
                 $entityManager->persist($rp);
@@ -311,10 +315,15 @@ class DonateController extends AbstractController
                 #case 'paid':
                 #case 'authorized':
                 case 'Completed':
+
+                    if ($req->getStatus()==2) return new Response('Already confirmed', 200);
                     $req->setStatus(2);
                     $req->setTransactionId($form['TransactionId']); #avtorkoda
                     // $req->setJson(json_encode($form));              #avtorkoda
 
+            $targ = $entityManager->getRepository(ChTarget::class)->findByChild($req->getChild());
+            $targ=end($targ);
+            if ($targ) $targ->setCollected($targ->getCollected()+$req->getSum());
                     // Убрать напоминание о завершении платежа
                     $urs = $entityManager->getRepository(SendGridSchedule::class)->findUnfinished($req->getUser()->getEmail());
                     foreach ($urs as $ur) {
@@ -424,8 +433,15 @@ class DonateController extends AbstractController
                 file_put_contents(dirname(__DIR__)."/../var/logs/status_uni.log", date("d.m.Y H:i:s")."; POST ".print_r($_POST, true). "\n GET ".print_r($_GET, true)."\n form".print_r($form, true)."\n", FILE_APPEND);
                 $req = $entityManager->getRepository(\App\Entity\Request::class)->find($form['Order_ID']);
                 if (!$req) return new Response('order not found', 404);
+
+                if ($req->getStatus()==2) return new Response('Already confirmed', 200);
+
                 if($form['Status']=='paid'){
                     $children = $entityManager->getRepository(\App\Entity\Child::class)->getOpened();
+                    
+            $targ = $entityManager->getRepository(ChTarget::class)->findByChild($req->getChild());
+            $targ=end($targ);
+            if ($targ) $targ->setCollected($targ->getCollected()+$req->getSum());
                     $ti = array();
                     foreach ($children as $child) $ti[] = '('.$child->getId().','.$req->getId().','.$req->getSum().')';
                     $sql = 'insert into children_requests (`child`,`request`, `sum`) values '.implode(',', $ti);
