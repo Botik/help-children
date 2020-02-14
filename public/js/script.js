@@ -60,8 +60,12 @@ $(document).ready(function() {
                 }
             });
 
-        }
-        $(window).scrollTop(scroll);
+				}
+				var $page = $('html, body');
+				$page.animate({
+					scrollTop: ($('.hr-child.hr-full').offset().top - 80)
+				}, 400);
+        //$(window).scrollTop(scroll);
         //$(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
     });
 
