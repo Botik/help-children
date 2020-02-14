@@ -6259,11 +6259,13 @@ line-height: 20px;
 
 .child-help-form__col-label {
     -ms-flex-preferred-size: 22%;
-    flex-basis: 22%;
+		flex-basis: 22%;
+		flex-shrink:0;
     max-width: 180px;
     margin-right: 75px;
     text-align: right
 }
+
 
 @media (max-width:994px) {
     .child-help-form__col-label {
