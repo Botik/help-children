@@ -1382,12 +1382,12 @@
  }
 
  .thanks-img img{
-	 transform:translateY(-10px);
+	 transform:translateY(3px) rotate(-8deg);
  }
 
  @media screen and (max-width:768px) {
 	.thanks-img img {
-		transform:translateY(0px);
+		transform:translateY(0px) rotate(-8deg);
 	}
  }
 
