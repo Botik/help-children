@@ -550,9 +550,9 @@
             <div class="container container--medium">
                 <div class="kid-notice-discription">
                         <div class='inner-col title'>Контактные данные</div>
-                        <div class='inner-col descr'>Телефон горячей линии:<br>{{child.contacts|e('html')}}{# 8-800-600-09-06 #}</div>
+                        <div class='inner-col descr'>Телефон горячей линии:<br>{{child.contacts|escape('html')}}{# 8-800-600-09-06 #}</div>
                         <div class='inner-col title'>Банковские реквизиты</div>
-                        <div class='inner-col descr'>{{child.requisites|e('html')}}{# Чувашское отделение №8613<br>
+                        <div class='inner-col descr'>{{child.requisites|escape('html')}}{# Чувашское отделение №8613<br>
                                                     ПАО СБЕРБАНК г. Чебоксары<br>
                                                     Счет: 40703810675000000543<br>
                                                     БИК: 049706609<br>
