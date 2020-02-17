@@ -1512,7 +1512,14 @@
 	justify-content: center;
 	border-radius: 50%;
     padding-top: 3px;
-    padding-right: 1px;
+		padding-right: 1px;
+		margin-left:10px;
+ }
+
+ @media screen and (max-width:768px) {
+	.cart-nav-container.kid-profile .center .news_counter {
+		padding-top:0;
+	}
  }
 
  .donate-form-row__col.btn.btn-dark.already_have_acc {
