@@ -1492,6 +1492,26 @@
      height: 41px;
  }
 
+ .cart-nav-container.kid-profile .center {
+	 display:flex;
+	 align-items: center;
+	 justify-content: center;
+ }
+ .cart-nav-container.kid-profile .center .news_counter {
+	 width:26px;
+	 height:26px;
+	 flex-shrink:0;
+	 background: #5D20B0;
+	 color:#ffffff;
+	 font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 19px;
+	display:flex;
+	align-items:center;
+	justify-content: center;
+ }
+
  .donate-form-row__col.btn.btn-dark.already_have_acc {
      border-radius: 40px;
  }
