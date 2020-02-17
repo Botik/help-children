@@ -1492,7 +1492,7 @@
      height: 41px;
  }
 
- .cart-nav-container.kid-profile .center {
+ .cart-nav-container.kid-profile .center a{
 	 display:flex;
 	 align-items: center;
 	 justify-content: center;
@@ -1510,6 +1510,9 @@
 	display:flex;
 	align-items:center;
 	justify-content: center;
+	border-radius: 50%;
+    padding-top: 3px;
+    padding-right: 1px;
  }
 
  .donate-form-row__col.btn.btn-dark.already_have_acc {
