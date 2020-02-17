@@ -88,7 +88,7 @@ class ChildController extends AbstractController
         return $this->render(
             'panel/child/list.twig',
             [
-                'children' => $this->getDoctrine()->getRepository(Child::class)->findAll()
+                'children' => $this->getDoctrine()->getRepository(Child::class)->findBy([],['id'=>'DESC'])
             ]
         );
     }

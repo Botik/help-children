@@ -7,6 +7,7 @@
 {% block keywords %}{{ child.name }}{% endblock %}
 
 {% block content %}
+    {% autoescape false %}
 <main>
     <section class="section hero-medium kid-page">
         <div class="container child-container">
@@ -293,9 +294,8 @@
                     <section class='cart-nav-container kid-profile'>
                         <div class='cart-nav kid-profile'>
                             <div class='active left'><span><a href='#letter'>Письмо мамы</a></span></div>
-                            <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребенка</a></span></div>
-                            <div class='right {{ closed or ((targets|last).allowclose[0] == 0 and (date((targets|last).totime) < date( "now"))) ? 'disabled' }} '><span><a href='#needed'>Необходимо
-                                        собрать</a></span></div>
+                            <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребенка {{news_lst|length}}</a></span></div>
+                            <div class='right {{ closed or ((targets|last).allowclose[0] == 0 and (date((targets|last).totime) < date( "now"))) ? 'disabled' }} '><span><a href='#needed'>Необходимо собрать</a></span></div>
                         </div>
                     </section>
                     <div class="mothersletter displaytrue" id='letter'>
@@ -303,7 +303,7 @@
                             <div class='left-half'>
                                 {# <div class='title'>Комментарий</div> #}
                                 <div class='msg'>
-                                    {{child.comment}}
+                                    {{child.comment|raw}}
                                 </div>
                             </div>
                             {% if child.video %}<div class='right-half'>
@@ -351,7 +351,7 @@
                                 <div class="newmoneybutton bottom">
                                     Необходимо<br> <span>{{(targets|last).goal|number_format(0, '.', ' ') }} руб.</span>
                                 </div>
-                                <div class='descr'>{{(targets|last).descr}}</div>
+                                <div class='descr'>{{(targets|last).descr|raw}}</div>
 
                             </div>
                         </div>
@@ -376,7 +376,7 @@
                                         </div>
                                     </div>
                                     {% if news.descr %}<p class='childnews-item-desc'>
-                                        {{news.descr}}
+                                        {{news.descr|raw}}
                                     </p>
                                     <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
@@ -406,7 +406,7 @@
                                         </div>
                                     </div>
                                     {% if news.descr %}<p class='childnews-item-desc'>
-                                        {{news.descr}}
+                                        {{news.descr|raw}}
                                     </p>
                                     <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
@@ -587,5 +587,5 @@ $( window ).on( "load" ,function() {
 });
 $(window).on('hashchange', function(){$('.cart-nav>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();}).trigger('hashchange');
 </script>
-
+{% endautoescape %}
 {% endblock %}

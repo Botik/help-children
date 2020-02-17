@@ -7,6 +7,7 @@
 
 {% block content -%}
 
+    {% autoescape false %}
   <main>
         <section class="section hero-small">
             <div class="container">
@@ -419,4 +420,5 @@
             }
     var sj = new SJ(SJ_setiings);
 </script>
+{% endautoescape %}
 {%- endblock %}

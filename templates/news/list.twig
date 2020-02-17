@@ -5,6 +5,7 @@
 {% block keywords %}{% endblock %}
 
 {% block content %}
+    {% autoescape false %}
     <main>
         <section class="section hero-medium">
             <div class="container child-container">
@@ -54,7 +55,7 @@
                                         </div>
                                         <div class='right-half'>
                                             <div class='text'>
-                                                {{(n.descr) ? n.descr[:600]~'...'}}
+                                                {{(n.descr) ? n.descr|raw[:600]~'...'}}
                                             </div>
                                             <div class='link'>
                                                 {% if (n.descr) %}<span class='news-filter-name'>Подробнее</span>{% endif %}
@@ -99,7 +100,7 @@
                                         </div>
                                         <div class='right-half'>
                                             <div class='text'>
-                                                {{(n.descr) ? n.descr[:600]~'...'}}
+                                                {{(n.descr) ? n.descr[:600]|raw~'...'}}
                                             </div>
                                             <div class='link'>
                                                 {% if (n.descr) %}<span class='news-filter-name'>Подробнее</span>{% endif %}
@@ -206,5 +207,6 @@
             $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
         </script>
     </main>
+{% endautoescape %}
 
 {% endblock %}
