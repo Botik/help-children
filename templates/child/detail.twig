@@ -150,7 +150,7 @@
                                 <div class="collected-resources-left newbuttonwrapper">
                                     {% if closed or (((targets|last).allowclose[0] == 0) and (targets|last).Goal - (targets|last).collected <= 0)%}
                                     <div class="newmoneybutton orangebutton close">
-                                        Сбор{{ not closed ? " на текущую<br>реабилитацию"|raw}} закрыт
+                                        Сбор средств{{ not closed ? " на текущую<br>реабилитацию"|raw}} завершен
                                     </div>
                                     <div class='thanks-img'>
                                         <img src='/images/thanks.svg'>
@@ -253,11 +253,11 @@
                                             <label class="donate-sum-fieldgroup__label toggle-field">
                                                 <input class="donate-text-field" type="text" name="sum-other" value=""
                                                     placeholder="Другая сумма" autocomplete="off"
-                                                    style='padding: 0 15px 0 15px; width:15rem'>
+                                                    style='padding: 0 15px 0 15px; width:15rem; border-top-right-radius:40px;border-bottom-right-radius:40px;'>
                                             </label>
                                             <button
-                                                class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit visible"
-                                                type="submit" style='padding: 16px 6rem'>
+                                                class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit visible kid-profile"
+                                                type="submit" style='padding: 16px 5rem;margin-left:5px;'>
                                                 Пожертвовать
                                             </button>
                                         </div>
@@ -499,7 +499,7 @@
                          <h3 class="child-help-form__title">Помочь другим детям</h3> {% else %}<input type="hidden" name="child_id" value="{{ child.id }}">
                         <h3 class="child-help-form__title">Адресная помощь: {{ child.name }}</h3>{% endif %}
                         <div class="child-help-form-row">
-                            <div class="child-help-form__col child-help-form__col-label ohf-col-label__notice-title">
+                            <div class="child-help-form__col child-help-form__col-label ohf-col-label__notice-title kid-profile">
                                 Выберите способ оплаты
                             </div>
                             <div class="child-help-form__col child-help-form__col-input ohf-col-input">
@@ -550,9 +550,9 @@
             <div class="container container--medium">
                 <div class="kid-notice-discription">
                         <div class='inner-col title'>Контактные данные</div>
-                        <div class='inner-col descr'>Телефон горячей линии:<br>{{child.contacts}}{# 8-800-600-09-06 #}</div>
+                        <div class='inner-col descr'>Телефон горячей линии:<br>{{child.contacts|escape('html')}}{# 8-800-600-09-06 #}</div>
                         <div class='inner-col title'>Банковские реквизиты</div>
-                        <div class='inner-col descr'>{{child.requisites}}{# Чувашское отделение №8613<br>
+                        <div class='inner-col descr'>{{child.requisites|escape('html')}}{# Чувашское отделение №8613<br>
                                                     ПАО СБЕРБАНК г. Чебоксары<br>
                                                     Счет: 40703810675000000543<br>
                                                     БИК: 049706609<br>

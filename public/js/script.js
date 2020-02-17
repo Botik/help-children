@@ -60,9 +60,10 @@ $(document).ready(function() {
                 }
             });
 
-        }
-        // $(window).scrollTop(scroll);
-        $(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
+				}
+
+        $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
+        //$(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
     });
 
 

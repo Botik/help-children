@@ -6080,9 +6080,27 @@ line-height: 20px;
 
 .card-child-description {
     -ms-flex-preferred-size: 60%;
-    flex-basis: 60%;
+		flex-basis: 60%;
+		width:60%;
     padding-left: 6rem
 }
+
+@media (min-width:1440px) {
+	.card-child-description {
+		flex-basis:initial;
+		width:65%;
+	}
+	.btn.btn-dark.btn--big.child-help-form__submit {
+		padding:16px 60px !important;
+	}
+}
+
+@media screen and (max-width:1439px) and (min-width:995px) {
+	.btn.btn-dark.btn--big.child-help-form__submit {
+		padding:16px 45px !important;
+	}
+}
+
 
 @media (max-width:994px) {
     .card-child-description {
@@ -6241,11 +6259,13 @@ line-height: 20px;
 
 .child-help-form__col-label {
     -ms-flex-preferred-size: 22%;
-    flex-basis: 22%;
+		flex-basis: 22%;
+		flex-shrink:0;
     max-width: 180px;
     margin-right: 75px;
     text-align: right
 }
+
 
 @media (max-width:994px) {
     .child-help-form__col-label {
@@ -7525,8 +7545,8 @@ line-height: 20px;
         line-height: 2.5;
         padding: 0 5rem
     }
-    #paymentByVisa img {
-        /* margin: 0 auto */
+    .toggle-field__text.paymentimgBlock img {
+        margin: 0 auto
     }
     .paymentimgBlock {
         width: 155px
@@ -7570,7 +7590,10 @@ line-height: 20px;
 }
 
 .WantHelpButtonBlock {
-    display: none
+
+}
+.WantHelpButtonBlock .WantHelpButton {
+	visibility: hidden;
 }
 
 @media (max-width:520px) {
@@ -7592,7 +7615,8 @@ line-height: 20px;
         text-decoration: none
     }
     .WantHelpButton {
-        display: block;
+				display: block;
+				visibility:visible !important;
         margin: 0 auto;
         color: #fff;
         background-image: linear-gradient(0deg, #2d0e73, #5728b4);
