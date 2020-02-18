@@ -1725,7 +1725,8 @@ font-weight:300;
          width: 100%;
      }
      .mothersletter .letter-content .right-half {
-         width: 100%;
+				 width: 100%;
+				 margin-left:0;
      }
      .childnews .separator {
          display: none;
@@ -2004,6 +2005,12 @@ font-weight:300;
          padding-top: 3px;
      }
  }
+
+@media screen and (max-width:570px) {
+	.online-help-wrapper {
+		top:-440px;
+	}
+}
 
  @media screen and (max-width:540px) {
 
