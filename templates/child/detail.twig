@@ -144,7 +144,7 @@
                                 <div class="collected-resources-left newbuttonwrapper">
                                     {% if closed or (((targets|last).allowclose[0] == 0) and (targets|last).Goal - (targets|last).collected <= 0)%}
                                     <div class="newmoneybutton orangebutton close">
-                                        Сбор средств{{ not closed ? " на текущую<br>реабилитацию"|raw}} завершен
+                                        Сбор средств{{ not closed ? " на текущую<br>реабилитацию"|raw : "<br>"}} завершен
                                     </div>
                                     <div class='thanks-img'>
                                         <img src='/images/thanks.svg'>
