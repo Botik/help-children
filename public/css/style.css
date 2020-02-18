@@ -1385,7 +1385,7 @@
 	 transform:translateY(3px) rotate(-8deg);
  }
 
- @media screen and (max-width:992px) and (min-width:769px) {
+ @media screen and (max-width:992px) and (min-width:540px) {
 	.thanks-img {
 		/* flex-basis: 30%; */
 		margin-left: 50px;
@@ -1649,9 +1649,6 @@ font-weight:300;
          width: 70%;
 				 max-width: 240px;
 				 margin-top:15px;
-     }
-     .orangebutton {
-         margin-left: 0;
      }
      .child-navigation {
          display: flex;
@@ -2014,6 +2011,9 @@ font-weight:300;
 		flex-direction: column;
 	}
 
+	.orangebutton {
+		margin-left: 0;
+	}
 	.newmoneybutton {
 			font-size: 16px;
 			width: initial;
