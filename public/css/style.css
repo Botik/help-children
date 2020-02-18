@@ -2008,7 +2008,7 @@ font-weight:300;
 
 @media screen and (max-width:570px) {
 	.online-help-wrapper {
-		top:-440px;
+		top:-440px !important;
 	}
 }
 
