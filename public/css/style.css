@@ -1377,7 +1377,7 @@
  }
 
  .thanks-img {
-     flex-basis: 30%;
+     /* flex-basis: 30%; */
      margin-left: 50px;
  }
 
@@ -1422,8 +1422,9 @@
      height: 57px;
      padding-right: 15px;
      padding-top: 13px;
-     margin-left: 0;
-     width: 50%;
+		 margin-left: 0;
+		 flex-shrink:0;
+     width: fit-content;
      height: fit-content;
 		 padding-bottom: 13px;
 		 /* font-size:18px; */
