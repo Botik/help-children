@@ -144,7 +144,7 @@
                                 <div class="collected-resources-left newbuttonwrapper">
                                     {% if closed or (((targets|last).allowclose[0] == 0) and (targets|last).Goal - (targets|last).collected <= 0)%}
                                     <div class="newmoneybutton orangebutton close">
-                                        Сбор средств{{ not closed ? " на текущую<br>реабилитацию"|raw}} завершен
+                                        Сбор средств{{ not closed ? " на текущую<br>реабилитацию"|raw : "<br>"}} завершен
                                     </div>
                                     <div class='thanks-img'>
                                         <img src='/images/thanks.svg'>
@@ -192,7 +192,7 @@
                                 {% endif %}<form class="child-help-form kid-page" action="{{ path('donate') }}"
                                     method="GET">
                                     {% if not closed %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}
-                                
+
 
                                     <div class="donate-form-row" style="margin: 0 auto;">
                                         <div class="donate-form-row__col donate-sum-fieldgroup toggle-fieldgroup">
@@ -212,7 +212,7 @@
                                             </label>
                                             <button
                                                 class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit visible kid-profile"
-                                                type="submit" style='padding: 16px 5rem;margin-left:5px;'>
+                                                type="submit" style='padding: 16px 4rem;margin-left:5px; width:100%;'>
                                                 Пожертвовать
                                             </button>
                                         </div>

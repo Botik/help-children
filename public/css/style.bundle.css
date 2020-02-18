@@ -4906,7 +4906,8 @@ body {
     width: 59%;
     height: 100%;
     background-color: #5d20b0;
-    border-radius: 8px
+		border-radius: 8px;
+		min-width:9%;
 }
 
 .collected-resources__sum {
@@ -6066,7 +6067,9 @@ line-height: 20px;
 
 .card-child__col {
     -ms-flex-negative: 1;
-    flex-shrink: 1
+		flex-shrink: 1;
+		flex-basis:40%;
+		width:40%;
 }
 
 @media (max-width:994px) {
@@ -6086,19 +6089,15 @@ line-height: 20px;
 }
 
 @media (min-width:1440px) {
-	.card-child-description {
-		flex-basis:initial;
-		width:65%;
-	}
-	.btn.btn-dark.btn--big.child-help-form__submit {
+	/* .btn.btn-dark.btn--big.child-help-form__submit {
 		padding:16px 60px !important;
-	}
+	} */
 }
 
 @media screen and (max-width:1439px) and (min-width:995px) {
-	.btn.btn-dark.btn--big.child-help-form__submit {
+	/* .btn.btn-dark.btn--big.child-help-form__submit {
 		padding:16px 45px !important;
-	}
+	} */
 }
 
 

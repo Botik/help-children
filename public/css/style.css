@@ -1377,14 +1377,20 @@
  }
 
  .thanks-img {
-     flex-basis: 30%;
-     margin-left: 50px;
+     /* flex-basis: 30%; */
+     margin-left: auto;
  }
 
  .thanks-img img{
 	 transform:translateY(3px) rotate(-8deg);
  }
 
+ @media screen and (max-width:992px) and (min-width:540px) {
+	.thanks-img {
+		/* flex-basis: 30%; */
+		margin-left: 50px;
+}
+ }
  @media screen and (max-width:768px) {
 	.thanks-img img {
 		transform:translateY(0px) rotate(-8deg);
@@ -1420,10 +1426,12 @@
 
  .newmoneybutton.orangebutton.close {
      height: 57px;
-     padding-right: 15px;
+		 padding-right: 25px;
+		 padding-left:70px;
      padding-top: 13px;
-     margin-left: 0;
-     width: 50%;
+		 margin-left: 0;
+		 flex-shrink:0;
+     width: fit-content;
      height: fit-content;
 		 padding-bottom: 13px;
 		 /* font-size:18px; */
@@ -1499,7 +1507,6 @@
  }
  .cart-nav-container.kid-profile .center .news_counter {
 		width:26px;
-		height:26px;
 		flex-shrink:0;
 		background: #5D20B0;
 		color:#ffffff;
@@ -1507,11 +1514,10 @@
 		font-weight: normal;
 		font-size: 16px;
 		line-height: 19px;
-		display:flex;
-		align-items:center;
-		justify-content: center;
 		border-radius: 50%;
 		margin-left:10px;
+		text-align:center;
+		padding: 5px 0px 2px 0px;
  }
 
  @media screen and (max-width:768px) {
@@ -1644,9 +1650,6 @@ font-weight:300;
 				 max-width: 240px;
 				 margin-top:15px;
      }
-     .orangebutton {
-         margin-left: 0;
-     }
      .child-navigation {
          display: flex;
          justify-content: space-between;
@@ -1722,7 +1725,8 @@ font-weight:300;
          width: 100%;
      }
      .mothersletter .letter-content .right-half {
-         width: 100%;
+				 width: 100%;
+				 margin-left:0;
      }
      .childnews .separator {
          display: none;
@@ -1770,9 +1774,6 @@ font-weight:300;
      }
      .card-child__col.card-child-description {
          width: 100%;
-     }
-     .collected-resources-left.newbuttonwrapper {
-         flex-direction: column;
      }
      .previous-child {
          display: none;
@@ -1936,27 +1937,10 @@ font-weight:300;
 				 padding-right:0;
 				 flex: 0 0 60%;
      }
-     .newmoneybutton {
-         font-size: 16px;
-         width: initial;
-     }
-     .newmoneybutton.orangebutton {
-         margin-top: 15px;
-     }
-     .newmoneybutton.orangebutton {
-         padding-bottom: 13px;
-     }
-     .newmoneybutton.close {
-         width: 100% !important;
-     }
      .orangebutton::before {
          left: 30px;
      }
-     .thanks-img {
-         margin-top: 15px;
-         margin-left: 0;
-         text-align: Center;
-     }
+
      .newprogressbarwrapper {
          flex-direction: column;
          align-items: initial;
@@ -2020,6 +2004,46 @@ font-weight:300;
      .card-child__col .notification.care.kid-profile {
          padding-top: 3px;
      }
+ }
+
+@media screen and (max-width:570px) {
+	.online-help-wrapper {
+		top:-440px !important;
+	}
+	.online-help-wrapper.th-w {
+		top:0 !important;
+	}
+}
+
+ @media screen and (max-width:540px) {
+
+	.collected-resources-left.newbuttonwrapper {
+		flex-direction: column;
+	}
+
+	.orangebutton {
+		margin-left: 0;
+	}
+	.newmoneybutton {
+			font-size: 16px;
+			width: initial;
+	}
+	.newmoneybutton.orangebutton {
+			margin-top: 15px;
+	}
+	.newmoneybutton.orangebutton {
+			padding-bottom: 13px;
+	}
+	.newmoneybutton.close {
+			width: 100% !important;
+	}
+
+	.thanks-img {
+			margin-top: 15px;
+			margin-left: 0;
+			text-align: Center;
+	}
+
  }
 
  @media screen and (max-width:400px) {
