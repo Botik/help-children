@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    $(".money").each(function() {
+      $( this ).text( $( this ).text().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
+    });
 
     var elemtop = $('.kid-cart .push-content').css('top');
     elemtop = parseInt(elemtop);
