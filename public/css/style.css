@@ -2010,6 +2010,9 @@ font-weight:300;
 	.online-help-wrapper {
 		top:-440px !important;
 	}
+	.online-help-wrapper.th-w {
+		top:0 !important;
+	}
 }
 
  @media screen and (max-width:540px) {
