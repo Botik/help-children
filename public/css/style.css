@@ -1378,7 +1378,7 @@
 
  .thanks-img {
      /* flex-basis: 30%; */
-     margin-left: 50px;
+     margin-left: auto;
  }
 
  .thanks-img img{
