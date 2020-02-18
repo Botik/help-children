@@ -1499,7 +1499,6 @@
  }
  .cart-nav-container.kid-profile .center .news_counter {
 		width:26px;
-		height:26px;
 		flex-shrink:0;
 		background: #5D20B0;
 		color:#ffffff;
@@ -1507,11 +1506,10 @@
 		font-weight: normal;
 		font-size: 16px;
 		line-height: 19px;
-		display:flex;
-		align-items:center;
-		justify-content: center;
 		border-radius: 50%;
 		margin-left:10px;
+		text-align:center;
+		padding: 6px 0px 4px 1px;
  }
 
  @media screen and (max-width:768px) {
