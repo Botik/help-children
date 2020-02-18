@@ -139,12 +139,6 @@
                                     {{ child.diagnosis }}
                                 </div>
                             </div>
-                            {# <div class="card-child-field">
-                                    <div class="card-child-field__title">Комментарий:</div>
-                                    <div class="card-child-field__value card-child-field__value--full">
-                                        {{ child.comment }}
-                                    </div>
-                                </div> #}
 
                             <div class="collected-resources ">
                                 <div class="collected-resources-left newbuttonwrapper">
@@ -177,12 +171,12 @@
                                     <div class="collected-resources__slider">
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
-                                        <div class='collected-resources' onclick='location.href="{{ tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
+                                        <div class='collected-resources' onclick='location.href="{{ trg.descr and tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
                                             <!-- -->
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a href='{{ tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}'>Подробнее</a></div>
+                                                    <div><a href='{{ trg.descr and tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}'>Подробнее</a></div>
                                                 </div>
                                             <div class="collected-resources__slider-filled"
                                                 style="width: {{100*trg.collected/trg.goal}}%">
@@ -198,46 +192,7 @@
                                 {% endif %}<form class="child-help-form kid-page" action="{{ path('donate') }}"
                                     method="GET">
                                     {% if not closed %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}
-                                    <!--<div class='donate-form-row'>
-                                    <div class="donate-form-row__col donate-sum-fieldgroup toggle-fieldgroup">
-                                        <label class="donate-sum-fieldgroup__label toggle-field">
-                                            <input class="toggle-field__input" type="radio" name="sum" value="300"
-                                                checked>
-                                            <span class="toggle-field__text">300 Р</span>
-                                        </label>
-                                        <label class="donate-sum-fieldgroup__label toggle-field">
-                                            <input class="toggle-field__input" type="radio" name="sum" value="500">
-                                            <span class="toggle-field__text">500 Р</span>
-                                        </label>
-                                        <label class="donate-sum-fieldgroup__label toggle-field">
-                                            <input class="donate-text-field" type="text" name="sum-other" value=""
-                                                placeholder="Другая сумма" autocomplete="off">
-                                        </label>
-                                        <button
-                                            class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit visible"
-                                            type="submit">
-                                            Пожертвовать
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class='donate-form-row'>
-                                    <div class="payment-methods">
-                                        <p class="payment-methods-text">Оплата с карт</p>
-                                        <img class="toggle-field__text-image" src="/images/Apple_Pay_mini.png"
-                                            width="20" height="20" style="margin-top: -4px;">
-                                        <img class="toggle-field__text-image "
-                                            src="/images/Google_Pay_mini.png" width="22" heiht="20">
-                                        <img class="toggle-field__text-image" src="/images/mastercard.png"
-                                            width="30" height="30">
-                                        <img class="toggle-field__text-image" src="/images/visa.png" width="40"
-                                            height="40">
-                                    </div>
-                                </div>
-                                    <button
-                                        class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit bottom hidden"
-                                        type="submit">
-                                        Пожертвовать
-                                    </button>-->
+                                
 
                                     <div class="donate-form-row" style="margin: 0 auto;">
                                         <div class="donate-form-row__col donate-sum-fieldgroup toggle-fieldgroup">
@@ -345,7 +300,7 @@
                                 {# <div class='name'>Преобретение аппарата сВОШ</div> #}
                                 <div class='name'>{{(targets|last).name}}</div>
 
-                                {% if targets|last.rehabilitation == 1%} <div class='info'>Реабилитация {{(targets|last).totime|date("j")}}
+                                {% if (targets|last).rehabilitation == 1 %} <div class='info'>Реабилитация {{(targets|last).totime|date("j")}}
                                     {{mnths[(targets|last).totime|date("n")]}} {{(targets|last).totime|date("Y")}} года
                                 </div>
                                 {% endif %}
