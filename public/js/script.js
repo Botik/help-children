@@ -1,4 +1,19 @@
 $(document).ready(function() {
+    var SJ_setiings = {
+        options: {
+                hlw: true, // Height as width
+                wlh: true, // Width as height
+                hlt: true, // Width of the target element (target id is the same as for height)
+                wlt: true, // Height of the target element (target id is the same as for width)
+                alo: true, // All elements as one (height)
+        },
+        settings: {
+                windowResize: true,
+                writeHystory: true
+        }
+    }
+    var sj = new SJ(SJ_setiings);
+    
     $(".money").each(function() {
       $( this ).text( $( this ).text().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
     });
@@ -45,22 +60,22 @@ $(document).ready(function() {
         $(link).addClass('displaytrue');
         $(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
 
-				if (link == "#kid-news") {
-					var SJ_setiings = {
-						options: {
-								hlw: true, // Height as width
-								wlh: true, // Width as height
-								hlt: true, // Width of the target element (target id is the same as for height)
-								wlt: true, // Height of the target element (target id is the same as for width)
-								alo: true, // All elements as one (height)
-						},
-						settings: {
-								windowResize: true,
-								writeHystory: true
-						}
-					}
-					var sj = new SJ(SJ_setiings);
-				}
+				// if (link == "#kid-news") {
+				// 	var SJ_setiings = {
+				// 		options: {
+				// 				hlw: true, // Height as width
+				// 				wlh: true, // Width as height
+				// 				hlt: true, // Width of the target element (target id is the same as for height)
+				// 				wlt: true, // Height of the target element (target id is the same as for width)
+				// 				alo: true, // All elements as one (height)
+				// 		},
+				// 		settings: {
+				// 				windowResize: true,
+				// 				writeHystory: true
+				// 		}
+				// 	}
+				// 	var sj = new SJ(SJ_setiings);
+				// }
         if (link == "#needed") {
             var galleryThumbs = new Swiper('.gallery-thumbs', {
                 spaceBetween: 10,
@@ -87,17 +102,17 @@ $(document).ready(function() {
 
 
 
-    // $('.cart-nav.kids-page>div').click(function() {
-    //     /*$('.cart-nav>div').each(function() {
-    //         $(this).removeClass("active");
-    //     })*/
-    //     var $page = $('html, body');
-    //     //$(this).addClass("active");
-    //     var link = $(this).find('a').attr('href');
-    //     $page.animate({
-    //         scrollTop: ($(link).offset().top - 180)
-    //     }, 400);
-    // });
+    $('.cart-nav.kids-page>div').click(function() {
+        /*$('.cart-nav>div').each(function() {
+            $(this).removeClass("active");
+        })*/
+        var $page = $('html, body');
+        //$(this).addClass("active");
+        var link = $(this).find('a').attr('href');
+        $page.animate({
+            scrollTop: ($(link).offset().top - 180)
+        }, 400);
+    });
 
 
     $('.dropdown-link').hover(function() {
