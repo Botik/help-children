@@ -12,7 +12,7 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Категория (?)</th>
+                        <th scope="col">Ребенок</th>
                         <th scope="col">Название</th>
                         <th scope="col">Дата добавления</th>
                         <th scope="col"></th>
@@ -23,7 +23,7 @@
                     {% for n in news %}
                         <tr>
                             <th scope="row">{{ n.id }}</th>
-                            <td>{{ n.category }}</td>
+                            <td>{{ (n.child == -1) ? 'фонд' : n.child }}</td>
                             <td>{{ n.title }}</td>
                             <td>{{ n.CreatedAt|date('d.m.Y') }}</td>
                             <td><a href="/panel/news/{{ n.id }}">Изменить</a></td>

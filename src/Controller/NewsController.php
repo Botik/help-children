@@ -44,7 +44,7 @@ class NewsController extends AbstractController
     {
         return $this->render('news/list.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['createdat' => 'ASC'])
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['createdat' => 'DESC'])
             ]);
     }
     /**
@@ -71,7 +71,7 @@ class NewsController extends AbstractController
         return $this->render(
             'panel/news/list.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findAll()
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['createdat' => 'DESC'])
             ]
         );
     }
