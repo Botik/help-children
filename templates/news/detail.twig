@@ -34,12 +34,12 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block'>
+                                            <div class='img-block' data-proportion-h="1">
                                                  {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen style="border-radius:10px;"></iframe> {% elseif n.arphotos %}
-                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" data-proportion-h="1" style="object-fit: cover; border-radius:10px;">
+                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" style="object-fit: cover; border-radius:10px;">
                                                     {% endif %}
                                             </div>
                                             <div class='littleimg-block'>
@@ -116,9 +116,7 @@
                             })
                         $(this).css('display', 'none');
                     }
-                    var photo = $(this);
-                    photo.data('proportion-h',1);
-                    $('.news-block.opened .news .news-flex-block .left-half .img-block').html(photo
+                    $('.news-block.opened .news .news-flex-block .left-half .img-block').html($(this)
                         .html());
                 });
             });
