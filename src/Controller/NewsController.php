@@ -68,10 +68,15 @@ class NewsController extends AbstractController
      */
     public function p_list()
     {
+        $c=[];
+        foreach ($this->getDoctrine()->getRepository(Child::class)->findBy([],['id' => 'DESC']) as $ch) {
+            $c[$ch->getId()]=$ch->getName();
+        };
         return $this->render(
             'panel/news/list.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['id' => 'DESC'])
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['id' => 'DESC']),
+                'c' => $c
             ]
         );
     }

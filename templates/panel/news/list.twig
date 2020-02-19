@@ -23,7 +23,7 @@
                     {% for n in news %}
                         <tr>
                             <th scope="row">{{ n.id }}</th>
-                            <td>{{ (n.child == -1) ? 'фонд' : n.child }}</td>
+                            <td>{{ (n.child == -1) ? 'фонд' : c[n.child] }}</td>
                             <td>{{ n.title }}</td>
                             <td>{{ n.CreatedAt|date('d.m.Y') }}</td>
                             <td><a href="/panel/news/{{ n.id }}">Изменить</a></td>
