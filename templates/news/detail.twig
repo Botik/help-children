@@ -119,7 +119,10 @@
 
                     $('.news-block.opened .news .news-flex-block .left-half .img-block').html($(this)
                         .html());
-                    var SJ_setiings = {
+                });
+            });
+
+            var SJ_setiings = {
                         options: {
                             hlw: true, // Height as width
                             wlh: true, // Width as height
@@ -132,9 +135,7 @@
                             writeHystory: true
                         }
                     }
-                    var sj = new SJ(SJ_setiings);
-                });
-            });
+            var sj = new SJ(SJ_setiings);
         </script>
     </main>
 {% endautoescape %}
