@@ -43,6 +43,7 @@ $(document).ready(function() {
         $(this).addClass("active");
         var link = $(this).find('a').attr('href');
         $(link).addClass('displaytrue');
+        $(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
 
 				if (link == "#kid-news") {
 					var SJ_setiings = {
@@ -81,23 +82,22 @@ $(document).ready(function() {
 
 				}
 
-        $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
-        //$(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
+        // $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
     });
 
 
 
-    $('.cart-nav.kids-page>div').click(function() {
-        /*$('.cart-nav>div').each(function() {
-            $(this).removeClass("active");
-        })*/
-        var $page = $('html, body');
-        //$(this).addClass("active");
-        var link = $(this).find('a').attr('href');
-        $page.animate({
-            scrollTop: ($(link).offset().top - 180)
-        }, 400);
-    });
+    // $('.cart-nav.kids-page>div').click(function() {
+    //     /*$('.cart-nav>div').each(function() {
+    //         $(this).removeClass("active");
+    //     })*/
+    //     var $page = $('html, body');
+    //     //$(this).addClass("active");
+    //     var link = $(this).find('a').attr('href');
+    //     $page.animate({
+    //         scrollTop: ($(link).offset().top - 180)
+    //     }, 400);
+    // });
 
 
     $('.dropdown-link').hover(function() {
