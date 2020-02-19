@@ -115,7 +115,7 @@
                                                 <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a href='{{tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (child.targets|length == loop.index  ? 'needed' : 'kid-news')}}'>Подробнее</a></div>
+                                                    <div><a href='{{tn[trg.id] is defined and tn[trg.id].descr ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (child.targets|length == loop.index  ? 'needed' : 'kid-news')}}'>Подробнее</a></div>
                                                 </div>
                                                 <div class='progress-bar-done {{ (not trg.rehabilitation) ? 'pmj'}}' style="width:{{100*trg.collected/trg.goal}}%"></div>
                                             </div>

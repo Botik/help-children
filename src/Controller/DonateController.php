@@ -574,7 +574,7 @@ class DonateController extends AbstractController
         $user = $this->getUser();
         $form_errors = [];
         $auth_errors='';
-        $child_id = (int) $request->request->filter('child_id', null, FILTER_VALIDATE_INT);
+        $child_id = (int) ($request->query->get('child_id') ?? $request->request->filter('child_id', null, FILTER_VALIDATE_INT));
         $form = [
             'payment-type' => trim($request->request->get('payment-type', $request->query->get('payment-type') ?? 'visa')),
             'EMoneyType'   =>      $request->request->get('EMoneyType', $request->query->get('EMoneyType') ),
