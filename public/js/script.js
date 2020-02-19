@@ -13,7 +13,7 @@ $(document).ready(function() {
         }
     }
     var sj = new SJ(SJ_setiings);
-    
+
     $(".money").each(function() {
       $( this ).text( $( this ).text().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
     });
@@ -61,20 +61,20 @@ $(document).ready(function() {
         $(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
 
 				if (link == "#kid-news") {
-					var SJ_setiings = {
-						options: {
-								hlw: true, // Height as width
-								wlh: true, // Width as height
-								hlt: true, // Width of the target element (target id is the same as for height)
-								wlt: true, // Height of the target element (target id is the same as for width)
-								alo: true, // All elements as one (height)
-						},
-						settings: {
-								windowResize: true,
-								writeHystory: true
-						}
-					}
-					var sj = new SJ(SJ_setiings);
+					// var SJ_setiings = {
+					// 	options: {
+					// 			hlw: true, // Height as width
+					// 			wlh: true, // Width as height
+					// 			hlt: true, // Width of the target element (target id is the same as for height)
+					// 			wlt: true, // Height of the target element (target id is the same as for width)
+					// 			alo: true, // All elements as one (height)
+					// 	},
+					// 	settings: {
+					// 			windowResize: true,
+					// 			writeHystory: true
+					// 	}
+					// }
+					// var sj2 = new SJ(SJ_setiings);
 				}
         if (link == "#needed") {
             var galleryThumbs = new Swiper('.gallery-thumbs', {
@@ -96,8 +96,11 @@ $(document).ready(function() {
             });
 
 				}
-
-        // $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
+				// var $page = $('html, body');
+				// $page.animate({
+				// 	scrollTop: ($('.hr-child.hr-full').offset().top - 80)
+				// }, 400);
+        $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
     });
 
 
