@@ -171,12 +171,12 @@
                                     <div class="collected-resources__slider">
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
-                                        <div class='collected-resources' onclick='location.href="#k"; location.href="{{ tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
+                                        <div class='collected-resources' onclick='event.preventDefault();location.href="#k"; location.href="{{ tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
                                             <!-- -->
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a onclick='location.href="#k";' href='{{  tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}'>Подробнее</a></div>
+                                                    <div><a onclick='event.preventDefault();location.href="#k";' href='{{  tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}'>Подробнее</a></div>
                                                 </div>
                                             <div class="collected-resources__slider-filled"
                                                 style="width: {{100*trg.collected/trg.goal}}%">
@@ -334,7 +334,7 @@
                                     {% if news.descr %}<p class='childnews-item-desc'>
                                         {{news.descr|raw}}
                                     </p>
-                                    <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link' onclick="event.preventDefault();">
+                                    <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
                                     </a>{% endif %}
                                     {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img' data-proportion-h="1">{% endif %}{% endif %}
