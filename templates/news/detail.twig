@@ -5,6 +5,7 @@
 {% block keywords %}{% endblock %}
 
 {% block content %}
+    {% autoescape false %}
     <main>
 
         <section class="section hero-medium">
@@ -121,4 +122,5 @@
             });
         </script>
     </main>
+{% endautoescape %}
 {% endblock %}
