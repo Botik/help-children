@@ -96,8 +96,11 @@ $(document).ready(function() {
             });
 
 				}
-
-        $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
+				var $page = $('html, body');
+				$page.animate({
+					scrollTop: ($('.hr-child.hr-full').offset().top - 80)
+			}, 400);
+        // $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
     });
 
 
