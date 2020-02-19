@@ -34,7 +34,7 @@ class NewsRepository extends ServiceEntityRepository
 
         $sql = 
         <<<sql
-        SELECT target_id, id FROM news WHERE target_id is NOT NULL
+        SELECT target_id, id FROM news WHERE target_id is NOT NULL and descr is NOT NULL
         sql;
 
         // :<<<sql
