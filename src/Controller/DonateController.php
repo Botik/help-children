@@ -578,7 +578,7 @@ class DonateController extends AbstractController
         $form = [
             'payment-type' => trim($request->request->get('payment-type', $request->query->get('payment-type') ?? 'visa')),
             'EMoneyType'   =>      $request->request->get('EMoneyType', $request->query->get('EMoneyType') ),
-            'child_id'     => $child_id === 0 ? null : $child_id,
+            'child_id'     => $child_id ?? null,
             'name'         => trim($request->request->get('name', $user ? $user->getFirstName() : $name)),
             'surname' => trim($request->request->get('surname', $user ? $user->getLastName() : $firstName)),
             'phone' => preg_replace(
