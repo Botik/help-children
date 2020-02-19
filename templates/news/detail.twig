@@ -54,7 +54,7 @@
                                                 </div>{% endif %}
                                                 {% if n.arphotos %}
                                                     {% for p in n.arphotos %}
-                                                    <div><img  width="560" height="315" data-proportion-h="1" src="/uploads/images/{{p}}" style="object-fit: cover;"></div>
+                                                    <div><img  width="560" height="315" src="/uploads/images/{{p}}" style="object-fit: cover;"></div>
                                                     {% endfor %}
                                                 {% endif %}
                                             </div>
@@ -116,8 +116,9 @@
                             })
                         $(this).css('display', 'none');
                     }
-
-                    $('.news-block.opened .news .news-flex-block .left-half .img-block').html($(this)
+                    var photo = $(this);
+                    photo.data('proportion-h',1);
+                    $('.news-block.opened .news .news-flex-block .left-half .img-block').html(photo
                         .html());
                 });
             });
