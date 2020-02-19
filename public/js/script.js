@@ -44,6 +44,22 @@ $(document).ready(function() {
         var link = $(this).find('a').attr('href');
         $(link).addClass('displaytrue');
 
+				if (link == "#kid-news") {
+					var SJ_setiings = {
+						options: {
+								hlw: true, // Height as width
+								wlh: true, // Width as height
+								hlt: true, // Width of the target element (target id is the same as for height)
+								wlt: true, // Height of the target element (target id is the same as for width)
+								alo: true, // All elements as one (height)
+						},
+						settings: {
+								windowResize: true,
+								writeHystory: true
+						}
+					}
+					var sj = new SJ(SJ_setiings);
+				}
         if (link == "#needed") {
             var galleryThumbs = new Swiper('.gallery-thumbs', {
                 spaceBetween: 10,

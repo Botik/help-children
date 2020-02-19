@@ -34,22 +34,22 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block'>
+                                            <div class='img-block' data-proportion-h="1">
                                                  {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowfullscreen></iframe> {% elseif n.arphotos %}
-                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" style="object-fit: cover;">
+                                                    allowfullscreen style="border-radius:10px;"></iframe> {% elseif n.arphotos %}
+                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" style="object-fit: cover; border-radius:10px;">
                                                     {% endif %}
                                             </div>
                                             <div class='littleimg-block'>
                                                 {% if n.video %}<div>
-                                                    
+
                                                 <iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowfullscreen></iframe> 
-                                                    
+                                                    allowfullscreen></iframe>
+
                                                     <div class='disable-click'></div>
                                                 </div>{% endif %}
                                                 {% if n.arphotos %}
@@ -103,6 +103,7 @@
                      {% include 'components/donate_form.twig' %}
                 </div>
             </div>
+        <script src="/js/stickjaw.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -115,11 +116,25 @@
                             })
                         $(this).css('display', 'none');
                     }
-
                     $('.news-block.opened .news .news-flex-block .left-half .img-block').html($(this)
                         .html());
                 });
             });
+
+            var SJ_setiings = {
+                        options: {
+                            hlw: true, // Height as width
+                            wlh: true, // Width as height
+                            hlt: true, // Width of the target element (target id is the same as for height)
+                            wlt: true, // Height of the target element (target id is the same as for width)
+                            alo: true, // All elements as one (height)
+                        },
+                        settings: {
+                            windowResize: true,
+                            writeHystory: true
+                        }
+                    }
+            var sj = new SJ(SJ_setiings);
         </script>
     </main>
 {% endautoescape %}

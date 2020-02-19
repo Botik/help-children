@@ -1537,6 +1537,8 @@
 .childnews-item .children-item-img {
 	width:100%;
 	height:auto;
+	border-radius: 10px;
+	object-fit: cover;
 }
 
 .ymaps-2-1-75-balloon{
