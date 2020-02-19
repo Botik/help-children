@@ -3676,7 +3676,7 @@ body {
     padding-right: 20px
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:1440px) {
     .nav-links__item {
         padding-left: 8px;
         padding-right: 8px
@@ -3722,7 +3722,7 @@ body {
     padding-right: 20px
 }
 
-@media (max-width:1200px) {
+@media (max-width:1440px) {
     .user-menu-links__item {
         display: block;
         margin-bottom: .5rem
