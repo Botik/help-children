@@ -71,7 +71,7 @@ class NewsController extends AbstractController
         return $this->render(
             'panel/news/list.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['createdat' => 'DESC'])
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['id' => 'DESC'])
             ]
         );
     }
