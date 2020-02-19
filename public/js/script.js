@@ -13,7 +13,7 @@ $(document).ready(function() {
         }
     }
     var sj = new SJ(SJ_setiings);
-    
+
     $(".money").each(function() {
       $( this ).text( $( this ).text().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
     });
@@ -74,7 +74,7 @@ $(document).ready(function() {
 								writeHystory: true
 						}
 					}
-					var sj = new SJ(SJ_setiings);
+					var sj2 = new SJ(SJ_setiings);
 				}
         if (link == "#needed") {
             var galleryThumbs = new Swiper('.gallery-thumbs', {
