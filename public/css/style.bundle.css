@@ -2740,7 +2740,7 @@ body {
 
 .hero-medium {
     height: 270px;
-    padding-top: 30px;
+    padding-top: 35px;
     background-image: url(../images/bg-orange-medium.png);
     background-size: cover;
     background-position: center
@@ -2764,14 +2764,14 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     text-align: center;
-    font-size: 3.2rem;
+    font-size: 4rem;
     font-family: Borsok, sans-serif;
     color: #fff
 }
 
 .hero-large {
     height: 610px;
-    padding-top: 80px;
+    padding-top: 35px;
     background-image: url(../images/bg-orange-large.png);
     background-size: cover
 }
@@ -2780,7 +2780,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     text-align: center;
-    font-size: 3.2rem;
+    font-size: 4rem;
     font-family: Borsok, sans-serif;
     color: #fff
 }
