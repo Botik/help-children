@@ -326,7 +326,7 @@
                                                 <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a href='{{path('children_detail', {'id': child.id}) ~ '#kid-news')}}'>Подробнее</a></div>
+                                                    <div><a href='{{path('children_detail', {'id': child.id}) ~ '#kid-news'}}'>Подробнее</a></div>
                                                 </div>
                                                 <div class='progress-bar-done {{ (not trg.rehabilitation) ? 'pmj'}}' style="width:{{100*trg.collected/trg.goal}}%"></div>
                                             </div>
