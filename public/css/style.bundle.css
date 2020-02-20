@@ -5657,7 +5657,10 @@ line-height: 20px;
 	}
 	.ohf-row.third-row .th-col-label__number {
 		margin-top:0.5rem;
-	}
+    }
+    .ohf-row.third-row .th-col-label__number img{
+        width:40px;
+    }
 	.ohf-row.third-row .ohf-col-label img {
 		height:170px;
 	}
