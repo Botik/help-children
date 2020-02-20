@@ -171,12 +171,12 @@
                                     <div class="collected-resources__slider">
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
-                                        <div class='collected-resources' onclick='location.href="#k"; location.href="{{ tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
+                                        <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}"'>
                                             <!-- -->
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a onclick='location.href="#k";' href='{{  tn[trg.id] is defined ? '/news/' ~ tn[trg.id] : path('children_detail', {'id': child.id}) ~ '#' ~ (((targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}'>Подробнее</a></div>
+                                                    <div><a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a></div>
                                                 </div>
                                             <div class="collected-resources__slider-filled"
                                                 style="width: {{100*trg.collected/trg.goal}}%">
