@@ -107,7 +107,7 @@
                                         <div class='push-content'></div>
                                         <div class='progress-list'>
                                         {% for trg in child.targets%}
-                                            <div class='progress-bar'>
+                                            <div class='progress-bar' onclick='location.href="{{path('children_detail', {'id': child.id}) ~ '#' ~ (((child.targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
                                                 <!--
                                             Внутри каждого 'progress-bar' нужен блок 'txt'
                                             именно в нем содержится контент всплывашки
@@ -234,7 +234,7 @@
                                         <div class='push-content'></div>
                                         <div class='progress-list'>
                                         {% for trg in child.targets%}
-                                            <div class='progress-bar'>
+                                            <div class='progress-bar' onclick='location.href="{{path('children_detail', {'id': child.id}) ~ '#' ~ (((child.targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
                                                 <!--
                                             Внутри каждого 'progress-bar' нужен блок 'txt'
                                             именно в нем содержится контент всплывашки
@@ -318,7 +318,7 @@
                                         <div class='progress-list'>
 
                                         {% for trg in child.targets%}
-                                            <div class='progress-bar'>
+                                            <div class='progress-bar' onclick='location.href="{{path('children_detail', {'id': child.id}) ~ '#kid-news'}}"'>
                                                 <!--
                                             Внутри каждого 'progress-bar' нужен блок 'txt'
                                             именно в нем содержится контент всплывашки
@@ -367,40 +367,6 @@
                 </div>
             </section>
         {%- endif %}
-{#
-        {% if closed|length -%}
-            <section class="section kids">
-                <div class="container container-pagecontent-padding">
-                    <h2 class="section-title">Мы уже помогли</h2>
-                    <ul class="aid-list">
-                        {% for child in closed -%}
-                            <li class="aid-list__item">
-                                <div class="aid-card">
-                                    <img class="aid-card__photo" src="{{ asset('uploads/images/' ~ child.images[0]) }}" alt="Фото {{ child.name }}"/>
-                                    <div class="aid-card__description">
-                                        <p class="aid-card__description-name">{{ child.name }}</p>
-                                        <p class="aid-card__description-diagnosis">{{ child.diagnosis }}</p>
-                                        <div class="aid-card__description-resources collected-resources">
-                                            <div class="collected-resources__slider">
-                                                <div class="collected-resources__slider-filled" style="width:{{ (child.goalRatio * 100)|number_format(0) }}%"></div>
-                                            </div>
-                                            <div class="collected-resources__sum">
-                                                <span class="collected-resources__sum-notice">Сбор средств закрыт</span>
-                                            </div>
-                                        </div>
-                                        <p class="aid-card__description-more">
-                                            <a class="aid-card__description-more__link js-card-link"
-                                               href="{{ path('children_detail', {'id': child.id}) }}">Узнать
-                                                подробнее</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                        {%- endfor %}
-                    </ul>
-                </div>
-            </section>
-        {%- endif %} #}
 
     </main>
     {# <script src='/js/stickjaw.js'></script>
