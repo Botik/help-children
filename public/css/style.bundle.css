@@ -6551,7 +6551,7 @@ line-height: 20px;
 
 @media (max-width:768px) {
     .account-wrapper {
-        top: -470px;
+        top: -500px;
         padding: 2rem;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
