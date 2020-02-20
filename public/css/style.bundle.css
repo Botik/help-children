@@ -5206,7 +5206,7 @@ body {
 
 .contacts-wrapper {
     position: relative;
-    top: -430px;
+    top: -500px;
     background: #fff;
     -webkit-box-shadow: 0 0 50px rgba(142, 53, 36, .1);
     box-shadow: 0 0 50px rgba(142, 53, 36, .1);
@@ -6027,7 +6027,7 @@ line-height: 20px;
 
 .child-wrapper {
     position: relative;
-    top: -130px
+    top: -140px
 }
 
 .card-child-wrapper {
@@ -6538,7 +6538,7 @@ line-height: 20px;
 
 .account-wrapper {
     position: relative;
-    top: -420px;
+    top: -500px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
