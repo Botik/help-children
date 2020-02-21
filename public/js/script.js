@@ -283,7 +283,7 @@ $(document).ready(function() {
 					$('.online-help-wrapper').css('top','-500px');
 				}
 			} else {
-				$('.child-wrapper').css('top','-130px');
+				$('.child-wrapper').css('top','-150px');
 				$('.online-help-wrapper').css('top','-500px');
 			}
 		});
