@@ -2530,12 +2530,13 @@ ul {
 }
 
 html {
-    font-size: 62.5%
+		/* font-size: 62.5% */
+		font-size:12px;
 }
 
 @media (max-width:1440px) {
     html {
-        font-size: 53.5%
+        /* font-size: 53.5% */
     }
 }
 
