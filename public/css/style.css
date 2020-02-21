@@ -2017,11 +2017,11 @@ font-weight:300;
 	}
 }
 
-@media screen and (max-width:486px) {
+/* @media screen and (max-width:486px) {
 	.online-help-wrapper {
 		top:-460px !important;
 	}
-}
+} */
 
  @media screen and (max-width:540px) {
 

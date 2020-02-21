@@ -277,6 +277,11 @@ $(document).ready(function() {
 				if ($('.hero-medium__title').height() > 70) {
 					$('.child-wrapper').css('top','-100px');
 				}
+				if ($('.hero-large .container').height()>70) {
+					$('.online-help-wrapper').css('top','-460px');
+				} else {
+					$('.online-help-wrapper').css('top','-500px');
+				}
 			} else {
 				$('.child-wrapper').css('top','-130px');
 			}
@@ -289,6 +294,9 @@ $(document).ready(function() {
 			}
 			if ($('.hero-medium__title').height() > 70) {
 				$('.child-wrapper').css('top','-100px');
+			}
+			if ($('.hero-large .container').height()>70) {
+				$('.online-help-wrapper').css('top','-460px');
 			}
 		}
 });
