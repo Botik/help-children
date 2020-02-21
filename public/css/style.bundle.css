@@ -2740,7 +2740,7 @@ body {
 
 .hero-medium {
     height: 270px;
-    padding-top: 30px;
+    padding-top: 35px;
     background-image: url(../images/bg-orange-medium.png);
     background-size: cover;
     background-position: center
@@ -2764,14 +2764,14 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     text-align: center;
-    font-size: 3.2rem;
+    font-size: 4rem;
     font-family: Borsok, sans-serif;
     color: #fff
 }
 
 .hero-large {
     height: 610px;
-    padding-top: 80px;
+    padding-top: 35px;
     background-image: url(../images/bg-orange-large.png);
     background-size: cover
 }
@@ -2780,7 +2780,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     text-align: center;
-    font-size: 3.2rem;
+    font-size: 4rem;
     font-family: Borsok, sans-serif;
     color: #fff
 }
@@ -3147,6 +3147,11 @@ body {
         padding-left: 2rem;
         padding-right: 2rem
     }
+}
+
+.container.container--small.th-cont {
+    padding-top:45px;
+    padding-bottom:100px;
 }
 
 .toggle-field--disabled {
@@ -5206,7 +5211,7 @@ body {
 
 .contacts-wrapper {
     position: relative;
-    top: -430px;
+    top: -500px;
     background: #fff;
     -webkit-box-shadow: 0 0 50px rgba(142, 53, 36, .1);
     box-shadow: 0 0 50px rgba(142, 53, 36, .1);
@@ -5652,7 +5657,10 @@ line-height: 20px;
 	}
 	.ohf-row.third-row .th-col-label__number {
 		margin-top:0.5rem;
-	}
+    }
+    .ohf-row.third-row .th-col-label__number img{
+        width:40px;
+    }
 	.ohf-row.third-row .ohf-col-label img {
 		height:170px;
 	}
@@ -6027,7 +6035,7 @@ line-height: 20px;
 
 .child-wrapper {
     position: relative;
-    top: -130px
+    top: -140px
 }
 
 .card-child-wrapper {
@@ -6538,7 +6546,7 @@ line-height: 20px;
 
 .account-wrapper {
     position: relative;
-    top: -420px;
+    top: -500px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -6551,7 +6559,7 @@ line-height: 20px;
 
 @media (max-width:768px) {
     .account-wrapper {
-        top: -470px;
+        top: -500px;
         padding: 2rem;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;

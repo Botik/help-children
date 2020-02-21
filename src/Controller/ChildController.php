@@ -36,9 +36,20 @@ class ChildController extends AbstractController
         }
         $trg=$this->getDoctrine()->getRepository(ChTarget::class)->findByChild($child);
         $ctarg=end($trg);
-        if (($ctarg->getCollected()>=$ctarg->getGoal()) && ($ctarg->getAllowClose()[0])) $state='close';
-        else $state= ($ctarg->getRehabilitation()) ? 'rehab' : 'pmj';
-        $child_lst=$this->getDoctrine()->getRepository(Child::class)->getCurCh($state);
+        $state='close';
+        $child_lst=[];
+        if (($ctarg->getCollected()>=$ctarg->getGoal()) && ($ctarg->getAllowClose()[0])) {
+            $state='close';
+            $child_lst=$this->getDoctrine()->getRepository(Child::class)->getCurCh($state);
+        }
+        else {
+            $state= ($ctarg->getRehabilitation()) ? 'rehab' : 'pmj';
+            $r=$this->getDoctrine()->getRepository(Child::class)->getCurCh('rehab');
+            $p=$this->getDoctrine()->getRepository(Child::class)->getCurCh('pmj');
+            $child_lst=array_merge($r,$p);
+        }
+        
+
         $key=0;
         foreach ($child_lst as $key => $ch) {
             if ($ch['id'] == $id)  break;

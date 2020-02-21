@@ -170,6 +170,11 @@ class ChTarget
         return [$this->allowclose ?? 1];
     }
 
+    public function getLink($last=true)
+    {
+        return '/children/' . $this->getChild() . '#' . (($last and ( $this->collected < $this->goal ))  ? 'needed' : 'kid-news');
+    }
+
     public function setAllowClose($allowclose): self
     {
         $allowclose=$allowclose==[] ? 0:1;
