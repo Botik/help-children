@@ -2019,7 +2019,7 @@ font-weight:300;
 
 @media screen and (max-width:486px) {
 	.online-help-wrapper {
-		top:-460px;
+		top:-460px !important;
 	}
 }
 
