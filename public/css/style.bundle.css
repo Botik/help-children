@@ -2727,7 +2727,8 @@ body {
     text-align: center;
     font-size: 4rem;
     font-family: Borsok, sans-serif;
-    color: #fff
+    color: #fff;
+    height:3rem
 }
 
 .hero-small__subtitle {
