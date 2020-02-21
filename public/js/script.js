@@ -274,6 +274,8 @@ $(document).ready(function() {
 				if ($('.hero-medium__title').height() > 70) {
 					$('.child-wrapper').css('top','-100px');
 				}
+			} else {
+				$('.child-wrapper').css('top','-130px');
 			}
 		});
 
@@ -284,7 +286,6 @@ $(document).ready(function() {
 			}
 			if ($('.hero-medium__title').height() > 70) {
 				$('.child-wrapper').css('top','-100px');
-
 			}
 		}
 		console.log($('.hero-medium__title').height());
