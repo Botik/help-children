@@ -2728,7 +2728,6 @@ body {
     font-size: 4rem;
     font-family: Borsok, sans-serif;
     color: #fff;
-    height:3rem
 }
 
 .hero-small__subtitle {
@@ -5478,13 +5477,18 @@ body {
 .online-help-wrapper {
     position: relative;
 		/* top: -430px; */
-		top:-460px;
+	top:-485px;
     background: #fff;
     -webkit-box-shadow: 0 0 50px rgba(142, 53, 36, .1);
     box-shadow: 0 0 50px rgba(142, 53, 36, .1);
     border-radius: 20px
 }
 
+@media screen and (max-width:1440px) {
+    .online-help-wrapper{
+        top:-500px;
+    }
+}
 
 
 @media screen and (max-width:394px) {
