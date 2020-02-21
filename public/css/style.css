@@ -1367,7 +1367,7 @@
  }
 
  .hero-medium.kid-page .hero-medium__title {
-     /* margin-top:15px; */
+     margin-top:15px;
  }
 
  @media screen and (max-width:992px) {
