@@ -261,7 +261,7 @@ $(document).ready(function() {
 		}
 
 		$( window ).resize(function() {
-			if ($(window).width() <= '500'){
+			if ($(window).width() <= '1440'){
 				if ($('.hero-medium__title').height() < 50) {
 					$('.child-wrapper').css('top','-140px');
 				}
@@ -277,7 +277,7 @@ $(document).ready(function() {
 			}
 		});
 
-		if ($(window).width() <= '500'){
+		if ($(window).width() <= '1440'){
 			if ($('.hero-medium__title').height() < 50) {
 				$('.child-wrapper').css('top','-140px');
 
