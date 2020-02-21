@@ -288,5 +288,4 @@ $(document).ready(function() {
 				$('.child-wrapper').css('top','-100px');
 			}
 		}
-		console.log($('.hero-medium__title').height());
 });
