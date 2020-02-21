@@ -261,18 +261,18 @@ $(document).ready(function() {
 		}
 
 		if ($('.hero-medium__title').height() < 50) {
-			$('.child-wrapper').css('top','-130px');
+			$('.child-wrapper').css('top','-140px');
 		}
 		if ($('.hero-medium__title').height() > 70) {
-			$('.child-wrapper').css('top','-90px');
+			$('.child-wrapper').css('top','-100px');
 		}
 
 		$( window ).resize(function() {
 			if ($('.hero-medium__title').height() < 50) {
-				$('.child-wrapper').css('top','-130px');
+				$('.child-wrapper').css('top','-140px');
 			}
 			if ($('.hero-medium__title').height() > 70) {
-				$('.child-wrapper').css('top','-90px');
+				$('.child-wrapper').css('top','-100px');
 			}
 		});
 });
