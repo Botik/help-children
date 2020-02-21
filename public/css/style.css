@@ -1923,7 +1923,7 @@ font-weight:300;
          box-shadow: 3px 0px 15px #D4D4D4;
      }
      .online-help-wrapper {
-         top: -400px;
+         /* top: -400px; */
      }
      .ohf-col-label__notice {
          flex: initial;
@@ -2009,11 +2009,17 @@ font-weight:300;
  }
 
 @media screen and (max-width:570px) {
-	.online-help-wrapper {
+	/* .online-help-wrapper {
 		top:-440px !important;
-	}
+	} */
 	.online-help-wrapper.th-w {
 		top:0 !important;
+	}
+}
+
+@media screen and (max-width:486px) {
+	.online-help-wrapper {
+		top:-460px;
 	}
 }
 
