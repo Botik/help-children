@@ -260,11 +260,15 @@ $(document).ready(function() {
 
 		}
 
-		if ($('.hero-medium__title').height() < 50) {
-			$('.child-wrapper').css('top','-140px');
-		}
-		if ($('.hero-medium__title').height() > 70) {
-			$('.child-wrapper').css('top','-100px');
+		while($('.hero-medium__title').height() <=0) {
+			if ($('.hero-medium__title').height() < 50) {
+				$('.child-wrapper').css('top','-140px');
+				break;
+			}
+			if ($('.hero-medium__title').height() > 70) {
+				$('.child-wrapper').css('top','-100px');
+				break;
+			}
 		}
 
 		$( window ).resize(function() {
