@@ -266,13 +266,13 @@ $(document).ready(function() {
 		$( window ).resize(function() {
 			if ($(window).width() <= '1440'){
 				if ($('.hero-medium__title').height() < 50) {
-					$('.child-wrapper').css('top','-135px');
+					$('.child-wrapper').css('top','-140px');
 				}
 				if ($('.hero-medium__title').height() > 70) {
 					$('.child-wrapper').css('top','-100px');
 				}
 				if ($('.hero-medium__title').height() < 50) {
-					$('.child-wrapper').css('top','-135px');
+					$('.child-wrapper').css('top','-140px');
 				}
 				if ($('.hero-medium__title').height() > 70) {
 					$('.child-wrapper').css('top','-100px');
@@ -290,7 +290,7 @@ $(document).ready(function() {
 
 		if ($(window).width() <= '1440'){
 			if ($('.hero-medium__title').height() < 50) {
-				$('.child-wrapper').css('top','-135px');
+				$('.child-wrapper').css('top','-140px');
 
 			}
 			if ($('.hero-medium__title').height() > 70) {
