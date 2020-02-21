@@ -258,6 +258,21 @@ $(document).ready(function() {
 					}, 400);
 				});
 
-    }
+		}
 
+		if ($('.hero-medium__title').height() < 50) {
+			$('.child-wrapper').css('top','-130px');
+		}
+		if ($('.hero-medium__title').height() > 70) {
+			$('.child-wrapper').css('top','-90px');
+		}
+
+		$( window ).resize(function() {
+			if ($('.hero-medium__title').height() < 50) {
+				$('.child-wrapper').css('top','-130px');
+			}
+			if ($('.hero-medium__title').height() > 70) {
+				$('.child-wrapper').css('top','-90px');
+			}
+		});
 });
