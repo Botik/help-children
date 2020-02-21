@@ -236,7 +236,7 @@ $(document).ready(function() {
 
 				if ($(window).width() <= '768'){
 					if ($('.hero-medium__title').text() == "Долгосрочная опека" || $('.hero-medium__title').text() == "Мы помогли") {
-						$('.hero-medium__title').css('margin-top','10px');
+						//$('.hero-medium__title').css('margin-top','10px');
 					}
 				}
 
@@ -262,6 +262,12 @@ $(document).ready(function() {
 
 		$( window ).resize(function() {
 			if ($(window).width() <= '500'){
+				if ($('.hero-medium__title').height() < 50) {
+					$('.child-wrapper').css('top','-140px');
+				}
+				if ($('.hero-medium__title').height() > 70) {
+					$('.child-wrapper').css('top','-100px');
+				}
 				if ($('.hero-medium__title').height() < 50) {
 					$('.child-wrapper').css('top','-140px');
 				}
