@@ -529,13 +529,13 @@
 <script src="/js/stickjaw.js"></script>
 {# <script src="/js/bundle.js"></script> #}
 <script type="text/javascript">
-window.hashName = window.location.hash;
-window.location.hash = '';
+hashName = location.hash;
+location.hash = '';
 
 $( window ).on( "load" ,function() {
-    $('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(window.hashName)].click();
+    $('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(hashName)].click();
 });
-$(window).on('hashchange', function(){$('.cart-nav>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();}).trigger('hashchange');
+$(window).on('hashchange', function(){$('.cart-nav>div')[['#letter','#kid-news','#needed'].indexOf(hashName)].click();}).trigger('hashchange');
 </script>
 {% endautoescape %}
 {% endblock %}
