@@ -533,7 +533,7 @@ hashName = location.hash;
 location.hash = '';
 
 $( window ).on( "load" ,function() {
-    $('html, body').animate({scrollTop: $(hashName).offset().top}, 500);
+    $('html, body').animate({scrollTop: $('#'+hashName).offset().top}, 500);
     //$('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(hashName)].click();
 });
 $(window).on('hashchange', function(){$('.cart-nav>div')[['#letter','#kid-news','#needed'].indexOf(hashName)].click();}).trigger('hashchange');
