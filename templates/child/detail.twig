@@ -203,7 +203,7 @@
                                 <h3 class="child-help-form__title">Я хочу помочь детям</h3>
                                 {% endif %}<form class="child-help-form kid-page" action="{{ path('donate') }}"
                                     method="GET">
-                                    {# {% if not closed %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %} #}
+                                    {% if not closed %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}
 
 
                                     <div class="donate-form-row" style="margin: 0 auto;">
