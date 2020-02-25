@@ -171,12 +171,23 @@
                                     <div class="collected-resources__slider">
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
-                                        <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}"'>
+                                        {% if closed %}
+                                            <div class='collected-resources' onclick='location.href="#letter";'>
+                                        {% else %}
+                                            <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}"'>
+                                        {% endif %}
+
                                             <!-- -->
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a></div>
+                                                    <div>
+                                                        {% if closed %}
+                                                            <a onclick='location.href="#letter";' href='letter'>Подробнее</a>
+                                                        {% else %}
+                                                            <a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a>
+                                                        {% endif %}
+                                                    </div>
                                                 </div>
                                             <div class="collected-resources__slider-filled"
                                                 style="width: {{100*trg.collected/trg.goal}}%">
