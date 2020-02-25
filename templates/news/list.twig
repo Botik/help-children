@@ -32,7 +32,7 @@
                                 {% if (n.descr) or (n.arphotos) or (n.video) %}
                                 <div class='news'>
                                     <a href="{{ path('news_detail', {'id' : n.id}) }}">
-                                    
+
                                     <div class='news-info'>
                                         <span class='news-filter-name'>
                                         {% if n.child == -1 %}Новости фонда
@@ -49,7 +49,7 @@
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe> {% elseif n.arphotos %}
-                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" style="object-fit: cover;">
+                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" data-proportion-h="0.75" style="object-fit: cover;">
                                                     {% endif %}
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe> {% elseif n.arphotos %}
-                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" style="object-fit: cover;">
+                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" data-proportion-h="0.75" style="object-fit: cover;">
                                                     {% endif %}
                                             </div>
                                         </div>
@@ -139,7 +139,7 @@
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe> {% elseif n.arphotos %}
-                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" style="object-fit: cover;">
+                                                    <img  width="560" height="315" src="/uploads/images/{{n.arphotos[0]}}" data-proportion-h="0.75" style="object-fit: cover;">
                                                     {% endif %}
                                             </div>
                                         </div>
