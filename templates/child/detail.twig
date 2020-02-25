@@ -175,7 +175,7 @@
                                             <div class='collected-resources' onclick='animateScroll("#letter");'>
                                         {% else %}
                                             {# <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}";'> #}
-                                            <div class='collected-resources' onclick='locationFunc({{ trg.link(targets|length == loop.index) }});'>
+                                            <div class='collected-resources' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
                                         {% endif %}
 
                                             <!-- -->
