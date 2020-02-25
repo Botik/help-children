@@ -6032,13 +6032,11 @@ line-height: 20px;
         margin-bottom: 20px;
         width: fit-content
     }
-    .link-back-mobile.news{
-				display: block!important;
-				margin-bottom:0;
-				margin-top:0;
-    }
     .link-back-desktop {
         display: none!important
+    }
+    .link-back-desktop.news{
+				display: block!important;
     }
 }
 
