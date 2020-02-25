@@ -263,18 +263,6 @@ $(document).ready(function() {
 
 		}
 
-
-		if ($('#section-mission').length) {
-			if ((window.location.href).indexOf("section-mission") > -1 ) {
-				event.preventDefault();
-				var $page = $('html, body');
-				$page.animate({
-					//scrollTop: ($('.cart-nav').offset().top - 180)
-					scrollTop: ($('#section-mission').offset().top - 80)
-			}, 400);
-			}
-		}
-
 		$( window ).resize(function() {
 			if ($(window).width() <= '1440'){
 				if ($('.hero-medium__title').height() < 50) {
