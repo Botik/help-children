@@ -2780,6 +2780,12 @@ body {
     background-size: cover
 }
 
+@media screen and (max-width:769px) {
+	.hero-large.thanks-page {
+		padding-bottom:35px;
+	}
+}
+
 .hero-large__title {
     margin-top: 0;
     margin-bottom: 0;
