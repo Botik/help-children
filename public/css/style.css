@@ -467,7 +467,8 @@
  }
  .news-block.opened .recomend-news-flex-container .recomend-news-link {
      display:block;
-     flex:0 0 55%
+     flex:0 0 55%;
+     text-decoration:none;
  }
  .news-block.opened .recomend-news-flex-container .recomend-news {
      display: flex;

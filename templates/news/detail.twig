@@ -77,7 +77,7 @@
                                     <div class='news-name'>Читайте так же:</div>
                                     <div class='recomend-news-flex-container'>
                                         {% for nn in news if ((n.id != nn.id) and nn.descr) %}
-                                        <a href='{{ path('news_detail', {'id' : nn.id}) }}' class='recomend-news-link>
+                                        <a href='{{ path('news_detail', {'id' : nn.id}) }}' class='recomend-news-link'>
                                             <div class='recomend-news'>
                                                 <div class='left-half'>
                                                     <div class='img-block'>
