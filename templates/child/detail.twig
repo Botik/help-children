@@ -337,7 +337,7 @@
                                     <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
                                     </a>{% endif %}
-                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' data-proportion-h="0.75" class='children-item-img' style="max-height: 300px;object-fit: cover;">{% endif %}{% endif %}
+                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img' style="max-height: 270px;object-fit: cover;">{% endif %}{% endif %}
                                 </div>
                                 {% endif %}
                             </div>
@@ -367,7 +367,7 @@
                                     <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
                                     </a>{% endif %}
-                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' data-proportion-h="0.75" class='children-item-img'>{% endif %}{% endif %}
+                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img' style="max-height: 270px;object-fit: cover;">{% endif %}{% endif %}
                                 </div>
                                 {% endif %}
                             </div>
