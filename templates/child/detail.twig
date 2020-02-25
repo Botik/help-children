@@ -172,7 +172,7 @@
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
                                         {% if closed %}
-                                            <div class='collected-resources' onclick='location.href="#letter";'>
+                                            <div class='collected-resources' onclick='animateScroll("#letter");'>
                                         {% else %}
                                             <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}"'>
                                         {% endif %}
@@ -183,7 +183,7 @@
                                                     <div class='info'>{{trg.name}}</div>
                                                     <div>
                                                         {% if closed %}
-                                                            <a onclick='location.href="#letter";' href='letter'>Подробнее</a>
+                                                            <a onclick='animateScroll("#letter");'>Подробнее</a>
                                                         {% else %}
                                                             <a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a>
                                                         {% endif %}
