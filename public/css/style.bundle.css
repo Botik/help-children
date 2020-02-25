@@ -6018,7 +6018,7 @@ line-height: 20px;
 }
 
 .link-back-mobile {
-    display: none!important
+    display: none !important
 }
 
 .link-back-desktop {
@@ -6032,8 +6032,10 @@ line-height: 20px;
         margin-bottom: 20px;
         width: fit-content
     }
-    .link-back-mobile {
-        /* display: block!important */
+    .link-back-mobile.news{
+				display: block!important;
+				margin-bottom:0;
+				margin-top:0;
     }
     .link-back-desktop {
         display: none!important
