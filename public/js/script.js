@@ -267,6 +267,7 @@ $(document).ready(function() {
 		if ($('#section-mission').length) {
 			if (document.location.indexOf('section-mission') > -1 ) {
 				event.preventDefault();
+				var $page = $('html, body');
 				$page.animate({
 					//scrollTop: ($('.cart-nav').offset().top - 180)
 					scrollTop: ($('#section-mission').offset().top - 80)
