@@ -107,7 +107,7 @@
                                         <div class='push-content'></div>
                                         <div class='progress-list'>
                                         {% for trg in child.targets%}
-                                            <div class='progress-bar' onclick='location.href="{{path('children_detail', {'id': child.id}) ~ '#' ~ (((child.targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
+                                            <div class='progress-bar' onclick='locationFunc("{{path('children_detail', {'id': child.id}) ~ '#' ~ (((child.targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}")'>
                                                 <!--
                                             Внутри каждого 'progress-bar' нужен блок 'txt'
                                             именно в нем содержится контент всплывашки
@@ -234,7 +234,7 @@
                                         <div class='push-content'></div>
                                         <div class='progress-list'>
                                         {% for trg in child.targets%}
-                                            <div class='progress-bar' onclick='location.href="{{path('children_detail', {'id': child.id}) ~ '#' ~ (((child.targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}"'>
+                                            <div class='progress-bar' onclick='locationFunc("{{path('children_detail', {'id': child.id}) ~ '#' ~ (((child.targets|length == loop.index) and ( trg.collected < trg.goal ))  ? 'needed' : 'kid-news')}}")'>
                                                 <!--
                                             Внутри каждого 'progress-bar' нужен блок 'txt'
                                             именно в нем содержится контент всплывашки
@@ -318,7 +318,7 @@
                                         <div class='progress-list'>
 
                                         {% for trg in child.targets%}
-                                            <div class='progress-bar' onclick='location.href="{{path('children_detail', {'id': child.id}) ~ '#letter'}}"'>
+                                            <div class='progress-bar' onclick='locationFunc("{{path('children_detail', {'id': child.id}) ~ '#letter'}}")'>
                                                 <!--
                                             Внутри каждого 'progress-bar' нужен блок 'txt'
                                             именно в нем содержится контент всплывашки
