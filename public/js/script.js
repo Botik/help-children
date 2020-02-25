@@ -330,6 +330,6 @@ function animateScroll(elem){
 function locationFunc(link){
 	if ($(window).width() <= '769'){
 	} else {
-		location.href = link;
+		location.href = "'"+link+"'";
 	}
 }
