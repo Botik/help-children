@@ -205,6 +205,20 @@
             $('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();
 });
             $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
+            var SJ_setiings = {
+                        options: {
+                            hlw: true, // Height as width
+                            wlh: true, // Width as height
+                            hlt: true, // Width of the target element (target id is the same as for height)
+                            wlt: true, // Height of the target element (target id is the same as for width)
+                            alo: true, // All elements as one (height)
+                        },
+                        settings: {
+                            windowResize: true,
+                            writeHystory: true
+                        }
+                    }
+            var sj = new SJ(SJ_setiings);
         </script>
     </main>
 {% endautoescape %}
