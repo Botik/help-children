@@ -216,7 +216,7 @@ $(document).ready(function() {
             $page.animate({
 								//scrollTop: ($('.cart-nav').offset().top - 180)
 								scrollTop: ($('.hr-child.hr-full').offset().top - 80)
-            }, 400);
+            }, 1500);
 				}
 				if (hash == "#kid-news") {
 					$('.cart-nav>div').each(function() {
@@ -233,7 +233,7 @@ $(document).ready(function() {
 					$page.animate({
 							//scrollTop: ($('.cart-nav').offset().top - 180)
 							scrollTop: ($('.hr-child.hr-full').offset().top - 80)
-					}, 400);
+					}, 1500);
 				}
 
 				if ($(window).width() <= '768'){
@@ -258,7 +258,7 @@ $(document).ready(function() {
 					$page.animate({
 							//scrollTop: ($('.cart-nav').offset().top - 180)
 							scrollTop: ($('.hr-child.hr-full').offset().top - 80)
-					}, 400);
+					}, 1500);
 				});
 
 		}
