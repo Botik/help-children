@@ -265,7 +265,7 @@ $(document).ready(function() {
 
 
 		if ($('#section-mission').length) {
-			if (document.location.indexOf('section-mission') > -1 ) {
+			if ((window.location.href).indexOf("section-mission") > -1 ) {
 				event.preventDefault();
 				var $page = $('html, body');
 				$page.animate({
