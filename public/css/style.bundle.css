@@ -2706,6 +2706,10 @@ body {
     font-family: Borsok, sans-serif
 }
 
+.section-title.kid-list{
+	margin-bottom:4.5rem;
+}
+
 .section-subtitle {
     margin-top: 0;
     margin-bottom: 0;

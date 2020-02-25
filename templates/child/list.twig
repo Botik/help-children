@@ -25,7 +25,7 @@
         {% if opened|length -%}
             <section class="section kids section-with-bghearts">
                 <div class="container container-pagecontent-padding">
-                    <h2 class="section-title"  id='dolgosrochnaya-opeka'>Долгосрочная опека</h2>
+                    <h2 class="section-title kid-list"  id='dolgosrochnaya-opeka'>Долгосрочная опека</h2>
                     {# <p class="section-subtitle">Вы можете помочь этим детям</p> #}
                     <ul class="aid-list">
                         {% for child in opened -%}
@@ -166,7 +166,7 @@
         {% if pmj|length -%}
             <section class="section kids">
             <div class="container container-pagecontent-padding">
-                <h2 class="section-title" id='pjm'>Подарки, мечты, желания</h2>
+                <h2 class="section-title kid-list" id='pjm'>Подарки, мечты, желания</h2>
                 <ul class="aid-list">
                         {% for child in pmj -%}
                             {# {% if not (child.targets|last).rehabilitation %} #}
@@ -294,7 +294,7 @@
         {% if closed|length -%}
             <section class="section kids">
             <div class="container container-pagecontent-padding">
-                <h2 class="section-title" id='we-helped'>Мы помогли</h2>
+                <h2 class="section-title kid-list" id='we-helped'>Мы помогли</h2>
                 <ul class="aid-list">
                         {% for child in closed -%}
                             <li class="aid-list__item">
