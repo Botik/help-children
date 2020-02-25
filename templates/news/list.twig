@@ -44,7 +44,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block' data-proportion-h="0.75">
+                                            <div class='img-block' style='max-height:340px;'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -89,7 +89,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block' data-proportion-h="0.75">
+                                            <div class='img-block' style='max-height:340px;'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -134,7 +134,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block' data-proportion-h="0.75">
+                                            <div class='img-block' style='max-height:340px;'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -205,7 +205,7 @@
             $('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();
 });
             $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
-            var SJ_setiings = {
+            {# var SJ_setiings = {
                         options: {
                             hlw: true, // Height as width
                             wlh: true, // Width as height
@@ -218,7 +218,7 @@
                             writeHystory: true
                         }
                     }
-            var sj = new SJ(SJ_setiings);
+            var sj = new SJ(SJ_setiings); #}
         </script>
     </main>
 {% endautoescape %}
