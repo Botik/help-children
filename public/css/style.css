@@ -17,6 +17,10 @@
      width: 100%;
  }
 
+ .cart-nav.news-page{
+	 margin-bottom:0;
+ }
+
  @media (max-width:768px) {
      .cart-nav-container {
          width: 98%;

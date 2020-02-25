@@ -6024,6 +6024,9 @@ line-height: 20px;
 .link-back-desktop {
     display: block!important
 }
+.link-back-desktop.news{
+	margin-top:0;
+}
 
 @media (max-width:769px) {
     .link-back {
