@@ -48,7 +48,7 @@ class ChildController extends AbstractController
             $p=$this->getDoctrine()->getRepository(Child::class)->getCurCh('pmj');
             $child_lst=array_merge($r,$p);
         }
-        
+
 
         $key=0;
         foreach ($child_lst as $key => $ch) {
@@ -67,7 +67,7 @@ class ChildController extends AbstractController
                 'imgs' => json_decode(end($trg)->getAttach()),
                 'prevnext'=>[($key==0) ? $child_lst[(count($child_lst)-1)]['id'] :  $child_lst[($key-1) % (count($child_lst)-1)]['id'],$child_lst[($key+1) % (count($child_lst))]['id']],
                 'closed'=> $state=='close',
-                'title'=>['close'=>"Мы помогли",'pmj'=>"Подарки, мечты, желания",'rehab'=>"Долгосрочная опека"][$state],
+                'title'=>['close'=>"Мы помогли",'pmj'=>"Подарки и мечты",'rehab'=>"Долгосрочная опека"][$state],
                 "news_lst" => $this->getDoctrine()->getRepository(News::class)->findByChild($child,['createdat' => 'ASC'])
             ]
         );
