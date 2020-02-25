@@ -326,3 +326,10 @@ function animateScroll(elem){
 		scrollTop: ($(elem).offset().top - 180)
   }, 400);
 }
+
+function locationFunc(link){
+	if ($(window).width() <= '769'){
+	} else {
+		location.href = link;
+	}
+}
