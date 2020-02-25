@@ -174,7 +174,7 @@
                                         {% if closed %}
                                             <div class='collected-resources' onclick='animateScroll("#letter");'>
                                         {% else %}
-                                            <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}"; animateScroll("#kid-news")'>
+                                            <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}";'>
                                         {% endif %}
 
                                             <!-- -->
@@ -531,7 +531,7 @@
 <script type="text/javascript">
 
 $( window ).on( "load" ,function() {
-    //$('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();
+    $('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();
 });
 $(window).on('hashchange', function(){$('.cart-nav>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();}).trigger('hashchange');
 </script>

@@ -235,23 +235,23 @@ $(document).ready(function() {
 							scrollTop: ($('.hr-child.hr-full').offset().top - 80)
 					}, 1000);
 				}
-				if (hash == "#letter") {
-					$('.cart-nav>div').each(function() {
-							$(this).removeClass("active");
-					});
-					$('#letter').removeClass('displaytrue');
-					$('#needed').removeClass('displaytrue');
-					$('#kid-news').removeClass('displaytrue');
+				// if (hash == "#letter") {
+				// 	$('.cart-nav>div').each(function() {
+				// 			$(this).removeClass("active");
+				// 	});
+				// 	$('#letter').removeClass('displaytrue');
+				// 	$('#needed').removeClass('displaytrue');
+				// 	$('#kid-news').removeClass('displaytrue');
 
-					$('.cart-nav .left').addClass("active");
+				// 	$('.cart-nav .left').addClass("active");
 
-					$('#letter').addClass('displaytrue');
-					var $page = $('html, body');
-					$page.animate({
-							//scrollTop: ($('.cart-nav').offset().top - 180)
-							scrollTop: ($('.hr-child.hr-full').offset().top - 80)
-					}, 1000);
-				}
+				// 	$('#letter').addClass('displaytrue');
+				// 	var $page = $('html, body');
+				// 	$page.animate({
+				// 			//scrollTop: ($('.cart-nav').offset().top - 180)
+				// 			scrollTop: ($('.hr-child.hr-full').offset().top - 80)
+				// 	}, 1000);
+				// }
 
 				if ($(window).width() <= '768'){
 					if ($('.hero-medium__title').text() == "Долгосрочная опека" || $('.hero-medium__title').text() == "Мы помогли") {
