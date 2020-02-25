@@ -5502,7 +5502,7 @@ body {
 }
 
 .online-help-wrapper.th-w {
-	top:0;
+	top:0 !important;
 }
 
 .ohf-row {
