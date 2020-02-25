@@ -306,6 +306,6 @@ $(document).ready(function() {
 function animateScroll(elem){
 	var $page = $('html, body');
   $page.animate({
-		scrollTop: ($(elem).offset().top - 80)
+		scrollTop: ($(elem).offset().top - 180)
   }, 400);
 }
