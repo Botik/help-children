@@ -1174,7 +1174,7 @@
  .childnews .separator {
      position: absolute;
      left: 50%;
-     width: 1px;
+     width: 2px;
      height: calc(100% - 60px);
      background: #F0F0F0;
      margin-top: 20px;
