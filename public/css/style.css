@@ -2088,7 +2088,7 @@ font-weight:300;
 
  .childnews-item-desc {
      text-overflow: ellipsis;
-     height: 50px;
+     height: 48px;
      overflow: hidden;
  }
 
