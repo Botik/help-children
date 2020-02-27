@@ -171,12 +171,24 @@
                                     <div class="collected-resources__slider">
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
-                                        <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}"'>
+                                        {% if closed %}
+                                            <div class='collected-resources' onclick='animateScroll("#letter");'>
+                                        {% else %}
+                                            {# <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}";'> #}
+                                            <div class='collected-resources' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
+                                        {% endif %}
+
                                             <!-- -->
                                             <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a></div>
+                                                    <div>
+                                                        {% if closed %}
+                                                            <a onclick='animateScroll("#letter");'>Подробнее</a>
+                                                        {% else %}
+                                                            <a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a>
+                                                        {% endif %}
+                                                    </div>
                                                 </div>
                                             <div class="collected-resources__slider-filled"
                                                 style="width: {{100*trg.collected/trg.goal}}%">
@@ -337,7 +349,7 @@
                                     <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
                                     </a>{% endif %}
-                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img' style="max-height: 300px;object-fit: cover;">{% endif %}{% endif %}
+                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img' style="max-height: 270px;object-fit: cover;">{% endif %}{% endif %}
                                 </div>
                                 {% endif %}
                             </div>
@@ -367,7 +379,7 @@
                                     <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
                                         Подробнее
                                     </a>{% endif %}
-                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' data-proportion-h="1" class='children-item-img'>{% endif %}{% endif %}
+                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img' style="max-height: 270px;object-fit: cover;">{% endif %}{% endif %}
                                 </div>
                                 {% endif %}
                             </div>
@@ -516,8 +528,9 @@
 </main>
 <script src="/js/swiper.min.js"></script>
 <script src="/js/stickjaw.js"></script>
-<script src="/js/bundle.js"></script>
+{# <script src="/js/bundle.js"></script> #}
 <script type="text/javascript">
+
 $( window ).on( "load" ,function() {
     $('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();
 });

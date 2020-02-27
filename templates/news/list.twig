@@ -19,7 +19,7 @@
 
                 <div class="child-wrapper">
                     <div class="card-child-wrapper">
-                        <div class='cart-nav'>
+                        <div class='cart-nav news-page'>
                             <div class='active left'><span>Все новости</span></div>
                             <div class='center'><span>Новости детей</span></div>
                             <div class='right'><span>Новости фонда</span></div>
@@ -32,7 +32,7 @@
                                 {% if (n.descr) or (n.arphotos) or (n.video) %}
                                 <div class='news'>
                                     <a href="{{ path('news_detail', {'id' : n.id}) }}">
-                                    
+
                                     <div class='news-info'>
                                         <span class='news-filter-name'>
                                         {% if n.child == -1 %}Новости фонда
@@ -44,7 +44,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block'>
+                                            <div class='img-block' style='max-height:340px; height:100%;'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -89,7 +89,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block'>
+                                            <div class='img-block' style='max-height:340px; height:100%;'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -134,7 +134,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block'>
+                                            <div class='img-block' style='max-height:340px; height:100%;'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -205,6 +205,20 @@
             $('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();
 });
             $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
+            {# var SJ_setiings = {
+                        options: {
+                            hlw: true, // Height as width
+                            wlh: true, // Width as height
+                            hlt: true, // Width of the target element (target id is the same as for height)
+                            wlt: true, // Height of the target element (target id is the same as for width)
+                            alo: true, // All elements as one (height)
+                        },
+                        settings: {
+                            windowResize: true,
+                            writeHystory: true
+                        }
+                    }
+            var sj = new SJ(SJ_setiings); #}
         </script>
     </main>
 {% endautoescape %}

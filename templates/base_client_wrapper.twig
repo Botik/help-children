@@ -63,8 +63,7 @@ fbq('track', 'PageView');
                                             <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="nav-links-submenu__item-link">Долгосрочная опека</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link">Подарки, мечты,
-                                                желания</a>
+                                            <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link">Подарки и мечты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
                                             <a href="{{ path('children_list') }}#kids_we_helped" class="nav-links-submenu__item-link">Мы помогли</a>
@@ -73,7 +72,7 @@ fbq('track', 'PageView');
                                 </div>
                             </li>
                             <li class="nav-links__item dropdown">
-                                <a class="nav-links__item-link dropdown-link" href="{{ path('main') }}#section-mission">О
+                                <a class="nav-links__item-link dropdown-link" id='section-mission-href' href="{{ path('main') }}#section-mission">О
                                     Фонде</a>
                                 <div class="dropdown-content">
                                     <ul class="nav-links-submenu dropdown-menu">
@@ -116,7 +115,7 @@ fbq('track', 'PageView');
                                     <span class="icon icon-user"></span>
                                 </span>
                                 <a class="user-menu-links__item-link" href="{{ path(is_granted('IS_AUTHENTICATED_FULLY') ? 'account_main' : 'app_login') }}">
-                                    Вход в кабинет
+                                    Личный кабинет
                                 </a>
                             </li>
                         </ul>
@@ -182,7 +181,7 @@ fbq('track', 'PageView');
                                         <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="nav-links-submenu__item-link">Долгосрочная опека</a>
                                     </li>
                                     <li class="nav-links-submenu__item">
-                                        <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link">Подарки, мечты, желания</a>
+                                        <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link">Подарки и мечты</a>
                                     </li>
                                     <li class="nav-links-submenu__item">
                                         <a href="{{ path('children_list') }}#kids_we_helped" class="nav-links-submenu__item-link">Мы помогли</a>
@@ -325,8 +324,7 @@ fbq('track', 'PageView');
                                         <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="footernav-links__item-link">Долгосрочная опека</a>
                                     </li>
                                     <li class="footernav-links__item">
-                                        <a href="{{ path('children_list') }}#kids_pjm" class="footernav-links__item-link">Подарки, мечты,
-                                            желания</a>
+                                        <a href="{{ path('children_list') }}#kids_pjm" class="footernav-links__item-link">Подарки и мечты</a>
                                     </li>
                                     <li class="footernav-links__item">
                                         <a href="{{ path('children_list') }}#kids_we_helped" class="footernav-links__item-link">Мы помогли</a>

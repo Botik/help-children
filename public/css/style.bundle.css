@@ -2530,7 +2530,7 @@ ul {
 }
 
 html {
-    font-size: 62.5%
+		font-size: 62.5%
 }
 
 @media (max-width:1440px) {
@@ -2701,9 +2701,13 @@ body {
 
 .section-title {
     margin-top: 1.5rem;
-    margin-bottom: 4.5rem;
+    margin-bottom: 1.5rem;
     font-size: 2.4rem;
     font-family: Borsok, sans-serif
+}
+
+.section-title.kid-list{
+	margin-bottom:4.5rem;
 }
 
 .section-subtitle {
@@ -2727,7 +2731,7 @@ body {
     text-align: center;
     font-size: 4rem;
     font-family: Borsok, sans-serif;
-    color: #fff
+    color: #fff;
 }
 
 .hero-small__subtitle {
@@ -2774,6 +2778,12 @@ body {
     padding-top: 35px;
     background-image: url(../images/bg-orange-large.png);
     background-size: cover
+}
+
+@media screen and (max-width:769px) {
+	.hero-large.thanks-page {
+		padding-bottom:35px;
+	}
 }
 
 .hero-large__title {
@@ -5477,13 +5487,18 @@ body {
 .online-help-wrapper {
     position: relative;
 		/* top: -430px; */
-		top:-460px;
+	top:-485px;
     background: #fff;
     -webkit-box-shadow: 0 0 50px rgba(142, 53, 36, .1);
     box-shadow: 0 0 50px rgba(142, 53, 36, .1);
     border-radius: 20px
 }
 
+@media screen and (max-width:1440px) {
+    .online-help-wrapper{
+        top:-500px;
+    }
+}
 
 
 @media screen and (max-width:394px) {
@@ -5493,7 +5508,7 @@ body {
 }
 
 .online-help-wrapper.th-w {
-	top:0;
+	top:0 !important;
 }
 
 .ohf-row {
@@ -6003,11 +6018,14 @@ line-height: 20px;
 }
 
 .link-back-mobile {
-    display: none!important
+    display: none !important
 }
 
 .link-back-desktop {
     display: block!important
+}
+.link-back-desktop.news{
+	margin-top:0;
 }
 
 @media (max-width:769px) {
@@ -6017,11 +6035,13 @@ line-height: 20px;
         margin-bottom: 20px;
         width: fit-content
     }
-    .link-back-mobile {
-        /* display: block!important */
-    }
     .link-back-desktop {
         display: none!important
+    }
+    .link-back-desktop.news{
+				display: block!important;
+				margin-bottom:0;
+				margin-top:0;
     }
 }
 
@@ -6035,7 +6055,7 @@ line-height: 20px;
 
 .child-wrapper {
     position: relative;
-    top: -140px
+    top: -130px;
 }
 
 .card-child-wrapper {

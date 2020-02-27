@@ -11,11 +11,11 @@
         <section class="section hero-medium">
             <div class="container child-container">
                 <a class="link-back link-back-mobile" id='children-link-back' href="{{ path('news_list') }}"><span
-                        class="icon icon-arrow-angle-right"></span>Назад</a>
+                        class="icon icon-arrow-angle-right"></span>Все новости</a>
                 <h1 class="hero-medium__title">Новость</h1>
                 <p class="hero-small__subtitle">тут все наши новости</p>
-                <a class="link-back link-back-desktop" id='children-link-back' href="{{ path('news_list') }}"><span
-                        class="icon icon-arrow-angle-right"></span>Назад</a>
+                <a class="link-back link-back-desktop news" id='children-link-back' href="{{ path('news_list') }}"><span
+                        class="icon icon-arrow-angle-right"></span>Новости</a>
             </div>
         </section>
 
@@ -34,7 +34,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block' data-proportion-h="1">
+                                            <div class='img-block' data-proportion-h="0.75">
                                                  {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -72,26 +72,28 @@
                                         <div class='comment-link'>Комменты</div>
                                     </div> #}
                                 </div>
-                                {# <div class='separator'></div>
+                                <div class='separator'></div>
                                 <div class='recomended-news-block'>
                                     <div class='news-name'>Читайте так же:</div>
                                     <div class='recomend-news-flex-container'>
                                         {% for nn in news if ((n.id != nn.id) and nn.descr) %}
-                                        <div class='recomend-news'>
-                                            <div class='left-half'>
-                                                <div class='img-block'>
-                                                    <img  width="560" height="315" src="{{nn.arphotos is not empty ? '/uploads/images/' ~ nn.arphotos[0] : '/images/logo.png'}}" style="object-fit: cover;">
+                                        <a href='{{ path('news_detail', {'id' : nn.id}) }}' class='recomend-news-link'>
+                                            <div class='recomend-news'>
+                                                <div class='left-half'>
+                                                    <div class='img-block'>
+                                                        <img  width="560" height="315" src="{{nn.arphotos is not empty ? '/uploads/images/' ~ nn.arphotos[0] : '/images/logo.png'}}" style="object-fit: cover;">
+                                                    </div>
+                                                </div>
+                                                <div class='right-half'>
+                                                    <div class='date'>{{nn.createdAt|date('d.m.Y')}}</div>
+                                                    <div class='news-name'>{{nn.title}}</div>
+                                                    <div><span>Подробнее</span></div>
                                                 </div>
                                             </div>
-                                            <div class='right-half'>
-                                                <div class='date'>{{nn.createdAt|date('d.m.Y')}}</div>
-                                                <div class='news-name'>{{nn.title}}</div>
-                                                <div><a href='{{ path('news_detail', {'id' : nn.id}) }}'>Подробнее</a></div>
-                                            </div>
-                                        </div>
+                                        </a>
                                         {% endfor %}
                                     </div>
-                                </div> #}
+                                </div>
                             </div>
                         </div>
                     </div>
