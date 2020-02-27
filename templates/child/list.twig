@@ -318,7 +318,7 @@
                                         <div class='progress-list'>
 
                                         {% for trg in child.targets%}
-                                            <div class='progress-bar' onclick='locationFunc("{{path('children_detail', {'id': child.id}) ~ '#letter'}}"); event.preventDefault();'>
+                                            <div class='progress-bar' onclick='locationFunc("{{path('children_detail', {'id': child.id}) ~ ((child.id in tn) ? '#kid-news' : '#letter')}}"); event.preventDefault();'>
                                                 <!--
                                             Внутри каждого 'progress-bar' нужен блок 'txt'
                                             именно в нем содержится контент всплывашки
@@ -326,7 +326,7 @@
                                                 <div class='txt'>
                                                     <div class='childname'>{{ child.name }}</div>
                                                     <div class='info'>{{trg.name}}</div>
-                                                    <div><a href='{{path('children_detail', {'id': child.id}) ~ '#letter'}}'>Подробнее</a></div>
+                                                    <div><a href='{{path('children_detail', {'id': child.id}) ~ ((child.id in tn) ? '#kid-news' : '#letter')}}'>Подробнее</a></div>
                                                 </div>
                                                 <div class='progress-bar-done {{ (not trg.rehabilitation) ? 'pmj'}}' style="width:{{100*trg.collected/trg.goal}}%"></div>
                                             </div>
