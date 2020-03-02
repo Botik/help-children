@@ -438,7 +438,7 @@ class DonateController extends AbstractController
 
                 if($form['Status']=='paid'){
                     $children = $entityManager->getRepository(\App\Entity\Child::class)->getOpened();
-                    
+
             $targ = $entityManager->getRepository(ChTarget::class)->findByChild($req->getChild());
             $targ=end($targ);
             if ($targ) $targ->setCollected($targ->getCollected()+$req->getSum());
@@ -526,7 +526,7 @@ class DonateController extends AbstractController
         $code = $request->query->get('code');
         $firstName = $request->query->get('firstname');
         $phone = $request->query->get('phone');
-        
+
             $phone = preg_replace(
                 '/^[78]/',
                 '+7',
@@ -544,21 +544,21 @@ class DonateController extends AbstractController
                     $title = 'Завершение регистрации';
                     $description = 'Для продолжения регистрации введите свой пароль';
                     $value = 'Продолжить';
-                    
+
                     $form1 = $this->createForm(ResetPasswordFormType::class, $user);
                     $form1->handleRequest($request);
 
                     if (!$form1->isSubmitted()) {
-                        return $this->render('auth/resetPassword.twig', 
+                        return $this->render('auth/resetPassword.twig',
                         ['form' => $form1->createView(), 'title' => $title, 'description' => $description, 'value' => $value]);
-                    }                                 
+                    }
                     // encode the plain password
                     $user->setPass(
                         $passwordEncoder->encodePassword(
                             $user,
                             $form1->get('password')->getData()
                         )
-                    );                
+                    );
                 }
 
                 if ($user) {
@@ -574,7 +574,7 @@ class DonateController extends AbstractController
         $user = $this->getUser();
         $form_errors = [];
         $auth_errors='';
-        $child_id = (int) ($request->query->get('child_id') ?? $request->request->filter('child_id', null, FILTER_VALIDATE_INT));
+        $child_id = (int) ($request->query->get('child_id') ?? $request->request->filter('child_id', 9999, FILTER_VALIDATE_INT));
         $form = [
             'payment-type' => trim($request->request->get('payment-type', $request->query->get('payment-type') ?? 'visa')),
             'EMoneyType'   =>      $request->request->get('EMoneyType', $request->query->get('EMoneyType') ),
