@@ -261,7 +261,7 @@
                     <section class='cart-nav-container kid-profile'>
                         <div class='cart-nav kid-profile'>
                             <div class='active left'><span><a href='#letter'>Письмо мамы</a></span></div>
-                            <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребенка <span class="news_counter">{{news_lst|length}}</span></a></span></div>
+                            <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребёнка <span class="news_counter">{{news_lst|length}}</span></a></span></div>
                             <div class='right {{ closed or ((targets|last).allowclose[0] == 0 and (date((targets|last).totime) < date( "now"))) ? 'disabled' }} '><span><a href='#needed'>Необходимо собрать</a></span></div>
                         </div>
                     </section>
