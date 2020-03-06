@@ -331,9 +331,10 @@ function locationFunc(link){
 	if ($(window).width() <= '769'){
 
 	} else {
-        location.href = link;
 		if ($('.mothersletter').length){
-			var hash = window.location.hash;
+            var hashpos = link.indexOf('#');
+            var hash = link;
+            console.log(link.slice(hashpos, link.length+1));
             if (hash == "#needed") {
                 $('.cart-nav>div').each(function() {
                     $(this).removeClass("active");
@@ -385,6 +386,7 @@ function locationFunc(link){
                         }, 1000);
                     });
 		} else {
+            location.href = link;
 		}
 	}
 }
