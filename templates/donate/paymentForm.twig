@@ -48,9 +48,9 @@
                         $.post('{{ fields.URL_RETURN_NO }}', {
                             'order_id': '{{ fields.Order_IDP }}'
                         }).success(function(ret){
-                            window.location.href = '/donate?'+$.param(data);
+                            window.location.href = '/donate?'+$.param(data)+"&child_id={{child_id}}";
                         }).error(function (req) {
-                            window.location.href = '/donate?'+$.param(data);
+                            window.location.href = '/donate?'+$.param(data)+"&child_id={{child_id}}";
                         });
                     }
                 );
