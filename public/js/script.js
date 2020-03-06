@@ -333,8 +333,7 @@ function locationFunc(link){
 	} else {
 		if ($('.mothersletter').length){
             var hashpos = link.indexOf('#');
-            var hash = link;
-            console.log(link.slice(hashpos, link.length+1));
+            var hash = link.slice(hashpos, link.length+1);
             if (hash == "#needed") {
                 $('.cart-nav>div').each(function() {
                     $(this).removeClass("active");
