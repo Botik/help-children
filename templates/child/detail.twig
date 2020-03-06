@@ -199,7 +199,7 @@
                                 </div>
 
                                 <div class="hr-child" style='height:2px;'></div>
-                                {% if closed %}
+                                {% if closed or ((targets|last).goal <= (targets|last).collected) %}
                                 <h3 class="child-help-form__title">Я хочу помочь детям</h3>
                                 {% endif %}<form class="child-help-form kid-page" action="{{ path('donate') }}"
                                     method="GET">
