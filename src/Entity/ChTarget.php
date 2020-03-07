@@ -174,8 +174,8 @@ class ChTarget
     {
         echo "!!!!!! last ".$last.
         " $ mon ".( $this->collected < $this->goal ). 
-        " $ date ".(date($this->totime) > date( "now"))." !!!!!!!";
-        return '/children/' . $this->getChild() . '#' . (($last and  (( $this->collected < $this->goal ) or (date($this->totime) > date( "now"))))  ? 'needed' : 'kid-news');
+        " $ date ".(($this->totime) > new DateTime)." !!!!!!!";
+        return '/children/' . $this->getChild() . '#' . (($last and  (( $this->collected < $this->goal ) or (($this->totime) > new DateTime)))  ? 'needed' : 'kid-news');
     }
 
     public function setAllowClose($allowclose): self
