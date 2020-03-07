@@ -172,7 +172,10 @@ class ChTarget
 
     public function getLink($last=true)
     {
-        return '/children/' . $this->getChild() . '#' . (($last and  (( $this->collected < $this->goal ) or (date($this->totime) > date("now")))) ? 'needed' : 'kid-news');
+        echo "!!!!!! last ".$last.
+        " $ mon ".( $this->collected < $this->goal ). 
+        " $ date ".(date($this->totime) > date( "now"))." !!!!!!!";
+        return '/children/' . $this->getChild() . '#' . (($last and  (( $this->collected < $this->goal ) or (date($this->totime) > date( "now"))))  ? 'needed' : 'kid-news');
     }
 
     public function setAllowClose($allowclose): self
