@@ -174,7 +174,7 @@ class ChTarget
     {
         echo "!!!!!! last ".$last.
         " $ mon ".( $this->collected < $this->goal ). 
-        " $ date ".(($this->totime) > new DateTime)." !!!!!!!";
+        " $ date ".(($this->totime) > new \DateTime)." !!!!!!!";
         return '/children/' . $this->getChild() . '#' . (($last and  (( $this->collected < $this->goal ) or (($this->totime) > new DateTime)))  ? 'needed' : 'kid-news');
     }
 
