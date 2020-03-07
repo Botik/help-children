@@ -172,6 +172,7 @@ class ChTarget
 
     public function getLink($last=true)
     {
+        echo "totime ". $this->totime."<br>";
         return '/children/' . $this->getChild() . '#' . (($last and  (( $this->collected < $this->goal ) or (date($this->totime) > date( "now"))))  ? 'needed' : 'kid-news');
     }
 
