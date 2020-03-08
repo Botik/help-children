@@ -856,6 +856,7 @@
      line-height: 16px;
      text-decoration-line: underline;
      color: #5D20B0;
+     cursor:pointer;
  }
 
  .aid-card .RaisedMoney {
