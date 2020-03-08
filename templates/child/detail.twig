@@ -172,7 +172,7 @@
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
                                         {% if closed %}
-                                            <div class='collected-resources' onclick='animateScroll("#letter");'>
+                                            <div class='collected-resources' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
                                         {% else %}
                                             {# <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}";'> #}
                                             <div class='collected-resources' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
@@ -184,13 +184,13 @@
                                                     <div class='info'>{{trg.name}}</div>
                                                     <div>
                                                         {% if closed %}
-                                                            <a onclick='animateScroll("#letter");'>Подробнее</a>
+                                                            <a onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>Подробнее</a>
                                                         {% else %}
                                                             <a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a>
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                            <div class="collected-resources__slider-filled"
+                                            <div class="collected-resources__slider-filled {{ (not trg.rehabilitation) ? 'pmj'}}"
                                                 style="width: {{100*trg.collected/trg.goal}}%">
                                             </div>
                                         </div>
@@ -199,11 +199,11 @@
                                 </div>
 
                                 <div class="hr-child" style='height:2px;'></div>
-                                {% if closed %}
+                                {% if closed or ((targets|last).goal <= (targets|last).collected) %}
                                 <h3 class="child-help-form__title">Я хочу помочь детям</h3>
                                 {% endif %}<form class="child-help-form kid-page" action="{{ path('donate') }}"
                                     method="GET">
-                                    {% if not closed %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}
+                                    {% if ((targets|last).goal > (targets|last).collected) %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}
 
 
                                     <div class="donate-form-row" style="margin: 0 auto;">
@@ -261,7 +261,7 @@
                     <section class='cart-nav-container kid-profile'>
                         <div class='cart-nav kid-profile'>
                             <div class='active left'><span><a href='#letter'>Письмо мамы</a></span></div>
-                            <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребенка <span class="news_counter">{{news_lst|length}}</span></a></span></div>
+                            <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребёнка <span class="news_counter">{{news_lst|length}}</span></a></span></div>
                             <div class='right {{ closed or ((targets|last).allowclose[0] == 0 and (date((targets|last).totime) < date( "now"))) ? 'disabled' }} '><span><a href='#needed'>Необходимо собрать</a></span></div>
                         </div>
                     </section>
@@ -463,7 +463,7 @@
                     <div class="hr-child hr-full"></div>
 
                     <form class="child-help-form" action="{{ path('donate') }}" method="POST">
-                        {% if closed %}
+                        {% if ((targets|last).goal <= (targets|last).collected) %}
                          <h3 class="child-help-form__title">Помочь другим детям</h3> {% else %}<input type="hidden" name="child_id" value="{{ child.id }}">
                         <h3 class="child-help-form__title">Адресная помощь: {{ child.name }}</h3>{% endif %}
                         <div class="child-help-form-row">
