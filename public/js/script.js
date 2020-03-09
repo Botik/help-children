@@ -211,7 +211,7 @@ $(document).ready(function() {
 
             $('.cart-nav .right').addClass("active");
 
-            $('.needed').addClass('displaytrue');
+            $('#needed').addClass('displaytrue');
             var $page = $('html, body');
             $page.animate({
 								//scrollTop: ($('.cart-nav').offset().top - 180)
