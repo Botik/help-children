@@ -344,7 +344,7 @@ function locationFunc(link){
 
                 $('.cart-nav .right').addClass("active");
 
-                $('.needed').addClass('displaytrue');
+                $('#needed').addClass('displaytrue');
                 var $page = $('html, body');
                 $page.animate({
                                     scrollTop: ($('.hr-child.hr-full').offset().top - 80)
