@@ -170,6 +170,7 @@ class ChildController extends AbstractController
         }
 
         $form = $this->createForm(ChTargetTypes::class, $targ);
+        $oldimages = $targ->getAttach();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -178,6 +179,9 @@ class ChildController extends AbstractController
             // echo $images;
             if (!is_string($images)) foreach ($images as $image) {
                 $arrayImg[] = $fileUploader->upload($image);
+            }
+            if (!is_string($oldimages)) foreach ($oldimages as $image) {
+                $arrayImg[] = $image;
             }
 
             $targ->setAttach(json_encode($arrayImg));
