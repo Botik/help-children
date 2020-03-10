@@ -792,7 +792,8 @@
      transform: translateY(-100%);
      left: -5%;
      width: 110%;
-     z-index: 10;
+		 z-index: 10;
+		 cursor:default;
  }
 
  .collected-resources__slider .push-content {
@@ -856,6 +857,8 @@
      line-height: 16px;
      text-decoration-line: underline;
      color: #5D20B0;
+		 cursor:pointer;
+		 width:fit-content;
  }
 
  .aid-card .RaisedMoney {
@@ -2116,6 +2119,10 @@ font-weight:300;
  .collected-resources__slider .collected-resources.opened .collected-resources__slider-filled {
      background: #E09B3D;
  }
+
+ .collected-resources__slider .collected-resources.pmj .collected-resources__slider-filled {
+    background: #E09B3D;
+}
 
  .collected-resources__slider .collected-resources.pmj.opened .collected-resources__slider-filled {
      background: #5D20B0;
