@@ -176,7 +176,7 @@ class ChildController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $targ->getAttach();
             $arrayImg = [];
-            // echo $images;
+            echo json_encode($oldimages);
             if (!is_string($images)) foreach ($images as $image) {
                 $arrayImg[] = $fileUploader->upload($image);
             }
