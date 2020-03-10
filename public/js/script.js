@@ -211,7 +211,7 @@ $(document).ready(function() {
 
             $('.cart-nav .right').addClass("active");
 
-            $('.needed').addClass('displaytrue');
+            $('#needed').addClass('displaytrue');
             var $page = $('html, body');
             $page.animate({
 								//scrollTop: ($('.cart-nav').offset().top - 180)
@@ -344,7 +344,7 @@ function locationFunc(link){
 
                 $('.cart-nav .right').addClass("active");
 
-                $('.needed').addClass('displaytrue');
+                $('#needed').addClass('displaytrue');
                 var $page = $('html, body');
                 $page.animate({
                                     scrollTop: ($('.hr-child.hr-full').offset().top - 80)

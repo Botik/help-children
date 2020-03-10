@@ -172,10 +172,10 @@
                                         <div class='push-content'></div>
                                         {% for trg in targets %}
                                         {% if closed %}
-                                            <div class='collected-resources' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
+                                            <div class='collected-resources {{ (not trg.rehabilitation) ? 'pmj'}}' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
                                         {% else %}
                                             {# <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}";'> #}
-                                            <div class='collected-resources' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
+                                            <div class='collected-resources {{ (not trg.rehabilitation) ? 'pmj'}}' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
                                         {% endif %}
 
                                             <!-- -->
@@ -184,7 +184,7 @@
                                                     <div class='info'>{{trg.name}}</div>
                                                     <div>
                                                         {% if closed %}
-                                                            <a onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>Подробнее</a>
+                                                            <a onclick='location.href="#k";' href='#kid-news'>Подробнее</a>
                                                         {% else %}
                                                             <a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a>
                                                         {% endif %}
