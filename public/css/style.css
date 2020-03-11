@@ -1894,12 +1894,12 @@ font-weight:300;
      .news-block.opened .news .news-flex-block .left-half .littleimg-block>div {
          margin-right: 3%;
                      width: 31%;
-           }
-           .news-block.opened .news .news-flex-block .left-half .littleimg-block>div:nth-child(3n+1) {
+    }
+    .news-block.opened .news .news-flex-block .left-half .littleimg-block>div:nth-child(3n) {
                 margin-right:0;
-           }
+    }
      .news-block.opened .news .news-flex-block .left-half .littleimg-block>div:first-child {
-         display: none;
+        /* display: none; */
      }
      .news-block.opened .news .news-flex-block .right-half {
          width: 100%;
