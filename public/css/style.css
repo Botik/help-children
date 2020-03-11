@@ -1834,7 +1834,7 @@ font-weight:300;
          font-family: 'Roboto';
      } */
      .news .news-flex-block {
-         flex-direction: column;
+         flex-direction: column !important;
      }
      .news:nth-child(3n) .news-flex-block {
          flex-direction: column;
@@ -1842,6 +1842,7 @@ font-weight:300;
      .news .news-flex-block .left-half {
          width: 100%;
          max-width: initial;
+         height:300px;
      }
      .news .news-flex-block .left-half .img-block iframe {
          max-width: initial;
