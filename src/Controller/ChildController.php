@@ -301,4 +301,13 @@ class ChildController extends AbstractController
         $this->getDoctrine()->getManager()->flush();
        return $this -> list_panel();
     }
+    public function delimgTrg(int $id, int $child, $img, FileUploader $fileUploader, Request $request)
+    {
+        $n = $this->getDoctrine()->getRepository(ChTarget::class)->find($id);
+        $nar=json_decode($n->getAttach());
+        unset($nar[$img]);
+        $n->setAttach(json_encode($nar));
+        $this->getDoctrine()->getManager()->flush();
+       return $this -> target($id, $child, $fileUploader, $request);
+    }
 }
