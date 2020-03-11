@@ -317,6 +317,10 @@ $(document).ready(function() {
 				$('.online-help-wrapper').css('top','-460px');
 			}
 		}
+
+		$('.progress-bar').click(function(){
+			event.stopImmediatePropagation();
+		});
 });
 
 
