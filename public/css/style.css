@@ -1869,6 +1869,7 @@ font-weight:300;
      }
      .news-block.opened .news .news-flex-block .left-half {
          flex-direction: column;
+         height:fit-content;
      }
      .news-block.opened .news .news-flex-block .left-half .img-block {
          width: 100%;
@@ -1902,6 +1903,7 @@ font-weight:300;
      }
      .news-block.opened .news .news-flex-block .right-half {
          width: 100%;
+         margin-top:20px;
      }
      .news-block.opened .recomend-news-flex-container {
          flex-direction: column;
