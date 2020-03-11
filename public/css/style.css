@@ -1626,6 +1626,13 @@ font-weight:300;
  }
 
  @media screen and (max-width:768px) {
+	.news .news-flex-block .text{
+		-webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
+
      .childnews .childnews-row .childnews-number {
           padding-top:4px;
      }
@@ -2026,7 +2033,10 @@ font-weight:300;
      }
      .card-child__col .notification.care.kid-profile {
          padding-top: 3px;
-     }
+		 }
+		 .news-block.opened .recomend-news-flex-container .recomend-news .left-half {
+			display: none;
+		}
  }
 
 @media screen and (max-width:570px) {
@@ -2076,9 +2086,6 @@ font-weight:300;
  }
 
  @media screen and (max-width:400px) {
-     .news-block.opened .recomend-news-flex-container .recomend-news .left-half {
-         display: none;
-     }
      .news-block.opened .recomend-news-flex-container .recomend-news .right-half {
          width: 100%;
          margin-left: 0;
