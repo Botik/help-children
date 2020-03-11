@@ -317,10 +317,6 @@ $(document).ready(function() {
 				$('.online-help-wrapper').css('top','-460px');
 			}
 		}
-
-		$('.progress-bar').click(function(){
-			event.stopImmediatePropagation();
-		});
 });
 
 
@@ -332,9 +328,6 @@ function animateScroll(elem){
 }
 
 function locationFunc(link){
-	if ($(window).width() <= '769'){
-
-	} else {
 		if ($('.mothersletter').length){
             var hashpos = link.indexOf('#');
             var hash = link.slice(hashpos, link.length+1);
@@ -391,5 +384,4 @@ function locationFunc(link){
 		} else {
             location.href = link;
 		}
-	}
 }

@@ -107,8 +107,7 @@
                                         <div class='push-content'></div>
                                         <div class='progress-list'>
                                         {% for trg in child.targets%}
-                                            {# <div class='progress-bar' onclick='locationFunc("{{path('children_detail', {'id': child.id}) ~ '#' ~ (((child.targets|length == loop.index) and (( trg.collected < trg.goal ) or (date(trg.totime) > date( "now"))))  ? 'needed' : 'kid-news')}}");event.preventDefault();'> #}
-                                            <div class='progress-bar'>
+                                            <div class='progress-bar' onclick='locationFunc("{{path('children_detail', {'id': child.id}) ~ '#' ~ (((child.targets|length == loop.index) and (( trg.collected < trg.goal ) or (date(trg.totime) > date( "now"))))  ? 'needed' : 'kid-news')}}");event.preventDefault();'>
                                                 <!--
                                             Внутри каждого 'progress-bar' нужен блок 'txt'
                                             именно в нем содержится контент всплывашки
