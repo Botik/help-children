@@ -1633,6 +1633,9 @@ font-weight:300;
     overflow: hidden;
     text-overflow: ellipsis;
 	}
+	.news-block.opened .news .news-flex-block .text {
+		-webkit-line-clamp: initial !important;
+	}
 
      .childnews .childnews-row .childnews-number {
           padding-top:4px;
