@@ -93,6 +93,13 @@ p_child_img_delete:
     requirements:
         id: '\d+'
         img: '\d+'
+p_child_trg_img_delete:
+    path: /panel/child/{child}/t{id}/img{img}
+    controller: App\Controller\ChildController::delimgTrg
+    requirements:
+        id: '\d+'
+        child: '\d+'
+        img: '\d+'
 
 
 partners:
