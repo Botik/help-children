@@ -2116,7 +2116,7 @@ font-weight:300;
  }
 
  @media screen and (max-width:450px) and (min-width:401px) {
-	.news .news-flex-block .left-half {
+	.news .news-flex-block.newslist .left-half {
 		width: 100%;
 		max-width: initial;
 		height:250px;
@@ -2124,7 +2124,7 @@ font-weight:300;
 }
 
  @media screen and (max-width:400px) {
-		.news .news-flex-block .left-half {
+		.news .news-flex-block.newslist .left-half {
 			width: 100%;
 			max-width: initial;
 			height:220px;
