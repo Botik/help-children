@@ -30,7 +30,11 @@
                             <div class='news-block all-news'>
                                 {% for n in news %}
                                 {% if (n.descr) or (n.arphotos) or (n.video) %}
-                                <div class='news'>
+                                 {% if n.child == -1 %}
+                                    <div class='news childnews'>
+                                 {% else %}
+                                    <div class='news fondnews'>
+                                 {% endif %}
                                     <a href="{{ path('news_detail', {'id' : n.id}) }}">
 
                                     <div class='news-info'>
@@ -76,7 +80,7 @@
                             </div>
 
                             <!-- Новости детей -->
-                            <div class='news-block child-news' style='display:none;'>
+                            {# <div class='news-block child-news' style='display:none;'>
                                 {% for n in news %}
                                 {% if (n.child>-1) and ((n.descr) or (n.arphotos) or (n.video)) %}
                                 <div class='news'>
@@ -162,7 +166,7 @@
                                 <div class='separator'></div>
                                 {% endif %}
                                 {% endfor %}
-                            </div>
+                            </div> #}
                         </div>
 
                     </div>
@@ -186,17 +190,23 @@
                     })
                     $(this).addClass('active');
 
-                    $('.news-block').each(function () {
-                        $(this).css('display', 'none');
-                    });
+                    //$('.news-block').each(function () {
+                    //    $(this).css('display', 'none');
+                    //});
                     if ($(this).hasClass('left')) {
-                        $('.all-news').css('display', 'flex');
+                       // $('.all-news').css('display', 'flex');
+                       $('.news.childnews').css('display','block');
+                       $('.news.fondnews').css('display','block');
                     }
                     if ($(this).hasClass('center')) {
-                        $('.child-news').css('display', 'flex');
+                       // $('.child-news').css('display', 'flex');
+                       $('.news.childnews').css('display','block');
+                       $('.news.fondnews').css('display','none');
                     }
                     if ($(this).hasClass('right')) {
-                        $('.fond-news').css('display', 'flex');
+                        //$('.fond-news').css('display', 'flex');
+                       $('.news.childnews').css('display','none');
+                       $('.news.fondnews').css('display','block');
                     }
                 });
 
