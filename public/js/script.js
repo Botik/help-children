@@ -317,6 +317,10 @@ $(document).ready(function() {
 				$('.online-help-wrapper').css('top','-460px');
 			}
 		}
+
+	$('.nav-links__item-link, .nav-links-submenu__item').click(function(){
+		$('body').removeClass('menu-opened');
+	});
 });
 
 
