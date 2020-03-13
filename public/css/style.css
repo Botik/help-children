@@ -538,12 +538,12 @@
 }
 @media screen and (max-width:899px) and (min-width:769px) {
 	.news .news-flex-block .left-half .img-block.newslist{
-		max-height:250px;
+		max-height:270px;
 	}
 }
  @media screen and (min-width:400px) and (max-width:450px) {
 	.news .news-flex-block .left-half .img-block.newslist {
-		max-height:250px;
+		max-height:270px;
 	}
  }
 
