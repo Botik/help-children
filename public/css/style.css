@@ -2104,7 +2104,7 @@ font-weight:300;
 	.news .news-flex-block.newslist .left-half {
 		width: 100%;
 		max-width: initial;
-		height:250px;
+		/* height:250px; */
 	}
 }
 
@@ -2112,7 +2112,7 @@ font-weight:300;
 		.news .news-flex-block.newslist .left-half {
 			width: 100%;
 			max-width: initial;
-			height:220px;
+			/* height:220px; */
 	}
  }
 
