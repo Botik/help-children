@@ -319,7 +319,7 @@ $(document).ready(function() {
 		}
 
 	$('.nav-links__item-link, .nav-links-submenu__item').click(function(){
-		$('body').removeClass('menu-opened');
+		$('.js-mobile-menu-button').trigger('click');
 	});
 });
 
