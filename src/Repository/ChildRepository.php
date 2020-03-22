@@ -57,7 +57,7 @@ class ChildRepository extends ServiceEntityRepository
         <<<sql
         SELECT *
 
-        FROM children as c
+        FROM children as C
         left join (SELECT m1.totime, m1.child
                     FROM ch_target m1
                              LEFT JOIN ch_target m2
@@ -74,8 +74,10 @@ class ChildRepository extends ServiceEntityRepository
                        and m2.id IS NULL
                        and m1.rehabilitation = :state) t2
                     on t2.child=c.id
+        where t1.totime IS NOT NULL or t2.totime IS NOT NULL
         order by t1.totime ASC,
                 t2.totime DESC;
+
         sql;
         $Q = $DB->prepare($sql);
 //        $Q->bindParam(':state',$val[$state]);
