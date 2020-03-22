@@ -58,23 +58,24 @@ class ChildRepository extends ServiceEntityRepository
         SELECT *
 
         FROM children as C
-
-        order by (SELECT m1.totime
-                  FROM ch_target m1
-                           LEFT JOIN ch_target m2
-                                     ON (m1.child = m2.child AND m1.id < m2.id)
-                  WHERE m1.collected < m1.goal
-                    and m2.id IS NULL
-                    and m1.rehabilitation = :state
-                    and m1.child=c.id) ASC,
-        (SELECT m1.totime
-                  FROM ch_target m1
-                           LEFT JOIN ch_target m2
-                                     ON (m1.child = m2.child AND m1.id < m2.id)
-                  WHERE m1.collected >= m1.goal AND m1.allowclose=0
-                    and m2.id IS NULL
-                    and m1.rehabilitation = :state
-                    and m1.child=c.id) DESC;
+        left join (SELECT m1.totime, m1.child
+                    FROM ch_target m1
+                             LEFT JOIN ch_target m2
+                                       ON (m1.child = m2.child AND m1.id < m2.id)
+                    WHERE m1.collected < m1.goal
+                      and m2.id IS NULL
+                      and m1.rehabilitation = :state) t1
+            on t1.child=c.id
+        left join  (SELECT m1.totime, m1.child
+                     FROM ch_target m1
+                              LEFT JOIN ch_target m2
+                                        ON (m1.child = m2.child AND m1.id < m2.id)
+                     WHERE m1.collected >= m1.goal AND m1.allowclose=0
+                       and m2.id IS NULL
+                       and m1.rehabilitation = :state) t2
+                    on t2.child=c.id
+        order by t1.totime ASC,
+                t2.totime DESC;
         sql;
         $Q = $DB->prepare($sql);
 //        $Q->bindParam(':state',$val[$state]);
