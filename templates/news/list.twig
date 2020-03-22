@@ -9,15 +9,15 @@
     <main>
         <section class="section hero-medium">
             <div class="container child-container">
-                <h1 class="hero-medium__title">Новости фонда</h1>
-                <p class="hero-small__subtitle">тут все наши новости</p>
+                <h1 class="hero-medium__title">Новости</h1>
+                {# <p class="hero-small__subtitle">тут все наши новости</p> #}
             </div>
         </section>
 
         <section class="section child section-with-bghearts">
             <div class="container child-container">
 
-                <div class="child-wrapper">
+                <div class="child-wrapper news-wrapper">
                     <div class="card-child-wrapper">
                         <div class='cart-nav news-page'>
                             <div class='active left'><span>Все новости</span></div>
@@ -30,7 +30,12 @@
                             <div class='news-block all-news'>
                                 {% for n in news %}
                                 {% if (n.descr) or (n.arphotos) or (n.video) %}
-                                <div class='news'>
+                                 {# {% if n.child == -1 %}
+                                    <div class='news childnews'>
+                                 {% else %}
+                                    <div class='news fondnews'>
+                                 {% endif %} #}
+                                 <div class='news'>
                                     <a href="{{ path('news_detail', {'id' : n.id}) }}">
 
                                     <div class='news-info'>
@@ -42,9 +47,9 @@
                                         <span>{{n.createdAt|date('d.m.Y')}}</span>
                                     </div>
                                     <div class='news-name'>{{n.title}}</div>
-                                    <div class='news-flex-block'>
+                                    <div class='news-flex-block newslist'>
                                         <div class='left-half'>
-                                            <div class='img-block' style='max-height:340px; height:100%;'>
+                                            <div class='img-block newslist' data-proportion-h='0.75'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -76,7 +81,7 @@
                             </div>
 
                             <!-- Новости детей -->
-                            <div class='news-block child-news' style='display:none;'>
+                            <div class='news-block child-news'>
                                 {% for n in news %}
                                 {% if (n.child>-1) and ((n.descr) or (n.arphotos) or (n.video)) %}
                                 <div class='news'>
@@ -89,7 +94,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block' style='max-height:340px; height:100%;'>
+                                            <div class='img-block' data-proportion-h='0.75'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -121,7 +126,7 @@
                             </div>
 
                             <!-- Новости фонда-->
-                            <div class='news-block fond-news' style='display:none;'>
+                            <div class='news-block fond-news'>
                                 {% for n in news %}
                                 {% if (n.child==-1) and ((n.descr) or (n.arphotos) or (n.video))%}
                                 <div class='news'>
@@ -134,7 +139,7 @@
                                     <div class='news-name'>{{n.title}}</div>
                                     <div class='news-flex-block'>
                                         <div class='left-half'>
-                                            <div class='img-block' style='max-height:340px; height:100%;'>
+                                            <div class='img-block' data-proportion-h='0.75'>
                                                 {% if n.video %}<iframe width="560" height="315"
                                                     src="{{n.video}}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -187,25 +192,42 @@
                     $(this).addClass('active');
 
                     $('.news-block').each(function () {
-                        $(this).css('display', 'none');
+                        //$(this).css('display', 'none');
+                        $(this).css('position', 'absolute');
+                        $(this).css('visibility', 'hidden');
+                        $(this).css('display', 'flex');
                     });
                     if ($(this).hasClass('left')) {
-                        $('.all-news').css('display', 'flex');
+                        //$('.all-news').css('display', 'flex');
+
+                        $('.all-news').css('position', 'relative');
+                        $('.all-news').css('visibility', 'visible');
+
+
+                       //$('.news.childnews').css('display','block');
+                       //$('.news.fondnews').css('display','block');
                     }
                     if ($(this).hasClass('center')) {
-                        $('.child-news').css('display', 'flex');
+                        //$('.child-news').css('display', 'flex');
+
+                        $('.child-news').css('position', 'relative');
+                        $('.child-news').css('visibility', 'visible');
+
+                       //$('.news.childnews').css('display','block');
+                       //$('.news.fondnews').css('display','none');
                     }
                     if ($(this).hasClass('right')) {
-                        $('.fond-news').css('display', 'flex');
+                        //$('.fond-news').css('display', 'flex');
+
+                        $('.fond-news').css('position', 'relative');
+                        $('.fond-news').css('visibility', 'visible');
+
+                       //$('.news.childnews').css('display','none');
+                       //$('.news.fondnews').css('display','block');
                     }
                 });
 
-            });
-            $( window ).on( "load" ,function() {
-            $('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();
-});
-            $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
-            {# var SJ_setiings = {
+            var SJ_setiings = {
                         options: {
                             hlw: true, // Height as width
                             wlh: true, // Width as height
@@ -218,7 +240,13 @@
                             writeHystory: true
                         }
                     }
-            var sj = new SJ(SJ_setiings); #}
+            var sj = new SJ(SJ_setiings);
+
+            });
+            $( window ).on( "load" ,function() {
+            $('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();
+});
+            $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
         </script>
     </main>
 {% endautoescape %}

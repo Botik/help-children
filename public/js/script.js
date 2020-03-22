@@ -283,16 +283,16 @@ $(document).ready(function() {
 		$( window ).resize(function() {
 			if ($(window).width() <= '1440'){
 				if ($('.hero-medium__title').height() < 50) {
-					$('.child-wrapper').css('top','-130px');
+					$('.kids-wrapper').css('top','-130px');
 				}
 				if ($('.hero-medium__title').height() > 70) {
-					$('.child-wrapper').css('top','-100px');
+					$('.kids-wrapper').css('top','-100px');
 				}
 				if ($('.hero-medium__title').height() < 50) {
-					$('.child-wrapper').css('top','-130px');
+					$('.kids-wrapper').css('top','-130px');
 				}
 				if ($('.hero-medium__title').height() > 70) {
-					$('.child-wrapper').css('top','-100px');
+					$('.kids-wrapper').css('top','-100px');
 				}
 				if ($('.hero-large .container').height() > 70) {
 					$('.online-help-wrapper').css('top','-460px');
@@ -300,23 +300,27 @@ $(document).ready(function() {
 					$('.online-help-wrapper').css('top','-500px');
 				}
 			} else {
-				$('.child-wrapper').css('top','-130px');
+				$('.kids-wrapper').css('top','-130px');
 				$('.online-help-wrapper').css('top','-500px');
 			}
 		});
 
 		if ($(window).width() <= '1440'){
 			if ($('.hero-medium__title').height() < 50) {
-				$('.child-wrapper').css('top','-130px');
+				$('.kids-wrapper').css('top','-130px');
 
 			}
 			if ($('.hero-medium__title').height() > 70) {
-				$('.child-wrapper').css('top','-100px');
+				$('.kids-wrapper').css('top','-100px');
 			}
 			if ($('.hero-large .container').height() > 70) {
 				$('.online-help-wrapper').css('top','-460px');
 			}
 		}
+
+	$('.nav-links__item-link, .nav-links-submenu__item').click(function(){
+		$('.js-mobile-menu-button').trigger('click');
+	});
 });
 
 
@@ -328,9 +332,6 @@ function animateScroll(elem){
 }
 
 function locationFunc(link){
-	if ($(window).width() <= '769'){
-
-	} else {
 		if ($('.mothersletter').length){
             var hashpos = link.indexOf('#');
             var hash = link.slice(hashpos, link.length+1);
@@ -387,5 +388,4 @@ function locationFunc(link){
 		} else {
             location.href = link;
 		}
-	}
 }

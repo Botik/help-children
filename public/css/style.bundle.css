@@ -6089,6 +6089,10 @@ line-height: 20px;
     }
 }
 
+.child-wrapper.news-wrapper {
+	top:-170px
+}
+
 .card-child {
     display: -webkit-box;
     display: -ms-flexbox;
