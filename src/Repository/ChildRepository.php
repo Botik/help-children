@@ -38,7 +38,7 @@ class ChildRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function getCurCh($state = 'rehab') 
+    public function getCurCh($state = 'rehab')
     {
         $val=['close'=>-1,'pmj'=>0,'rehab'=>1];
         // TODO
@@ -53,12 +53,32 @@ class ChildRepository extends ServiceEntityRepository
         ON (m1.child = m2.child AND m1.id < m2.id)
         WHERE m2.id IS NULL and m1.collected >= m1.goal AND m1.allowclose=1) ORDER BY id DESC
         sql
+        :
+        <<<sql
+        SELECT *
 
-        :<<<sql
-        SELECT * FROM children WHERE id in ( SELECT m1.child FROM ch_target m1 LEFT JOIN ch_target m2 ON (m1.child = m2.child AND m1.id < m2.id) WHERE ((m1.collected < m1.goal or (m1.collected >= m1.goal AND m1.allowclose=0)) and m2.id IS NULL  and m1.rehabilitation = :state)) ORDER BY id DESC
+        FROM children as C
+
+        order by (SELECT m1.totime
+                  FROM ch_target m1
+                           LEFT JOIN ch_target m2
+                                     ON (m1.child = m2.child AND m1.id < m2.id)
+                  WHERE m1.collected < m1.goal
+                    and m2.id IS NULL
+                    and m1.rehabilitation = :state
+                    and m1.child=c.id) ASC,
+        (SELECT m1.totime
+                  FROM ch_target m1
+                           LEFT JOIN ch_target m2
+                                     ON (m1.child = m2.child AND m1.id < m2.id)
+                  WHERE m1.collected >= m1.goal AND m1.allowclose=0
+                    and m2.id IS NULL
+                    and m1.rehabilitation = :state
+                    and m1.child=c.id) DESC;
         sql;
         $Q = $DB->prepare($sql);
-        $Q->execute(['state' => $val[$state]]);
+//        $Q->bindParam(':state',$val[$state]);
+        $Q->execute([':state' => $val[$state]]);
         $rows = $Q->fetchAll(\Doctrine\DBAL\FetchMode::ASSOCIATIVE);
         foreach ($rows as $key => $child) {
             $body=json_decode($child['body']);
@@ -115,7 +135,7 @@ class ChildRepository extends ServiceEntityRepository
     public function aggregateTotalCountChild()
     {
         return $this->createQueryBuilder('c')
-            ->select('COUNT(c)')            
+            ->select('COUNT(c)')
             ->getQuery()
             ->getSingleScalarResult();
     }

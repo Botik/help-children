@@ -59,7 +59,7 @@ class ChTarget
     /**
      * @ORM\Column(type="boolean")
      */
-    private $allowclose;
+    private $allowclose = 0;
 
     public function getId(): ?int
     {
@@ -181,6 +181,7 @@ class ChTarget
         $allowclose=is_array($allowclose) ? $allowclose[0] : $allowclose;
         // echo(json_encode($allowclose));
         $this->allowclose = $allowclose==0 ? 0 : 1;
+        $this->allowclose = $allowclose==null ? 0 : 1;
 
         return $this;
     }

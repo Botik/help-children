@@ -168,9 +168,11 @@ class ChildController extends AbstractController
         if (!$targ) {
                 $targ = new ChTarget();
         }
+        $oldimages = json_decode($targ->getAttach());
+        if ($request->get('copy') and $request->isMethod('POST')) $targ = new ChTarget();
 
         $form = $this->createForm(ChTargetTypes::class, $targ);
-        $oldimages = json_decode($targ->getAttach());
+        $request->request->set('allowclose', (null == $request->get('allowclose') ? 0 : 1));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

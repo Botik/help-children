@@ -80,32 +80,36 @@ class NewsController extends AbstractController
             ]
         );
     }
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \LogicException
+     * @throws \Exception
      */
     public function p_edit(int $id, FileUploader $fileUploader, Request $request)
     {
         $childs =[' '=>-1];
         foreach ($this->getDoctrine()->getRepository(Child::class)
-            ->findAll() as $child) $childs[$child->getName()]=$child->getId();
+                     ->findAll() as $child) $childs[$child->getName()]=$child->getId();
 
         $n = $this->getDoctrine()
             ->getRepository(News::class)
             ->find($id);
 
         if (!$n) {
-                $n = new News();
-                $n->setCreatedat(new \DateTime());
+            $n = new News();
+            $n->setCreatedat(new \DateTime());
         }
+
         $trgs =[' '=>-1];
         foreach ($this->getDoctrine()->getRepository(ChTarget::class)
-            ->findBy([],['id'=>'DESC']) as $trg) $trgs[
-            '#'.$trg->getId().' '.$trg->getName().' — '.$this->getDoctrine()->getRepository(Child::class)
+                     ->findBy([],['id'=>'DESC']) as $trg) $trgs[
+        '#'.$trg->getId().' '.$trg->getName().' — '.$this->getDoctrine()->getRepository(Child::class)
             ->findOneById($trg->getChild())->getName()]=$trg->getId();
 
-        // $form = $this->createForm(NewsTypes::class, $n);
+        $oldimages = $n->getArPhotos();
+        if ($request->get('copy') and $request->isMethod('POST')) $n = new News();
         $form = $this->createFormBuilder($n)
             ->add(
                 'id', HiddenType::class,
@@ -128,17 +132,17 @@ class NewsController extends AbstractController
             ])
             ->add(
                 'child', ChoiceType::class, [
-                'choices' => $childs,
-                "expanded" => false,
-                "multiple"=>false
-             ]
+                    'choices' => $childs,
+                    "expanded" => false,
+                    "multiple"=>false
+                ]
             )
             ->add(
                 'trg', ChoiceType::class, [
-                'choices' => $trgs,
-                "expanded" => false,
-                "multiple"=>false
-             ]
+                    'choices' => $trgs,
+                    "expanded" => false,
+                    "multiple"=>false
+                ]
             )
             ->add('photos', FileType::class, [
                 'multiple' => true,
@@ -166,8 +170,7 @@ class NewsController extends AbstractController
                     'class' => 'btn btn-primary'
                 ]
             ])->getForm();
-        $oldimages = $n->getArPhotos();
-            // echo json_encode($oldimages)."\n";
+        // echo json_encode($oldimages)."\n";
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -206,7 +209,7 @@ class NewsController extends AbstractController
             $entityManager->remove($n);
             $entityManager->flush();
         }
-       return $this -> p_list();
+        return $this -> p_list();
     }
     public function delimg(int $id, $img, Request $request)
     {
@@ -215,6 +218,6 @@ class NewsController extends AbstractController
         unset($nar[$img]);
         $n->setPhotos(json_encode($nar));
         $this->getDoctrine()->getManager()->flush();
-       return $this -> p_list();
+        return $this -> p_list();
     }
 }

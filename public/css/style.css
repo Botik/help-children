@@ -2146,3 +2146,6 @@ font-weight:300;
  .anchor {
      position: absolute;
  }
+.pointer{
+	cursor: pointer;
+}

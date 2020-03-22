@@ -27,6 +27,7 @@
                             <td>{{ n.title }}</td>
                             <td>{{ n.CreatedAt|date('d.m.Y') }}</td>
                             <td><a href="/panel/news/{{ n.id }}">Изменить</a></td>
+                            <td><a href="/panel/news/{{ n.id }}?copy=1">Копировать</a></td>
                             <td><a href="/panel/news/{{ n.id }}/del">Удалить</a></td>
                         </tr>
                     {% endfor %}

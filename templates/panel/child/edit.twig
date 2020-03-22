@@ -90,6 +90,7 @@
                         <tr>
                             <th scope="row">{{ loop.index }}</th>
                             <td>{{ trg.name }}</td>
+                            <td><a href="/panel/child/{{ child.id }}/t{{ trg.id }}?copy=1">Копировать</a></td>
                             <td><a href="/panel/child/{{ child.id }}/t{{ trg.id }}">Изменить</a></td>
                             <td><a href="/panel/child/{{ child.id }}/t{{ trg.id }}/del">Удалить</a></td>
                         </tr>
