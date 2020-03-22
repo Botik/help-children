@@ -109,7 +109,7 @@
 
  .newprogressbarwrapper p {
      font-size: 1.4rem;
-     width: 25%;
+     width: 31%;
  }
 
  .collected-resources__slider {
@@ -914,7 +914,7 @@
      margin-top: 30px;
      position: absolute;
      bottom: 35px;
-     width: calc(100% - 60px);
+     width: calc(100% - 40px);
  }
 
  .aid-card .wantHelp.closed button {
@@ -2172,4 +2172,17 @@ font-weight:300;
 	 justify-content: center;
 	 align-items: end;
 
+ }
+
+ @media screen and (min-width:1000px) and (max-width:1500px){
+
+	 .card-child-field__value,
+	 .newprogressbarwrapper p,
+	 .aid-card__description-diagnosis{
+		 font-size: 1.6rem !important;
+	 }
+ }
+ .aid-card .needed,
+ .aid-card .RaisedMoney{
+	 margin-top: 7px !important;
  }

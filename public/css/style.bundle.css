@@ -4872,13 +4872,13 @@ body {
 .aid-card__description {
     position: relative;
     padding: 1rem 2.5rem 120px 2.5rem;
-    height: 320px;
+    height: 280px;
 }
 
 .aid-card__description.closed {
     position: relative;
     padding: 1rem 2.5rem 120px 2.5rem;
-    height: 100%;
+    height: 280px;
 }
 
 @media screen and (max-width:768px) {
