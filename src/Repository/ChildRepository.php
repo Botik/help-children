@@ -66,7 +66,7 @@ class ChildRepository extends ServiceEntityRepository
                   WHERE m1.collected < m1.goal
                     and m2.id IS NULL
                     and m1.rehabilitation = :state
-                    and m1.child=c.id) ASC,
+                    and m1.child=children.id) ASC,
         (SELECT m1.totime
                   FROM ch_target m1
                            LEFT JOIN ch_target m2
@@ -74,7 +74,7 @@ class ChildRepository extends ServiceEntityRepository
                   WHERE m1.collected >= m1.goal AND m1.allowclose=0
                     and m2.id IS NULL
                     and m1.rehabilitation = :state
-                    and m1.child=c.id) DESC;
+                    and m1.child=children.id) DESC;
         sql;
         $Q = $DB->prepare($sql);
 //        $Q->bindParam(':state',$val[$state]);
