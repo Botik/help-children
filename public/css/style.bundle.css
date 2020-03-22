@@ -4872,7 +4872,7 @@ body {
 .aid-card__description {
     position: relative;
     padding: 1rem 2.5rem 120px 2.5rem;
-    height: 280px;
+    height: 300px;
 }
 
 .aid-card__description.closed {
