@@ -42,10 +42,11 @@
                                                     <div class='time'><span id="{{child.id}}hours"></span><span id="{{child.id}}delimiter">:</span><span id="{{child.id}}minutes"></span><span id="{{child.id}}delimiter2">:</span><span id="{{child.id}}seconds"></span></div>
                                                     <script type="text/javascript">
                                                         function updater(d, h, m, s, dlm, dlm2) {
-                                                            var baseTime = new Date( {{ (child.targets|last).totime|date("Y") }}, {{ (child.targets|last).totime|date("m") }}-1, {{ (child.targets|last).totime|date("d") }}, 14);
-
+                                                            var baseTime = new Date( {{ (child.targets|last).totime|date("Y") }}, {{ (child.targets|last).totime|date("m") }}-1, {{ (child.targets|last).totime|date("d") }},  {{ (child.targets|last).totime|date("H") }});
+                                                        console.log('base' + baseTime);
                                                             function update() {
                                                                 var cur = new Date();
+                                                                console.log('cur' + cur);
                                                                 var diff = (baseTime - cur);
                                                                 // var millis = diff % 1000;
                                                                 diff = Math.floor(diff/1000);
