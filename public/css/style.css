@@ -2181,6 +2181,35 @@ font-weight:300;
 	 .aid-card__description-diagnosis{
 		 font-size: 1.6rem !important;
 	 }
+
+
+	 /* style.bundle.css | https://xn--c1accbmwfjbh2bd3o.xn--p1ai/css/style.bundle.css */
+
+	 .aid-card__description {
+		 padding: 1rem 2.5rem 100px 2.5rem !important;
+		 height: 258px !important;
+	 }
+
+	 .aid-card__description-name {
+		 margin-top: 3px !important;
+		 margin-bottom: 5px !important;
+	 }
+
+	 .aid-card__description-diagnosis {
+		 margin-top: 1px !important;
+	 }
+
+	 /* style.css | https://xn--c1accbmwfjbh2bd3o.xn--p1ai/css/style.css */
+
+	 .progressline-block .progress-list {
+		 padding-top: 10px;
+	 }
+
+	 .aid-card .wantHelp {
+		 /* margin-top: 30px; */
+		 margin-top: 13px;
+	 }
+
  }
  .aid-card .needed,
  .aid-card .RaisedMoney{
