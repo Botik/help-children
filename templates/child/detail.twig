@@ -360,7 +360,7 @@
 
                             <div class='right-half'>
                                 {% if loop.index % 2 == 0 %}
-                                <div class='childnews-item' {% if news.descr %}onclick="document.location='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'" {%  endif  %}>
+                                <div class='childnews-item {% if news.descr %}pointer' onclick="document.location='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'" {%  else %}'{%  endif  %}>
                                     <div class='childnews-content'>
                                         <div class='childnews-number'>{{loop.index}}</div>
                                         <div class='txt'>

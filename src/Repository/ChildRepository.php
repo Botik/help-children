@@ -66,7 +66,7 @@ class ChildRepository extends ServiceEntityRepository
                       and m2.id IS NULL
                       and m1.rehabilitation = :state) t1
             on t1.child=c.id
-        left join  (SELECT m1.totime, m1.child
+        left join  (SELECT IF((m1.totime)>CURRENT_TIMESTAMP, m1.totime, 9) as totime, m1.child
                      FROM ch_target m1
                               LEFT JOIN ch_target m2
                                         ON (m1.child = m2.child AND m1.id < m2.id)
@@ -76,7 +76,7 @@ class ChildRepository extends ServiceEntityRepository
                     on t2.child=c.id
         where t1.totime IS NOT NULL or t2.totime IS NOT NULL
         order by t1.totime ASC,
-                t2.totime DESC;
+                t2.totime asc;
 
         sql;
         $Q = $DB->prepare($sql);

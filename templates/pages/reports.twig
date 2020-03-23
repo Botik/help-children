@@ -13,9 +13,17 @@
                     Благотворительный фонд «Помогите детям» начал свою фактическую деятельность в 2019 году </p>
             </div>
         </section>
+        <div class="cart-nav-container">
+            <div class='cart-nav news-page'>
+                <div class='active left'><span>Все отчеты</span></div>
+                <div class='center'><span>Финансовые отчеты</span></div>
+                <div class='right'><span>Аудиторские отчеты</span></div>
+            </div>
+        </div>
         <section class="section reports">
             <div class="container container-pagecontent-padding">
             <h2 class="section-title">Финансовые отчеты</h2>
+                <div id="rep_fin" style="position: absolute; top: -250px; left: 0"></div>
                 <div class="reports-content">
                     <ul class="report-list">
                         {% for document in financial %}
@@ -39,12 +47,13 @@
                                 </div>
                             </li>
                         {% endfor %}
-                       
+
                     </ul>
                 </div>
                 <h2 class="section-title">Аудиторские заключения</h2>
                 <div class="reports-content">
                     <ul class="report-list">
+                        <div id="rep_aud" style="position: absolute; top: -400px; left: 0"></div>
                         {% for document in auditor %}
                             <li class="report-list__item">
                                 <div class="report">
@@ -66,7 +75,7 @@
                                 </div>
                             </li>
                         {% endfor %}
-                        
+
                     </ul>
                 </div>
                 <div class="container container--small">
@@ -77,4 +86,80 @@
             </div>
         </section>
     </main>
+    <script>
+        $(document).ready(function () {
+            $('.cart-nav>div').click(function () {
+                $('.cart-nav>div').each(function () {
+                    $(this).removeClass('active');
+                })
+                $(this).addClass('active');
+
+                $('.news-block').each(function () {
+                    //$(this).css('display', 'none');
+                    $(this).css('position', 'absolute');
+                    $(this).css('visibility', 'hidden');
+                    $(this).css('display', 'flex');
+                });
+                if ($(this).hasClass('left')) {
+                    //$('.all-news').css('display', 'flex');
+
+                    $('#rep_fin')[0].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // $('.rep_aud').css('position', 'relative');
+                    // $('.rep_aud').css('visibility', 'visible');
+
+
+                    //$('.news.childnews').css('display','block');
+                    //$('.news.fondnews').css('display','block');
+                }
+                if ($(this).hasClass('center')) {
+                    //$('.child-news').css('display', 'flex');
+                    // document.location="#rep_fin";
+                    $('#rep_fin')[0].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    $('#rep_fin').css('position', 'relative');
+                    $('#rep_fin').css('visibility', 'visible');
+
+                    //$('.news.childnews').css('display','block');
+                    //$('.news.fondnews').css('display','none');
+                }
+                if ($(this).hasClass('right')) {
+                    //$('.fond-news').css('display', 'flex');
+                    $('#rep_aud')[0].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    $('#rep_aud').css('position', 'relative');
+                    $('#rep_aud').css('visibility', 'visible');
+
+                    //$('.news.childnews').css('display','none');
+                    //$('.news.fondnews').css('display','block');
+                }
+            });
+
+            var SJ_setiings = {
+                options: {
+                    hlw: true, // Height as width
+                    wlh: true, // Width as height
+                    hlt: true, // Width of the target element (target id is the same as for height)
+                    wlt: true, // Height of the target element (target id is the same as for width)
+                    alo: true, // All elements as one (height)
+                },
+                settings: {
+                    windowResize: true,
+                    writeHystory: true
+                }
+            }
+            var sj = new SJ(SJ_setiings);
+
+        });
+        $( window ).on( "load" ,function() {
+            $('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();
+        });
+        $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
+    </script>
 {% endblock %}
