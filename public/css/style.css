@@ -2181,9 +2181,6 @@ font-weight:300;
 	 .aid-card__description-diagnosis{
 		 font-size: 1.6rem !important;
 	 }
-	 .aid-card{
-		 transform: scale(0.513);
-	 }
  }
  .aid-card .needed,
  .aid-card .RaisedMoney{
