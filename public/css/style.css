@@ -2187,7 +2187,7 @@ font-weight:300;
 
 	 .aid-card__description {
 		 padding: 1rem 2.5rem 100px 2.5rem !important;
-		 height: 230px !important;
+		 height: 240px !important;
 	 }
 
 	 .aid-card__description-name {
@@ -2208,7 +2208,7 @@ font-weight:300;
 	 .aid-card .wantHelp {
 		 /* margin-top: 30px; */
 		 margin-top: 13px;
-		 bottom: 0;
+		 bottom: 15px;
 	 }
 
  }
