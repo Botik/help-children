@@ -2169,7 +2169,7 @@ font-weight:300;
  div.help-details-content__col:nth-child(2) {
 	 object-fit: cover;
 	 background-size: contain !important;
-	 background: url('/images/needhelp.jpg') no-repeat bottom;
+	 background: url('/images/needhelp.png') no-repeat bottom;
 	 min-height: 240px;
 
  }
