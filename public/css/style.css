@@ -2167,10 +2167,10 @@ font-weight:300;
 	 font-size: 1.9rem;
  }
  div.help-details-content__col:nth-child(2) {
-	 display: flex;
-	 align-content:  center;
-	 justify-content: center;
-	 align-items: end;
+	 object-fit: cover;
+	 background-size: contain !important;
+	 background: url('/images/needhelp.jpg') no-repeat bottom;
+	 min-height: 300px;
 
  }
 
