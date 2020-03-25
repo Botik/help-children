@@ -2161,11 +2161,11 @@ font-weight:300;
 .pointer{
 	cursor: pointer;
 }
- .closed .RaisedMoney div {
-	 font-weight: 500;
-	 font-size: 16px;
-	 font-size: 1.9rem;
- }
+ /*.closed .RaisedMoney div {*/
+	/* font-weight: 500;*/
+	/* font-size: 16px;*/
+	/* font-size: 1.9rem;*/
+ /*}*/
  div.help-details-content__col:nth-child(2) {
 	 object-fit: cover;
 	 background-size: contain !important;
