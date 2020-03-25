@@ -8,533 +8,588 @@
 
 {% block content %}
     {% autoescape false %}
-<main>
-    <section class="section hero-medium kid-page">
-        <div class="container child-container">
-            <a class="link-back link-back-mobile" id='children-link-back' href="{{ path('children_list') }}"><span
-                    class="icon icon-arrow-angle-right"></span>Назад</a>
-            <h1 class="hero-medium__title">{{title}}</h1>
-            <a class="link-back link-back-desktop" id='children-link-back' href="{{ path('children_list') }}"><span
-                    class="icon icon-arrow-angle-right"></span>Назад</a>
-        </div>
-    </section>
+        <main>
+            <section class="section hero-medium kid-page">
+                <div class="container child-container">
+                    <a class="link-back link-back-mobile" id='children-link-back'
+                       href="{{ path('children_list') }}"><span
+                            class="icon icon-arrow-angle-right"></span>Назад</a>
+                    <h1 class="hero-medium__title">{{ title }}</h1>
+                    <a class="link-back link-back-desktop" id='children-link-back'
+                       href="{{ path('children_list') }}"><span
+                            class="icon icon-arrow-angle-right"></span>Назад</a>
+                </div>
+            </section>
 
-    <section class="section child section-with-bghearts">
-        <div class="container child-container">
-            <div class="child-wrapper kids-wrapper">
-                <div class="card-child-wrapper">
+            <section class="section child section-with-bghearts">
+                <div class="container child-container">
+                    <div class="child-wrapper kids-wrapper">
+                        <div class="card-child-wrapper">
 
-                    <div class='previous-child'>
-                        <div class='skybox'></div>
-                            <a href='{{prevnext.0}}'>
-                        <div class='txt'>Предыдущий<br>ребенок</div>
-                        <div class='link'><img src='/images/left-arrow.png'>
-                        </div></a>
-                    </div>
-                    <div class='next-child'>
-                        <div class='skybox'></div><a href='{{prevnext.1}}'>
-                        <div class='txt'>Следующий<br>ребенок</div>
-                        <div class='link'>
-                            <img src='/images/right-arrow.png'>
-                        </div></a>
-                    </div>
-                    <div class='child-navigation'>
-                        <div class='previous-child-mobile'>
-                            <a href='{{prevnext.0}}'>
-                                <div class='link'><img src='/images/left-arrow.png'>
-                                </div>
-
-                            <div class='txt'>Предыдущий<br>ребенок</div></a>
-                        </div>
-                        <div class='next-child-mobile'>
-                            <a href='{{prevnext.1}}'>
-                            <div class='txt'>Следующий<br>ребенок</div>
-                                <div class='link'><img src='/images/right-arrow.png'>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div class="card-child">
-                        <div class="card-child__col">
-
-                            {# таймер ребенка #}
-                            {% if (targets|last).allowclose[0] == 0 %}
-                            {% if date((targets|last).totime) > date( "now")%}
-                            <div class='notification kid-profile'>
-                                <div>Реабилитация<br>через:</div>
-                                        <div class='days'><span id="{{child.id}}days"></span> дней</div>
-                                        <div class='time'><span id="{{child.id}}hours"></span><span id="{{child.id}}delimiter">:</span><span id="{{child.id}}minutes"></span><span id="{{child.id}}delimiter2">:</span><span id="{{child.id}}seconds"></span></div>
-                                        <script type="text/javascript">
-                                            function updater(d, h, m, s, dlm, dlm2) {
-                                            var baseTime = new Date( {{ (targets|last).totime|date("Y") }}, {{ (targets|last).totime|date("m") }}-1, {{ (targets|last).totime|date("d") }}, 14);
-
-                                            function update() {
-                                                var cur = new Date();
-                                                var diff = (baseTime - cur);
-                                                // var millis = diff % 1000;
-                                                diff = Math.floor(diff/1000);
-                                                var sec = diff % 60;
-                                                if(sec < 10) sec = "0"+sec;
-                                                diff = Math.floor(diff/60);
-                                                var min = diff % 60;
-                                                if(min < 10) min = "0"+min;
-                                                diff = Math.floor(diff/60);
-                                                var hours = diff % 24;
-                                                var days = Math.floor(diff / 24);
-                                                d.innerHTML = days;
-                                                h.innerHTML = hours;
-                                                m.innerHTML = min;
-                                                // dlm.innerHTML = dlm.innerHTML==':' ? " " : ":";
-
-                                                s.innerHTML = (sec);
-
-                                                setTimeout(update, 1000);
-                                            }
-                                            setTimeout(update, 0);
-                                            }
-                                            updater(document.getElementById("{{child.id}}days"),
-                                            document.getElementById("{{child.id}}hours"), document.getElementById("{{child.id}}minutes"),
-                                            document.getElementById("{{child.id}}seconds"),
-                                            document.getElementById("{{child.id}}delimiter"),
-                                            document.getElementById("{{child.id}}delimiter2"));
-                                        </script>
+                            <div class='previous-child'>
+                                <div class='skybox'></div>
+                                <a href='{{ prevnext.0 }}'>
+                                    <div class='txt'>Предыдущий<br>ребенок</div>
+                                    <div class='link'><img src='/images/left-arrow.png'>
+                                    </div>
+                                </a>
                             </div>
-                            {% else %}
-                            <div class='notification care kid-profile'>
-                                <img src='/images/care.svg'>
-                                <div class='inProcess'>Проходит реабилитацию</div>
+                            <div class='next-child'>
+                                <div class='skybox'></div>
+                                <a href='{{ prevnext.1 }}'>
+                                    <div class='txt'>Следующий<br>ребенок</div>
+                                    <div class='link'>
+                                        <img src='/images/right-arrow.png'>
+                                    </div>
+                                </a>
                             </div>
-                            {% endif %}
-                            {% endif %}
-                            <div class="card-child-photos">
-                                <div class="card-child-photos__main">
-                                    <img class="img-responsive" src="{{ asset('uploads/images/' ~ child.images[0]) }}"
-                                        alt="{{ child.name }}" data-proportion-h="1" width="382">
-                                </div>
+                            <div class='child-navigation'>
+                                <div class='previous-child-mobile'>
+                                    <a href='{{ prevnext.0 }}'>
+                                        <div class='link'><img src='/images/left-arrow.png'>
+                                        </div>
 
-                                <div class="card-child-photos__list photo-gallery">
-                                    {% for image in child.images %}
-                                    <img class="photo-gallery__item photo-gallery__item--active img-responsive"
-                                        src="{{ asset('uploads/images/' ~ image) }}" alt="{{ child.name }}" data-proportion-h="1" width="59">
-                                    {% endfor %}
+                                        <div class='txt'>Предыдущий<br>ребенок</div>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-
-                            <div class="card-child__col card-child-description">
-                                <div class="card-child-name">{{ child.name }}, {{yo}}</div>
-                                <div class="card-child-field">
-                                    {# <div class="card-child-field__title">Место рождения:</div> #}
-                                    <div class="card-child-field__value">{{ child.city }}</div>
-                                </div>
-                                {# <div class="card-child-field">
-                                    <div class="card-child-field__title">Возраст:</div>
-                                    <div class="card-child-field__value">{{ child.age }} {{yo}}</div>
-                                </div> #}
-                            <div class="card-child-field">
-                                <div class="card-child-field__title">Диагноз:</div>
-                                <div class="card-child-field__value card-child-field__value--full">
-                                    {{ child.diagnosis }}
+                                <div class='next-child-mobile'>
+                                    <a href='{{ prevnext.1 }}'>
+                                        <div class='txt'>Следующий<br>ребенок</div>
+                                        <div class='link'><img src='/images/right-arrow.png'>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
 
-                            <div class="collected-resources ">
-                                <div class="collected-resources-left newbuttonwrapper">
-                                    {% if closed or (((targets|last).allowclose[0] == 0) and (targets|last).Goal - (targets|last).collected <= 0)%}
-                                    <div class="newmoneybutton orangebutton close">
-                                        Сбор средств{{ not closed ? " на текущую<br>реабилитацию"|raw : "<br>"}} завершен
-                                    </div>
-                                    <div class='thanks-img'>
-                                        <img src='/images/thanks.svg'>
-                                    </div>
-                                    {% else %}
-                                    <div class="newmoneybutton">Необходимо <br>
-                                        <span
-                                            class="collected-resources-left__value">{{ (targets|last).goal|number_format(0, '.', ' ') }}
-                                            руб.</span>
-                                    </div>
 
-                                    <div class="newmoneybutton orangebutton">
-                                        Осталось собрать<br>
-                                        <span>{{ ((targets|last).Goal - (targets|last).collected)|number_format(0, '.', ' ') }}
-                                            руб.</span>
-                                    </div>
-                                    {% endif %}
+                            <div class="card-child">
+                                <div class="card-child__col">
 
+                                    {# таймер ребенка #}
+                                    {% if (targets|last).allowclose[0] == 0 %}
+                                        {% if date((targets|last).totime) > date( "now") %}
+                                            <div class='notification kid-profile'>
+                                                <div>Реабилитация<br>через:</div>
+                                                <div class='days'><span id="{{ child.id }}days"></span> дней</div>
+                                                <div class='time'><span id="{{ child.id }}hours"></span><span
+                                                        id="{{ child.id }}delimiter">:</span><span
+                                                        id="{{ child.id }}minutes"></span><span
+                                                        id="{{ child.id }}delimiter2">:</span><span
+                                                        id="{{ child.id }}seconds"></span></div>
+                                                <script type="text/javascript">
+                                                    function updater(d, h, m, s, dlm, dlm2) {
+                                                        var baseTime = new Date( {{ (targets|last).totime|date("Y") }}, {{ (targets|last).totime|date("m") }}-1, {{ (targets|last).totime|date("d") }}, 14);
 
+                                                        function update() {
+                                                            var cur = new Date();
+                                                            var diff = (baseTime - cur);
+                                                            // var millis = diff % 1000;
+                                                            diff = Math.floor(diff / 1000);
+                                                            var sec = diff % 60;
+                                                            if (sec < 10) sec = "0" + sec;
+                                                            diff = Math.floor(diff / 60);
+                                                            var min = diff % 60;
+                                                            if (min < 10) min = "0" + min;
+                                                            diff = Math.floor(diff / 60);
+                                                            var hours = diff % 24;
+                                                            var days = Math.floor(diff / 24);
+                                                            d.innerHTML = days;
+                                                            h.innerHTML = hours;
+                                                            m.innerHTML = min;
+                                                            // dlm.innerHTML = dlm.innerHTML==':' ? " " : ":";
 
-                                </div>
-                                <div class="newprogressbarwrapper">
-                                    <p>Сбор средств:</p>
-                                    <div class="collected-resources__slider">
-                                        <div class='push-content'></div>
-                                        {% for trg in targets %}
-                                        {% if closed %}
-                                            <div class='collected-resources {{ (not trg.rehabilitation) ? 'pmj'}}' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
+                                                            s.innerHTML = (sec);
+
+                                                            setTimeout(update, 1000);
+                                                        }
+
+                                                        setTimeout(update, 0);
+                                                    }
+
+                                                    updater(document.getElementById("{{ child.id }}days"),
+                                                        document.getElementById("{{ child.id }}hours"), document.getElementById("{{ child.id }}minutes"),
+                                                        document.getElementById("{{ child.id }}seconds"),
+                                                        document.getElementById("{{ child.id }}delimiter"),
+                                                        document.getElementById("{{ child.id }}delimiter2"));
+                                                </script>
+                                            </div>
                                         {% else %}
-                                            {# <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}";'> #}
-                                            <div class='collected-resources {{ (not trg.rehabilitation) ? 'pmj'}}' onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
+                                            <div class='notification care kid-profile'>
+                                                <img src='/images/care.svg'>
+                                                <div class='inProcess'>Проходит реабилитацию</div>
+                                            </div>
                                         {% endif %}
+                                    {% endif %}
+                                    <div class="card-child-photos">
+                                        <div class="card-child-photos__main">
+                                            <img class="img-responsive"
+                                                 src="{{ asset('uploads/images/' ~ child.images[0]) }}"
+                                                 alt="{{ child.name }}" data-proportion-h="1" width="382">
+                                        </div>
 
-                                            <!-- -->
-                                            <div class='txt'>
-                                                    <div class='childname'>{{ child.name }}</div>
-                                                    <div class='info'>{{trg.name}}</div>
-                                                    <div>
-                                                        {% if closed %}
-                                                            <a onclick='location.href="#k";' href='#kid-news'>Подробнее</a>
-                                                        {% else %}
-                                                            <a onclick='location.href="#k";' href='{{   trg.link(targets|length == loop.index)}}'>Подробнее</a>
+                                        <div class="card-child-photos__list photo-gallery">
+                                            {% for image in child.images %}
+                                                <img
+                                                    class="photo-gallery__item photo-gallery__item--active img-responsive"
+                                                    src="{{ asset('uploads/images/' ~ image) }}" alt="{{ child.name }}"
+                                                    data-proportion-h="1" width="59">
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-child__col card-child-description">
+                                    <div class="card-child-name">{{ child.name }}, {{ yo }}</div>
+                                    <div class="card-child-field">
+                                        {# <div class="card-child-field__title">Место рождения:</div> #}
+                                        <div class="card-child-field__value">{{ child.city }}</div>
+                                    </div>
+                                    {# <div class="card-child-field">
+                                        <div class="card-child-field__title">Возраст:</div>
+                                        <div class="card-child-field__value">{{ child.age }} {{yo}}</div>
+                                    </div> #}
+                                    <div class="card-child-field">
+                                        <div class="card-child-field__title">Диагноз:</div>
+                                        <div class="card-child-field__value card-child-field__value--full">
+                                            {{ child.diagnosis }}
+                                        </div>
+                                    </div>
+
+                                    <div class="collected-resources ">
+                                        <div class="collected-resources-left newbuttonwrapper">
+                                            {% if closed or (((targets|last).allowclose[0] == 0) and (targets|last).Goal - (targets|last).collected <= 0) %}
+                                                <div class="newmoneybutton orangebutton close">
+                                                    Сбор
+                                                    средств{{ not closed ? " на текущую<br>реабилитацию"|raw : "<br>" }}
+                                                    завершен
+                                                </div>
+                                                <div class='thanks-img'>
+                                                    <img src='/images/thanks.svg'>
+                                                </div>
+                                            {% else %}
+                                                <div class="newmoneybutton">Необходимо <br>
+                                                    <span
+                                                        class="collected-resources-left__value">{{ (targets|last).goal|number_format(0, '.', ' ') }}
+                                            руб.</span>
+                                                </div>
+
+                                                <div class="newmoneybutton orangebutton">
+                                                    Осталось собрать<br>
+                                                    <span>{{ ((targets|last).Goal - (targets|last).collected)|number_format(0, '.', ' ') }}
+                                            руб.</span>
+                                                </div>
+                                            {% endif %}
+
+
+                                        </div>
+                                        <div class="newprogressbarwrapper">
+                                            <p>Сбор средств:</p>
+                                            <div class="collected-resources__slider">
+                                                <div class='push-content'></div>
+                                                {% for trg in targets %}
+                                                {% if closed %}
+                                                <div class='collected-resources {{ (not trg.rehabilitation) ? 'pmj' }}'
+                                                     onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
+                                                    {% else %}
+                                                    {# <div class='collected-resources' onclick='location.href="#k"; location.href="{{ trg.link(targets|length == loop.index) }}";'> #}
+                                                    <div
+                                                        class='collected-resources {{ (not trg.rehabilitation) ? 'pmj' }}'
+                                                        onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'>
                                                         {% endif %}
+
+                                                        <!-- -->
+                                                        <div class='txt'>
+                                                            <div class='childname'>{{ child.name }}</div>
+                                                            <div class='info'>{{ trg.name }}</div>
+                                                            <div>
+                                                                {% if closed %}
+                                                                    <a onclick='location.href="#k";' href='#kid-news'>Подробнее</a>
+                                                                {% else %}
+                                                                    <a onclick='location.href="#k";'
+                                                                       href='{{ trg.link(targets|length == loop.index) }}'>Подробнее</a>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <div class="collected-resources__slider-filled"
+                                                             style="width: {{ 100*trg.collected/trg.goal }}%">
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+
+                                            <div class="hr-child" style='height:2px;'></div>
+                                            {% if closed or ((targets|last).goal <= (targets|last).collected) %}
+                                            <h3 class="child-help-form__title">Я хочу помочь детям</h3>
+                                            {% endif %}
+                                            <form class="child-help-form kid-page" action="{{ path('donate') }}"
+                                                  method="GET">
+                                                {% if ((targets|last).goal > (targets|last).collected) %}<input
+                                                    type="hidden" name="child_id" value="{{ child.id }}">{% endif %}
+
+
+                                                <div class="donate-form-row" style="margin: 0 auto;">
+                                                    <div
+                                                        class="donate-form-row__col donate-sum-fieldgroup toggle-fieldgroup">
+                                                        <label class="donate-sum-fieldgroup__label toggle-field">
+                                                            <input class="toggle-field__input" type="radio" name="sum"
+                                                                   value="300"
+                                                                   checked>
+                                                            <span class="toggle-field__text">300 Р</span>
+                                                        </label>
+                                                        <label class="donate-sum-fieldgroup__label toggle-field">
+                                                            <input class="toggle-field__input" type="radio" name="sum"
+                                                                   value="500">
+                                                            <span class="toggle-field__text">500 Р</span>
+                                                        </label>
+                                                        <label class="donate-sum-fieldgroup__label toggle-field">
+                                                            <input class="donate-text-field" type="text"
+                                                                   name="sum-other" value=""
+                                                                   placeholder="Другая сумма" autocomplete="off"
+                                                                   style='padding: 0 15px 0 15px; width:15rem; border-top-right-radius:40px;border-bottom-right-radius:40px;'>
+                                                        </label>
+                                                        <button
+                                                            class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit visible kid-profile"
+                                                            type="submit"
+                                                            style='padding: 16px 4rem;margin-left:5px; width:100%;'>
+                                                            Пожертвовать
+                                                        </button>
                                                     </div>
                                                 </div>
-                                            <div class="collected-resources__slider-filled"
-                                                style="width: {{100*trg.collected/trg.goal}}%">
-                                            </div>
+                                                <div class="donate-form-row" style="margin: 0 auto;">
+                                                    <div class="donate-form-payment-systems"
+                                                         style="height: 40px; margin: 0 auto;">
+                                                        <div class="donate-form-payment-systems__cards"
+                                                             style="width: 300px; margin: 0;">
+                                                            <div id="paymentByVisa" class="toggle-field__text"
+                                                                 style="opacity: 0.7; border-right: none; padding-left: 0; text-align: center; font-size: 1.2rem; color: #707070 !important; text-transform: none; cursor: auto; width:fit-content; margin:0 auto; margin-bottom:15px;">
+                                                                <div style="padding-left: 10px; padding-right: 10px;">
+                                                                    Оплата с карт
+                                                                </div>
+                                                                <img class="toggle-field__text-image"
+                                                                     src="/images/Apple_Pay.png" width="50"><img
+                                                                    class="toggle-field__text-image"
+                                                                    src="/images/Google_Pay.png" width="50"><img
+                                                                    class="toggle-field__text-image"
+                                                                    src="/images/mastercard.png" width="30"><img
+                                                                    class="toggle-field__text-image"
+                                                                    src="/images/visa.png"
+                                                                    width="40">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button
+                                                    class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit bottom hidden"
+                                                    type="submit">
+                                                    Пожертвовать
+                                                </button>
+                                            </form>
                                         </div>
-                                        {% endfor %}
                                     </div>
                                 </div>
-
-                                <div class="hr-child" style='height:2px;'></div>
-                                {% if closed or ((targets|last).goal <= (targets|last).collected) %}
-                                <h3 class="child-help-form__title">Я хочу помочь детям</h3>
-                                {% endif %}<form class="child-help-form kid-page" action="{{ path('donate') }}"
-                                    method="GET">
-                                    {% if ((targets|last).goal > (targets|last).collected) %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}
-
-
-                                    <div class="donate-form-row" style="margin: 0 auto;">
-                                        <div class="donate-form-row__col donate-sum-fieldgroup toggle-fieldgroup">
-                                            <label class="donate-sum-fieldgroup__label toggle-field">
-                                                <input class="toggle-field__input" type="radio" name="sum" value="300"
-                                                    checked>
-                                                <span class="toggle-field__text">300 Р</span>
-                                            </label>
-                                            <label class="donate-sum-fieldgroup__label toggle-field">
-                                                <input class="toggle-field__input" type="radio" name="sum" value="500">
-                                                <span class="toggle-field__text">500 Р</span>
-                                            </label>
-                                            <label class="donate-sum-fieldgroup__label toggle-field">
-                                                <input class="donate-text-field" type="text" name="sum-other" value=""
-                                                    placeholder="Другая сумма" autocomplete="off"
-                                                    style='padding: 0 15px 0 15px; width:15rem; border-top-right-radius:40px;border-bottom-right-radius:40px;'>
-                                            </label>
-                                            <button
-                                                class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit visible kid-profile"
-                                                type="submit" style='padding: 16px 4rem;margin-left:5px; width:100%;'>
-                                                Пожертвовать
-                                            </button>
+                                <div class='hr-child hr-full'></div>
+                                <section class='cart-nav-container kid-profile'>
+                                    <div class='cart-nav kid-profile'>
+                                        <div class='active left'><span><a href='#letter'>Письмо мамы</a></span></div>
+                                        <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребёнка <span
+                                                        class="news_counter">{{ news_lst|length }}</span></a></span>
                                         </div>
+                                        <div
+                                            class='right {{ closed or ((targets|last).allowclose[0] == 0 and (date((targets|last).totime) < date( "now"))) ? 'disabled' }} '>
+                                            <span><a href='#needed'>Необходимо собрать</a></span></div>
                                     </div>
-                                    <div class="donate-form-row" style="margin: 0 auto;">
-                                        <div class="donate-form-payment-systems" style="height: 40px; margin: 0 auto;">
-                                            <div class="donate-form-payment-systems__cards"
-                                                style="width: 300px; margin: 0;">
-                                                <div id="paymentByVisa" class="toggle-field__text"
-                                                    style="opacity: 0.7; border-right: none; padding-left: 0; text-align: center; font-size: 1.2rem; color: #707070 !important; text-transform: none; cursor: auto; width:fit-content; margin:0 auto; margin-bottom:15px;">
-                                                    <div style="padding-left: 10px; padding-right: 10px;">Оплата с карт
-                                                    </div><img class="toggle-field__text-image"
-                                                        src="/images/Apple_Pay.png" width="50"><img
-                                                        class="toggle-field__text-image"
-                                                        src="/images/Google_Pay.png" width="50"><img
-                                                        class="toggle-field__text-image"
-                                                        src="/images/mastercard.png" width="30"><img
-                                                        class="toggle-field__text-image" src="/images/visa.png"
-                                                        width="40">
+                                </section>
+                                <div class="mothersletter displaytrue" id='letter'>
+                                    <div class='letter-content'>
+                                        <div class='left-half'>
+                                            {# <div class='title'>Комментарий</div> #}
+                                            <div class='msg'>
+                                                {{ child.comment|raw }}
+                                            </div>
+                                        </div>
+                                        {% if child.video %}
+                                            <div class='right-half'>
+                                            <div class='img-block'>
+                                                <iframe width="560" height="315" src="{{ child.video }}" frameborder="0"
+                                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowfullscreen></iframe>
+                                            </div>
+                                            </div>{% endif %}
+                                    </div>
+                                </div>
+                                <div class="helpmoney" id='needed'>
+                                    <div class='helpmoney-flex-container'>
+                                        <div class='left-half'>
+                                            <div class='swiper-container gallery-top'>
+                                                <div class='swiper-wrapper'>
+                                                    {% for img in imgs %}
+                                                        <div class='swiper-slide'>
+                                                            <div class='img-block'>
+                                                                <img src='/uploads/images/{{ img }}'>
+
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="swiper-container gallery-thumbs">
+                                                <div class="swiper-wrapper">
+                                                    {% for img in imgs %}
+                                                        <div class='swiper-slide'>
+                                                            <img src='/uploads/images/{{ img }}'>
+                                                        </div>
+                                                    {% endfor %}
+
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <button
-                                        class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit bottom hidden"
-                                        type="submit">
-                                        Пожертвовать
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='hr-child hr-full'></div>
-                    <section class='cart-nav-container kid-profile'>
-                        <div class='cart-nav kid-profile'>
-                            <div class='active left'><span><a href='#letter'>Письмо мамы</a></span></div>
-                            <div class='center {{ not news_lst ? 'disabled' }}'><span><a href='#kid-news'>История ребёнка <span class="news_counter">{{news_lst|length}}</span></a></span></div>
-                            <div class='right {{ closed or ((targets|last).allowclose[0] == 0 and (date((targets|last).totime) < date( "now"))) ? 'disabled' }} '><span><a href='#needed'>Необходимо собрать</a></span></div>
-                        </div>
-                    </section>
-                    <div class="mothersletter displaytrue" id='letter'>
-                        <div class='letter-content'>
-                            <div class='left-half'>
-                                {# <div class='title'>Комментарий</div> #}
-                                <div class='msg'>
-                                    {{child.comment|raw}}
-                                </div>
-                            </div>
-                            {% if child.video %}<div class='right-half'>
-                                <div class='img-block'>
-                                    <iframe width="560" height="315" src="{{child.video}}" frameborder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-                                </div>
-                            </div>{% endif %}
-                        </div>
-                    </div>
-                    <div class="helpmoney" id='needed'>
-                        <div class='helpmoney-flex-container'>
-                            <div class='left-half'>
-                                <div class='swiper-container gallery-top'>
-                                    <div class='swiper-wrapper'>
-                                        {% for img in imgs %}
-                                        <div class='swiper-slide'>
-                                            <div class='img-block'>
-                                                <img src='/uploads/images/{{img}}'>
+                                        <div class="right-half">
+                                            {# <div class='name'>Преобретение аппарата сВОШ</div> #}
+                                            <div class='name'>{{ (targets|last).name }}</div>
 
+                                            {% if (targets|last).rehabilitation == 1 %}
+                                                <div class='info'>Реабилитация {{ (targets|last).totime|date("j") }}
+                                                    {{ mnths[(targets|last).totime|date("n")] }} {{ (targets|last).totime|date("Y") }}
+                                                    года
+                                                </div>
+                                            {% endif %}
+                                            <div class="newmoneybutton bottom">
+                                                Необходимо<br>
+                                                <span>{{ (targets|last).goal|number_format(0, '.', ' ') }} руб.</span>
+                                            </div>
+                                            <div class='descr'>{{ (targets|last).descr|raw }}</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="childnews" id='kid-news'>
+                                    <div class='separator'></div>
+                                    {% for news in news_lst %}
+                                    <div class='childnews-row'>
+                                        <div class='left-half'>
+                                            {% if loop.index % 2 != 0 %}
+                                            <div class='childnews-item {% if news.descr %}pointer'
+                                                 onclick="document.location='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'" {% else %}
+                                            '{% endif %}>
+                                            <div class='childnews-content'>
+                                                <div class='childnews-number'>{{ loop.index }}</div>
+                                                <div class='txt'>
+                                                    <p class='childnews-item-date'>
+                                                        {{ news.createdat|date("j") }} {{ mnths[news.createdat|date("n")] }}
+                                                        {{ news.createdat|date("Y") }} года
+                                                    </p>
+                                                    <p class='childnews-item-title'>
+                                                        {{ news.title }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            {% if news.descr %}<p class='childnews-item-desc'>
+                                                {{ news.descr|raw }}
+                                            </p>
+{#                                            <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'#}
+{#                                               class='childnews-item-link'>#}
+{#                                                Подробнее#}
+{#                                            </a>#}
+                                            {% endif %}
+                                            {% if news.arphotos %}{% if news.arphotos.0 %}<img
+                                                src='/uploads/images/{{ news.arphotos.0 }}' class='children-item-img'
+                                                style="max-height: 270px;object-fit: cover;">{% endif %}{% endif %}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class='center'>
+                                        <div>{{ loop.index }}</div>
+                                    </div>
+
+                                    <div class='right-half'>
+                                        {% if loop.index % 2 == 0 %}
+                                        <div class='childnews-item {% if news.descr %}pointer'
+                                             onclick="document.location='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'" {% else %}
+                                        '{% endif %}>
+                                        <div class='childnews-content'>
+                                            <div class='childnews-number'>{{ loop.index }}</div>
+                                            <div class='txt'>
+                                                <p class='childnews-item-date'>
+                                                    {{ news.createdat|date("j") }} {{ mnths[news.createdat|date("n")] }}
+                                                    {{ news.createdat|date("Y") }} года
+                                                </p>
+                                                <p class='childnews-item-title'>
+                                                    {{ news.title }}
+                                                </p>
                                             </div>
                                         </div>
-                                        {% endfor %}
+                                        {% if news.descr %}<p class='childnews-item-desc'>
+                                            {{ news.descr|raw }}
+                                        </p>
+{#                                        <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'#}
+{#                                           class='childnews-item-link'>#}
+{#                                            Подробнее#}
+{#                                        </a>#}
+                                        {% endif %}
+                                        {% if news.arphotos %}{% if news.arphotos.0 %}<img
+                                            src='/uploads/images/{{ news.arphotos.0 }}' class='children-item-img'
+                                            style="max-height: 270px;object-fit: cover;">{% endif %}{% endif %}
                                     </div>
-                                </div>
-                                <div class="swiper-container gallery-thumbs">
-                                    <div class="swiper-wrapper">
-                                        {% for img in imgs %}
-                                        <div class='swiper-slide'>
-                                            <img src='/uploads/images/{{img}}'>
-                                        </div>
-                                        {% endfor %}
-
-                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
-                            <div class="right-half">
-                                {# <div class='name'>Преобретение аппарата сВОШ</div> #}
-                                <div class='name'>{{(targets|last).name}}</div>
-
-                                {% if (targets|last).rehabilitation == 1 %} <div class='info'>Реабилитация {{(targets|last).totime|date("j")}}
-                                    {{mnths[(targets|last).totime|date("n")]}} {{(targets|last).totime|date("Y")}} года
-                                </div>
-                                {% endif %}
-                                <div class="newmoneybutton bottom">
-                                    Необходимо<br> <span>{{(targets|last).goal|number_format(0, '.', ' ') }} руб.</span>
-                                </div>
-                                <div class='descr'>{{(targets|last).descr|raw}}</div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="childnews" id='kid-news'>
-                        <div class='separator'></div>
-                        {% for news in news_lst %}
-                        <div class='childnews-row'>
-                            <div class='left-half'>
-                                {% if loop.index % 2 != 0 %}
-                                    <div class='childnews-item {% if news.descr %}pointer' onclick="document.location='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'" {%  else %}'{%  endif  %}>
-                                    <div class='childnews-content'>
-                                        <div class='childnews-number'>{{loop.index}}</div>
-                                        <div class='txt'>
-                                            <p class='childnews-item-date'>
-                                                {{news.createdat|date("j")}} {{mnths[news.createdat|date("n")]}}
-                                                {{news.createdat|date("Y")}} года
-                                            </p>
-                                            <p class='childnews-item-title'>
-                                                {{news.title}}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    {% if news.descr %}<p class='childnews-item-desc'>
-                                        {{news.descr|raw}}
-                                    </p>
-                                    <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
-                                        Подробнее
-                                    </a>{% endif %}
-                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img' style="max-height: 270px;object-fit: cover;">{% endif %}{% endif %}
-                                </div>
-                                {% endif %}
-                            </div>
-
-                            <div class='center'>
-                                <div>{{loop.index}}</div>
-                            </div>
-
-                            <div class='right-half'>
-                                {% if loop.index % 2 == 0 %}
-                                <div class='childnews-item {% if news.descr %}pointer' onclick="document.location='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'" {%  else %}'{%  endif  %}>
-                                    <div class='childnews-content'>
-                                        <div class='childnews-number'>{{loop.index}}</div>
-                                        <div class='txt'>
-                                            <p class='childnews-item-date'>
-                                                {{news.createdat|date("j")}} {{mnths[news.createdat|date("n")]}}
-                                                {{news.createdat|date("Y")}} года
-                                            </p>
-                                            <p class='childnews-item-title'>
-                                                {{news.title}}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    {% if news.descr %}<p class='childnews-item-desc'>
-                                        {{news.descr|raw}}
-                                    </p>
-                                    <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}' class='childnews-item-link'>
-                                        Подробнее
-                                    </a>{% endif %}
-                                    {% if news.arphotos %}{% if news.arphotos.0 %}<img src='/uploads/images/{{news.arphotos.0}}' class='children-item-img' style="max-height: 270px;object-fit: cover;">{% endif %}{% endif %}
-                                </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                        {% endfor %}
-                        {#<script>
-                                var content;
-                                for (var i = 0; i < 5; i++) {
-                                    console.log(i);
-                                    if (i % 2 == 0) {
-                                        content = "\
-                                        <div class='childnews-row'>\
-                                        <div class='left-half'>\
-                                            <div class='childnews-item'>\
-                                                <div class='childnews-content'>\
-                                                <div class='childnews-number'>" + (i + 1) + "</div>\
-                                                <div class='txt'>\
-                                                <p class='childnews-item-date'>\
-                                                    13 декабря 2019 года\
-                                                </p>\
-                                                <p class='childnews-item-title'>\
-                                                    Открыт сбор на первую реабилитацию Иванова Вани на сумму 23 400 руб.\
-                                                </p>\
+                            {% endfor %}
+                            {#<script>
+                                    var content;
+                                    for (var i = 0; i < 5; i++) {
+                                        console.log(i);
+                                        if (i % 2 == 0) {
+                                            content = "\
+                                            <div class='childnews-row'>\
+                                            <div class='left-half'>\
+                                                <div class='childnews-item'>\
+                                                    <div class='childnews-content'>\
+                                                    <div class='childnews-number'>" + (i + 1) + "</div>\
+                                                    <div class='txt'>\
+                                                    <p class='childnews-item-date'>\
+                                                        13 декабря 2019 года\
+                                                    </p>\
+                                                    <p class='childnews-item-title'>\
+                                                        Открыт сбор на первую реабилитацию Иванова Вани на сумму 23 400 руб.\
+                                                    </p>\
+                                                    </div>\
+                                                    </div>\
+                                                    <p class='childnews-item-desc'>\
+                                                        IPhone — серия смартфонов, разработанных корпорацией Apple.\
+                                                    </p>\
+                                                    <a href='#' class='childnews-item-link'>\
+                                                        Подробнее\
+                                                    </a>\
+                                                    <img src='../pacan4eg.png' class='children-item-img'>\
                                                 </div>\
-                                                </div>\
-                                                <p class='childnews-item-desc'>\
-                                                    IPhone — серия смартфонов, разработанных корпорацией Apple.\
-                                                </p>\
-                                                <a href='#' class='childnews-item-link'>\
-                                                    Подробнее\
-                                                </a>\
-                                                <img src='../pacan4eg.png' class='children-item-img'>\
                                             </div>\
-                                        </div>\
-\
-                                        <div class='center'>\
-                                            <div>" + (i + 1) + "</div>\
-                                        </div>\
-\
-                                        <div class='right-half'></div>\
-                                    </div>";
-                                    } else {
-                                        content = "\
-                                        <div class='childnews-row'>\
-                                        <div class='left-half'>\
-                                        </div>\
-\
-                                        <div class='center'>\
-                                            <div>" + (i + 1) + "</div>\
-                                        </div>\
-\
-                                        <div class='right-half'>\
-                                            <div class='childnews-item'>\
-                                                <div class='childnews-content'>\
-                                                <div class='childnews-number'>" + (i + 1) + "</div>\
-                                                <div class='txt'>\
-                                                <p class='childnews-item-date'>\
-                                                    13 декабря 2019 года\
-                                                </p>\
-                                                <p class='childnews-item-title'>\
-                                                    Открыт сбор на первую реабилитацию Иванова Вани на сумму 23 400 руб.\
-                                                </p>\
-                                                </div>\
-                                                </div>\
-                                                <p class='childnews-item-desc'>\
-                                                    IPhone — серия смартфонов, разработанных корпорацией Apple.\
-                                                </p>\
-                                                <a href='#' class='childnews-item-link'>\
-                                                    Подробнее\
-                                                </a>\
-                                                <img src='../Rectangle 37.png' class='children-item-img'>\
+    \
+                                            <div class='center'>\
+                                                <div>" + (i + 1) + "</div>\
                                             </div>\
-                                        </div>\
-                                    </div>";
+    \
+                                            <div class='right-half'></div>\
+                                        </div>";
+                                        } else {
+                                            content = "\
+                                            <div class='childnews-row'>\
+                                            <div class='left-half'>\
+                                            </div>\
+    \
+                                            <div class='center'>\
+                                                <div>" + (i + 1) + "</div>\
+                                            </div>\
+    \
+                                            <div class='right-half'>\
+                                                <div class='childnews-item'>\
+                                                    <div class='childnews-content'>\
+                                                    <div class='childnews-number'>" + (i + 1) + "</div>\
+                                                    <div class='txt'>\
+                                                    <p class='childnews-item-date'>\
+                                                        13 декабря 2019 года\
+                                                    </p>\
+                                                    <p class='childnews-item-title'>\
+                                                        Открыт сбор на первую реабилитацию Иванова Вани на сумму 23 400 руб.\
+                                                    </p>\
+                                                    </div>\
+                                                    </div>\
+                                                    <p class='childnews-item-desc'>\
+                                                        IPhone — серия смартфонов, разработанных корпорацией Apple.\
+                                                    </p>\
+                                                    <a href='#' class='childnews-item-link'>\
+                                                        Подробнее\
+                                                    </a>\
+                                                    <img src='../Rectangle 37.png' class='children-item-img'>\
+                                                </div>\
+                                            </div>\
+                                        </div>";
+                                        }
+                                        $('.childnews').append(content);
                                     }
-                                    $('.childnews').append(content);
-                                }
-                            </script>#}
+                                </script>#}
 
+                        </div>
+                        <div class="hr-child hr-full"></div>
+
+                        <form class="child-help-form" action="{{ path('donate') }}" method="POST">
+                            {% if ((targets|last).goal <= (targets|last).collected) %}
+                                <h3 class="child-help-form__title">Помочь другим детям</h3> {% else %}<input
+                                type="hidden" name="child_id" value="{{ child.id }}">
+                                <h3 class="child-help-form__title">Адресная помощь: {{ child.name }}</h3>{% endif %}
+                            <div class="child-help-form-row">
+                                <div
+                                    class="child-help-form__col child-help-form__col-label ohf-col-label__notice-title kid-profile">
+                                    Выберите способ оплаты
+                                </div>
+                                <div class="child-help-form__col child-help-form__col-input ohf-col-input">
+                                    {% include 'components/payment_methods.twig' %}
+                                </div>
+                            </div>
+                            <div class="donate-form-payment-systems__notice child-help-form__notice">
+                                <div class="icon-wrapper">
+                                    <span class="icon icon-lock"></span>
+                                </div>
+                                <div class="child-help-form__notice-text">
+                                    Все сделки защищены SSL, PSI DSS,<br>
+                                    Персональные данные конфиденциальны.
+                                </div>
+                            </div>
+                            <div class="child-help-form__buttons">
+                                <button
+                                    class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit"
+                                    type="submit">
+                                    Далее
+                                </button>
+                            </div>
+                        </form>
+                        {# </div>
+                        <div class="child-contacts">
+                            <div class="contacts-details__row child-contacts__row">
+                                <div class="contacts-details__row-name child-contacts-title">
+                                    Реквизиты для помощи
+                                </div>
+                                <div class="contacts-details__row-value child-contacts-value">
+                                    {{ child.requisites|raw }}
+                                </div>
+                            </div>
+                            <div class="contacts-details__row child-contacts__row">
+                                <div class="contacts-details__row-name child-contacts-title">
+                                    Контакты для связи если у вас возникли вопросы
+                                </div>
+                                <div class="contacts-details__row-value child-contacts-value">
+                                    {{ child.contacts|raw }}
+                                </div>
+                            </div>
+                        </div> #}
                     </div>
-                    <div class="hr-child hr-full"></div>
-
-                    <form class="child-help-form" action="{{ path('donate') }}" method="POST">
-                        {% if ((targets|last).goal <= (targets|last).collected) %}
-                         <h3 class="child-help-form__title">Помочь другим детям</h3> {% else %}<input type="hidden" name="child_id" value="{{ child.id }}">
-                        <h3 class="child-help-form__title">Адресная помощь: {{ child.name }}</h3>{% endif %}
-                        <div class="child-help-form-row">
-                            <div class="child-help-form__col child-help-form__col-label ohf-col-label__notice-title kid-profile">
-                                Выберите способ оплаты
-                            </div>
-                            <div class="child-help-form__col child-help-form__col-input ohf-col-input">
-                                {% include 'components/payment_methods.twig' %}
-                            </div>
-                        </div>
-                        <div class="donate-form-payment-systems__notice child-help-form__notice">
-                            <div class="icon-wrapper">
-                                <span class="icon icon-lock"></span>
-                            </div>
-                            <div class="child-help-form__notice-text">
-                                Все сделки защищены SSL, PSI DSS,<br>
-                                Персональные данные конфиденциальны.
-                            </div>
-                        </div>
-                        <div class="child-help-form__buttons">
-                            <button
-                                class="btn btn-dark btn--big child-help-form__submit js-child-help-form-button-submit"
-                                type="submit">
-                                Далее
-                            </button>
-                        </div>
-                    </form>
-                    {# </div>
-                    <div class="child-contacts">
-                        <div class="contacts-details__row child-contacts__row">
-                            <div class="contacts-details__row-name child-contacts-title">
-                                Реквизиты для помощи
-                            </div>
-                            <div class="contacts-details__row-value child-contacts-value">
-                                {{ child.requisites|raw }}
-                            </div>
-                        </div>
-                        <div class="contacts-details__row child-contacts__row">
-                            <div class="contacts-details__row-name child-contacts-title">
-                                Контакты для связи если у вас возникли вопросы
-                            </div>
-                            <div class="contacts-details__row-value child-contacts-value">
-                                {{ child.contacts|raw }}
-                            </div>
-                        </div>
-                    </div> #}
                 </div>
-            </div>
-        </div>
-    </section>
-    <section class="section help-notice" id="section-help-notice">
-            <div class="container container--medium">
-                <div class="kid-notice-discription">
+                </div>
+            </section>
+            <section class="section help-notice" id="section-help-notice">
+                <div class="container container--medium">
+                    <div class="kid-notice-discription">
                         <div class='inner-col title'>Контактные данные</div>
-                        <div class='inner-col descr'>{{child.contacts}}</div>
+                        <div class='inner-col descr'>{{ child.contacts }}</div>
                         <div class='inner-col title'>Банковские реквизиты</div>
-                        <div class='inner-col descr'>{{child.requisites}}
+                        <div class='inner-col descr'>{{ child.requisites }}
                         </div>
+                    </div>
                 </div>
-            </div>
-    </section>
-</main>
-<script src="/js/swiper.min.js"></script>
-<script src="/js/stickjaw.js"></script>
-{# <script src="/js/bundle.js"></script> #}
-<script type="text/javascript">
+            </section>
+        </main>
+        <script src="/js/swiper.min.js"></script>
+        <script src="/js/stickjaw.js"></script>
+        {# <script src="/js/bundle.js"></script> #}
+        <script type="text/javascript">
 
-$( window ).on( "load" ,function() {
-    $('.cart-nav.kid-profile>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();
-});
-$(window).on('hashchange', function(){$('.cart-nav>div')[['#letter','#kid-news','#needed'].indexOf(location.hash)].click();}).trigger('hashchange');
-</script>
-{% endautoescape %}
+            $(window).on("load", function () {
+                $('.cart-nav.kid-profile>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
+            });
+            $(window).on('hashchange', function () {
+                $('.cart-nav>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
+            }).trigger('hashchange');
+        </script>
+    {% endautoescape %}
 {% endblock %}

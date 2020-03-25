@@ -7821,3 +7821,6 @@ body {
 		}
 	}
 }
+.aid-card__description.closed{
+	height: 200px !important;
+}
