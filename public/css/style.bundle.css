@@ -7832,8 +7832,8 @@ body {
 /*		height: 240px !important;*/
 /*	}*/
 /*}*/
-/*@media (max-width:770px){*/
-/*	.wantHelp.closed {*/
-/*		left:0.75rem;*/
-/*	}*/
-/*}*/
+@media (max-width:770px){
+	.wantHelp.closed {
+		left:0.75rem;
+	}
+}
