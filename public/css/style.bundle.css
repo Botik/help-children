@@ -7821,19 +7821,3 @@ body {
 		}
 	}
 }
-/*.aid-card__description.closed{*/
-/*	height: auto !important;*/
-/*}*/
-
-/*!*!*@media ((max-width:770px) or (max-width:770px)) {*!*!*/
-
-/*!*@media (min-width:1500px), (max-width:1000px){*!*/
-/*!*	.aid-card__description.closed {*!*/
-/*!*		height: 240px !important;*!*/
-/*!*	}*!*/
-/*!*}*!*/
-/*@media (max-width:770px){*/
-/*	.wantHelp.closed {*/
-/*		left:0.75rem;*/
-/*	}*/
-/*}*/
