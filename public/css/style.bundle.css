@@ -4878,7 +4878,7 @@ body {
 .aid-card__description.closed {
 	position: relative;
 	padding: 1rem 2.5rem 120px 2.5rem;
-	height: 250px;
+	height: fit-content !important;
 }
 
 @media screen and (max-width:768px) {
@@ -4903,6 +4903,7 @@ body {
 	font-size: 1.4rem;
 	font-weight: 300;
 	margin-bottom: 0;
+	padding-right:10px;
 }
 
 @media (max-width:992px) {
