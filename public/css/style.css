@@ -2190,7 +2190,7 @@ font-weight:300;
 	 /* style.bundle.css | https://xn--c1accbmwfjbh2bd3o.xn--p1ai/css/style.bundle.css */
 
 	 .aid-card__description {
-		 padding: 1rem 2.5rem 100px 2.5rem !important;
+		 padding: 1rem 2.5rem 83px 2.5rem !important;
 		 height: 240px !important;
 	 }
 
@@ -2200,7 +2200,7 @@ font-weight:300;
 	 }
 
 	 .aid-card__description-diagnosis {
-		 margin-top: 1px !important;
+		 /* margin-top: 1px !important; */
 	 }
 
 	 /* style.css | https://xn--c1accbmwfjbh2bd3o.xn--p1ai/css/style.css */
