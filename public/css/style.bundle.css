@@ -4903,7 +4903,7 @@ body {
 	font-size: 1.4rem;
 	font-weight: 300;
 	margin-bottom: 0;
-	padding-right:10px;
+	height:32px;
 }
 
 @media (max-width:992px) {
