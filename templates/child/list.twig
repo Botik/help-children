@@ -383,9 +383,12 @@
         var sj = new SJ(SJ_setiings);
     </script> #}
         <script>
-            $(window).on('hashchange', function () {
+            $(window).on('hashchange', function (event) {
                 console.log(location.hash)
-                $('.cart-nav>div')[['#kids_dolgosrochnaya-opeka', '#pmj', '#kids_we_helped'].indexOf(location.hash)].click();
+
+
+                // $('.cart-nav>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
+                $('.cart-nav>div')[['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash)].click();
             }).trigger('hashchange');
         </script>
     {% endautoescape %}

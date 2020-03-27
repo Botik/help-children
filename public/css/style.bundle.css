@@ -7822,3 +7822,9 @@ body {
 		}
 	}
 }
+.disabled{
+	color: #C5C5C5;
+	cursor: default;
+	text-decoration: none !important;
+	pointer-events: none;
+}

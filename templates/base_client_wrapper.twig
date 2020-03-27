@@ -60,13 +60,13 @@ fbq('track', 'PageView');
                                 <div class="dropdown-content">
                                     <ul class="nav-links-submenu dropdown-menu">
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="nav-links-submenu__item-link">Долгосрочная опека</a>
+                                            <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[0].click();} ">Долгосрочная опека</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link">Подарки и мечты</a>
+                                            <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[1].click();} ">Подарки и мечты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_we_helped" class="nav-links-submenu__item-link">Мы помогли</a>
+                                            <a href="{{ path('children_list') }}#kids_we_helped" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[2].click();} ">Мы помогли</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -101,9 +101,9 @@ fbq('track', 'PageView');
                                         <li class="nav-links-submenu__item">
                                             <a href="{{ path('reports') }}#rep-fin" class="nav-links-submenu__item-link">Финансовые отчеты</a>
                                         </li>
-{#                                        <li class="nav-links-submenu__item">#}
-{#                                            <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link">Годовые отчеты</a>#}
-{#                                        </li>#}
+                                        <li class="nav-links-submenu__item">
+                                            <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link disabled">Годовые отчеты</a>
+                                        </li>
                                         <li class="nav-links-submenu__item">
                                             <a href="{{ path('reports') }}#rep-aud" class="nav-links-submenu__item-link">Аудиторские отчеты</a>
                                         </li>
@@ -227,6 +227,17 @@ fbq('track', 'PageView');
                             </li>
                             <li class="nav-links__item">
                                 <a class="nav-links__item-link" href="{{ path('reports') }}">Отчеты</a>
+                                <ul class="nav-links-submenu">
+                                    <li class="nav-links-submenu__item">
+                                        <a href="{{ path('reports') }}#rep-fin" class="nav-links-submenu__item-link">Финансовые отчеты</a>
+                                    </li>
+                                    <li class="nav-links-submenu__item">
+                                        <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link disabled">Годовые отчеты</a>
+                                    </li>
+                                    <li class="nav-links-submenu__item">
+                                        <a href="{{ path('reports') }}#rep-aud" class="nav-links-submenu__item-link">Аудиторские отчеты</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="nav-links__item">
                                 <a class="nav-links__item-link" href="{{ path('contacts') }}">Контакты</a>
@@ -337,13 +348,13 @@ fbq('track', 'PageView');
                             <nav class="footer-menu-nav">
                                 <ul class="footernav-links">
                                     <li class="footernav-links__item">
-                                        <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="footernav-links__item-link">Долгосрочная опека</a>
+                                        <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="footernav-links__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[0].click();} ">Долгосрочная опека</a>
                                     </li>
                                     <li class="footernav-links__item">
-                                        <a href="{{ path('children_list') }}#kids_pjm" class="footernav-links__item-link">Подарки и мечты</a>
+                                        <a href="{{ path('children_list') }}#kids_pjm" class="footernav-links__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[1].click();} ">Подарки и мечты</a>
                                     </li>
                                     <li class="footernav-links__item">
-                                        <a href="{{ path('children_list') }}#kids_we_helped" class="footernav-links__item-link">Мы помогли</a>
+                                        <a href="{{ path('children_list') }}#kids_we_helped" class="footernav-links__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[2].click();} ">Мы помогли</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -371,15 +382,15 @@ fbq('track', 'PageView');
                             </nav>
                         </div>
                         <div class="footer-menu__column">
-                            <div class="footer-menu-category">О Фонде</div>
+                            <div class="footer-menu-category">Отчеты</div>
                             <nav class="footer-menu-nav">
                                 <ul class="footernav-links">
                                         <li class="footernav-links__item">
                                             <a href="{{ path('reports') }}#rep-fin" class="footernav-links__item-link">Финансовые отчеты</a>
                                         </li>
-{#                                        <li class="footernav-links__item">#}
-{#                                            <a href="{{ path('reports') }}#rep-year" class="footernav-links__item-link">Годовые отчеты</a>#}
-{#                                        </li>#}
+                                        <li class="footernav-links__item">
+                                            <a href="{{ path('reports') }}#rep-year" class="footernav-links__item-link disabled">Годовые отчеты</a>
+                                        </li>
                                         <li class="footernav-links__item">
                                             <a href="{{ path('reports') }}#rep-aud" class="footernav-links__item-link">Аудиторские отчеты</a>
                                         </li>
