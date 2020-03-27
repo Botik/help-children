@@ -251,7 +251,8 @@
      pointer-events: none;
  }
 
- .cart-nav div.disabled a {
+ .cart-nav div.disabled a,
+ .cart-nav div.disabled span {
      color: #C5C5C5;
  }
 

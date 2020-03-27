@@ -15,15 +15,15 @@
         </section>
         <div class="cart-nav-container">
             <div class='cart-nav news-page'>
-                <div class='active left'><span>Все отчеты</span></div>
-                <div class='center'><span>Финансовые отчеты</span></div>
+                <div class='active left'><span>Финансовые отчеты</span></div>
+                <div class='center disabled'><span>Годовые отчеты</span></div>
                 <div class='right'><span>Аудиторские отчеты</span></div>
             </div>
         </div>
         <section class="section reports">
             <div class="container container-pagecontent-padding">
-            <h2 class="section-title">Финансовые отчеты</h2>
-                <div id="rep_fin" style="position: absolute; top: -250px; left: 0"></div>
+            <h2 class="section-title rep_fin">Финансовые отчеты</h2>
+{#                <div class="rep_fin" style="position: absolute; top: -250px; left: 0"></div>#}
                 <div class="reports-content">
                     <ul class="report-list">
                         {% for document in financial %}
@@ -50,10 +50,10 @@
 
                     </ul>
                 </div>
-                <h2 class="section-title">Аудиторские заключения</h2>
+                <h2 class="section-title rep_aud">Аудиторские заключения</h2>
                 <div class="reports-content">
                     <ul class="report-list">
-                        <div id="rep_aud" style="position: absolute; top: -400px; left: 0"></div>
+{#                        <div class="rep_aud" style="position: absolute; top: -400px; left: 0"></div>#}
                         {% for document in auditor %}
                             <li class="report-list__item">
                                 <div class="report">
@@ -94,50 +94,20 @@
                 })
                 $(this).addClass('active');
 
-                $('.news-block').each(function () {
+                // $('.news-block').each(function () {
                     //$(this).css('display', 'none');
-                    $(this).css('position', 'absolute');
-                    $(this).css('visibility', 'hidden');
-                    $(this).css('display', 'flex');
-                });
+                    // $(this).css('position', 'absolute');
+                    // $(this).css('visibility', 'hidden');
+                    // $(this).css('display', 'flex');
+                // });
                 if ($(this).hasClass('left')) {
-                    //$('.all-news').css('display', 'flex');
-
-                    $('#rep_fin')[0].scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // $('.rep_aud').css('position', 'relative');
-                    // $('.rep_aud').css('visibility', 'visible');
-
-
-                    //$('.news.childnews').css('display','block');
-                    //$('.news.fondnews').css('display','block');
+                    window.scrollTo({top: ($('.rep_fin')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
                 }
                 if ($(this).hasClass('center')) {
-                    //$('.child-news').css('display', 'flex');
-                    // document.location="#rep_fin";
-                    $('#rep_fin')[0].scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    $('#rep_fin').css('position', 'relative');
-                    $('#rep_fin').css('visibility', 'visible');
-
-                    //$('.news.childnews').css('display','block');
-                    //$('.news.fondnews').css('display','none');
+                    // window.scrollTo({top: ($('.rep_year')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
                 }
                 if ($(this).hasClass('right')) {
-                    //$('.fond-news').css('display', 'flex');
-                    $('#rep_aud')[0].scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    $('#rep_aud').css('position', 'relative');
-                    $('#rep_aud').css('visibility', 'visible');
-
-                    //$('.news.childnews').css('display','none');
-                    //$('.news.fondnews').css('display','block');
+                    window.scrollTo({top: ($('.rep_aud')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
                 }
             });
 
@@ -158,8 +128,8 @@
 
         });
         $( window ).on( "load" ,function() {
-            $('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();
+            if (['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)) $('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)].click();
         });
-        $(window).on('hashchange', function(){$('.cart-nav>div')[['#all-news','#child-news','#fond-news'].indexOf(location.hash)].click();}).trigger('hashchange');
+        $(window).on('hashchange', function(){$('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash ? location.hash : '#rep_fin')].click()}).trigger('hashchange');
     </script>
 {% endblock %}
