@@ -203,9 +203,10 @@
                                                             <div class='info'>{{ trg.name }}</div>
                                                             <div>
                                                                 {% if closed %}
-                                                                    <a onclick='location.href="#k";' href='#kid-news'>Подробнее</a>
+                                                                    <a onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'
+                                                                       href='#kid-news'>Подробнее</a>
                                                                 {% else %}
-                                                                    <a onclick='location.href="#k";'
+                                                                    <a onclick='locationFunc("{{ trg.link(targets|length == loop.index) }}");'
                                                                        href='{{ trg.link(targets|length == loop.index) }}'>Подробнее</a>
                                                                 {% endif %}
                                                             </div>

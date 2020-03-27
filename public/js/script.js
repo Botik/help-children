@@ -100,22 +100,23 @@ $(document).ready(function() {
 				// $page.animate({
 				// 	scrollTop: ($('.hr-child.hr-full').offset().top - 80)
 				// }, 400);
-        $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
+        // $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
     });
 
 
 
     $('.cart-nav.kids-page>div').click(function() {
-        /*$('.cart-nav>div').each(function() {
+        $('.cart-nav>div').each(function() {
             $(this).removeClass("active");
-        })*/
+        })
         var $page = $('html, body');
-        //$(this).addClass("active");
+        $(this).addClass("active");
         var link = $(this).find('a').attr('href');
         $page.animate({
             scrollTop: ($(link).offset().top - 180)
         }, 400);
     });
+
 
 
     $('.dropdown-link').hover(function() {
