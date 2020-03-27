@@ -12,7 +12,8 @@ class Document
 {
     const TYPES = [
         'Финансовые отчёты'      => 'financial',
-        'Аудиторские заключения' => 'auditor'
+        'Аудиторские заключения' => 'auditor',
+        'Годовые отчеты' => 'year',
     ];
 
     /**
@@ -114,8 +115,8 @@ class Document
             $filesize = round($filesize / 1024, 2);
         }
         $formats[] = 'ТБ';
-        
-        return $filesize.' '.$formats[$format]; 
+
+        return $filesize.' '.$formats[$format];
         return filesize('../public'.$this->file);
     }
 

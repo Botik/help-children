@@ -5163,7 +5163,7 @@ body {
 }
 
 .report-description__title {
-	font-size: 1.6rem;
+	font-size: 1.9rem;
 	font-weight: 700
 }
 
@@ -5178,13 +5178,13 @@ body {
 }
 
 .report-description__download-link {
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	font-weight: 300;
 	color: #475993
 }
 
 .report-description__size {
-	font-size: 1.2rem;
+	font-size: 1.6rem;
 	font-weight: 300;
 	color: #798494
 }
