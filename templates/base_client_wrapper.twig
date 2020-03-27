@@ -99,13 +99,13 @@ fbq('track', 'PageView');
                                 <div class="dropdown-content">
                                     <ul class="nav-links-submenu dropdown-menu dropdown-menu-center">
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-fin" class="nav-links-submenu__item-link">Финансовые отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-fin" class="nav-links-submenu__item-link" onclick="$('body').addClass('menu-opened')">Финансовые отчеты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link disabled">Годовые отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link disabled" onclick="$('body').addClass('menu-opened')">Годовые отчеты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-aud" class="nav-links-submenu__item-link">Аудиторские отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-aud" class="nav-links-submenu__item-link" onclick="$('body').addClass('menu-opened')">Аудиторские отчеты</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -372,9 +372,9 @@ fbq('track', 'PageView');
                                     <li class="footernav-links__item">
                                         <a href="{{ path('docs') }}" class="footernav-links__item-link">Документация</a>
                                     </li>
-                                    <li class="footernav-links__item">
-                                        <a href="{{ path('reports') }}" class="footernav-links__item-link">Отчеты</a>
-                                    </li>
+{#                                    <li class="footernav-links__item">#}
+{#                                        <a href="{{ path('reports') }}" class="footernav-links__item-link">Отчеты</a>#}
+{#                                    </li>#}
                                     <li class="footernav-links__item">
                                         <a href="{{ path('contacts') }}" class="footernav-links__item-link">Реквизиты</a>
                                     </li>
@@ -386,13 +386,13 @@ fbq('track', 'PageView');
                             <nav class="footer-menu-nav">
                                 <ul class="footernav-links">
                                         <li class="footernav-links__item">
-                                            <a href="{{ path('reports') }}#rep-fin" class="footernav-links__item-link">Финансовые отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-fin" class="footernav-links__item-link" onclick="if (location.pathname==='/reports') {event.preventDefault(); $('.cart-nav>div')[0].click();} ">Финансовые отчеты</a>
                                         </li>
                                         <li class="footernav-links__item">
                                             <a href="{{ path('reports') }}#rep-year" class="footernav-links__item-link disabled">Годовые отчеты</a>
                                         </li>
                                         <li class="footernav-links__item">
-                                            <a href="{{ path('reports') }}#rep-aud" class="footernav-links__item-link">Аудиторские отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-aud" class="footernav-links__item-link" onclick="if (location.pathname==='/reports') {event.preventDefault(); $('.cart-nav>div')[2].click();} ">Аудиторские отчеты</a>
                                         </li>
                                 </ul>
                             </nav>
