@@ -60,13 +60,13 @@ fbq('track', 'PageView');
                                 <div class="dropdown-content">
                                     <ul class="nav-links-submenu dropdown-menu">
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[0].click();} ">Долгосрочная опека</a>
+                                            <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[0].click(); $('body').addClass('menu-opened')} ">Долгосрочная опека</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[1].click();} ">Подарки и мечты</a>
+                                            <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[1].click();$('body').addClass('menu-opened')} ">Подарки и мечты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_we_helped" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[2].click();} ">Мы помогли</a>
+                                            <a href="{{ path('children_list') }}#kids_we_helped" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[2].click();$('body').addClass('menu-opened')} ">Мы помогли</a>
                                         </li>
                                     </ul>
                                 </div>
