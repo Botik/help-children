@@ -12,7 +12,7 @@ $(document).ready(function () {
 			writeHystory: true
 		}
 	}
-	var sj = new SJ(SJ_setiings);
+	// var sj = new SJ(SJ_setiings);
 
 	$(".money").each(function () {
 		$(this).text($(this).text().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
@@ -35,6 +35,25 @@ $(document).ready(function () {
 				})
 				$('.cart-nav>div:nth-child(2)').addClass("active");
 			} else if ($(window).scrollTop() >= $("#we-helped").offset().top - 250) {
+				$('.cart-nav>div').each(function () {
+					$(this).removeClass("active");
+				})
+				$('.cart-nav>div:nth-child(3)').addClass("active");
+			}
+
+		}
+		if ($(".rep_fin").length && $(".rep_aud").length) {
+			if ($(window).scrollTop() >= $(".rep_fin").offset().top - 250 && $(window).scrollTop() < $(".rep_year").offset().top - 250) {
+				$('.cart-nav>div').each(function () {
+					$(this).removeClass("active");
+				})
+				$('.cart-nav>div:first-child').addClass("active");
+			} else if ($(window).scrollTop() >= $(".rep_year").offset().top - 250 && $(window).scrollTop() < $(".rep_aud").offset().top - 250) {
+				$('.cart-nav>div').each(function () {
+					$(this).removeClass("active");
+				})
+				$('.cart-nav>div:nth-child(2)').addClass("active");
+			} else if ($(window).scrollTop() >= $(".rep_aud").offset().top - 250) {
 				$('.cart-nav>div').each(function () {
 					$(this).removeClass("active");
 				})
