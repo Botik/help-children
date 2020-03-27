@@ -2641,7 +2641,7 @@ body {
 }
 
 .logo-wrapper {
-	width: 180px
+	width: 140px;
 }
 
 .phone-number {
@@ -7831,4 +7831,9 @@ body {
 .newmoneybutton.neededbutton:hover{
 	cursor: pointer;
 	box-shadow: 2px 5px 4px rgba(193, 193, 193, 0.38);
+}
+.header-mobile__menu.js-mobile-menu.is-open{
+	height: calc(100vh - 80px);
+
+	overflow: scroll;
 }
