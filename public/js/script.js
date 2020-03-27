@@ -76,7 +76,7 @@ $(document).ready(function () {
 		$(this).addClass("active");
 		var link = $(this).find('a').attr('href');
 		$(link).addClass('displaytrue');
-		$(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
+		// $(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
 
 		if (link == "#kid-news") {
 			// var SJ_setiings = {
