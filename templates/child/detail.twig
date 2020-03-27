@@ -167,7 +167,7 @@
                                                     <img src='/images/thanks.svg'>
                                                 </div>
                                             {% else %}
-                                                <div class="newmoneybutton">Необходимо <br>
+                                                <div class="newmoneybutton neededbutton" onclick="$('.cart-nav>div')[2].click();">Необходимо <br>
                                                     <span
                                                         class="collected-resources-left__value">{{ (targets|last).goal|number_format(0, '.', ' ') }}
                                             руб.</span>

@@ -7828,3 +7828,7 @@ body {
 	text-decoration: none !important;
 	pointer-events: none;
 }
+.newmoneybutton.neededbutton:hover{
+	cursor: pointer;
+	box-shadow: 2px 5px 4px rgba(193, 193, 193, 0.38);
+}
