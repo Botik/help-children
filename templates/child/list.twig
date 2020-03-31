@@ -272,7 +272,7 @@
                                                     <div>Необходимо:</div>
                                                     <div class='needed-name'><a href='{{ path('children_detail', {'id': child.id}) ~ '#' ~ (((( child.targets|last.collected < child.targets|last.goal ) or (date(child.targets|last.totime) > date( "now"))))  ? 'needed' : 'kid-news')}}'>{{child.targets|last ? child.targets|last.name}}</a></div>
                                                 </div>
-                                                <div class='wantHelp'><form action="{{ path('donate') }}" method="POST">{% if ((child.targets|last).goal > (child.targets|last).collected) %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}<button type="submit">Хочу помочь!</button></form></div>
+                                                <div class='wantHelp'><form action="{{ path('donate') }}" method="POST">{% if ((child.targets|last).goal > (child.targets|last).collected) %}<input type="hidden" name="child_id" value="{{ child.id }}">{% endif %}<button type="submit" onclick="event.preventDefault()">Хочу помочь!</button></form></div>
 
                                             </div>
                                         </div>
