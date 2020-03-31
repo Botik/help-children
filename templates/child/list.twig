@@ -148,6 +148,7 @@
 
                                             </div>
                                         </div>
+                                    </div>
                                 </li>
                                 {# {% endif %} #}
                             {%- endfor %}
@@ -276,6 +277,7 @@
 
                                             </div>
                                         </div>
+                                    </div>
                                 </li>
                                 {# {% endif %} #}
                             {%- endfor %}
@@ -357,7 +359,9 @@
 
                                             </div>
                                         </div>
+                                    </div>
                                 </li>
+
                             {%- endfor %}
                         </ul>
                     </div>
@@ -384,11 +388,8 @@
     </script> #}
         <script>
             $(window).on('hashchange', function (event) {
-                console.log(location.hash)
-
-
                 // $('.cart-nav>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
-                $('.cart-nav>div')[['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash)].click();
+                $('.cart-nav>div')[Math.max(0,['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash ))].click();
             }).trigger('hashchange');
         </script>
     {% endautoescape %}
