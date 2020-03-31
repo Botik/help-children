@@ -88,6 +88,19 @@
         </section>
     </main>
     <script>
+        function SmoothVerticalScrolling(e, time) {
+            var eTop = e.getBoundingClientRect().top - 210;
+            var eAmt = eTop / 100;
+            var curTime = 0;
+            while (curTime <= time) {
+                window.setTimeout(SVS_B, curTime, eAmt);
+                curTime += time / 100;
+            }
+        }
+
+        function SVS_B(eAmt) {
+                window.scrollBy(0, eAmt);
+        }
         $(document).ready(function () {
             $('.cart-nav>div').click(function () {
                 $('.cart-nav>div').each(function () {
@@ -102,13 +115,15 @@
                     // $(this).css('display', 'flex');
                 // });
                 if ($(this).hasClass('left')) {
-                    window.scrollTo({top: ($('.rep_fin')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
+                    SmoothVerticalScrolling($('.rep_fin')[0], 275);
+                    // window.scrollTo({top: ($('.rep_fin')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
                 }
                 if ($(this).hasClass('center')) {
                     // window.scrollTo({top: ($('.rep_year')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
                 }
                 if ($(this).hasClass('right')) {
-                    window.scrollTo({top: ($('.rep_aud')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
+                    SmoothVerticalScrolling($('.rep_aud')[0], 275);
+                    // window.scrollTo({top: ($('.rep_aud')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
                 }
             });
 
@@ -129,8 +144,8 @@
 
         });
         $( window ).on( "load" ,function() {
-            if (['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)) $('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)].click();
+            if (['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)>-1) $('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)].click();
         });
-        $(window).on('hashchange', function(){$('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash ? location.hash : '#rep_fin')].click()}).trigger('hashchange');
+        $(window).on('hashchange', function(){$('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash ? location.hash : '#rep-fin')].click()}).trigger('hashchange');
     </script>
 {% endblock %}
