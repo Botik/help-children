@@ -53,26 +53,26 @@ fbq('track', 'PageView');
                             </li>
                         </ul>
                     </div>
-                    <nav class="header__navbar">
+                    <nav class="header__navbar" onclick="$('body').addClass('menu-opened')">
                         <ul class="nav-links">
                             <li class="nav-links__item dropdown">
                                 <a class="nav-links__item-link dropdown-link" href="{{ path('children_list') }}">Дети</a>
                                 <div class="dropdown-content">
                                     <ul class="nav-links-submenu dropdown-menu">
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[0].click(); $('body').addClass('menu-opened')} ">Долгосрочная опека</a>
+                                            <a href="{{ path('children_list') }}#kids_dolgosrochnaya-opeka" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[0].click(); } ">Долгосрочная опека</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[1].click();$('body').addClass('menu-opened')} ">Подарки и мечты</a>
+                                            <a href="{{ path('children_list') }}#kids_pjm" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[1].click();} ">Подарки и мечты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('children_list') }}#kids_we_helped" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[2].click();$('body').addClass('menu-opened')} ">Мы помогли</a>
+                                            <a href="{{ path('children_list') }}#kids_we_helped" class="nav-links-submenu__item-link" onclick="if (location.pathname==='/children') {event.preventDefault(); $('.cart-nav>div')[2].click();} ">Мы помогли</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="nav-links__item dropdown">
-                                <a class="nav-links__item-link dropdown-link" id='section-mission-href' href="{{ path('main') }}#section-mission" onclick="$('body').addClass('menu-opened')">О
+                                <a class="nav-links__item-link dropdown-link" id='section-mission-href' href="{{ path('main') }}#section-mission" onclick="">О
                                     Фонде</a>
                                 <div class="dropdown-content">
                                     <ul class="nav-links-submenu dropdown-menu">
@@ -95,17 +95,17 @@ fbq('track', 'PageView');
                                 </div>
                             </li>
                             <li class="nav-links__item dropdown">
-                                <a class="nav-links__item-link dropdown-link" id='section-mission-href' href="{{ path('reports') }}#section-mission" onclick="$('body').addClass('menu-opened')">Отчеты</a>
+                                <a class="nav-links__item-link dropdown-link" id='section-mission-href' href="{{ path('reports') }}#section-mission" onclick="">Отчеты</a>
                                 <div class="dropdown-content">
                                     <ul class="nav-links-submenu dropdown-menu dropdown-menu-center">
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-fin" class="nav-links-submenu__item-link" onclick="$('body').addClass('menu-opened')">Финансовые отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-fin" class="nav-links-submenu__item-link" onclick="">Финансовые отчеты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link disabled" onclick="$('body').addClass('menu-opened')">Годовые отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link disabled" onclick="">Годовые отчеты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-aud" class="nav-links-submenu__item-link" onclick="$('body').addClass('menu-opened')">Аудиторские отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-aud" class="nav-links-submenu__item-link" onclick="">Аудиторские отчеты</a>
                                         </li>
                                     </ul>
                                 </div>
