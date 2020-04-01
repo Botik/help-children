@@ -335,7 +335,7 @@ $(document).ready(function () {
 		}
 	}
 
-	$('.nav-links__item-link, .nav-links-submenu__item').click(function () {
+	$('.header-mobile .nav-links__item-link, .header-mobile .nav-links-submenu__item').click(function () {
 		$('.js-mobile-menu-button').trigger('click');
 	});
 });
