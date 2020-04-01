@@ -2842,14 +2842,24 @@ body {
 .dropdown-content {
 	position: absolute;
 	top: 1.5rem;
-	left: -25%;
+	left: -7rem;
 	padding: 0;
 	z-index: 10;
 }
-
-.dropdown:first-child .dropdown-content {
-	left: -77px;
+li.dropdown:nth-child(2) > div:nth-child(2) {
+	left: -3rem !important;
 }
+@media screen and (min-width: 1500px) {
+	.dropdown-content {
+		left: -7rem;
+	}
+	li.dropdown:nth-child(2) > div:nth-child(2) {
+		 left: -2rem !important;
+	 }
+}
+/*.dropdown:first-child .dropdown-content {*/
+/*	left: -77px;*/
+/*}*/
 @media screen and (max-width:1440px) and (min-width:1200px) {
 	.dropdown:first-child .dropdown-content {
 		left: -63px;
