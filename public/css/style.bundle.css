@@ -2851,7 +2851,7 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 }
 @media screen and (min-width: 1500px) {
 	.dropdown-content {
-		left: -7rem;
+		left: -5rem;
 	}
 	li.dropdown:nth-child(2) > div:nth-child(2) {
 		 left: -2rem !important;
