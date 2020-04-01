@@ -7837,3 +7837,6 @@ body {
 
 	overflow: scroll;
 }
+.reports .container.container-pagecontent-padding {
+	margin-bottom: 75px;
+}
