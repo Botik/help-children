@@ -388,9 +388,11 @@
     </script> #}
         <script>
             $(window).on('hashchange', function (event) {
-                // $('.cart-nav>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
                 $('.cart-nav>div')[Math.max(0,['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash ))].click();
             }).trigger('hashchange');
+            $(window).on('load', function (event) {
+                $('.cart-nav>div')[Math.max(0,['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash ))].click();
+            });
         </script>
     {% endautoescape %}
 {%- endblock %}
