@@ -130,7 +130,7 @@ $(document).ready(function () {
 		$(this).addClass("active");
 		var link = $(this).find('a').attr('href');
 		$page.animate({
-			scrollTop: ($(link).offset().top - 180)
+			scrollTop: ($(link).offset().top - ((window.innerWidth<325) ? 100 : 180))
 		}, 600);
 	});
 
@@ -344,7 +344,7 @@ $(document).ready(function () {
 function animateScroll(elem) {
 	var $page = $('html, body');
 	$page.animate({
-		scrollTop: ($(elem).offset().top - 180)
+		scrollTop: ($(elem).offset().top - ((window.innerWidth<325) ? 100 : 180))
 	}, 400);
 }
 
