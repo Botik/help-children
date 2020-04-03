@@ -394,8 +394,8 @@
             //     $('.cart-nav>div')[Math.max(0,['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash ))].click();
             // });
 
-            $( window ).on( "load" , async function() {
-                await sleep(1000);
+            $( window ).on( "load" , function() {
+                sleep(5000);
                 if (['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash)>-1) $('.cart-nav>div')[['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash)].click();
             });
         </script>
