@@ -146,8 +146,7 @@
             var sj = new SJ(SJ_setiings);
 
         });
-        $( window ).on( "load" ,async function() {
-            await sleep(1000);
+        $( window ).on( "load" ,function() {
             if (['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)>-1) $('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)].click();
         });
         $(window).on('hashchange', function(){$('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash ? location.hash : '#rep-fin')].click()}).trigger('hashchange');
