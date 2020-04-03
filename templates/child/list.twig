@@ -390,8 +390,12 @@
             $(window).on('hashchange', function (event) {
                 $('.cart-nav>div')[Math.max(0,['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash ))].click();
             }).trigger('hashchange');
-            $(window).on('load', function (event) {
-                $('.cart-nav>div')[Math.max(0,['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash ))].click();
+            // $(window).on('ready', function (event) {
+            //     $('.cart-nav>div')[Math.max(0,['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash ))].click();
+            // });
+
+            $( window ).on( "load" ,function() {
+                if (['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash)>-1) $('.cart-nav>div')[['#kids_dolgosrochnaya-opeka', '#kids_pjm', '#kids_we_helped'].indexOf(location.hash)].click();
             });
         </script>
     {% endautoescape %}
