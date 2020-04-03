@@ -131,7 +131,7 @@ $(document).ready(function () {
 		var link = $(this).find('a').attr('href');
 		$page.animate({
 			scrollTop: ($(link).offset().top - ((window.innerWidth<325) ? 100 : 180))
-		}, 600);
+		}, 400);
 	});
 
 
