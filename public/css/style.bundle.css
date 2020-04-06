@@ -4876,7 +4876,7 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 
 .aid-card__photo {
 	width: 100%;
-	height: 370px;
+	max-height: 322px;
 	object-fit: cover;
 	border-radius: 10px 10px 0 0
 }
