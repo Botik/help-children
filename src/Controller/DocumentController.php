@@ -71,7 +71,7 @@ class DocumentController extends AbstractController
                         ]
                     );
                     $mail->setTemplateId('d-af64459f4a5c46158550ce4336c17892');
-//                    $sg->send($mail);
+                    $sg->send($mail);
                 }
                 // END SEND
 
