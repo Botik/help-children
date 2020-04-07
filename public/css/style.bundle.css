@@ -5207,7 +5207,12 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 	-webkit-box-shadow: 0 0 24px rgba(142, 53, 36, .1);
 	box-shadow: 0 0 24px rgba(142, 53, 36, .1)
 }
-
+@media (max-width:640px) {
+	.reports-donate-form-wrapper {
+		left: 0;
+		width: initial
+	}
+}
 @media (max-width:992px) {
 	.reports-donate-form-wrapper {
 		top: 0;
@@ -5216,12 +5221,7 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 	}
 }
 
-/*@media (max-width:640px) {*/
-/*	.reports-donate-form-wrapper {*/
-/*		left: 0;*/
-/*		width: initial*/
-/*	}*/
-/*}*/
+
 
 .contacts {
 	position: relative;
