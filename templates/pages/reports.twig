@@ -182,6 +182,6 @@
             if (['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)>-1) $('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)].click();
         });
         $(window).on('scroll', function(){location="#"}).trigger('hashchange');
-        $(window).on('hashchange', function(event){event.preventDefault(); $('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash ? location.hash : '#rep-fin')].click()}).trigger('hashchange');
+        $(window).on('hashchange', function(event){event.preventScroll(); $('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash ? location.hash : '#rep-fin')].click()}).trigger('hashchange');
     </script>
 {% endblock %}
