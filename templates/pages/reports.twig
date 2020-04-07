@@ -16,14 +16,14 @@
         <div class="cart-nav-container">
             <div class='cart-nav news-page'>
                 <div class='active left'><span>Финансовые отчеты</span></div>
-                <div class='center disabled'><span>Годовые отчеты</span></div>
+                <div class='center'><span>Годовые отчеты</span></div>
                 <div class='right'><span>Аудиторские отчеты</span></div>
             </div>
         </div>
         <section class="section reports">
             <div class="container">
-            <h2 class="section-title rep_fin">Финансовые отчеты</h2>
-{#                <div class="rep_fin" style="position: absolute; top: -250px; left: 0"></div>#}
+                <h2 class="section-title rep_fin">Финансовые отчеты</h2>
+                {#                <div class="rep_fin" style="position: absolute; top: -250px; left: 0"></div>#}
                 <div class="reports-content">
                     <ul class="report-list">
                         {% for document in financial %}
@@ -32,7 +32,7 @@
                                     <div class="report-doc">
                                         <img class="report-doc__image" src="/images/doc-example.png" alt="{{ document.title }}" width="208" height="250"/>
                                         <a class="show-doc-button" href="{{ document.file }}" target="_blank">
-                                        <span class="show-doc-button__circle"><span class="icon icon-doc"></span></span>
+                                            <span class="show-doc-button__circle"><span class="icon icon-doc"></span></span>
                                         </a>
                                     </div>
                                     <div class="report-description">
@@ -52,7 +52,35 @@
                 </div>
             </div>
             <div class="container">
-                <h2 class="section-title rep_year"></h2>
+                <h2 class="section-title rep_year">Годовые отчеты</h2>
+                <div class="reports-content">
+                    <ul class="report-list">
+                        {% for document in year %}
+                            <li class="report-list__item">
+                                <div class="report">
+                                    <div class="report-doc">
+                                        <img class="report-doc__image" src="/images/doc-example.png" alt="{{ document.title }}" width="208" height="250"/>
+                                        <a class="show-doc-button" href="{{ document.file }}" target="_blank">
+                                            <span class="show-doc-button__circle"><span class="icon icon-doc"></span></span>
+                                        </a>
+                                    </div>
+                                    <div class="report-description">
+                                        <h3 class="report-description__title">{{ document.title }}</h3>
+                                        <span class="report-description__size" style="color: #424851;">От {{ document.textdate }}</span>
+                                        <div class="report-description__download">
+                                            <a class="report-description__download-link" target="_blank"
+                                               href="{{ document.file }}">Скачать</a>
+                                        </div>
+                                        <div class="report-description__size">{{ document.Filesize }}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
                 <h2 class="section-title rep_aud">Аудиторские заключения</h2>
                 <div class="reports-content">
                     <ul class="report-list">

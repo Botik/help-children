@@ -92,21 +92,21 @@ class MainController extends AbstractController
                     $title = 'Завершение регистрации';
                     $description = 'Для продолжения регистрации введите свой пароль';
                     $value = 'Продолжить';
-                    
+
                     $form1 = $this->createForm(ResetPasswordFormType::class, $user);
                     $form1->handleRequest($request);
 
                     if (!$form1->isSubmitted()) {
-                        return $this->render('auth/resetPassword.twig', 
+                        return $this->render('auth/resetPassword.twig',
                         ['form' => $form1->createView(), 'title' => $title, 'description' => $description, 'value' => $value]);
-                    }                                 
+                    }
                     // encode the plain password
                     $user->setPass(
                         $passwordEncoder->encodePassword(
                             $user,
                             $form1->get('password')->getData()
                         )
-                    );                
+                    );
                 }
 
                 if ($user) {
@@ -123,6 +123,9 @@ class MainController extends AbstractController
             [
                 'financial' => $this->getDoctrine()->getRepository(Document::class)->findBy(
                     ['category' => 'financial'],
+                    ['date' => 'DESC']),
+                'year' => $this->getDoctrine()->getRepository(Document::class)->findBy(
+                    ['category' => 'year'],
                     ['date' => 'DESC']),
                 'auditor' => $this->getDoctrine()->getRepository(Document::class)->findBy(
                     ['category' => 'auditor'],
