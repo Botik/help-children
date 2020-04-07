@@ -99,13 +99,13 @@ fbq('track', 'PageView');
                                 <div class="dropdown-content">
                                     <ul class="nav-links-submenu dropdown-menu dropdown-menu-center">
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-fin" class="nav-links-submenu__item-link" onclick="">Финансовые отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-fin" class="nav-links-submenu__item-link"  onclick="if (location.pathname==='/reports') {event.preventDefault(); $('.cart-nav>div')[0].click();} ">Финансовые отчеты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link" onclick="">Годовые отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-year" class="nav-links-submenu__item-link"  onclick="if (location.pathname==='/reports') {event.preventDefault(); $('.cart-nav>div')[1].click();} ">Годовые отчеты</a>
                                         </li>
                                         <li class="nav-links-submenu__item">
-                                            <a href="{{ path('reports') }}#rep-aud" class="nav-links-submenu__item-link" onclick="">Аудиторские отчеты</a>
+                                            <a href="{{ path('reports') }}#rep-aud" class="nav-links-submenu__item-link"  onclick="if (location.pathname==='/reports') {event.preventDefault(); $('.cart-nav>div')[2].click();} ">Аудиторские отчеты</a>
                                         </li>
                                     </ul>
                                 </div>
