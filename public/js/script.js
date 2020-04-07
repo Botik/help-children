@@ -12,7 +12,7 @@ $(document).ready(function () {
 			writeHystory: true
 		}
 	}
-	// var sj = new SJ(SJ_setiings);
+	var sj = new SJ(SJ_setiings);
 
 	$(".money").each(function () {
 		$(this).text($(this).text().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
