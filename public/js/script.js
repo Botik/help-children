@@ -372,6 +372,24 @@ function locationFunc(link) {
 			$page.animate({
 				scrollTop: ($('.hr-child.hr-full').offset().top - 80)
 			}, 1000);
+
+			var galleryThumbs = new Swiper('.gallery-thumbs', {
+				spaceBetween: 10,
+				slidesPerView: 4,
+				freeMode: true,
+				watchSlidesVisibility: true,
+				watchSlidesProgress: true,
+			});
+			var galleryTop = new Swiper('.gallery-top', {
+				spaceBetween: 10,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				thumbs: {
+					swiper: galleryThumbs
+				}
+			});
 		}
 		if (hash == "#kid-news") {
 			$('.cart-nav>div').each(function () {
