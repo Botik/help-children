@@ -11,15 +11,8 @@
      top: 120px;
      z-index: 5;
      margin-top: 45px;
-	   margin-bottom: 210px;
  }
 
- @media (max-width:646px) {
-
-	 .cart-nav-container {
-		 margin-bottom: 333px;
-	 }
- }
  .cart-nav-container.kid-profile {
      width: 100%;
  }
