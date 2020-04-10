@@ -56,7 +56,6 @@ class ChildRepository extends ServiceEntityRepository
         :
         <<<sql
         SELECT *
-
         FROM children as c
         left join (SELECT m1.totime, m1.child
                     FROM ch_target m1

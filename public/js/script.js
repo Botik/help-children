@@ -26,20 +26,21 @@ $(document).ready(function () {
 	var elemtop = $('.kid-cart .push-content').css('top');
 	elemtop = parseInt(elemtop);
 
-
 	$(window).scroll(function () {
+		let scrolloffs = (window.innerWidth < 771) ? 120 : 200;
+
 		if ($("#dolgosrochnaya-opeka").length && $("#pjm").length && $("#we-helped").length) {
-			if ($(window).scrollTop() >= $("#dolgosrochnaya-opeka").offset().top - 250 && $(window).scrollTop() < $("#pjm").offset().top - 250) {
+			if ($(window).scrollTop() >= $("#dolgosrochnaya-opeka").offset().top - scrolloffs && $(window).scrollTop() < $("#pjm").offset().top - scrolloffs) {
 				$('.cart-nav>div').each(function () {
 					$(this).removeClass("active");
 				})
 				$('.cart-nav>div:first-child').addClass("active");
-			} else if ($(window).scrollTop() >= $("#pjm").offset().top - 250 && $(window).scrollTop() < $("#we-helped").offset().top - 250) {
+			} else if ($(window).scrollTop() >= $("#pjm").offset().top - scrolloffs && $(window).scrollTop() < $("#we-helped").offset().top - scrolloffs) {
 				$('.cart-nav>div').each(function () {
 					$(this).removeClass("active");
 				})
 				$('.cart-nav>div:nth-child(2)').addClass("active");
-			} else if ($(window).scrollTop() >= $("#we-helped").offset().top - 250) {
+			} else if ($(window).scrollTop() >= $("#we-helped").offset().top - scrolloffs) {
 				$('.cart-nav>div').each(function () {
 					$(this).removeClass("active");
 				})
@@ -48,17 +49,17 @@ $(document).ready(function () {
 
 		}
 		if ($(".rep_fin").length && $(".rep_aud").length) {
-			if ($(window).scrollTop() >= $(".rep_fin").offset().top - 250 && $(window).scrollTop() < $(".rep_year").offset().top - 250) {
+			if ($(window).scrollTop() >= $(".rep_fin").offset().top - scrolloffs && $(window).scrollTop() < $(".rep_year").offset().top - scrolloffs) {
 				$('.cart-nav>div').each(function () {
 					$(this).removeClass("active");
 				});
 				$('.cart-nav>div:first-child').addClass("active");
-			} else if ($(window).scrollTop() >= $(".rep_year").offset().top - 250 && $(window).scrollTop() < $(".rep_aud").offset().top - 250) {
+			} else if ($(window).scrollTop() >= $(".rep_year").offset().top - scrolloffs && $(window).scrollTop() < $(".rep_aud").offset().top - scrolloffs) {
 				$('.cart-nav>div').each(function () {
 					$(this).removeClass("active");
 				});
 				$('.cart-nav>div:nth-child(2)').addClass("active");
-			} else if ($(window).scrollTop() >= $(".rep_aud").offset().top - 250) {
+			} else if ($(window).scrollTop() >= $(".rep_aud").offset().top - scrolloffs) {
 				$('.cart-nav>div').each(function () {
 					$(this).removeClass("active");
 				});
