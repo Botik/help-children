@@ -175,6 +175,7 @@ class ChildController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($targ);
             $entityManager->flush();
+            return $this->redirectToRoute('panel_child_target',['child'=>$child,'id'=>$targ->getId()]);
         }
 
 

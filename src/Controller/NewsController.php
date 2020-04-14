@@ -115,6 +115,7 @@ class NewsController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($n);
             $entityManager->flush();
+            return $this->redirectToRoute('p_news_edit',['id'=>$n->getId()]);
         }
         $form = $this->createFormBuilder($n)
             ->add(
