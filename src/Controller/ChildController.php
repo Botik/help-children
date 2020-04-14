@@ -169,7 +169,7 @@ class ChildController extends AbstractController
                 $targ = new ChTarget();
         }
         $oldimages = json_decode($targ->getAttach());
-        if ($request->get('copy') and $request->isMethod('POST')) $targ = new ChTarget();
+//        if ($request->get('copy') and $request->isMethod('POST')) $targ = new ChTarget();
         if ($request->get('copy') and $request->isMethod('GET')) {
             $targ = clone $targ;
             $entityManager = $this->getDoctrine()->getManager();

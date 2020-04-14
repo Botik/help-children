@@ -109,7 +109,7 @@ class NewsController extends AbstractController
             ->findOneById($trg->getChild())->getName()]=$trg->getId();
 
         $oldimages = $n->getArPhotos();
-        if ($request->get('copy') and $request->isMethod('POST')) $n = new News();
+//        if ($request->get('copy') and $request->isMethod('POST')) $n = new News();
         if ($request->get('copy') and $request->isMethod('GET')) {
             $n = clone $n;
             $entityManager = $this->getDoctrine()->getManager();
