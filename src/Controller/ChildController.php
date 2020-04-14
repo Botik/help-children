@@ -238,7 +238,7 @@ class ChildController extends AbstractController
             $entityManager->remove($trg);
             $entityManager->flush();
         }
-       return $this -> edit( $child, $request);
+        return $this->redirectToRoute('panel_child_edit',['id'=>$child]);
     }
 
 
