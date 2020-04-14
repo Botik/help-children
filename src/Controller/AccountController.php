@@ -367,7 +367,7 @@ class AccountController extends AbstractController
           curl_close ($ch);
           if ($urrs) {
               foreach ($urrs as $urr) {
-                if ($urr->Status=="Active")
+                if (($urr->Status=="Active") or ($urr->Status=="PastDue"))
                 $rrs[]=[
                     'id'=> $urr->Id,
                     'status'=>$urr->Status,
