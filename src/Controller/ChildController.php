@@ -170,6 +170,13 @@ class ChildController extends AbstractController
         }
         $oldimages = json_decode($targ->getAttach());
         if ($request->get('copy') and $request->isMethod('POST')) $targ = new ChTarget();
+        if ($request->get('copy') and $request->isMethod('GET')) {
+            $targ = clone $targ;
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($targ);
+            $entityManager->flush();
+        }
+
 
         $form = $this->createForm(ChTargetTypes::class, $targ);
         $request->request->set('allowclose', (null == $request->get('allowclose') ? 0 : 1));

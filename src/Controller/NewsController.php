@@ -110,6 +110,12 @@ class NewsController extends AbstractController
 
         $oldimages = $n->getArPhotos();
         if ($request->get('copy') and $request->isMethod('POST')) $n = new News();
+        if ($request->get('copy') and $request->isMethod('GET')) {
+            $n = clone $n;
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($n);
+            $entityManager->flush();
+        }
         $form = $this->createFormBuilder($n)
             ->add(
                 'id', HiddenType::class,

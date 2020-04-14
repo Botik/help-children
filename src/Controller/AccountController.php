@@ -53,7 +53,7 @@ class AccountController extends AbstractController
         UrlGeneratorInterface $generator
     ) {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $user = $this->getUser();            
+        $user = $this->getUser();
         $form = [
             'firstName' => trim($request->request->get('firstName', '')),
             'lastName' => trim($request->request->get('lastName', '')),
@@ -68,11 +68,11 @@ class AccountController extends AbstractController
             'password' => trim($request->request->filter('password', '')),
             'retypePassword' => trim($request->request->filter('retypePassword', ''))
         ];
-        
+
         $form_errors = [];
         $errors = null;
 
-        if ($request->isMethod('post')) {            
+        if ($request->isMethod('post')) {
             $form_errors = $this->validate($form);
             // $puser = $this->doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = ". $data['phone'])->getOneOrNullResult();
             // $phoneEr=
@@ -82,7 +82,7 @@ class AccountController extends AbstractController
             $current_email = $current_user->getEmail();
             if ($form['email'] !== $current_email) {
                 $doctrine = $this->getDoctrine();
-                $user1 = $doctrine->getRepository(User::class)->findOneBy([            
+                $user1 = $doctrine->getRepository(User::class)->findOneBy([
                     'email' => $form['email']
                 ]);
                 if ($user1) {
@@ -97,7 +97,7 @@ class AccountController extends AbstractController
                             .$generator->generate('referral', ['id' => $this->getUser()->getId()])
                     ]);
                 }
-                $doctrine->getManager()->getRepository(SendGridSchedule::class)->changeEmail($current_email, $form['email']);  
+                $doctrine->getManager()->getRepository(SendGridSchedule::class)->changeEmail($current_email, $form['email']);
                 $user->setConfirmed(0);
             }
             $current_phone = $current_user->getPhone();
@@ -117,19 +117,19 @@ class AccountController extends AbstractController
                     ]);
                 }
             }
-            
+
             if ($form_errors->count() === 0 && $encoder->isPasswordValid($user, $form['oldPassword'])) {
                 $user->setFirstName($form['firstName'])
                     ->setLastName($form['lastName'])
                     ->setBirthday($form['birthday'] !== ''? new \DateTime($form['birthday']) : null)
                     ->setPhone($form['phone'])
                     ->setEmail($form['email']);
-                
+
                 $errors[] = 'Данные сохранены';
-            
+
                 if (!empty($form['password'])) {
                     if ($form['password'] == $form['retypePassword']) {
-                        $user->setPass($encoder->encodePassword($user, $form['password']));                        
+                        $user->setPass($encoder->encodePassword($user, $form['password']));
                         $errors[] = 'Пароль успешно изменён';
                     }
                     else
@@ -174,14 +174,14 @@ class AccountController extends AbstractController
     }
 
     public function downloadImage(Request $request)
-    {        
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');        
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $result_path = $this->getRealPath($this->getUser());
-                        
+
         return $this->render(
             'account/downloadImage.twig',
-            [                                
-                'imagePath' => $result_path                
+            [
+                'imagePath' => $result_path
             ]
         );
     }
@@ -207,10 +207,10 @@ class AccountController extends AbstractController
 
         $this->updateResults($this->getUser());
         $result_path = $this->getRealPath($this->getUser());
-	                        
+
         return $this->render(
             'account/referrals.twig',
-            [                
+            [
                 'users' => $repository->findReferralsWithSum($this->getUser()),
                 'result_path' => $result_path,
                 'referral_url' => $request->getScheme()
@@ -229,35 +229,35 @@ class AccountController extends AbstractController
     function updateResults($user)
     {
         $name = $user->getFirstName() . ' ' . $user->getLastName() . ',';
-        
+
         $repository = $this->getDoctrine()->getRepository(\App\Entity\Request::class);
         $donate = $this->getTotalDonate($user);
         // Символ тот, в шрифте посажен не туда
-        $donateSum = '+ ' . round($donate) . ' ¤';        
+        $donateSum = '+ ' . round($donate) . ' ¤';
         // Выводим общее число нуждающихся детей
         /** @var RequestRepository $history_repository */
         $history_repository = $this->getDoctrine()->getRepository(\App\Entity\Request::class);
         $childCount = $history_repository->getChildrenSuccessPaymentWithUser($user->getId());
         $referrCount = $repository->aggregateCountReferWithUser($user);
         if ($childCount==0 && $donate!==0) $childCount = $this->getDoctrine()->getRepository(\App\Entity\Child::class)->aggregateTotalCountChild();
-        $hash = $this->getResultHash($user->getId(), $donateSum, $childCount, $referrCount, $name);        
+        $hash = $this->getResultHash($user->getId(), $donateSum, $childCount, $referrCount, $name);
 
         if ($user->getResultHash() === $hash) {
             $path = $this->getResultPath($hash);
             if (file_exists($path))
                 return;
         }
-        
+
         $this->removeOldResultImage($user->getResultHash());
         $path = $this->getResultPath($hash);
-        
+
         $success = $this->updateResultImage($name, $donateSum, $childCount, $referrCount, $path);
         if ($success) {
             $user->setResultHash($hash);
             $this->getDoctrine()->getManager()->persist($user);
             $this->getDoctrine()->getManager()->flush();
         }
-    
+
         return true;
     }
 
@@ -297,10 +297,10 @@ class AccountController extends AbstractController
     }
 
     private function getResultPath($hash)
-    {        
+    {
         $path = './images/results/' . $hash . '.jpg';
         return $path;
-    }    
+    }
 
     private function removeOldResultImage($hash)
     {
@@ -310,17 +310,17 @@ class AccountController extends AbstractController
     }
 
     private function updateResultImage($name, $donateSum, $childCount, $referrCount, $path)
-    {        
+    {
         $font = './fonts/MuseoSans Cyrillic/MuseoSansCyrl-700.otf';
         $template_path = './images/account-results.jpg';
         // $font =realpath( '.\fonts\MuseoSans Cyrillic\MuseoSansCyrl-700.otf');
         // $template_path = '.\images\account-results.jpg';
 
         $image = imagecreatefromjpeg($template_path);
-    
-        $color_name = imagecolorallocate($image, 255, 255, 255);    
+
+        $color_name = imagecolorallocate($image, 255, 255, 255);
         $w_name = 210; //ширина
-        $h_name = 375; //высота    
+        $h_name = 375; //высота
 
         if (mb_strlen($name) > 21) {
             $name = str_replace(' ', "\n", $name);
@@ -329,14 +329,14 @@ class AccountController extends AbstractController
 
         $color = imagecolorallocate($image, 255, 173, 4);
         $w_donate = 210;
-        $h_donate = 840;        
+        $h_donate = 840;
 
         $w_child = 525 - 80 * strlen($childCount);
         $h_child = 1040;
 
         $w_refer = 360 - 105 * strlen($referrCount);
         $h_refer = 1280;
-                
+
         ImageFTtext($image, 50, 0, $w_name, $h_name, $color_name, $font, $name);
         ImageFTtext($image, 95, 0, $w_donate, $h_donate, $color, $font, $donateSum);
         ImageFTtext($image, 115, 0, $w_child, $h_child, $color, $font, $childCount);
@@ -446,9 +446,9 @@ class AccountController extends AbstractController
                         (new \DateTime($payment->getCreatedAt()->format('Y-m-d')))
                             ->add(new \DateInterval('P28D'))
                             ->setTime(12, 0, 0));
-              $email = $this->getUser()->getEmail();  
+              $email = $this->getUser()->getEmail();
               $template_id = 'd-1836d6b43e9c437d8f7e436776d1a489';
-              
+
               $sgs_ten = $entityManager->getRepository(SendGridSchedule::class)->findOneBy([
                   'email' => $email,
                   'sendAt' => $mail_date,
@@ -470,13 +470,13 @@ class AccountController extends AbstractController
     }
 
     public function sendPayoutRequest(Request $request, EventDispatcherInterface $dispatcher)
-    {    
-        $email = $request->request->get('email');                  
+    {
+        $email = $request->request->get('email');
         if (!$email)
             return new Response('false');
 
         $doctrine = $this->getDoctrine();
-        $user = $doctrine->getRepository(User::class)->findOneBy([            
+        $user = $doctrine->getRepository(User::class)->findOneBy([
             'email' => $email
         ]);
         if (!$user)
@@ -502,7 +502,7 @@ class AccountController extends AbstractController
             $data,
             new Assert\Collection([
                 'firstName' => [new Assert\NotBlank(), new Assert\Length(['min' => 3, 'max' => 256])],
-                'lastName' => [new Assert\Length(['min' => 2, 'max' => 256])],                
+                'lastName' => [new Assert\Length(['min' => 2, 'max' => 256])],
                 'birthday' => [],
                 'phone' => new Assert\Regex(['pattern' => '/^\+?\d{10,13}$/i']),
                 'email' => new Assert\NotBlank(),
