@@ -55,10 +55,12 @@ class NewsController extends AbstractController
     public function detail(int $id)
     {
         $n=$this->getDoctrine()->getRepository(News::class)->findOneById($id);
+        $news=$this->getDoctrine()->getRepository(News::class)->findBy([],['createdat' => 'DESC']);
+        shuffle($news);
         return $n ? $this->render('news/detail.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([],['createdat' => 'DESC']),
-                'n'  => $this->getDoctrine()->getRepository(News::class)->findOneById($id)
+                'news' => $news,
+                'n'  => $n
             ]) : $this->list();
     }
     /**
