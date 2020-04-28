@@ -117,7 +117,7 @@ class DocumentController extends AbstractController
             } else { $form->get('file')->addError(new FormError('Error: '.$ec)); }
         } else { $form->get('file')->addError(new FormError('No file to upload!')); }
     }
-
+//test
     protected function correctName($fn, $dir = '') {
         $fn = $this->translit(basename($fn));
         if (!empty($dir)) $dir = (rtrim($dir, '/').'/');
