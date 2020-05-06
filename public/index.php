@@ -1,7 +1,7 @@
 <?php
-//ini_set('display_errors', 'On');
-//ini_set('log_errors', 'on');
-//ini_set('error_log', '/home/children/help-children/var/logs/php.log');
+ini_set('display_errors', 'On');
+ini_set('log_errors', 'on');
+ini_set('error_log', 'var/logs/php.log');
 error_reporting(E_ALL);
 
 if (isset($_GET['phpinfo'])) if (intval($_GET['phpinfo']) == 1) {
