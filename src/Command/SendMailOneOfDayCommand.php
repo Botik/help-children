@@ -73,7 +73,7 @@ class SendMailOneOfDayCommand extends Command
           $ch = curl_init();
           curl_setopt($ch, CURLOPT_URL,"https://api.cloudpayments.ru/subscriptions/find");
           curl_setopt($ch, CURLOPT_POST, 1);
-          curl_setopt($ch, CURLOPT_USERPWD, "pk_51de50fd3991dbf5b3610e65935d1:ecbe13569e824fa22e85774015784592");
+          curl_setopt($ch, CURLOPT_USERPWD, $this->getEnv('CLOUD_PID').":".$this->getEnv('CLOUD_API_PASS'));
           curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
           curl_setopt($ch, CURLOPT_POSTFIELDS, "accountId=".$uid);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -85,7 +85,7 @@ class SendMailOneOfDayCommand extends Command
         do {
             $mrc = curl_multi_exec($multi, $active);
         } while ($mrc == CURLM_CALL_MULTI_PERFORM);
-         
+
         while ($active && $mrc == CURLM_OK) {
             if (curl_multi_select($multi) == -1) {
                 continue;
@@ -117,14 +117,14 @@ class SendMailOneOfDayCommand extends Command
           }
             curl_multi_remove_handle($multi, $channels[$idx]);
         }
-         
+
         curl_multi_close($multi);
 
 
 
         // Отправка письма с поздравлением о дне рождении
         /** @var User[] $rps */
-    
+
         $users = $this->entityManager->getRepository(User::class)->findByBirthDayToday();
 
         foreach ($users as $user) {

@@ -2,21 +2,22 @@
 
 namespace App\Controller;
 
-use App\Entity\RecurringPayment;
 use App\Entity\ReferralHistory;
 use App\Entity\Request;
 use App\Entity\User;
-use App\Repository\RecurringPaymentsRepository;
 use App\Repository\RequestRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 class PanelController extends AbstractController
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \LogicException
+     * @return Response
+     * @throws NonUniqueResultException
+     * @throws LogicException
      */
     public function main()
     {
@@ -28,8 +29,8 @@ class PanelController extends AbstractController
         curl_setopt($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Content-Length: ' . strlen('{"Status":{"Key":"Active"},"CultureName":{"Key":"ru"},"Email":"roman@alfagenesis.ru","Password":"6mgjHRv7DWWMsZA"}'))
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen('{"Status":{"Key":"Active"},"CultureName":{"Key":"ru"},"Email":"roman@alfagenesis.ru","Password":"6mgjHRv7DWWMsZA"}'))
         );
         $result = curl_exec($ch);
         preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
@@ -38,18 +39,13 @@ class PanelController extends AbstractController
         curl_close($ch);
 
 
-
         $doctrine = $this->getDoctrine();
-        /** @var RequestRepository $requestRepository */
-        $requestRepository = $doctrine->getRepository(Request::class);
-        /** @var RecurringPaymentsRepository $recurringRepository */
-        $recurringRepository = $doctrine->getRepository(RecurringPayment::class);
         /** @var UserRepository $userRepository */
         $userRepository = $doctrine->getRepository(User::class);
-        $cloud=json_decode(getUrlContent("https://merchant.cloudpayments.ru/api/transactions/summary?PageSize=30&FromDate=2015-01-01T00%3A00%3A00%2B03%3A00&TimezoneOffset=03%3A00", $cookie));
-        $cloud= ($cloud->Code ==200) ? $cloud->Result[0] : 'Cloud error';
-        $cloudreq=json_decode(getUrlContent("https://merchant.cloudpayments.ru/api/subscriptions/summary?PageSize=30&FromDate=2015-01-01T00%3A00%3A00%2B03%3A00&TimezoneOffset=03%3A00", $cookie));
-        $cloudreq= ($cloudreq->Code ==200) ? $cloudreq->Result->Active[0] : 'Cloud error';
+        $cloud = json_decode(getUrlContent("https://merchant.cloudpayments.ru/api/transactions/summary?PageSize=30&FromDate=2015-01-01T00%3A00%3A00%2B03%3A00&TimezoneOffset=03%3A00", $cookie ?? ''));
+        $cloud = ($cloud->Code == 200) ? $cloud->Result[0] : 'Cloud error';
+        $cloudreq = json_decode(getUrlContent("https://merchant.cloudpayments.ru/api/subscriptions/summary?PageSize=30&FromDate=2015-01-01T00%3A00%3A00%2B03%3A00&TimezoneOffset=03%3A00", $cookie ?? ''));
+        $cloudreq = ($cloudreq->Code == 200) ? $cloudreq->Result->Active[0] : 'Cloud error';
         return $this->render(
             'panel/main.twig',
             [
@@ -65,60 +61,23 @@ class PanelController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function users()
     {
-        // $data=[];
-        $users=$this->getDoctrine()->getRepository(User::class)->findBy([], ['createdAt' => 'DESC']);;
-        // foreach ($users as $idx => $us) {
-
-        //   $ch = curl_init();
-        //   curl_setopt($ch, CURLOPT_URL,"https://api.cloudpayments.ru/subscriptions/find");
-        //   curl_setopt($ch, CURLOPT_POST, 1);
-        //   curl_setopt($ch, CURLOPT_USERPWD, "pk_51de50fd3991dbf5b3610e65935d1:ecbe13569e824fa22e85774015784592");
-        //   curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-        //   curl_setopt($ch, CURLOPT_POSTFIELDS, "accountId=".$this->getUser()->getId());
-        //   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //   $urrs = json_decode(curl_exec ($ch))->Model;
-
-        //   $rrs=[];
-        //   curl_close ($ch);
-        //   if ($urrs) {
-        //       foreach ($urrs as $urr) {
-        //         if ($urr->Status=="Active")
-        //         $rrs[]=[
-        //             'id'=> $urr->Id,
-        //             'status'=>$urr->Status,
-        //             'sum'=>$urr->Amount,
-        //         ];
-        //       }
-        //   }
-        //   $hasrec= ($rrs!=[]);
-        //     $data[$idx]=[
-        //         "firstName"=>$us->getFirstName(),
-        //         "lastName"=>$us->getlastName(),
-        //         "email"=>$us->getemail(),
-        //         "birthday"=>$us->getbirthday(),
-        //         "Phone"=>$us->getPhone(),
-        //         "CreatedAt"=>$us->getCreatedAt(),
-        //         "id"=>$us->getid(),
-        //         "hasrec"=>$hasrec
-        //     ];
-        // }
+        $users = $this->getDoctrine()->getRepository(User::class)->findBy([], ['createdAt' => 'DESC']);
         return $this->render(
             'panel/users/users.twig',
             [
                 'users' => $users
-                // 'users' => $data
             ]
         );
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function requests()
     {
@@ -133,17 +92,18 @@ class PanelController extends AbstractController
         );
     }
 }
-function getUrlContent($url, $cookie){
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-// curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-curl_setopt($ch, CURLOPT_COOKIE, $cookie);
-$data = curl_exec($ch);
-$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
-return ($httpcode>=200 && $httpcode<300) ? $data : [false, $httpcode];
+
+function getUrlContent($url, $cookie)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+    curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+    $data = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    return ($httpcode >= 200 && $httpcode < 300) ? $data : [false, $httpcode];
 }
 

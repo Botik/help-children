@@ -4,18 +4,18 @@ namespace App\Controller;
 
 use App\Entity\Document;
 use App\Entity\User;
-use App\Form\ResetPasswordFormType;
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use App\Event\EmailConfirm;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class MainController extends AbstractController
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function main()
     {
@@ -23,8 +23,8 @@ class MainController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function contacts()
     {
@@ -32,8 +32,8 @@ class MainController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function sms()
     {
@@ -41,8 +41,8 @@ class MainController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function docs()
     {
@@ -50,8 +50,8 @@ class MainController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function help()
     {
@@ -59,8 +59,8 @@ class MainController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function partners()
     {
@@ -68,8 +68,10 @@ class MainController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @param Request $request
+     * @param EventDispatcherInterface $dispatcher
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return Response
      */
     public function reports(
         Request $request,
@@ -88,34 +90,7 @@ class MainController extends AbstractController
             ]);
 
             if ($user) {
-                if ($user->getPass() == null) {
-                    $title = 'Завершение регистрации';
-                    $description = 'Для продолжения регистрации введите свой пароль';
-                    $value = 'Продолжить';
-
-                    $form1 = $this->createForm(ResetPasswordFormType::class, $user);
-                    $form1->handleRequest($request);
-
-                    if (!$form1->isSubmitted()) {
-                        return $this->render('auth/resetPassword.twig',
-                        ['form' => $form1->createView(), 'title' => $title, 'description' => $description, 'value' => $value]);
-                    }
-                    // encode the plain password
-                    $user->setPass(
-                        $passwordEncoder->encodePassword(
-                            $user,
-                            $form1->get('password')->getData()
-                        )
-                    );
-                }
-
-                if ($user) {
-                    $doctrine->getManager()->persist($user->setRefCode(null));
-                    $doctrine->getManager()->persist($user->setConfirmed(1));
-                    $doctrine->getManager()->flush();
-                    $this->addFlash('code_confirm', 'E-mail подтверждён');
-                    $dispatcher->dispatch(new EmailConfirm($user), EmailConfirm::NAME);
-                }
+                $user->checkAfterReg($request, $passwordEncoder, $dispatcher);
             }
         }
         return $this->render(
