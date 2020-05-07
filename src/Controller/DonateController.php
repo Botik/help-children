@@ -592,7 +592,7 @@ class DonateController extends AbstractController
                         'fields' => $unitellerService->getFromData($req, $request->request->get('EMoneyType', '0')),
                         'pm' => ['type' => $form['payment-type']],
                         'child_id' => $form['child_id'],
-                        'cloud_pid'=>$this->getEnv('CLOUD_PID')
+                        'cloud_pid'=>$_ENV['CLOUD_PID']
                     ]
                 );
             }

@@ -21,7 +21,7 @@
                 {% endif %}
 
                 var wopt   = {
-                    publicId    : {{ cloud_pid }},  //id из личного кабинета
+                    publicId    : '{{ cloud_pid }}',  //id из личного кабинета
                     description : 'Благотворительная помощь', //назначение
                     amount      : {{ fields.Subtotal_P }}, //сумма
                     currency    : 'RUB', //валюта
