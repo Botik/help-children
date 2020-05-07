@@ -5,29 +5,36 @@ namespace App\Controller;
 use App\Entity\Document;
 use App\Entity\User;
 use App\Form\AddDocumentTypes;
-use App\Service\FileUploader;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Entity\SendGridSchedule;
-use App\Service\SendGridService;
 use App\Repository\DocumentRepository;
+use App\Service\FileUploader;
+use App\Service\SendGridService;
+use LogicException;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
+use Symfony\Component\Validator\Exception\InvalidOptionsException;
+use Symfony\Component\Validator\Exception\MissingOptionsException;
+use function move_uploaded_file;
 
 class DocumentController extends AbstractController
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function index()
     {
@@ -39,7 +46,8 @@ class DocumentController extends AbstractController
         );
     }
 
-    public function add(Request $request, FileUploader $uploader, SendGridService $sg) {
+    public function add(Request $request, FileUploader $uploader, SendGridService $sg)
+    {
         $document = new Document();
         $form = $this->createForm(AddDocumentTypes::class, $document);
         $form->handleRequest($request);
@@ -47,11 +55,11 @@ class DocumentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $doc */
             $doc = $form->get('file')->getData();
-            $fn  = $this->translit(pathinfo($doc->getClientOriginalName(), PATHINFO_FILENAME));
-            $fn  = $fn.'-'.uniqid().'.'.$doc->guessExtension();
+            $fn = $this->translit(pathinfo($doc->getClientOriginalName(), PATHINFO_FILENAME));
+            $fn = $fn . '-' . uniqid() . '.' . $doc->guessExtension();
             try {
                 $doc->move($this->getParameter('documents_directory'), $fn);
-                $document->setFile('/docs/'.$fn);
+                $document->setFile('/docs/' . $fn);
                 $EM = $this->getDoctrine()->getManager();
                 $EM->persist($document);
                 $EM->flush();
@@ -64,10 +72,10 @@ class DocumentController extends AbstractController
                         $user->getFirstName(),
                         [
                             'first_name' => $user->getFirstName(),
-                            'docdate'    => $document->getNameDate(),
-                            'docname'    => $document->getTitle(),
-                            'docsrc'     => $document->getFile(),
-                            'fs'         => $document->getFilesize()
+                            'docdate' => $document->getNameDate(),
+                            'docname' => $document->getTitle(),
+                            'docsrc' => $document->getFile(),
+                            'fs' => $document->getFilesize()
                         ]
                     );
                     $mail->setTemplateId('d-af64459f4a5c46158550ce4336c17892');
@@ -82,22 +90,23 @@ class DocumentController extends AbstractController
         }
 
         return $this->render('panel/documents/add.twig', [
-            'form'  => $form->createView(),
-            'document'=>$document
+            'form' => $form->createView(),
+            'document' => $document
         ]);
     }
 
-    protected function old_upload(FormInterface $form, Document $document, $ffn) {
+    protected function old_upload(FormInterface $form, Document $document, $ffn)
+    {
         if (!empty($_FILES[$ffn]['tmp_name']['file'])) {
-            $dd = rtrim($this->getParameter('documents_directory'), '/').'/';
+            $dd = rtrim($this->getParameter('documents_directory'), '/') . '/';
             $fn = $this->translit(basename($_FILES[$ffn]['name']['file']));
-            $fn = $dd.uniqid().'-'.preg_replace('~\s+~si', '_', $fn);
+            $fn = $dd . uniqid() . '-' . preg_replace('~\s+~si', '_', $fn);
             if (!is_uploaded_file($_FILES[$ffn]['tmp_name']['file'])) $ec = 'not uploaded';
-            if (!is_dir($dd))                                         $ec = 'is not dir';
-            if (!is_writable($dd))                                    $ec = 'not writable';
+            if (!is_dir($dd)) $ec = 'is not dir';
+            if (!is_writable($dd)) $ec = 'not writable';
             $fs = filesize($_FILES[$ffn]['tmp_name']['file']);
             if (empty($ec)) {
-                if (\move_uploaded_file($_FILES[$ffn]['tmp_name']['file'], $fn)) {
+                if (move_uploaded_file($_FILES[$ffn]['tmp_name']['file'], $fn)) {
                     $document->setFile($fn);
                     $EM = $this->getDoctrine()->getManager();
                     $EM->persist($document);
@@ -107,59 +116,65 @@ class DocumentController extends AbstractController
                     $ec = $_FILES[$ffn]['error']['file'];
                     $dmp = array(
                         'files' => $_FILES,
-                        'name'  => $fn,
-                        'dir'   => $dd,
-                        'size'  => $fs
+                        'name' => $fn,
+                        'dir' => $dd,
+                        'size' => $fs
                     );
-                    $msg = empty($ec) ? var_export($dmp, true) : 'Upload error: '.$ec.'!';
+                    $msg = empty($ec) ? var_export($dmp, true) : 'Upload error: ' . $ec . '!';
                     $form->get('file')->addError(new FormError($msg));
                 }
-            } else { $form->get('file')->addError(new FormError('Error: '.$ec)); }
-        } else { $form->get('file')->addError(new FormError('No file to upload!')); }
+            } else {
+                $form->get('file')->addError(new FormError('Error: ' . $ec));
+            }
+        } else {
+            $form->get('file')->addError(new FormError('No file to upload!'));
+        }
     }
+
 //test
-    protected function correctName($fn, $dir = '') {
+    protected function correctName($fn, $dir = '')
+    {
         $fn = $this->translit(basename($fn));
-        if (!empty($dir)) $dir = (rtrim($dir, '/').'/');
-        return $dir.uniqid().'-'.preg_replace('~\s+~si', '_', $fn);
+        if (!empty($dir)) $dir = (rtrim($dir, '/') . '/');
+        return $dir . uniqid() . '-' . preg_replace('~\s+~si', '_', $fn);
     }
 
     /**
-     * @param int     $id
+     * @param int $id
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      *
-     * @throws \LogicException
+     * @throws LogicException
      * @throws \Symfony\Component\Form\Exception\LogicException
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     * @throws \Symfony\Component\Validator\Exception\ConstraintDefinitionException
-     * @throws \Symfony\Component\Validator\Exception\InvalidOptionsException
-     * @throws \Symfony\Component\Validator\Exception\MissingOptionsException
+     * @throws NotFoundHttpException
+     * @throws ConstraintDefinitionException
+     * @throws InvalidOptionsException
+     * @throws MissingOptionsException
      */
     public function edit(int $id, Request $request)
     {
         /** @var DocumentRepository $repository */
         $repository = $this->getDoctrine()->getRepository(Document::class);
-        $document   = $repository->find($id);
+        $document = $repository->find($id);
 
-        if (!$document) throw $this->createNotFoundException('Нет документа с id '.$id);
+        if (!$document) throw $this->createNotFoundException('Нет документа с id ' . $id);
 
         $form = $this->createFormBuilder($document)
-            ->add('id'          , HiddenType::class   , ['mapped' => false, 'constraints' => [new NotBlank()]])
-            ->add('title'       , TextType::class     , ['constraints' => [new NotBlank()]])
-            ->add('description' , TextareaType::class)
-            ->add('date'        , DateType::class    , [
+            ->add('id', HiddenType::class, ['mapped' => false, 'constraints' => [new NotBlank()]])
+            ->add('title', TextType::class, ['constraints' => [new NotBlank()]])
+            ->add('description', TextareaType::class)
+            ->add('date', DateType::class, [
                 'html5' => True,
                 'widget' => 'choice',
                 'placeholder' => [
                     'year' => 'Год', 'month' => 'Месяц', 'day' => 'День',
                 ],
                 'format' => 'dd . MM . yyyy'])
-            ->add('category'    , ChoiceType::class   , ['choices' => Document::TYPES])
+            ->add('category', ChoiceType::class, ['choices' => Document::TYPES])
             ->add('save', SubmitType::class, [
                 'label' => 'Сохранить',
-                'attr'  => ['class' => 'btn btn-primary']
+                'attr' => ['class' => 'btn btn-primary']
             ])
             ->getForm();
 
@@ -175,7 +190,7 @@ class DocumentController extends AbstractController
         return $this->render(
             'panel/documents/edit.twig',
             [
-                'form'     => $form->createView(),
+                'form' => $form->createView(),
                 'document' => $document
             ]
         );
@@ -184,16 +199,16 @@ class DocumentController extends AbstractController
     /**
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @throws \LogicException
+     * @return RedirectResponse
+     * @throws LogicException
      */
     public function delete(int $id)
     {
         /** @var DocumentRepository $repository */
         $repository = $this->getDoctrine()->getRepository(Document::class);
-        $document   = $repository->find($id);
+        $document = $repository->find($id);
 
-        if (!$document) throw $this->createNotFoundException('Нет документа с id '.$id);
+        if (!$document) throw $this->createNotFoundException('Нет документа с id ' . $id);
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($document);
@@ -202,7 +217,8 @@ class DocumentController extends AbstractController
         return $this->redirect('/panel/documents');
     }
 
-    public function translit($str) {
+    public function translit($str)
+    {
         $rus = array('А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
         $lat = array('A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya');
         return preg_replace('#\s+#si', '_', str_replace($rus, $lat, $str));

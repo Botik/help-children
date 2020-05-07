@@ -3,25 +3,31 @@
 namespace App\Controller;
 
 use App\Entity\Child;
-use App\Entity\User;
-use App\Entity\News;
 use App\Entity\ChTarget;
+use App\Entity\News;
+use App\Entity\User;
 use App\Form\AddChildTypes;
 use App\Form\ChTargetTypes;
 use App\Form\EditChildTypes;
-use App\Service\SendGridService;
 use App\Service\FileUploader;
+use App\Service\SendGridService;
+use Exception;
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ChildController extends AbstractController
 {
     /**
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @return Response
+     * @throws LogicException
+     * @throws NotFoundHttpException
+     * @throws Exception
      */
     public function detail(int $id)
     {
@@ -31,28 +37,26 @@ class ChildController extends AbstractController
 
         if (!$child) {
             throw $this->createNotFoundException(
-                'Нет ребенка с id '.$id
+                'Нет ребенка с id ' . $id
             );
         }
-        $trg=$this->getDoctrine()->getRepository(ChTarget::class)->findByChild($child);
-        $ctarg=end($trg);
-        $state='close';
-        $child_lst=[];
-        if (($ctarg->getCollected()>=$ctarg->getGoal()) && ($ctarg->getAllowClose()[0])) {
-            $state='close';
-            $child_lst=$this->getDoctrine()->getRepository(Child::class)->getCurCh($state);
-        }
-        else {
-            $state= ($ctarg->getRehabilitation()) ? 'rehab' : 'pmj';
-            $r=$this->getDoctrine()->getRepository(Child::class)->getCurCh('rehab');
-            $p=$this->getDoctrine()->getRepository(Child::class)->getCurCh('pmj');
-            $child_lst=array_merge($r,$p);
+        $trg = $this->getDoctrine()->getRepository(ChTarget::class)->findByChild($child);
+        $ctarg = end($trg);
+        $child_lst = [];
+        if (($ctarg->getCollected() >= $ctarg->getGoal()) && ($ctarg->getAllowClose()[0])) {
+            $state = 'close';
+            $child_lst = $this->getDoctrine()->getRepository(Child::class)->getCurCh($state);
+        } else {
+            $state = ($ctarg->getRehabilitation()) ? 'rehab' : 'pmj';
+            $r = $this->getDoctrine()->getRepository(Child::class)->getCurCh('rehab');
+            $p = $this->getDoctrine()->getRepository(Child::class)->getCurCh('pmj');
+            $child_lst = array_merge($r, $p);
         }
 
 
-        $key=0;
+        $key = 0;
         foreach ($child_lst as $key => $ch) {
-            if ($ch['id'] == $id)  break;
+            if ($ch['id'] == $id) break;
         }
         return $this->render(
             'child/detail.twig',
@@ -61,21 +65,21 @@ class ChildController extends AbstractController
                 'form' => [
                     'payment-type' => 'visa'
                 ],
-                'yo'=>$child->getAge() . ' ' . ['год', 'года', 'лет'][ (($child->getAge())%100>4 && ($child->getAge())%100<20)? 2: [2, 0, 1, 1, 1, 2][min($child->getAge()%10, 5)]],
+                'yo' => $child->getAge() . ' ' . ['год', 'года', 'лет'][(($child->getAge()) % 100 > 4 && ($child->getAge()) % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][min($child->getAge() % 10, 5)]],
                 'targets' => $trg,
                 'tn' => $this->getDoctrine()->getRepository(News::class)->findTrg(),
                 'imgs' => json_decode(end($trg)->getAttach()),
-                'prevnext'=>[($key==0) ? $child_lst[(count($child_lst)-1)]['id'] :  $child_lst[($key-1) % (count($child_lst)-1)]['id'],$child_lst[($key+1) % (count($child_lst))]['id']],
-                'closed'=> $state=='close',
-                'title'=>['close'=>"Мы помогли",'pmj'=>"Подарки и мечты",'rehab'=>"Долгосрочная опека"][$state],
-                "news_lst" => $this->getDoctrine()->getRepository(News::class)->findByChild($child,['createdat' => 'ASC'])
+                'prevnext' => [($key == 0) ? $child_lst[(count($child_lst) - 1)]['id'] : $child_lst[($key - 1) % (count($child_lst) - 1)]['id'], $child_lst[($key + 1) % (count($child_lst))]['id']],
+                'closed' => $state == 'close',
+                'title' => ['close' => "Мы помогли", 'pmj' => "Подарки и мечты", 'rehab' => "Долгосрочная опека"][$state],
+                "news_lst" => $this->getDoctrine()->getRepository(News::class)->findByChild($child, ['createdat' => 'ASC'])
             ]
         );
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @return Response
+     * @throws LogicException
      */
     public function list()
     {
@@ -90,66 +94,130 @@ class ChildController extends AbstractController
         );
     }
 
+    public function delete(int $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $child = $entityManager->getRepository(Child::class)->find($id);
+
+        if (null !== $child) {
+            $entityManager->remove($child);
+            $entityManager->flush();
+        }
+        return $this->render(
+            'panel/child/list.twig',
+            [
+                'children' => $this->getDoctrine()->getRepository(Child::class)->findAll()
+            ]
+        );
+    }
+
+    public function deltrg(int $child, int $id, Request $request)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $trg = $entityManager->getRepository(ChTarget::class)->find($id);
+
+        if (null !== $trg) {
+            $entityManager->remove($trg);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('panel_child_edit', ['id' => $child]);
+    }
+
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
+     * @param Request $request
+     * @param FileUploader $fileUploader
+     * @param SendGridService $sg
+     * @return RedirectResponse|Response
+     * @throws Exception
+     */
+    public function add(Request $request, FileUploader $fileUploader, SendGridService $sg)
+    {
+        $userData = new Child();
+        $form = $this->createForm(AddChildTypes::class, $userData);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $images = $userData->getImages();
+            $arrayImg = [];
+
+            foreach ($images as $image) {
+                $arrayImg[] = $fileUploader->upload($image);
+            }
+
+            $userData->setImages($arrayImg);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($userData);
+            $entityManager->flush();
+
+            // SEND MAIL 12
+            $users = $this->getDoctrine()->getRepository(User::class)->getAll();
+            foreach ($users as $user) {
+                $mail = $sg->getMail(
+                    $user->getEmail(),
+                    $user->getFirstName(),
+                    [
+                        'first_name' => $user->getFirstName(),
+                        'name' => $userData->getName(),
+                        'age' => $userData->getAge(),
+                        'diag' => $userData->getDiagnosis(),
+                        'place' => $userData->getCity(),
+                        'goal' => (int)$userData->getGoal(),
+                        'photo' => $userData->getImages()[0],
+                        'id' => $userData->getId(),
+                        'url' => $user->getDonateUrl()
+                    ]
+                );
+                $mail->setTemplateId('d-8b30e88d3754462790edc69f7fe55540');
+                $sg->send($mail);
+            }
+            // END SEND
+
+            return $this->redirect('/panel/child');
+        }
+
+        return $this->render(
+            'panel/child/add.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
+    }
+
+    public function delimg(int $id, $img, Request $request)
+    {
+        $n = $this->getDoctrine()->getRepository(Child::class)->find($id);
+        $nar = $n->getImages();
+        unset($nar[$img]);
+        $n->setImages($nar);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->list_panel();
+    }
+
+    /**
+     * @return Response
+     * @throws LogicException
      */
     public function list_panel()
     {
         return $this->render(
             'panel/child/list.twig',
             [
-                'children' => $this->getDoctrine()->getRepository(Child::class)->findBy([],['id'=>'DESC'])
+                'children' => $this->getDoctrine()->getRepository(Child::class)->findBy([], ['id' => 'DESC'])
             ]
         );
     }
 
-    /**
-     * @param int     $id
-     * @param Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function edit(int $id, FileUploader $fileUploader, Request $request)
+    public function delimgTrg(int $id, int $child, $img, FileUploader $fileUploader, Request $request)
     {
-        $childData = $this->getDoctrine()
-            ->getRepository(Child::class)
-            ->find($id);
-
-        if (!$childData) {
-            throw $this->createNotFoundException(
-                'Нет ребенка с id '.$id
-            );
-        }
-
-        $form = $this->createForm(EditChildTypes::class, $childData);
-        $oldimages = $childData->getImages();
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $images = $childData->getImages();
-            $arrayImg = [];
-            if (!is_string($images)) foreach ($images as $image) {
-                $arrayImg[] = $fileUploader->upload($image);
-            }
-            if (!is_string($oldimages)) foreach ($oldimages as $image) {
-                $arrayImg[] = $image;
-            }
-            $childData->setImages($arrayImg);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($childData);
-            $entityManager->flush();
-        }
-
-        return $this->render(
-            'panel/child/edit.twig',
-            [
-                'child' => $childData,
-                'form' => $form->createView(),
-                'targets' => $this->getDoctrine()->getRepository(ChTarget::class)->findByChild($childData)
-            ]
-        );
+        $n = $this->getDoctrine()->getRepository(ChTarget::class)->find($id);
+        $nar = json_decode($n->getAttach());
+        unset($nar[$img]);
+        $n->setAttach(json_encode($nar));
+        $this->getDoctrine()->getManager()->flush();
+        return $this->target($id, $child, $fileUploader, $request);
     }
+
     public function target(int $id, int $child, FileUploader $fileUploader, Request $request)
     {
         $childData = $this->getDoctrine()
@@ -158,7 +226,7 @@ class ChildController extends AbstractController
 
         if (!$childData) {
             throw $this->createNotFoundException(
-                'Нет ребенка с id '.$child
+                'Нет ребенка с id ' . $child
             );
         }
         $targ = $this->getDoctrine()
@@ -166,7 +234,7 @@ class ChildController extends AbstractController
             ->find($id);
 
         if (!$targ) {
-                $targ = new ChTarget();
+            $targ = new ChTarget();
         }
         $oldimages = json_decode($targ->getAttach());
 //        if ($request->get('copy') and $request->isMethod('POST')) $targ = new ChTarget();
@@ -175,7 +243,7 @@ class ChildController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($targ);
             $entityManager->flush();
-            return $this->redirectToRoute('panel_child_target',['child'=>$child,'id'=>$targ->getId()]);
+            return $this->redirectToRoute('panel_child_target', ['child' => $child, 'id' => $targ->getId()]);
         }
 
 
@@ -213,111 +281,51 @@ class ChildController extends AbstractController
         );
     }
 
-    public function delete(int $id)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $child = $entityManager->getRepository(Child::class)->find($id);
-
-        if (null !== $child) {
-            $entityManager->remove($child);
-            $entityManager->flush();
-        }
-        return $this->render(
-            'panel/child/list.twig',
-            [
-                'children' => $this->getDoctrine()->getRepository(Child::class)->findAll()
-            ]
-        );
-    }
-    public function deltrg(int $child, int $id, Request $request)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $trg = $entityManager->getRepository(ChTarget::class)->find($id);
-
-        if (null !== $trg) {
-            $entityManager->remove($trg);
-            $entityManager->flush();
-        }
-        return $this->redirectToRoute('panel_child_edit',['id'=>$child]);
-    }
-
-
     /**
-     * @param Request      $request
+     * @param int $id
      * @param FileUploader $fileUploader
+     * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @throws \Exception
+     * @return Response
      */
-    public function add(Request $request, FileUploader $fileUploader, SendGridService $sg)
+    public function edit(int $id, FileUploader $fileUploader, Request $request)
     {
-        $userData = new Child();
-        $form = $this->createForm(AddChildTypes::class, $userData);
+        $childData = $this->getDoctrine()
+            ->getRepository(Child::class)
+            ->find($id);
+
+        if (!$childData) {
+            throw $this->createNotFoundException(
+                'Нет ребенка с id ' . $id
+            );
+        }
+
+        $form = $this->createForm(EditChildTypes::class, $childData);
+        $oldimages = $childData->getImages();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $images = $userData->getImages();
+            $images = $childData->getImages();
             $arrayImg = [];
-
-            foreach ($images as $image) {
+            if (!is_string($images)) foreach ($images as $image) {
                 $arrayImg[] = $fileUploader->upload($image);
             }
-
-            $userData->setImages($arrayImg);
-
+            if (!is_string($oldimages)) foreach ($oldimages as $image) {
+                $arrayImg[] = $image;
+            }
+            $childData->setImages($arrayImg);
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($userData);
+            $entityManager->persist($childData);
             $entityManager->flush();
-
-                // SEND MAIL 12
-                $users = $this->getDoctrine()->getRepository(User::class)->getAll();
-                foreach ($users as $user) {
-                    $mail = $sg->getMail(
-                        $user->getEmail(),
-                        $user->getFirstName(),
-                        [
-                            'first_name' => $user    ->getFirstName(),
-                            'name'       => $userData->getName(),
-                            'age'        => $userData->getAge(),
-                            'diag'       => $userData->getDiagnosis(),
-                            'place'      => $userData->getCity(),
-                            'goal'       => (int) $userData->getGoal(),
-                            'photo'      => $userData->getImages()[0],
-                            'id'         => $userData->getId(),
-                            'url'        => $user->getDonateUrl()
-                        ]
-                    );
-                    $mail->setTemplateId('d-8b30e88d3754462790edc69f7fe55540');
-                    $sg->send($mail);
-                }
-                // END SEND
-
-            return $this->redirect('/panel/child');
         }
 
         return $this->render(
-            'panel/child/add.twig',
+            'panel/child/edit.twig',
             [
-                'form' => $form->createView()
+                'child' => $childData,
+                'form' => $form->createView(),
+                'targets' => $this->getDoctrine()->getRepository(ChTarget::class)->findByChild($childData)
             ]
         );
-    }
-    public function delimg(int $id, $img, Request $request)
-    {
-        $n = $this->getDoctrine()->getRepository(Child::class)->find($id);
-        $nar=$n->getImages();
-        unset($nar[$img]);
-        $n->setImages($nar);
-        $this->getDoctrine()->getManager()->flush();
-       return $this -> list_panel();
-    }
-    public function delimgTrg(int $id, int $child, $img, FileUploader $fileUploader, Request $request)
-    {
-        $n = $this->getDoctrine()->getRepository(ChTarget::class)->find($id);
-        $nar=json_decode($n->getAttach());
-        unset($nar[$img]);
-        $n->setAttach(json_encode($nar));
-        $this->getDoctrine()->getManager()->flush();
-       return $this -> target($id, $child, $fileUploader, $request);
     }
 }

@@ -5,15 +5,15 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Event\ResetPasswordEvent;
 use App\Form\ResetPasswordFormType;
+use Exception;
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
-// use Symfony\Component\HttpFoundation\RequestStack;
-// use Symfony\Component\Security\Http\FirewallMap;
 
 
 class SecurityController extends AbstractController
@@ -22,44 +22,33 @@ class SecurityController extends AbstractController
      * @param AuthenticationUtils $authenticationUtils
      *
      * @return Response
-     * @throws \LogicException
+     * @throws LogicException
      */
-        use TargetPathTrait;
+    use TargetPathTrait;
 
-    // public function __construct(FirewallMap $firewallMap, RequestStack $requestStack)
-    // {
-    //     $this->firewallMap = $firewallMap;
-    //     $this->requestStack = $requestStack;
-    // }
 
     public function login(Request $request, AuthenticationUtils $authenticationUtils): Response
     {
         $url = $request->query->get('url') ?? 'account';
         if ($this->isGranted('ROLE_USER')) {
-            return $this->redirect('/'.$url);
+            return $this->redirect('/' . $url);
         }
-        // $firewallConfig = $this->firewallMap->getFirewallConfig($this->requestStack->getMasterRequest());
-        // if (null === $firewallConfig) {
-        //     throw new \LogicException('Could not find firewall config for the current request');
-        // }
-        // $providerKey= $firewallConfig->getName();
-
         $this->saveTargetPath($request->getSession(), 'fwForDonate', $url);
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $request->query->get('inputEmail') ?? $authenticationUtils->getLastUsername();
 
-        return $this->render('auth/login.twig', ['email' => $lastUsername, 'error' => $error, 'url'=>$url]);
+        return $this->render('auth/login.twig', ['email' => $lastUsername, 'error' => $error, 'url' => $url]);
     }
 
     /**
      * @param Request $request
      * @param EventDispatcherInterface $dispatcher
-     * 
+     *
      *
      * @return Response
-     * @throws \LogicException
+     * @throws Exception
      */
     public function recovery(Request $request, EventDispatcherInterface $dispatcher): Response
     {
@@ -75,14 +64,13 @@ class SecurityController extends AbstractController
             $user = $doctrine->getRepository(User::class)->findOneBy(['email' => $mail]);
             if ($user) {
                 $error = 'На почту отправлены указания по восстановлению пароля.';
-                
+
                 $user->setPass(substr(hash('sha256', random_bytes(20)), 0, 90));
                 $entityManager = $doctrine->getManager();
                 $entityManager->persist($user);
-                $entityManager->flush();  
+                $entityManager->flush();
                 $dispatcher->dispatch(new ResetPasswordEvent($user), ResetPasswordEvent::NAME);
-            }
-            else {
+            } else {
                 $error = 'Пользователя с таким почтовым адресом не найдено.';
             }
         }
@@ -97,14 +85,14 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @param Request                      $request
-     * @param AuthenticationUtils          $authenticationUtils
+     * @param Request $request
+     * @param AuthenticationUtils $authenticationUtils
      * @param UserPasswordEncoderInterface $passwordEncoder
      *
      * @return Response
-     * @throws \LogicException
+     * @throws LogicException
      */
-    public function reset_password(Request $request, AuthenticationUtils $authenticationUtils,      UserPasswordEncoderInterface $passwordEncoder): Response
+    public function reset_password(Request $request, AuthenticationUtils $authenticationUtils, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         if ($request->query->get("email", null) === null)
             return $this->redirect('/');
@@ -112,7 +100,7 @@ class SecurityController extends AbstractController
         $doctrine = $this->getDoctrine();
         $mail = $request->query->get('email');
         $old_user = $doctrine->getRepository(User::class)->findOneBy(['email' => $mail]);
-        if (!$old_user) 
+        if (!$old_user)
             return $this->redirect('/');
 
         $user = new User();
@@ -129,13 +117,13 @@ class SecurityController extends AbstractController
             $old_user->setPass(null);
             $entityManager = $doctrine->getManager();
             $entityManager->persist($old_user);
-            $entityManager->flush();  
-        }             
+            $entityManager->flush();
+        }
 
         if ($form->isSubmitted()) {
-            $doctrine = $this->getDoctrine();            
+            $doctrine = $this->getDoctrine();
 
-            if ($form->isValid()) {                
+            if ($form->isValid()) {
                 // encode the plain password
                 $old_user->setPass(
                     $passwordEncoder->encodePassword(
@@ -146,7 +134,7 @@ class SecurityController extends AbstractController
 
                 $entityManager = $doctrine->getManager();
                 $entityManager->persist($old_user);
-                $entityManager->flush();            
+                $entityManager->flush();
 
                 return $this->redirect('/login');
             }
@@ -155,19 +143,20 @@ class SecurityController extends AbstractController
         $title = 'Восстановление пароля';
         $description = 'Введите новый пароль';
         $value = 'Восстановить';
-        
+
         return $this->render(
             'auth/resetPassword.twig',
             [
                 'form' => $form->createView(),
-                'title' => $title, 
-                'description' => $description, 
+                'title' => $title,
+                'description' => $description,
                 'value' => $value
             ]
         );
     }
 
-    function check_email(Request $request) {
+    function check_email(Request $request)
+    {
         $current_user = $this->getUser();
         $doctrine = $this->getDoctrine();
         $mail = $request->request->get('email');
@@ -178,7 +167,7 @@ class SecurityController extends AbstractController
                 return new Response('same');
             return new Response('exist');
         }
-        $old_user = $doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = ". $phone)->getResult();
+        $old_user = $doctrine->getManager()->createQuery("SELECT u FROM App\\Entity\\User u WHERE JSON_VALUE(u.meta, '$.phone') = " . $phone)->getResult();
         if ($old_user) {
             return new Response('phone');
         }

@@ -2,8 +2,17 @@
 
 namespace App\Entity;
 
+use App\Controller\UserController;
+use App\Form\ResetPasswordFormType;
+use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Event\EmailConfirm;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -48,7 +57,7 @@ class User implements UserInterface
      */
     private $meta = [];
 
-    /**     
+    /**
      * @ORM\Column(type="decimal", precision=10, scale=2, options={"default":0})
      */
     private $rewardSum = 0;
@@ -108,15 +117,14 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="RecurringPayment", mappedBy="user", fetch="LAZY")
      */
     private $recurring_payments;
-
     /**
      * User constructor.
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct()
     {
-        $this->createdAt = new \DateTimeImmutable();
+        $this->createdAt = new DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -184,18 +192,18 @@ class User implements UserInterface
 
     public function setLastName(?string $lastName): self
     {
-        if ($lastName !== null)            
+        if ($lastName !== null)
             $this->meta['lastName'] = $lastName;
 
         return $this;
     }
 
-    public function getBirthday(): ?\DateTime
+    public function getBirthday(): ?DateTime
     {
         return $this->birthday;
     }
 
-    public function setBirthday(?\DateTime $birthday)
+    public function setBirthday(?DateTime $birthday)
     {
         $this->birthday = $birthday;
 
@@ -207,10 +215,9 @@ class User implements UserInterface
         if (empty($this->getBirthday()))
             return '';
 
-        $now = new \DateTime();
+        $now = new DateTime();
         $diff = $now - $this->getBirthday();
-        $age = floor($diff / (365*60*60*24));  
-        return $age;
+        return floor($diff / (365*60*60*24));
     }
 
     public function getPhone(): string
@@ -273,7 +280,7 @@ class User implements UserInterface
     {
         if (null !== $this->ref_code)
             return $this->ref_code;
-        else { 
+        else {
             $this->ref_code = substr(md5(random_bytes(20)), 0, 16);
         }
         return $this->ref_code;
@@ -340,7 +347,7 @@ class User implements UserInterface
 
     /**
      * @param bool $fundraiser
-     * 
+     *
      * @return User
      */
     public function setFundraiser(bool $fundraiser): self
@@ -360,7 +367,7 @@ class User implements UserInterface
 
     /**
      * @param bool $confirmed
-     * 
+     *
      * @return User
      */
     public function setConfirmed(bool $confirmed): self
@@ -370,24 +377,24 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDeletedAt(): ?\DateTimeInterface
+    public function getDeletedAt(): ?DateTimeInterface
     {
         return $this->deletedAt;
     }
 
-    public function setDeletedAt(?\DateTimeInterface $deletedAt): self
+    public function setDeletedAt(?DateTimeInterface $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -516,5 +523,51 @@ class User implements UserInterface
                      (($this->getConfirmed()==1) ? '' : '&code='. $this->getRefCode());
     }
 
-    
+    public function getRecurrent(){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.cloudpayments.ru/subscriptions/find");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_USERPWD, $this->getEnv('CLOUD_PID').":".$this->getEnv('CLOUD_API_PASS'));
+        curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "accountId=" . $this->id);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $ans= json_decode(curl_exec($ch))->Model;
+        curl_close($ch);
+        return $ans;
+    }
+
+
+    public function checkAfterReg($request, UserPasswordEncoderInterface $passwordEncoder, EventDispatcherInterface $dispatcher){
+
+        if ($this->getPass() == null) {
+            $title = 'Завершение регистрации';
+            $description = 'Для продолжения регистрации введите свой пароль';
+            $value = 'Продолжить';
+
+            $form1 = (new UserController)->createForm(ResetPasswordFormType::class, $this);
+            $form1->handleRequest($request);
+
+            if (!$form1->isSubmitted()) {
+                return (new UserController)->render('auth/resetPassword.twig',
+                    ['form' => $form1->createView(), 'title' => $title, 'description' => $description, 'value' => $value]);
+            }
+            // encode the plain password
+            $this->setPass(
+                $passwordEncoder->encodePassword(
+                    $this,
+                    $form1->get('password')->getData()
+                )
+            );
+        }
+
+        if ($this) {
+            $doctrine = (new UserController)->getDoctrine();
+            $doctrine->getManager()->persist($this->setRefCode(null));
+            $doctrine->getManager()->persist($this->setConfirmed(1));
+            $doctrine->getManager()->flush();
+            (new UserController)->addFlash('code_confirm', 'E-mail подтверждён');
+            $dispatcher->dispatch(new EmailConfirm($this), EmailConfirm::NAME);
+        }
+    }
+
 }

@@ -167,7 +167,8 @@
                                                     <img src='/images/thanks.svg'>
                                                 </div>
                                             {% else %}
-                                                <div class="newmoneybutton neededbutton" onclick="locationFunc('#needed')">Необходимо <br>
+                                                <div class="newmoneybutton neededbutton"
+                                                     onclick="locationFunc('#needed')">Необходимо <br>
                                                     <span
                                                         class="collected-resources-left__value">{{ (targets|last).goal|number_format(0, '.', ' ') }}
                                             руб.</span>
@@ -221,7 +222,7 @@
 
                                             <div class="hr-child" style='height:2px;'></div>
                                             {% if closed or ((targets|last).goal <= (targets|last).collected) %}
-                                            <h3 class="child-help-form__title">Я хочу помочь детям</h3>
+                                                <h3 class="child-help-form__title">Я хочу помочь детям</h3>
                                             {% endif %}
                                             <form class="child-help-form kid-page" action="{{ path('donate') }}"
                                                   method="GET">
@@ -263,7 +264,7 @@
                                                         <div class="donate-form-payment-systems__cards"
                                                              style="width: 300px; margin: 0;">
                                                             <div id="paymentByVisa" class="toggle-field__text"
-                                                                 style="opacity: 0.7; border-right: none; padding-left: 0; text-align: center; font-size: 1.2rem; color: #707070 !important; text-transform: none; cursor: auto; width:fit-content; margin:0 auto; margin-bottom:15px;">
+                                                                 style="opacity: 0.7; border-right: none; padding-left: 0; text-align: center; font-size: 1.2rem; color: #707070 !important; text-transform: none; cursor: auto; width:fit-content; margin: 0 auto 15px;">
                                                                 <div style="padding-left: 10px; padding-right: 10px;">
                                                                     Оплата с карт
                                                                 </div>
@@ -388,10 +389,10 @@
                                             {% if news.descr %}<p class='childnews-item-desc'>
                                                 {{ news.descr|raw }}
                                             </p>
-{#                                            <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'#}
-{#                                               class='childnews-item-link'>#}
-{#                                                Подробнее#}
-{#                                            </a>#}
+                                            {#                                            <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'#}
+                                            {#                                               class='childnews-item-link'>#}
+                                            {#                                                Подробнее#}
+                                            {#                                            </a>#}
                                             {% endif %}
                                             {% if news.arphotos %}{% if news.arphotos.0 %}<img
                                                 src='/uploads/images/{{ news.arphotos.0 }}' class='children-item-img'
@@ -424,10 +425,10 @@
                                         {% if news.descr %}<p class='childnews-item-desc'>
                                             {{ news.descr|raw }}
                                         </p>
-{#                                        <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'#}
-{#                                           class='childnews-item-link'>#}
-{#                                            Подробнее#}
-{#                                        </a>#}
+                                        {#                                        <a href='{{ (news.descr) ? path('news_detail', {'id' : news.id}): path('news_list') ~ '#child-news' }}'#}
+                                        {#                                           class='childnews-item-link'>#}
+                                        {#                                            Подробнее#}
+                                        {#                                        </a>#}
                                         {% endif %}
                                         {% if news.arphotos %}{% if news.arphotos.0 %}<img
                                             src='/uploads/images/{{ news.arphotos.0 }}' class='children-item-img'

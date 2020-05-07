@@ -2,53 +2,43 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use App\Entity\SendGridSchedule;
 use App\Entity\User;
 use App\Repository\UserRepository;
+use LogicException;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
+use Symfony\Component\Validator\Exception\InvalidOptionsException;
+use Symfony\Component\Validator\Exception\MissingOptionsException;
 
 class UserController extends AbstractController
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \LogicException
-     */
-    public function index()
-    {
-        return $this->render(
-            'user/index.twig',
-            [
-                'users' => $this->getDoctrine()->getRepository(User::class)->findAll()
-            ]
-        );
-    }
-
-    /**
-     * @param int     $id
+     * @param int $id
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      *
-     * @throws \LogicException
+     * @throws LogicException
      * @throws \Symfony\Component\Form\Exception\LogicException
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     * @throws \Symfony\Component\Validator\Exception\ConstraintDefinitionException
-     * @throws \Symfony\Component\Validator\Exception\InvalidOptionsException
-     * @throws \Symfony\Component\Validator\Exception\MissingOptionsException
+     * @throws NotFoundHttpException
+     * @throws ConstraintDefinitionException
+     * @throws InvalidOptionsException
+     * @throws MissingOptionsException
      */
     public function edit(int $id, Request $request)
     {
@@ -60,9 +50,9 @@ class UserController extends AbstractController
 
         if (!$userData) {
             throw $this->createNotFoundException(
-                'Нет пользователя с id '.$id
+                'Нет пользователя с id ' . $id
             );
-        }        
+        }
 
         $form = $this->createFormBuilder($userData)
             ->add(
@@ -95,10 +85,10 @@ class UserController extends AbstractController
             )
             ->add(
                 'birthday',
-                DateType::class, [     
-                    'format' => 'dd.MM.yyyy',      
-                    'widget' => 'single_text',                             
-                    'required' => false                    
+                DateType::class, [
+                    'format' => 'dd.MM.yyyy',
+                    'widget' => 'single_text',
+                    'required' => false
                 ]
             )
             ->add(
@@ -127,8 +117,8 @@ class UserController extends AbstractController
                     'required' => false,
                     'label' => 'Фандрайзер',
                     'attr' => [
-                        'class' => 'form-check-input'                        
-                    ],                    
+                        'class' => 'form-check-input'
+                    ],
                 ]
             )
             ->add(
@@ -187,48 +177,39 @@ class UserController extends AbstractController
     /**
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @throws \LogicException
+     * @return RedirectResponse|Response
+     * @throws LogicException
      */
     public function delete(int $id)
     {
         /** @var UserRepository $repository */
         $repository = $this->getDoctrine()->getRepository(User::class);
-        $userList = $repository->findUserSelecting($id);
 
         $userData = $repository->find($id);
 
         if (!$userData) {
             throw $this->createNotFoundException(
-                'Нет пользователя с id '.$id
+                'Нет пользователя с id ' . $id
             );
         }
-        $ch = curl_init();
-          curl_setopt($ch, CURLOPT_URL,"https://api.cloudpayments.ru/subscriptions/find");
-          curl_setopt($ch, CURLOPT_POST, 1);
-          curl_setopt($ch, CURLOPT_USERPWD, "pk_51de50fd3991dbf5b3610e65935d1:ecbe13569e824fa22e85774015784592");
-          curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-          curl_setopt($ch, CURLOPT_POSTFIELDS, "accountId=".$id);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          $urrs = json_decode(curl_exec ($ch))->Model;
+        $urrs = $userData->getRecurrent();
 
-          $rrs=[];
-          curl_close ($ch);
-          if ($urrs) {
-              foreach ($urrs as $urr) {
-                if ($urr->Status=="Active")
-                $rrs[]=[
-                    'id'=> $urr->Id
-                ];
-              }
-          }
-          if ($rrs!=[]) return new Response('subs', Response::HTTP_OK, ['content-type' => 'text/html']);
+        $rrs = [];
+        if ($urrs) {
+            foreach ($urrs as $urr) {
+                if ($urr->Status == "Active")
+                    $rrs[] = [
+                        'id' => $urr->Id
+                    ];
+            }
+        }
+        if ($rrs != []) return new Response('subs', Response::HTTP_OK, ['content-type' => 'text/html']);
         $entityManager = $this->getDoctrine()->getManager();
 
         // Удаляем все неотправленные письма из очереди для этого юзера
-        $sgss = $entityManager->getRepository(\App\Entity\SendGridSchedule::class)->findBy([
-            'email' => $userData->getEmail(),            
-            'sent' => 0            
+        $sgss = $entityManager->getRepository(SendGridSchedule::class)->findBy([
+            'email' => $userData->getEmail(),
+            'sent' => 0
         ]);
 
         foreach ($sgss as $sgs) {
