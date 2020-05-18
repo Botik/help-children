@@ -1909,8 +1909,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	}
 
 	.top_header .child-container {
-		margin: 0;
-		margin-bottom: 20px;
+		margin: 0 0 20px;
 	}
 
 	.topmenu_section {
