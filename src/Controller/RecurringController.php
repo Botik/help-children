@@ -35,7 +35,7 @@ class RecurringController extends AbstractController
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api.cloudpayments.ru/subscriptions/find");
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_USERPWD, $_ENV('CLOUD_PID').":".$_ENV('CLOUD_API_PASS'));
+            curl_setopt($ch, CURLOPT_USERPWD, $_ENV['CLOUD_PID'].":".$_ENV['CLOUD_API_PASS']);
             curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
             curl_setopt($ch, CURLOPT_POSTFIELDS, "accountId=" . $uid);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
