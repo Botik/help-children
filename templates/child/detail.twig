@@ -586,10 +586,21 @@
         {# <script src="/js/bundle.js"></script> #}
         <script type="text/javascript">
             $(window).scroll(function() {
-                let sh = $($(".hr-child.hr-full")[1]).offset().top - $(window).scrollTop()-window.innerHeight/2 - 80
-                if(sh<0) {
-                    $(".previous-child")[0].style.top="calc(50% - "+(-sh)+"px)"
-                    $(".next-child")[0].style.top="calc(50% - "+(-sh)+"px)"
+                if (getComputedStyle(document.querySelector('.next-child')).display == 'block') {
+                    let sh = $($(".hr-child.hr-full")[1]).offset().top - $(window).scrollTop() - window.innerHeight / 2 - 80;
+                    if (sh < 0) {
+                        $(".previous-child")[0].style.top = "calc(50% - " + (-sh) + "px)";
+                        $(".next-child")[0].style.top = "calc(50% - " + (-sh) + "px)";
+                    }
+                }
+                else{//mobile
+                    let offs=$(".child-navigation").offset().top;
+                    let sh = $($(".hr-child.hr-full")[1]).offset().top - $(window).scrollTop() - offs - 40;
+                    if (sh > 0) sh =0;
+                        $(".previous-child-mobile .link")[0].style.top = "calc(" + offs + "px - " + (-sh) + "px)";
+                        $(".next-child-mobile .link")[0].style.top = "calc(" + offs + "px - " + (-sh) + "px)";
+
+
                 }
             });
             $(window).on("load", function () {
