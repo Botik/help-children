@@ -1773,7 +1773,15 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 		font-size: 13px;
 		line-height: 15px;
 		color: #BBBBBB;
-		padding: 3px 12px;
+		padding: 3px 52px;
+	}
+	.previous-child-mobile .link,.next-child-mobile .link{
+		position: fixed;
+		right: 3rem;
+		z-index: 100;
+	}
+	.previous-child-mobile .link{
+		left: 3rem;
 	}
 
 	.child-navigation .previous-child-mobile .txt {
