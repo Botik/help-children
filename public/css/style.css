@@ -1255,9 +1255,9 @@ div.card-child__col.card-child-description > div.collected-resources {
 }
 
 .previous-child {
-	position: absolute;
-	left: -40px;
-	top: 300px;
+	position: fixed;
+	left: 16px;
+	top: 50%;
 	z-index: 1;
 }
 
@@ -1291,9 +1291,9 @@ div.card-child__col.card-child-description > div.collected-resources {
 }
 
 .next-child {
-	position: absolute;
-	right: -40px;
-	top: 300px;
+	position: fixed;
+	right: 16px;
+	top: 50%;
 	z-index: 1;
 	text-align: right;
 }
