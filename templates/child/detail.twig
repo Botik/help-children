@@ -585,7 +585,13 @@
         <script src="/js/stickjaw.js"></script>
         {# <script src="/js/bundle.js"></script> #}
         <script type="text/javascript">
-
+            $(window).scroll(function() {
+                let sh = $($(".hr-child.hr-full")[1]).offset().top - $(window).scrollTop()-window.innerHeight/2 - 80
+                if(sh<0) {
+                    $(".previous-child")[0].style.top="calc(50% - "+(-sh)+"px)"
+                    $(".next-child")[0].style.top="calc(50% - "+(-sh)+"px)"
+                }
+            });
             $(window).on("load", function () {
                 $('.cart-nav.kid-profile>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
             });
