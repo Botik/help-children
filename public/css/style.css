@@ -1734,6 +1734,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 		display: flex;
 		justify-content: space-between;
 		height: 60px;
+		padding: 0 52px;
 	}
 
 	.child-navigation > div a {
@@ -1773,7 +1774,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 		font-size: 13px;
 		line-height: 15px;
 		color: #BBBBBB;
-		padding: 3px 52px;
+		padding: 3px 0;
 	}
 	.previous-child-mobile .link,.next-child-mobile .link{
 		position: fixed;
