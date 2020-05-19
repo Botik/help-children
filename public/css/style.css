@@ -1256,7 +1256,7 @@ div.card-child__col.card-child-description > div.collected-resources {
 
 .previous-child {
 	position: fixed;
-	left: 16px;
+	left: -6px;
 	top: 50%;
 	z-index: 1;
 }
@@ -1292,12 +1292,28 @@ div.card-child__col.card-child-description > div.collected-resources {
 
 .next-child {
 	position: fixed;
-	right: 16px;
+	right: -6px;
 	top: 50%;
 	z-index: 1;
 	text-align: right;
 }
 
+@media (min-width: 992px) {
+	.next-child {
+		right: calc((100% - 970px) / 2 - 40px);
+	}
+	.previous-child {
+		left: calc((100% - 970px) / 2 - 40px);
+	}
+}
+@media (min-width: 1441px) {
+	.next-child {
+		right: calc((100% - 1100px) / 2 - 40px);
+	}
+	.previous-child {
+		left: calc((100% - 1100px) / 2 - 40px);
+	}
+}
 .next-child .skybox {
 	width: 55px;
 	height: 200px;
