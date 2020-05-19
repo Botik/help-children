@@ -81,7 +81,9 @@ $(document).ready(function () {
 
 		$(this).addClass("active");
 		var link = $(this).find('a').attr('href');
+		location.hash=link;
 		$(link).addClass('displaytrue');
+
 		// $(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
 
 		if (link == "#kid-news") {
@@ -358,6 +360,7 @@ function locationFunc(link) {
 	if ($('.mothersletter').length) {
 		var hashpos = link.indexOf('#');
 		var hash = link.slice(hashpos, link.length + 1);
+		history.replaceState({}, '', hash);
 		if (hash == "#needed") {
 			$('.cart-nav>div').each(function () {
 				$(this).removeClass("active");
@@ -409,7 +412,7 @@ function locationFunc(link) {
 			}, 1000);
 		}
 
-		$('.history-link').click(function () {
+		$('.history-link').click(function (event) {
 			event.preventDefault();
 			$('.cart-nav>div').each(function () {
 				$(this).removeClass("active");

@@ -589,8 +589,8 @@
             $(window).on("load", function () {
                 $('.cart-nav.kid-profile>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
             });
-            $(window).on('hashchange', function () {
-                // $('.cart-nav>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
+            $(window).on('hashchange', function (event) {
+                event.preventDefault();
             }).trigger('hashchange');
         </script>
     {% endautoescape %}
