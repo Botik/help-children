@@ -796,8 +796,8 @@
 }*/
 
 .push-content {
-	/*transition: all 0.3s ease;*/
-	display: none;
+	transition: all 0.3s ease;
+	/*display: none;*/
 	position: absolute;
 	background: #FFFFFF;
 	box-shadow: 0 0 24px rgba(142, 53, 36, 0.2);
@@ -809,6 +809,7 @@
 	width: 110%;
 	z-index: 10;
 	cursor: default;
+	opacity: 0;
 }
 
 .collected-resources__slider .push-content {
