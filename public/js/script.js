@@ -166,8 +166,8 @@ $(document).ready(function () {
 		var mess = $(this).closest(".progressline-block").find('.push-content');
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
-		$(this).append('<div class="polygon"></div>').fadeIn(100);
-		mess.fadeIn(100);
+		$(this).append('<div class="polygon"></div>').fadeIn(200);
+		mess.fadeIn(200);
 
 		// $('.polygon').css('display', 'block');
 	});
