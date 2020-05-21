@@ -153,7 +153,7 @@ $(document).ready(function () {
 	$('.progressline-block .progress-bar').mouseenter(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
-			$('.polygon').fadeOut(200,'ease');
+			$('.polygon').detach();
 		});
 		$(this).addClass('opened');
 
@@ -166,18 +166,18 @@ $(document).ready(function () {
 		var mess = $(this).closest(".progressline-block").find('.push-content');
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
-		$(this).append('<div class="polygon"></div>').fadeIn(200,'ease');
-		mess.fadeIn(200,'ease');
+		$(this).append('<div class="polygon"></div>').fadeIn(200);
+		mess.fadeIn(200);
 
 		// $('.polygon').css('display', 'block');
 	});
 
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
-			$('.polygon').fadeOut(200,'ease');
 			$(this).removeClass('opened');
+			$('.polygon').detach();
 		});
-		$('.push-content').fadeOut(200,'ease');
+		$('.push-content').hide();
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
