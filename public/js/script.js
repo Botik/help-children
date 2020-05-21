@@ -155,9 +155,6 @@ $(document).ready(function () {
 			$(this).removeClass('opened');
 		});
 		$(this).addClass('opened');
-		$('.progressline-block .progress-bar').each(function () {
-			// $('.polygon').detach();
-		});
 
 		var progressHeight = $(this).position().top;
 		if (progressHeight > 0) {
@@ -169,7 +166,7 @@ $(document).ready(function () {
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
 		$(this).append('<div class="polygon"></div>').fadeTo(100, 1);
-		mess.stop().fadeTo(100, 1);
+		// mess.stop().fadeTo(100, 1);
 
 		$('.polygon').css('display', 'block');
 	});
@@ -177,8 +174,8 @@ $(document).ready(function () {
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
+			$('.polygon').detach();
 		});
-		$('.polygon').css('display', 'none');
 		$('.push-content').hide();
 	});
 
