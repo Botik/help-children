@@ -175,7 +175,7 @@ $(document).ready(function () {
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
 			$('.polygon').fadeOut(200,'ease');
-			$(this).delay(200).removeClass('opened');
+			$(this).removeClass('opened');
 		});
 		$('.push-content').fadeOut(200,'ease');
 	});
