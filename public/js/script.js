@@ -166,7 +166,7 @@ $(document).ready(function () {
 		var mess = $(this).closest(".progressline-block").find('.push-content');
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
-		$(this).append('<div class="polygon"></div>');
+		$(this).append('<div class="polygon"></div>').css('opacity','1');
 		mess.css('opacity','1');
 
 		// $('.polygon').css('display', 'block');
@@ -175,8 +175,8 @@ $(document).ready(function () {
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
-			$('.polygon');
 		});
+		$('.polygon').css('opacity','0');
 		$('.push-content').css('opacity','0');
 	});
 
