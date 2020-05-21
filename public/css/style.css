@@ -823,6 +823,7 @@
 
 .progressline-block .progress-bar .polygon {
 	/*transition: all 0.3s ease;*/
+	opacity: 0;
 	background: url(../icons/Polygon.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
