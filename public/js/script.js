@@ -153,6 +153,7 @@ $(document).ready(function () {
 	$('.progressline-block .progress-bar').mouseenter(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
+			$('.polygon').detach();
 		});
 		$(this).addClass('opened');
 
@@ -168,7 +169,7 @@ $(document).ready(function () {
 		$(this).append('<div class="polygon"></div>').fadeTo(100, 1);
 		mess.stop().fadeTo(100, 1);
 
-		$('.polygon').css('display', 'block');
+		// $('.polygon').css('display', 'block');
 	});
 
 	$('.progressline-block').mouseleave(function () {
