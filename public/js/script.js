@@ -153,7 +153,7 @@ $(document).ready(function () {
 	$('.progressline-block .progress-bar').mouseenter(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
-			$('.polygon').detach();
+			$('.polygon').fadeOut(200,'ease');
 		});
 		$(this).addClass('opened');
 
@@ -174,11 +174,10 @@ $(document).ready(function () {
 
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
-			$(this).removeClass('opened');
 			$('.polygon').fadeOut(200,'ease');
+			$(this).delay(200).removeClass('opened');
 		});
 		$('.push-content').fadeOut(200,'ease');
-		();
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
