@@ -174,10 +174,11 @@ $(document).ready(function () {
 
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
-			$(this).removeClass('opened').fadeOut();
+			$(this).removeClass('opened');
 			$('.polygon').detach();
 		});
-		$('.push-content').fadeOut();
+		$('.push-content').fadeOut()
+		();
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
