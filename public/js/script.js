@@ -156,7 +156,7 @@ $(document).ready(function () {
 		});
 		$(this).addClass('opened');
 		$('.progressline-block .progress-bar').each(function () {
-			$('.polygon').detach();
+			// $('.polygon').detach();
 		});
 
 		var progressHeight = $(this).position().top;
