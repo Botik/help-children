@@ -177,7 +177,7 @@ $(document).ready(function () {
 			$(this).removeClass('opened').fadeOut();
 			$('.polygon').detach();
 		});
-		$('.push-content').hide();
+		$('.push-content').fadeOut();
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
