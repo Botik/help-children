@@ -57,14 +57,12 @@
                 <section class="section kids section-with-bghearts">
                     <div class="container container-pagecontent-padding">
                         <h2 class="section-title kid-list" id='dolgosrochnaya-opeka'>Долгосрочная опека</h2>
-                        {# <p class="section-subtitle">Вы можете помочь этим детям</p> #}
                         <ul class="aid-list">
                             {% for child in opened -%}
-                                {# {% if (child.targets|last).rehabilitation %} #}
                                 <li class="aid-list__item">
                                     <div class="aid-card">
                                         {# таймер ребенка #}
-                                        {% if (child.targets|last).allowclose == 0 %}
+                                        {% if (child.targets|last).allowclose == 0 or date((child.targets|last).totime).diff(date("now")).days <30 %}
                                             {% if date((child.targets|last).totime) > date( "now") %}
 
                                                 <div class='notification'>
