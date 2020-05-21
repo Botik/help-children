@@ -800,7 +800,7 @@
 	display: none;
 	position: absolute;
 	background: #FFFFFF;
-	box-shadow: 0px 0px 24px rgba(142, 53, 36, 0.2);
+	box-shadow: 0 0 24px rgba(142, 53, 36, 0.2);
 	border-radius: 10px;
 	padding: 15px 25px;
 	/* top: -15px; */
@@ -812,7 +812,7 @@
 }
 
 .collected-resources__slider .push-content {
-	top: 0px;
+	top: 0;
 }
 
 /*.kid-cart .kid-info .progressline-block .progress-bar:hover .push-content {
@@ -822,9 +822,8 @@
 }*/
 
 .progressline-block .progress-bar .polygon {
-	/*transition: all 0.3s ease;*/
-	background: url(../icons/Polygon.svg);
-	background-repeat: no-repeat;
+	transition: all 0.3s ease;
+	background: url(../icons/Polygon.svg) no-repeat;
 	background-size: contain;
 	width: 30px;
 	height: 20px;
@@ -836,8 +835,7 @@
 }
 
 .collected-resources .polygon {
-	background: url(../icons/Polygon.svg);
-	background-repeat: no-repeat;
+	background: url(../icons/Polygon.svg) no-repeat;
 	background-size: contain;
 	width: 30px;
 	height: 20px;
