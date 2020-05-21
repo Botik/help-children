@@ -91,20 +91,29 @@ class ChildRepository extends ServiceEntityRepository
             $rows[$key]['contacts']=$body->contacts;
             $rows[$key]['city']=$body->city;
             $sql=<<<sql
-         SELECT * FROM ch_target WHERE child = :state
-        sql;
-        $Q = $DB->prepare($sql);
-        $Q->execute(['state' => $child['id']]);
-        $trg = $Q->fetchAll(\Doctrine\DBAL\FetchMode::ASSOCIATIVE);
+             SELECT * FROM ch_target WHERE child = :state
+            sql;
+            $Q = $DB->prepare($sql);
+            $Q->execute(['state' => $child['id']]);
+            $trg = $Q->fetchAll(\Doctrine\DBAL\FetchMode::ASSOCIATIVE);
             $rows[$key]['targets']=$trg;
-
         }
+        $c=[];
+        // (new \DateTime($lst['totime']))->diff(new \DateTime())->days
+//        foreach ($rows as $key => $child) { //  >30
+//            $lst=end($child['targets']);
+//            if (((new \DateTime($lst['totime']))->diff(new \DateTime())->days > 30)) {
+//                $c[]=$child;
+////                unset($rows[$key]);
+//            }
+//        }
+//        $rows=$c;
         $c=$rows;
-        foreach ($rows as $key => $child) {
+        foreach ($rows as $key => $child) { //  таймер и собраны деньги
             $lst=end($child['targets']);
             if (($lst['collected'] >= $lst['goal']) and $lst['allowclose'] == 0) {
                 $c[]=$child;
-                unset($c[$key]);
+//                unset($c[$key]);
             }
         }
             $c = array_values($c);
