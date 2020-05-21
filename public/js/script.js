@@ -166,8 +166,12 @@ $(document).ready(function () {
 		var mess = $(this).closest(".progressline-block").find('.push-content');
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
-		mess.css('opacity','1');
-		$(this).append('<div class="polygon"></div>').css('opacity','1');
+		mess.stop().animate({
+			opacity: '1'
+		}, { duration: 200, queue: false });
+		$(this).append('<div class="polygon"></div>').stop().animate({
+			opacity: '1'
+		}, { duration: 200, queue: false });
 
 		// $('.polygon').css('display', 'block');
 	});
@@ -176,8 +180,12 @@ $(document).ready(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
 		});
-		$('.push-content').css('opacity','0');
-		$('.polygon').css('opacity','0');
+		$('.push-content').stop().animate({
+			opacity: '0'
+		}, { duration: 200, queue: false });
+		$('.polygon').stop().animate({
+			opacity: '0'
+		}, { duration: 200, queue: false });
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {

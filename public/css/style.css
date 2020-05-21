@@ -796,7 +796,7 @@
 }*/
 
 .push-content {
-	transition: all 1s ease;
+	/*transition: all 1s ease;*/
 	/*display: none;*/
 	position: absolute;
 	background: #FFFFFF;
@@ -823,15 +823,15 @@
 }*/
 
 .progressline-block .progress-bar .polygon {
-	transition: all 1s ease;
-	background: #fff;
+	/*transition: all 1s ease;*/
+	background: url(../icons/Polygon.svg) no-repeat;
 	background-size: contain;
-	width: 14px;
-	height: 14px;
+	width: 30px;
+	height: 20px;
 	position: absolute;
 	bottom: 10px;
 	left: 25%;
-	transform: rotate(45deg);
+	transform: rotate(180deg);
 	z-index: 10;
 }
 
