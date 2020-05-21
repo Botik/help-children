@@ -167,7 +167,7 @@ $(document).ready(function () {
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
 		$(this).append('<div class="polygon"></div>').fadeOut(0).fadeIn(300);
-		mess.stop().fadeIn(300);
+		mess.stop().fadeOut(0).fadeIn(300);
 
 		// $('.polygon').css('display', 'block');
 	});
