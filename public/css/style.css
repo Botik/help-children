@@ -822,16 +822,14 @@
 }*/
 
 .progressline-block .progress-bar .polygon {
-	transition: all 0.3s ease;
+	/*transition: all 0.3s ease;*/
 	background: url(../icons/Polygon.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	width: 30px;
 	height: 20px;
 	position: absolute;
-	position: absolute;
 	bottom: 10px;
-	width: 30px;
 	left: 25%;
 	transform: rotate(180deg);
 	z-index: 10;
@@ -844,9 +842,7 @@
 	width: 30px;
 	height: 20px;
 	position: absolute;
-	position: absolute;
 	bottom: 10px;
-	width: 30px;
 	left: 25%;
 	transform: rotate(180deg);
 	z-index: 10;
