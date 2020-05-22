@@ -178,8 +178,8 @@ $(document).ready(function () {
 		}, { duration: 200, queue: false });
 		// $(this).append('<div class="polygon"></div>')
 		$(this).find('.polygon').stop().animate({
-			opacity: 1
-		}, { duration: 200, queue: false });
+			opacity: '1'
+		}, { duration: 250, queue: false });
 
 		// $('.polygon').css('display', 'block');
 	});
@@ -187,13 +187,14 @@ $(document).ready(function () {
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
+			$(this).find('.polygon').stop().animate({
+				opacity: '0'
+			}, { duration: 250, queue: false });
 		});
 		$('.push-content').stop().animate({
 			opacity: '0'
 		}, { duration: 200, queue: false });
-		$(this).find('.polygon').stop().animate({
-			opacity: '0'
-		}, { duration: 200, queue: false });
+
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
@@ -209,9 +210,6 @@ $(document).ready(function () {
 		if (flag == true) {
 			$(this).find('.polygon').css('opacity','1');
 		}
-		// $('.collected-resources__slider .collected-resources').each(function () {
-		// 	//$('.polygon').detach();
-		// });
 
 		var progressHeight = $(this).position().top;
 		if (progressHeight > 0) {
@@ -228,8 +226,8 @@ $(document).ready(function () {
 		}, { duration: 200, queue: false });
 		//$(this).append('<div class="polygon"></div>');
 		$(this).find('.polygon').stop().animate({
-			opacity: 1
-		}, { duration: 200, queue: false });
+			opacity: '1'
+		}, { duration: 250, queue: false });
 
 		//$('.polygon').css('display', 'block');
 	});
@@ -245,7 +243,7 @@ $(document).ready(function () {
 		}, { duration: 200, queue: false });
 		$(this).find('.polygon').stop().animate({
 			opacity: '0'
-		}, { duration: 200, queue: false });
+		}, { duration: 250, queue: false });
 
 	});
 
