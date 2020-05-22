@@ -195,7 +195,7 @@ $(document).ready(function () {
 		});
 		$(this).addClass('opened');
 		$('.collected-resources__slider .collected-resources').each(function () {
-			$('.polygon').detach();
+			//$('.polygon').detach();
 		});
 
 		var progressHeight = $(this).position().top;
