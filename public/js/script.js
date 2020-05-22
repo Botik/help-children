@@ -151,11 +151,18 @@ $(document).ready(function () {
 
 
 	$('.progressline-block .progress-bar').mouseenter(function () {
+		var flag = false;
+		if ($(this).find('.polygon').css('opacity') == 1) {
+			flag = true;
+		}
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
 			$(this).find('.polygon').css('opacity','0');
 		});
 		$(this).addClass('opened');
+		if (flag == true) {
+			$(this).find('.polygon').css('opacity','1');
+		}
 
 		var progressHeight = $(this).position().top;
 		if (progressHeight > 0) {
