@@ -7,17 +7,17 @@
 {% block keywords %}{{ child.name }}{% endblock %}
 
 {% block content %}
-<main>
-    <section class="section hero-medium kid-page">
-        <div class="container child-container">
-            <a class="link-back link-back-mobile" id='children-link-back' href="{{ path('children_list') }}"><span
-                    class="icon icon-arrow-angle-right"></span>К списку детей</a>
-            <h1 class="hero-medium__title">{{title}}</h1>
-            <p class="hero-small__subtitle"></p>
-            <a class="link-back link-back-desktop" id='children-link-back' href="{{ path('children_list') }}"><span
-                    class="icon icon-arrow-angle-right"></span>К списку детей</a>
-        </div>
-    </section>
+    <main>
+        <section class="section hero-medium">
+            <div class="container child-container">
+                <a class="link-back link-back-mobile" id='children-link-back' href="{{ path('children_list') }}"><span
+                        class="icon icon-arrow-angle-right"></span>К списку детей</a>
+                <h1 class="hero-medium__title">Дети</h1>
+                <p class="hero-small__subtitle">которым нужна Ваша помощь</p>
+                <a class="link-back link-back-desktop" id='children-link-back' href="{{ path('children_list') }}"><span
+                        class="icon icon-arrow-angle-right"></span>К списку детей</a>
+            </div>
+        </section>
 
     <section class="section child section-with-bghearts">
         <div class="container child-container">

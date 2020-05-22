@@ -6,7 +6,7 @@
 /error.log
 /composer.phar
 /project.iml
-/tmp/
+/public/.well-known/pki-validation/
 
 ###> symfony/framework-bundle ###
 /.env.local
