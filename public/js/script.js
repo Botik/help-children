@@ -189,7 +189,7 @@ $(document).ready(function () {
 			$(this).removeClass('opened');
 			$(this).find('.polygon').stop().animate({
 				opacity: '0'
-			}, { duration: 250, queue: false });
+			}, { duration: 200, queue: false });
 		});
 		$('.push-content').stop().animate({
 			opacity: '0'
@@ -237,7 +237,7 @@ $(document).ready(function () {
 			$(this).removeClass('opened');
 			$(this).find('.polygon').stop().animate({
 				opacity: '0'
-			}, { duration: 250, queue: false });
+			}, { duration: 200, queue: false });
 		});
 		//$('.polygon').css('display', 'none');
 		//$('.newprogressbarwrapper .push-content').hide();
