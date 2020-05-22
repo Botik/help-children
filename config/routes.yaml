@@ -27,8 +27,8 @@ referral:
     requirements:
         refferal: '\d+'
 
-code_confirm:    
-    path: /user/confirm    
+code_confirm:
+    path: /user/confirm
     controller: App\Controller\RegistrationController::confirmCode
 
 send_code_confirm:
@@ -56,10 +56,6 @@ children_detail:
 news_list:
     path: /news
     controller: App\Controller\NewsController::list
-
-# news_cards:
-#     path: /news/cards
-#     controller: App\Controller\NewsController::cards
 
 news_detail:
     path: /news/{id}
@@ -92,6 +88,13 @@ p_child_img_delete:
     controller: App\Controller\ChildController::delimg
     requirements:
         id: '\d+'
+        img: '\d+'
+p_child_trg_img_delete:
+    path: /panel/child/{child}/t{id}/img{img}
+    controller: App\Controller\ChildController::delimgTrg
+    requirements:
+        id: '\d+'
+        child: '\d+'
         img: '\d+'
 
 
@@ -134,7 +137,7 @@ donate:
 donate_ok:
     path: /donate/ok
     controller: App\Controller\DonateController::ok
-    
+
 thanks:
     path: /donate/thanks
     controller: App\Controller\DonateController::thanks

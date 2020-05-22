@@ -100,7 +100,7 @@ class Child
 
     public function getBody(): array
     {
-        return $this->body;
+        return is_array($this->body) ? $this->body : json_decode($this->body);
     }
 
     public function setBody(array $body): self
@@ -124,12 +124,12 @@ class Child
 
     public function getImages(): array
     {
-        return $this->body['img'] ?? [];
+        return array_key_exists('img', $this->body) ? $this->body['img'] : [];
     }
 
     public function setImages(array $images): self
     {
-        $this->body['img'] = $images;
+        $this->body['img'] = (array) $images;
 
         return $this;
     }

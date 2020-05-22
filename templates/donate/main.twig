@@ -13,7 +13,7 @@
     <main>
         <section class="section hero-large">
             <div class="container">
-                <h1 class="hero-large__title">{{ child ? "Адресная помощь "~child.name : "Форма онлайн помощи"}}</h1>
+                <h1 class="hero-large__title">{{ child ? "Адресная помощь: "~child.name : "Форма онлайн помощи"}}</h1>
                 <p class="hero-large__subtitle">помочь прямо сейчас за 3 шага</p>
             </div>
         </section>
@@ -46,7 +46,7 @@
                              <div class="ohf-row__col ohf-col-label"><span>&nbsp</span></div>
                             <div class="ohf-row__col emoney" onclick="hideError('emError');">
                                 <label>
-                                <input class="toggle-field__input" type="radio" name="EMoneyType" value="1" {{ form.EMoneyType==1 ? 'checked' }}>
+                                <input class="toggle-field__input" type="radio" name="EMoneyType" value="1" checked {{ form.EMoneyType==1 ? 'checked' }}>
                                 <div class="emon"><img src="/images/ya.svg"  height="68px" width="113px"></div>
                                 </label><label>
                                 <input class="toggle-field__input" type="radio" name="EMoneyType" value="13" {{ form.EMoneyType==13 ? 'checked' }}>
@@ -56,9 +56,9 @@
                                 <div class="emon"><img src="/images/wm.svg" height="68px" width="113px"></div>
                                 </label>
                             </div>
-                            <div id="emError" class="form-error-tooltip">
+                            {# <div id="emError" class="form-error-tooltip">
                                             <p class="form-error-tooltip__notice">Выберите способ оплаты</p>
-                                        </div>
+                                        </div> #}
                         </div>
 
                         </div>
@@ -69,7 +69,7 @@
                                 <div class="ohf-col-label__notice">
                                     <div class="ohf-col-label__notice-title">Кто наш благотворитель?</div>
                                     <p class="ohf-col-label__notice-subtitle">
-                                        {%if not log%}<button type="button" class="donate-form-row__col btn btn-dark already_have_acc" onclick="location.href='/login?url=donate?payment-type='+document.querySelector('input[name=payment-type]:checked').value;">
+                                        {%if not log%}<button type="button" class="donate-form-row__col btn btn-dark already_have_acc" onclick="location.href='/login?url=donate?payment-type='+document.querySelector('input[name=payment-type]:checked').value+'%26child_id='+document.querySelector('input[name=child_id]').value+'%26sum='+document.querySelector('input[name=sum]').value">
                                         <span>У меня уже<br>есть аккаунт</span>
                                     </button>{% endif%}</p>
                                 </div>
@@ -293,16 +293,18 @@
 
                                     <p>Чтобы Ваша поддержка была регулярной, отправьте SMS на <strong>3443</strong> текстом: <strong>ФОНДУ 400 ПОДПИСКА</strong> и Вам ежемесячно будет приходить SMS-напоминание с просьбой подтвердить данный платеж. Чтобы отписаться от регулярного пожертвования, отправьте SMS на <strong>3443</strong> с текстом <strong>ФОНДУ СТОП</strong>.<br></p>
 
-                                    <p>Допустимый размер пожертвования — от 10 до 5 000 рублей. Стоимость отправки SMS на <strong>3443</strong> – бесплатно. Комиссия с абонента - 0%. Услуга доступна для абонентов МТС, Билайн, Мегафон, Теле2.<br><a href="http://info.gmmobile.ru">Техническая поддержка сервиса осуществляется компанией GmMobile.ru</a></p>
+                                    <p>Допустимый размер пожертвования — от 10 до 5 000 рублей. Стоимость отправки SMS на <strong>3443</strong> – бесплатно. Комиссия с абонента - 0%.  Услуга доступна для абонентов Мегафон, МТС, Билайн, Теле2, Yota, Таттелеком (Летай), Тинькофф Мобайл.<br><a href="http://info.gmmobile.ru">Техническая поддержка сервиса осуществляется компанией GmMobile.ru</a></p>
                                     <hr>
                                     <p><strong>Информация для абонентов:</strong></p>
-                                    <img src="/images/operators.png" alt="Операторы сотовой связи"><img src="/images/yota.png" alt="Операторы сотовой связи" style="margin-bottom: 5px;margin-left: 17px;" width="36" height="36">
+                                    <img src="/images/operators.svg" alt="Операторы сотовой связи" style="width: 100%;">
                                     <p>
                                         МТС Договор оферты: <a href="http://static.mts.ru/uploadmsk/contents/1655/soglashenie_easy_pay.pdf">Ссылка</a><br>
                                         ТЕЛЕ2 Договор оферты: <a href="https://market.tele2.ru/offer/">Ссылка</a><br>
                                         БИЛАЙН Договор оферты: <a href="https://static.beeline.ru/upload/dpcupload/images/help/Docs/Limity_pri_oplate_tovarov.pdf">Ссылка</a><br>
                                         МЕГАФОН Комиссия с абонента — 0%. Договор оферты: <a href="http://moscow.megafon.ru/popups/oferta_m_payment.html">Ссылка</a><br>
-                                        YOTA Договор оферты: <a href="https://www.yota.ru/downloads/forms/oferta_m_platezh.pdf">Ссылка</a>
+                                        YOTA Договор оферты: <a href="https://www.yota.ru/downloads/forms/oferta_m_platezh.pdf">Ссылка</a><br>
+                                        Таттелеком (Летай) Договор оферты: <a href="https://tattelecom.ru/resources/TTK/letai/docs/Usloviya_i_oferty/usloviya_mobile_pay_042017.pdf?cityV=%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C">Ссылка</a><br>
+                                        Тинькофф Мобайл Договор оферты: <a href="https://static.tinkoff.ru/documents/mvno_documents/legal-information/terms-of-communication-services-provision.pdf">Ссылка</a>
                                     </p>
                                 </div>
                             </div>

@@ -6,15 +6,18 @@
 
 {% block content %}
     <main>
-        <section class="section hero-large" style="height: auto;margin-top: -5px;"><div class="container container--small th-cont">
+        <section class="section hero-large thanks-page" style="height: auto;margin-top: -5px;"><div class="container container--small th-cont">
                 <div class="online-help-wrapper th-w">
 
-                        <div class="ohf-row" style="display: grid;">
+                        <div class="ohf-row first-row" style="display: grid; flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;">
                             <h1>СПАСИБО ❤️</h1>
                             <p>Благодарим Вас за поддержку фонда и внимание к проблеме ДЦП.<br>Принимайте активное участие в жизни фонда:</p>
                         </div>
 
-                        <div class="ohf-row th-row">
+                        <div class="ohf-row th-row second-row">
                                 <img src="/icons/mail_not.png" style="position: relative;left: 50px;">
                             <div class="th_col ohf-col-input">
                                 <div class="ohf-col-input__row">
@@ -23,12 +26,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ohf-row th-row" style="direction: rtl;">
+                        <div class="ohf-row th-row third-row" style="direction: rtl;">
                             <div class="th_col ohf-col-label">
                                 <img src="/images/bear.png" id="bear">
                             </div>
                             <div class="th_col th-col-input">
-                                <div class="th-col-label__number">2</div>
+                                <div class="th-col-label__number"><img src='/images/thx-2.svg'></div>
                                 <div class="ohf-col-input__row" style="direction: ltr;">
                                     <h3>Давайте дружить</h3>
                                     <p>Подпишитесь на наши аккаунты в социальных сетях. Там мы рассказываем о событиях и жизни фонда.</p>
@@ -51,11 +54,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
-                        <div class="ohf-row th-row">
+                        <div class="ohf-row th-row fourth-row">
                             <div class="th_col ohf-col-label">
                                 <img src="/images/thanks_phone.png" style="position: relative;left: -24px;">
                                 <!-- <div class="th-col-label__number" style="left: 181px;">3</div> -->
@@ -71,8 +74,8 @@
                         </div>
             </div></section>
         <section class="section online-help section-with-bghearts">
-            
+
         </section>
     </main>
-    
+
 {% endblock %}

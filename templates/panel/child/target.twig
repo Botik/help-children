@@ -98,7 +98,7 @@
                     {{ form_widget(form.attach, {'attr': {'class':'form-control', 'placeholder': 'Изображение' }}) }}
 
                     {% if imgs %}{% for img in imgs %}
-                        <img src="/uploads/images/{{img}}" width="300px">
+                        <img src="/uploads/images/{{img}}" width="300px" onclick="fetch('/panel/child/{{child.id}}/t{{target.id}}/img{{loop.index0}}'); this.style.display='none'">
                     {% endfor %}{% endif %}
                 </div>
 

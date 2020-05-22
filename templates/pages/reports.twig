@@ -13,9 +13,17 @@
                     Благотворительный фонд «Помогите детям» начал свою фактическую деятельность в 2019 году </p>
             </div>
         </section>
+        <div class="cart-nav-container">
+            <div class='cart-nav news-page'>
+                <div class='active left'><span>Финансовые отчеты</span></div>
+                <div class='center'><span>Годовые отчеты</span></div>
+                <div class='right'><span>Аудиторские отчеты</span></div>
+            </div>
+        </div>
         <section class="section reports">
-            <div class="container container-pagecontent-padding">
-            <h2 class="section-title">Финансовые отчеты</h2>
+            <div class="container">
+                <h2 class="section-title rep_fin">Финансовые отчеты</h2>
+                {#                <div class="rep_fin" style="position: absolute; top: -250px; left: 0"></div>#}
                 <div class="reports-content">
                     <ul class="report-list">
                         {% for document in financial %}
@@ -24,7 +32,7 @@
                                     <div class="report-doc">
                                         <img class="report-doc__image" src="/images/doc-example.png" alt="{{ document.title }}" width="208" height="250"/>
                                         <a class="show-doc-button" href="{{ document.file }}" target="_blank">
-                                        <span class="show-doc-button__circle"><span class="icon icon-doc"></span></span>
+                                            <span class="show-doc-button__circle"><span class="icon icon-doc"></span></span>
                                         </a>
                                     </div>
                                     <div class="report-description">
@@ -39,12 +47,44 @@
                                 </div>
                             </li>
                         {% endfor %}
-                       
+
                     </ul>
                 </div>
-                <h2 class="section-title">Аудиторские заключения</h2>
+            </div>
+            <div class="container">
+                <h2 class="section-title rep_year">Годовые отчеты</h2>
                 <div class="reports-content">
                     <ul class="report-list">
+                        {% for document in year %}
+                            <li class="report-list__item">
+                                <div class="report">
+                                    <div class="report-doc">
+                                        <img class="report-doc__image" src="/images/doc-example.png" alt="{{ document.title }}" width="208" height="250"/>
+                                        <a class="show-doc-button" href="{{ document.file }}" target="_blank">
+                                            <span class="show-doc-button__circle"><span class="icon icon-doc"></span></span>
+                                        </a>
+                                    </div>
+                                    <div class="report-description">
+                                        <h3 class="report-description__title">{{ document.title }}</h3>
+                                        <span class="report-description__size" style="color: #424851;">От {{ document.textdate }}</span>
+                                        <div class="report-description__download">
+                                            <a class="report-description__download-link" target="_blank"
+                                               href="{{ document.file }}">Скачать</a>
+                                        </div>
+                                        <div class="report-description__size">{{ document.Filesize }}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <h2 class="section-title rep_aud">Аудиторские заключения</h2>
+                <div class="reports-content">
+                    <ul class="report-list">
+{#                        <div class="rep_aud" style="position: absolute; top: -400px; left: 0"></div>#}
                         {% for document in auditor %}
                             <li class="report-list__item">
                                 <div class="report">
@@ -66,15 +106,81 @@
                                 </div>
                             </li>
                         {% endfor %}
-                        
+
                     </ul>
-                </div>
-                <div class="container container--small">
-                    <div class="donate-form-wrapper reports-donate-form-wrapper">
-                        {% include 'components/donate_form.twig' %}
-                    </div>
                 </div>
             </div>
         </section>
     </main>
+    <div class="container container--small">
+        <div class="donate-form-wrapper reports-donate-form-wrapper">
+            {% include 'components/donate_form.twig' %}
+        </div>
+    </div>
+    <script>
+        function SmoothVerticalScrolling(e) {
+            animateScroll(e)
+            // var eTop = e.getBoundingClientRect().top - 210;
+            // var eAmt = eTop / 100;
+            // var curTime = 0;
+            // while (curTime <= time) {
+            //     window.setTimeout(SVS_B, curTime, eAmt);
+            //     curTime += time / 100;
+            // }
+        }
+        //
+        // function SVS_B(eAmt) {
+        //         window.scrollBy(0, eAmt);
+        // }
+        $(document).ready(function () {
+            $('.cart-nav>div').click(function () {
+                $('.cart-nav>div').each(function () {
+                    $(this).removeClass('active');
+                })
+                $(this).addClass('active');
+
+                // $('.news-block').each(function () {
+                    //$(this).css('display', 'none');
+                    // $(this).css('position', 'absolute');
+                    // $(this).css('visibility', 'hidden');
+                    // $(this).css('display', 'flex');
+                // });
+                if ($(this).hasClass('left')) {
+                    location="#rep-fin";
+                    SmoothVerticalScrolling($('.rep_fin')[0]);
+                    // window.scrollTo({top: ($('.rep_fin')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
+                }
+                if ($(this).hasClass('center')) {
+                    location="#rep-year";
+                    SmoothVerticalScrolling($('.rep_year')[0]);
+                    // window.scrollTo({top: ($('.rep_year')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
+                }
+                if ($(this).hasClass('right')) {
+                    location="#rep-aud";
+                    SmoothVerticalScrolling($('.rep_aud')[0]);
+                    // window.scrollTo({top: ($('.rep_aud')[0].getBoundingClientRect().top + window.pageYOffset - 190), behavior: 'smooth'});
+                }
+            });
+
+            var SJ_setiings = {
+                options: {
+                    hlw: true, // Height as width
+                    wlh: true, // Width as height
+                    hlt: true, // Width of the target element (target id is the same as for height)
+                    wlt: true, // Height of the target element (target id is the same as for width)
+                    alo: true, // All elements as one (height)
+                },
+                settings: {
+                    windowResize: true,
+                    writeHystory: true
+                }
+            }
+            var sj = new SJ(SJ_setiings);
+
+        });
+        $( window ).on( "load" ,function() {
+            if (['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)>-1) $('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash)].click();
+        });
+        $(window).on('hashchange', function(event){$('.cart-nav>div')[['#rep-fin', '#rep-year', '#rep-aud'].indexOf(location.hash ? location.hash : '#rep-fin')].click()}).trigger('hashchange');
+    </script>
 {% endblock %}

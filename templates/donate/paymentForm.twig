@@ -21,7 +21,7 @@
                 {% endif %}
 
                 var wopt   = {
-                    publicId    : 'pk_51de50fd3991dbf5b3610e65935d1',  //id из личного кабинета
+                    publicId    : '{{ cloud_pid }}',  //id из личного кабинета
                     description : 'Благотворительная помощь', //назначение
                     amount      : {{ fields.Subtotal_P }}, //сумма
                     currency    : 'RUB', //валюта
@@ -48,9 +48,9 @@
                         $.post('{{ fields.URL_RETURN_NO }}', {
                             'order_id': '{{ fields.Order_IDP }}'
                         }).success(function(ret){
-                            window.location.href = '/donate?'+$.param(data);
+                            window.location.href = '/donate?'+$.param(data)+"&child_id={{child_id}}";
                         }).error(function (req) {
-                            window.location.href = '/donate?'+$.param(data);
+                            window.location.href = '/donate?'+$.param(data)+"&child_id={{child_id}}";
                         });
                     }
                 );
@@ -62,7 +62,7 @@
 <input type="hidden" name="Order_IDP" value="{{ fields.Order_IDP }}">
 <input type="hidden" name="Subtotal_P" value="{{ fields.Subtotal_P }}">
 <!--<input type="hidden" name="MeanType" value="0">-->
-<input type="hidden" name="EMoneyType" value="{{ fields.EMoneyType }}"> 
+<input type="hidden" name="EMoneyType" value="{{ fields.EMoneyType }}">
 <input type="hidden" name="Lifetime" value="{{ fields.Lifetime }}">
 <input type="hidden" name="Customer_IDP" value="{{ fields.Customer_IDP }}">
 <input type="hidden" name="Signature" value="{{ fields.Signature }}">

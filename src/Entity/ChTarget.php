@@ -59,7 +59,7 @@ class ChTarget
     /**
      * @ORM\Column(type="boolean")
      */
-    private $allowclose;
+    private $allowclose = 0;
 
     public function getId(): ?int
     {
@@ -170,9 +170,18 @@ class ChTarget
         return [$this->allowclose ?? 1];
     }
 
+    public function getLink($last=true)
+    {
+        return '/children/' . $this->getChild() . '#' . (($last and  (( $this->collected < $this->goal ) or (($this->totime) > new \DateTime)))  ? 'needed' : 'kid-news');
+    }
+
     public function setAllowClose($allowclose): self
     {
-        $this->allowclose = is_array($allowclose) ? $allowclose[0] : $allowclose;
+        $allowclose=$allowclose==[] ? 0:1;
+        $allowclose=is_array($allowclose) ? $allowclose[0] : $allowclose;
+        // echo(json_encode($allowclose));
+        $this->allowclose = $allowclose==0 ? 0 : 1;
+        $this->allowclose = $allowclose==null ? 0 : 1;
 
         return $this;
     }

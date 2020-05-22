@@ -47,6 +47,11 @@ class News
     private $video;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $target_id;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $createdat;
@@ -131,6 +136,18 @@ class News
 
         return $this;
     }
+    public function getTrg(): ?int
+    {
+        return $this->target_id;
+    }
+
+    public function setTrg(?int $target_id): self
+    {
+        $this->target_id = $target_id;
+
+        return $this;
+    }
+
 
     public function getCreatedat()
     {

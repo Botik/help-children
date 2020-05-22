@@ -2,96 +2,96 @@
 
 namespace App\Controller;
 
-use App\Entity\News;
 use App\Entity\Child;
+use App\Entity\ChTarget;
+use App\Entity\News;
 use App\Service\FileUploader;
+use DateTime;
+use Exception;
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
+
 class NewsController extends AbstractController
 {
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      *
-     * @throws \LogicException
+     * @throws LogicException
      */
-    // public function cards()
-    // {
-    //     return $this->render('news/cards.twig');
-    // }
+    public function detail(int $id)
+    {
+        $n = $this->getDoctrine()->getRepository(News::class)->findOneById($id);
+        $news = $this->getDoctrine()->getRepository(News::class)->findBy([], ['createdat' => 'DESC']);
+        shuffle($news);
+        return $n ? $this->render('news/detail.twig',
+            [
+                'news' => $news,
+                'n' => $n
+            ]) : $this->list();
+    }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      *
-     * @throws \LogicException
+     * @throws LogicException
      */
     public function list()
     {
         return $this->render('news/list.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findAll()
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([], ['createdat' => 'DESC'])
             ]);
     }
+
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param int $id
+     * @param FileUploader $fileUploader
+     * @param Request $request
+     * @return Response
      *
-     * @throws \LogicException
-     */
-    public function detail(int $id)
-    {
-        return $this->render('news/detail.twig',
-            [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findAll(),
-                'n'  => $this->getDoctrine()->getRepository(News::class)->findOneById($id)
-            ]);
-    }
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \LogicException
-     */
-    public function p_list()
-    {
-        return $this->render(
-            'panel/news/list.twig',
-            [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findAll()
-            ]
-        );
-    }
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \LogicException
+     * @throws Exception
      */
     public function p_edit(int $id, FileUploader $fileUploader, Request $request)
     {
-        $childs =[' '=>-1];
+        $childs = [' ' => -1];
         foreach ($this->getDoctrine()->getRepository(Child::class)
-            ->findAll() as $child) $childs[$child->getName()]=$child->getId();
+                     ->findAll() as $child) $childs[$child->getName()] = $child->getId();
 
         $n = $this->getDoctrine()
             ->getRepository(News::class)
             ->find($id);
 
         if (!$n) {
-                $n = new News();
+            $n = new News();
+            $n->setCreatedat(new DateTime());
         }
 
-        // $form = $this->createForm(NewsTypes::class, $n);
+        $trgs = [' ' => -1];
+        foreach ($this->getDoctrine()->getRepository(ChTarget::class)
+                     ->findBy([], ['id' => 'DESC']) as $trg) $trgs['#' . $trg->getId() . ' ' . $trg->getName() . ' — ' . $this->getDoctrine()->getRepository(Child::class)
+            ->findOneById($trg->getChild())->getName()] = $trg->getId();
+
+        $oldimages = $n->getArPhotos();
+//        if ($request->get('copy') and $request->isMethod('POST')) $n = new News();
+        if ($request->get('copy') and $request->isMethod('GET')) {
+            $n = clone $n;
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($n);
+            $entityManager->flush();
+            return $this->redirectToRoute('p_news_edit', ['id' => $n->getId()]);
+        }
         $form = $this->createFormBuilder($n)
             ->add(
                 'id', HiddenType::class,
@@ -105,21 +105,30 @@ class NewsController extends AbstractController
                 ]
             ])
             ->add('descr', TextareaType::class, [
+                'required' => false
             ])
-            // ->add('createdAt', DateType::class, [
-            //     'widget' => 'single_text',
-            //     'required'=>false
-            // ])
+            ->add('createdAt', DateTimeType::class, [
+                'required' => false,
+                'date_widget' => 'single_text',
+                'time_widget' => 'single_text',
+            ])
             ->add(
                 'child', ChoiceType::class, [
-                'choices' => $childs,
-                "expanded" => false,
-                "multiple"=>false
-             ]
+                    'choices' => $childs,
+                    "expanded" => false,
+                    "multiple" => false
+                ]
+            )
+            ->add(
+                'trg', ChoiceType::class, [
+                    'choices' => $trgs,
+                    "expanded" => false,
+                    "multiple" => false
+                ]
             )
             ->add('photos', FileType::class, [
                 'multiple' => true,
-                'required'=>false,
+                'required' => false,
                 'constraints' => [
                     new Assert\All(
                         new Assert\File([
@@ -136,15 +145,14 @@ class NewsController extends AbstractController
                 ]
             ])
             ->add('video', TextType::class, [
-                'required'=>false])
+                'required' => false])
             ->add('save', SubmitType::class, [
                 'label' => 'Сохранить',
                 'attr' => [
                     'class' => 'btn btn-primary'
                 ]
             ])->getForm();
-        $oldimages = $n->getArPhotos();
-            // echo json_encode($oldimages)."\n";
+        // echo json_encode($oldimages)."\n";
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -158,7 +166,7 @@ class NewsController extends AbstractController
             }
 
             $n->setPhotos(json_encode($arrayImg));
-            $n->setCreatedat($n->getCreatedat() ?? new \DateTime());
+            $n->setCreatedat($n->getCreatedat() ?? new DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($n);
             $entityManager->flush();
@@ -174,6 +182,27 @@ class NewsController extends AbstractController
             ]
         );
     }
+
+    /**
+     * @return Response
+     *
+     * @throws LogicException
+     */
+    public function p_list()
+    {
+        $c = [];
+        foreach ($this->getDoctrine()->getRepository(Child::class)->findBy([], ['id' => 'DESC']) as $ch) {
+            $c[$ch->getId()] = $ch->getName();
+        }
+        return $this->render(
+            'panel/news/list.twig',
+            [
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([], ['id' => 'DESC']),
+                'c' => $c
+            ]
+        );
+    }
+
     public function delete(int $id, Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -183,15 +212,16 @@ class NewsController extends AbstractController
             $entityManager->remove($n);
             $entityManager->flush();
         }
-       return $this -> p_list();
+        return $this->p_list();
     }
+
     public function delimg(int $id, $img, Request $request)
     {
         $n = $this->getDoctrine()->getRepository(News::class)->find($id);
-        $nar=$n->getArPhotos();
+        $nar = $n->getArPhotos();
         unset($nar[$img]);
         $n->setPhotos(json_encode($nar));
         $this->getDoctrine()->getManager()->flush();
-       return $this -> p_list();
+        return $this->p_list();
     }
 }
