@@ -169,14 +169,14 @@ $(document).ready(function () {
 		mess.stop().fadeTo(100, 1);
 		$(this).append('<div class="polygon"></div>');
 
-		$('.polygon').css('display', 'block');
+		$(this).find('.polygon').css('opacity', '1');
 	})
 
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
 		})
-		$('.polygon').css('display', 'none');
+		$('.polygon').css('opacity', '0');
 		$('.push-content').hide();
 	});
 
