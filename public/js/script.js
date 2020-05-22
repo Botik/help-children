@@ -197,13 +197,21 @@ $(document).ready(function () {
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
+		var flag = false;
+		if ($(this).find('.polygon').css('opacity') == 1) {
+			flag = true;
+		}
 		$('.collected-resources').each(function () {
 			$(this).removeClass('opened');
+			$(this).find('.polygon').css('opacity','0');
 		});
 		$(this).addClass('opened');
-		$('.collected-resources__slider .collected-resources').each(function () {
-			//$('.polygon').detach();
-		});
+		if (flag == true) {
+			$(this).find('.polygon').css('opacity','1');
+		}
+		// $('.collected-resources__slider .collected-resources').each(function () {
+		// 	//$('.polygon').detach();
+		// });
 
 		var progressHeight = $(this).position().top;
 		if (progressHeight > 0) {
@@ -214,18 +222,30 @@ $(document).ready(function () {
 		var mess = $(this).closest(".newprogressbarwrapper").find('.push-content');
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
-		mess.stop().fadeTo(100, 1);
-		$(this).append('<div class="polygon"></div>');
+		//mess.stop().fadeTo(100, 1);
+		mess.stop().animate({
+			opacity: '1'
+		}, { duration: 200, queue: false });
+		//$(this).append('<div class="polygon"></div>');
+		$(this).find('.polygon').stop().animate({
+			opacity: 1
+		}, { duration: 200, queue: false });
 
-		$('.polygon').css('display', 'block');
+		//$('.polygon').css('display', 'block');
 	});
 
 	$('.newprogressbarwrapper').mouseleave(function () {
 		$('.collected-resources').each(function () {
 			$(this).removeClass('opened');
 		});
-		$('.polygon').css('display', 'none');
-		$('.newprogressbarwrapper .push-content').hide();
+		//$('.polygon').css('display', 'none');
+		//$('.newprogressbarwrapper .push-content').hide();
+		$('.push-content').stop().animate({
+			opacity: '0'
+		}, { duration: 200, queue: false });
+		$(this).find('.polygon').stop().animate({
+			opacity: '0'
+		}, { duration: 200, queue: false });
 
 	});
 
