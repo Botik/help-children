@@ -170,7 +170,7 @@ $(document).ready(function () {
 			opacity: '1'
 		}, { duration: 200, queue: false });
 		$(this).append('<div class="polygon"></div>')
-		$('.polygon').stop().animate({
+		$(this).find('.polygon').stop().animate({
 			opacity: '1'
 		}, { duration: 400, queue: false });
 
