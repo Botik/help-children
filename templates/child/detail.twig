@@ -215,6 +215,7 @@
                                                         <div class="collected-resources__slider-filled"
                                                              style="width: {{ 100*trg.collected/trg.goal }}%">
                                                         </div>
+                                                        <div class="polygon"></div>
                                                     </div>
                                                     {% endfor %}
                                                 </div>
@@ -585,12 +586,30 @@
         <script src="/js/stickjaw.js"></script>
         {# <script src="/js/bundle.js"></script> #}
         <script type="text/javascript">
+            $(window).scroll(function() {
+                if (getComputedStyle(document.querySelector('.next-child')).display == 'block') {
+                    let sh = $($(".hr-child.hr-full")[1]).offset().top - $(window).scrollTop() - window.innerHeight / 2 - 80;
+                    if (sh < 0) {
+                        $(".previous-child")[0].style.top = "calc(50% - " + (-sh) + "px)";
+                        $(".next-child")[0].style.top = "calc(50% - " + (-sh) + "px)";
+                    }
+                }
+                else{//mobile
+                    let offs=$(".child-navigation").offset().top;
+                    let sh = $($(".hr-child.hr-full")[1]).offset().top - $(window).scrollTop() - 50;
+                    if (sh > 0) sh =0;
+                     if ($(window).scrollTop() - offs > -10) offs=10+sh; else offs -= $(window).scrollTop();
+                        $(".previous-child-mobile .link")[0].style.top = offs+ "px";
+                        $(".next-child-mobile .link")[0].style.top = offs + "px";
 
+
+                }
+            });
             $(window).on("load", function () {
                 $('.cart-nav.kid-profile>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
             });
-            $(window).on('hashchange', function () {
-                // $('.cart-nav>div')[['#letter', '#kid-news', '#needed'].indexOf(location.hash)].click();
+            $(window).on('hashchange', function (event) {
+                event.preventDefault();
             }).trigger('hashchange');
         </script>
     {% endautoescape %}

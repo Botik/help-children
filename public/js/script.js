@@ -81,7 +81,9 @@ $(document).ready(function () {
 
 		$(this).addClass("active");
 		var link = $(this).find('a').attr('href');
+		location.hash=link;
 		$(link).addClass('displaytrue');
+
 		// $(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
 
 		if (link == "#kid-news") {
@@ -149,13 +151,18 @@ $(document).ready(function () {
 
 
 	$('.progressline-block .progress-bar').mouseenter(function () {
+		var flag = false;
+		if ($(this).find('.polygon').css('opacity') == 1) {
+			flag = true;
+		}
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
+			$(this).find('.polygon').css('opacity','0');
 		});
 		$(this).addClass('opened');
-		$('.progressline-block .progress-bar').each(function () {
-			$('.polygon').detach();
-		});
+		if (flag == true) {
+			$(this).find('.polygon').css('opacity','1');
+		}
 
 		var progressHeight = $(this).position().top;
 		if (progressHeight > 0) {
@@ -166,28 +173,43 @@ $(document).ready(function () {
 		var mess = $(this).closest(".progressline-block").find('.push-content');
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
-		mess.stop().fadeTo(100, 1);
-		$(this).append('<div class="polygon"></div>');
+		mess.stop().animate({
+			opacity: '1'
+		}, { duration: 200, queue: false });
+		// $(this).append('<div class="polygon"></div>')
+		$(this).find('.polygon').stop().animate({
+			opacity: '1'
+		}, { duration: 250, queue: false });
 
-		$('.polygon').css('display', 'block');
+		// $('.polygon').css('display', 'block');
 	});
 
 	$('.progressline-block').mouseleave(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
+			$(this).find('.polygon').stop().animate({
+				opacity: '0'
+			}, { duration: 200, queue: false });
 		});
-		$('.polygon').css('display', 'none');
-		$('.push-content').hide();
+		$('.push-content').stop().animate({
+			opacity: '0'
+		}, { duration: 200, queue: false });
+
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
+		var flag = false;
+		if ($(this).find('.polygon').css('opacity') == 1) {
+			flag = true;
+		}
 		$('.collected-resources').each(function () {
 			$(this).removeClass('opened');
+			$(this).find('.polygon').css('opacity','0');
 		});
 		$(this).addClass('opened');
-		$('.collected-resources__slider .collected-resources').each(function () {
-			$('.polygon').detach();
-		});
+		if (flag == true) {
+			$(this).find('.polygon').css('opacity','1');
+		}
 
 		var progressHeight = $(this).position().top;
 		if (progressHeight > 0) {
@@ -198,18 +220,30 @@ $(document).ready(function () {
 		var mess = $(this).closest(".newprogressbarwrapper").find('.push-content');
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
-		mess.stop().fadeTo(100, 1);
-		$(this).append('<div class="polygon"></div>');
+		//mess.stop().fadeTo(100, 1);
+		mess.stop().animate({
+			opacity: '1'
+		}, { duration: 200, queue: false });
+		//$(this).append('<div class="polygon"></div>');
+		$(this).find('.polygon').stop().animate({
+			opacity: '1'
+		}, { duration: 250, queue: false });
 
-		$('.polygon').css('display', 'block');
+		//$('.polygon').css('display', 'block');
 	});
 
 	$('.newprogressbarwrapper').mouseleave(function () {
 		$('.collected-resources').each(function () {
 			$(this).removeClass('opened');
+			$(this).find('.polygon').stop().animate({
+				opacity: '0'
+			}, { duration: 200, queue: false });
 		});
-		$('.polygon').css('display', 'none');
-		$('.newprogressbarwrapper .push-content').hide();
+		//$('.polygon').css('display', 'none');
+		//$('.newprogressbarwrapper .push-content').hide();
+		$('.push-content').stop().animate({
+			opacity: '0'
+		}, { duration: 200, queue: false });
 
 	});
 
@@ -358,6 +392,7 @@ function locationFunc(link) {
 	if ($('.mothersletter').length) {
 		var hashpos = link.indexOf('#');
 		var hash = link.slice(hashpos, link.length + 1);
+		history.replaceState({}, '', hash);
 		if (hash == "#needed") {
 			$('.cart-nav>div').each(function () {
 				$(this).removeClass("active");
@@ -409,7 +444,7 @@ function locationFunc(link) {
 			}, 1000);
 		}
 
-		$('.history-link').click(function () {
+		$('.history-link').click(function (event) {
 			event.preventDefault();
 			$('.cart-nav>div').each(function () {
 				$(this).removeClass("active");

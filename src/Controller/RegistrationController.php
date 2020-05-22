@@ -75,7 +75,6 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted()) {
             $doctrine = $this->getDoctrine();
             $valid = false;
-
             if ($form->isValid()) {
                 /** @var User $old_user */
                 $old_user = $doctrine->getRepository(User::class)->findOneBy(['email' => $user->getEmail()]);
@@ -93,10 +92,9 @@ class RegistrationController extends AbstractController
                 if ($old_user) {
                     $valid = false;
                     $formm->addError(new FormError('Такой номер телефона уже существует'));
-
                 }
             }
-
+            dd($form->getErrors(true));
             if ($valid) {
                 // encode the plain password
                 $user->setPass(

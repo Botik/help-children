@@ -6,13 +6,18 @@
     "require": {
         "php": "^7.3",
         "ext-ctype": "*",
+        "ext-curl": "*",
+        "ext-gd": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "beberlei/doctrineextensions": "^1.2",
         "doctrine/annotations": "^1.6",
         "doctrine/dbal": "^2.9",
         "endroid/qr-code-bundle": "^3.3",
+        "scienta/doctrine-json-functions": "~4.0",
         "sendgrid/sendgrid": "^7.3",
         "sensio/framework-extra-bundle": "^5.3",
+        "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.3.*",
         "symfony/console": "4.3.*",
         "symfony/dotenv": "4.3.*",
@@ -30,11 +35,7 @@
         "symfony/twig-bundle": "4.3.*",
         "symfony/validator": "4.3.*",
         "symfony/web-link": "4.3.*",
-        "symfony/yaml": "4.3.*",
-        "scienta/doctrine-json-functions": "~4.0",
-        "ext-curl": "*",
-        "ext-json": "*",
-        "ext-gd": "*"
+        "symfony/yaml": "4.3.*"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.2",
