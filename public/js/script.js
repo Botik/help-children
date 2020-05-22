@@ -169,7 +169,8 @@ $(document).ready(function () {
 		mess.stop().animate({
 			opacity: '1'
 		}, { duration: 200, queue: false });
-		$(this).append('<div class="polygon"></div>').stop().animate({
+		$(this).append('<div class="polygon"></div>')
+		$(this).find('.polygon').stop().animate({
 			opacity: '1'
 		}, { duration: 400, queue: false });
 
