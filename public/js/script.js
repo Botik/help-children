@@ -171,7 +171,7 @@ $(document).ready(function () {
 		}, { duration: 200, queue: false });
 		$(this).append('<div class="polygon"></div>').stop().animate({
 			opacity: '1'
-		}, { duration: 250, queue: false });
+		}, { duration: 300, queue: false });
 
 		// $('.polygon').css('display', 'block');
 	});
@@ -185,7 +185,7 @@ $(document).ready(function () {
 		}, { duration: 200, queue: false });
 		$('.polygon').stop().animate({
 			opacity: '0'
-		}, { duration: 250, queue: false });
+		}, { duration: 300, queue: false });
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
