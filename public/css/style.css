@@ -833,6 +833,7 @@
 	left: 25%;
 	transform: rotate(180deg);
 	z-index: 10;
+	opacity:0;
 }
 
 .collected-resources .polygon {
@@ -845,6 +846,7 @@
 	left: 25%;
 	transform: rotate(180deg);
 	z-index: 10;
+	opacity:0;
 	/*display: none;*/
 }
 
