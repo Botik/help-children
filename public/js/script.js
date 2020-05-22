@@ -235,15 +235,15 @@ $(document).ready(function () {
 	$('.newprogressbarwrapper').mouseleave(function () {
 		$('.collected-resources').each(function () {
 			$(this).removeClass('opened');
+			$(this).find('.polygon').stop().animate({
+				opacity: '0'
+			}, { duration: 250, queue: false });
 		});
 		//$('.polygon').css('display', 'none');
 		//$('.newprogressbarwrapper .push-content').hide();
 		$('.push-content').stop().animate({
 			opacity: '0'
 		}, { duration: 200, queue: false });
-		$(this).find('.polygon').stop().animate({
-			opacity: '0'
-		}, { duration: 250, queue: false });
 
 	});
 
