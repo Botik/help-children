@@ -172,7 +172,7 @@ $(document).ready(function () {
 		// $(this).append('<div class="polygon"></div>')
 		$(this).find('.polygon').stop().animate({
 			opacity: 1
-		}, { duration: 400, queue: false });
+		}, { duration: 200, queue: false });
 
 		// $('.polygon').css('display', 'block');
 	});
@@ -184,9 +184,9 @@ $(document).ready(function () {
 		$('.push-content').stop().animate({
 			opacity: '0'
 		}, { duration: 200, queue: false });
-		$('.polygon').stop().animate({
+		$(this).find('.polygon').stop().animate({
 			opacity: '0'
-		}, { duration: 400, queue: false });
+		}, { duration: 200, queue: false });
 	});
 
 	$('.collected-resources__slider .collected-resources').mouseenter(function () {
