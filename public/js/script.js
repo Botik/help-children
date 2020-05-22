@@ -153,7 +153,7 @@ $(document).ready(function () {
 	$('.progressline-block .progress-bar').mouseenter(function () {
 		$('.progress-bar').each(function () {
 			$(this).removeClass('opened');
-			$('.polygon').detach();
+			//$('.polygon').detach();
 		});
 		$(this).addClass('opened');
 
