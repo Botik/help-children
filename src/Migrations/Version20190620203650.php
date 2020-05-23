@@ -22,10 +22,10 @@ final class Version20190620203650 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE children CHANGE birthdate birthdate DATETIME DEFAULT NULL, CHANGE body body JSON NOT NULL, CHANGE collected collected NUMERIC(10, 2) DEFAULT NULL, CHANGE goal goal NUMERIC(10, 2) DEFAULT NULL, CHANGE deleted_at deleted_at DATETIME DEFAULT NULL');
-        $this->addSql('ALTER TABLE recurring_payments CHANGE withdrawal_at withdrawal_at DATETIME DEFAULT NULL');
-        $this->addSql('ALTER TABLE requests CHANGE child_id child_id INT UNSIGNED DEFAULT NULL, CHANGE updated_at updated_at DATETIME DEFAULT NULL');
-        $this->addSql('ALTER TABLE users CHANGE referrer_id referrer_id INT UNSIGNED DEFAULT NULL, CHANGE roles roles JSON NOT NULL, CHANGE pass pass VARCHAR(100) DEFAULT NULL, CHANGE ref_code ref_code VARCHAR(16) DEFAULT NULL, CHANGE meta meta JSON NOT NULL, CHANGE deleted_at deleted_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\'');
+//        $this->addSql('ALTER TABLE children CHANGE birthdate birthdate DATETIME DEFAULT NULL, CHANGE body body JSON NOT NULL, CHANGE collected collected NUMERIC(10, 2) DEFAULT NULL, CHANGE goal goal NUMERIC(10, 2) DEFAULT NULL, CHANGE deleted_at deleted_at DATETIME DEFAULT NULL');
+//        $this->addSql('ALTER TABLE recurring_payments CHANGE withdrawal_at withdrawal_at DATETIME DEFAULT NULL');
+//        $this->addSql('ALTER TABLE requests CHANGE child_id child_id INT UNSIGNED DEFAULT NULL, CHANGE updated_at updated_at DATETIME DEFAULT NULL');
+//        $this->addSql('ALTER TABLE users CHANGE referrer_id referrer_id INT UNSIGNED DEFAULT NULL, CHANGE roles roles JSON NOT NULL, CHANGE pass pass VARCHAR(100) DEFAULT NULL, CHANGE ref_code ref_code VARCHAR(16) DEFAULT NULL, CHANGE meta meta JSON NOT NULL, CHANGE deleted_at deleted_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\'');
     }
 
     public function down(Schema $schema): void

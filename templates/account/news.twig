@@ -1,0 +1,59 @@
+{% extends 'base_client_wrapper.twig' %}
+
+{% block title %}БФ “Помогите Детям” | Новости{% endblock %}
+{% block desciption %}БФ “Помогите Детям” | Новости{% endblock %}
+{% block keywords %}Новости{% endblock %}
+
+
+{% block content %}
+    <main>
+        {% include 'components/account_title.twig' %}
+        <div class="bg-purple-line"></div>
+        <section class="section account section-with-bghearts">
+            <div class="container container--small">
+                <div class="account-wrapper">
+                    {% include 'components/account_nav.twig' %}
+                    <div class="account-content referrals" style="overflow:hidden">
+                        <h1 class="account-content__title referrals-title account-content-padding">Список моих новостей</h1>
+                        <div class="recurrents-wrapper account-content-padding">
+                            <div class="fast-access-cards recurrents-cards">
+                            </div>
+                            <a style="text-decoration: none" class="btn btn-dark  add-recurrents-button neededbutton js-add-recurrents" href="{{ path('account_news_edit', {"id":99999}) }}">Добавить</a>
+                        </div>
+                        <br>
+                        <div class="referrals-wrapper account-content-padding">
+
+
+                            <div class="referrals-list-wrapper">
+                                <table class="referrals-list-table">
+                                    <thead class="referrals-list-table__head">
+                                    <tr>
+                                        <th class="referrals-list-table__head-col">Название</th>
+                                        <th class="referrals-list-table__head-col">Описание</th>
+                                        <th class="referrals-list-table__head-col"></th>
+                                        <th class="referrals-list-table__head-col">Дата</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="referrals-list-table__body">
+                                    {% for news in newsList %}
+                                        <tr  class="referrals-list-table__row">
+                                            <td {% if news.hidden %}onclick="location='{{ path('account_news_edit',{"id": news.id }) }}'"  style="cursor: pointer" {% endif %}class="referrals-list-table__body-col">{{ news.title}}</td>
+                                            <td {% if news.hidden %}onclick="location='{{ path('account_news_edit',{"id": news.id }) }}'"  style="cursor: pointer" {% endif %}class="referrals-list-table__body-col">{{ news.descr }}</td>
+                                            <td class="referrals-list-table__body-col" onclick="$.get('/account/news/{{ news.id }}/del');$(this).parent().remove()" style="cursor: pointer; font-size: 2rem;"><i class="icon-trash"></i></td>
+                                            <td {% if news.hidden %}onclick="location='{{ path('account_news_edit',{"id": news.id }) }}'"  style="cursor: pointer" {% endif %}class="referrals-list-table__body-col">{{ news.createdAt|date('d m Y') }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    </div>
+
+{% endblock %}

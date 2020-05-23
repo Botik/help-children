@@ -170,6 +170,28 @@ account_history:
     path: /account/history
     controller: App\Controller\AccountController::history
 
+account_news:
+    path: /account/news
+    controller: App\Controller\AccountController::news
+
+account_news_edit:
+    path: /account/news/{id}
+    controller: App\Controller\NewsController::p_edit
+    requirements:
+        id: '\d+'
+
+account_news_delete:
+    path: /account/news/{id}/del
+    controller: App\Controller\NewsController::delete
+    requirements:
+        id: '\d+'
+account_news_img_delete:
+    path: /account/news/{id}/img{img}
+    controller: App\Controller\NewsController::delimg
+    requirements:
+        id: '\d+'
+        img: '\d+'
+
 account_referrals:
     path: /account/referrals
     controller: App\Controller\AccountController::referrals
@@ -237,10 +259,6 @@ panel_documents_delete:
 panel_requests:
     path: /panel/requests
     controller: App\Controller\PanelController::requests
-
-user_controller:
-    path: /user
-    controller: App\Controller\UserController::index
 
 panel_child:
     path: /panel/child

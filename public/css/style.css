@@ -2956,3 +2956,23 @@ div.help-details-content__col:nth-child(2) {
 .aid-card .RaisedMoney {
 	margin-top: 7px !important;
 }
+.account-content .form-group textarea,
+.account-content .form-group label,
+.account-content .form-group input{
+	background: #F9F9F9;
+	border-radius: 20px;
+	border: 0;
+	padding: 12px 20px;
+	display: block;
+	margin: 2rem 0;
+	width: 100%;
+}
+.account-content .form-group textarea::placeholder,
+.account-content .form-group label,
+.account-content .form-group input::placeholder{
+	color: #696969;
+	opacity: 1;
+}
+.account-content .form-group label{
+	cursor: pointer;
+}
