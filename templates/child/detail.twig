@@ -598,11 +598,17 @@
                     let offs=$(".child-navigation").offset().top;
                     let sh = $($(".hr-child.hr-full")[1]).offset().top - $(window).scrollTop() - 50;
                     if (sh > 0) sh =0;
-                     if ($(window).scrollTop() - offs > -10) offs=10+sh; else offs -= $(window).scrollTop();
-                        $(".previous-child-mobile .link")[0].style.top = offs+ "px";
-                        $(".next-child-mobile .link")[0].style.top = offs + "px";
+                     if ($(window).scrollTop() - offs > -10) {
+                         offs = 10 + sh;
+                         $(".link").css('position','fixed');
+                         $(".link").css('top',offs + "px");
+                     }
 
+                    else {
+                         $(".link").css('position','absolute');
+                         $(".link").css('top',"auto");
 
+                     }
                 }
             });
             $(window).on("load", function () {

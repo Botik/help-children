@@ -70,7 +70,8 @@ $(document).ready(function () {
 	});
 
 
-	$('.cart-nav.kid-profile>div').click(function () {
+	$('.cart-nav.kid-profile>div').click(function (event) {
+		event.preventDefault();
 		var scroll = $(window).scrollTop();
 		$('.cart-nav>div').each(function () {
 			$(this).removeClass("active");
@@ -81,26 +82,11 @@ $(document).ready(function () {
 
 		$(this).addClass("active");
 		var link = $(this).find('a').attr('href');
-		location.hash=link;
+		// location.hash=link;
 		$(link).addClass('displaytrue');
 
-		// $(link)[0].scrollIntoView({block: "center", behavior: "smooth"});
 
 		if (link == "#kid-news") {
-			// var SJ_setiings = {
-			// 	options: {
-			// 			hlw: true, // Height as width
-			// 			wlh: true, // Width as height
-			// 			hlt: true, // Width of the target element (target id is the same as for height)
-			// 			wlt: true, // Height of the target element (target id is the same as for width)
-			// 			alo: true, // All elements as one (height)
-			// 	},
-			// 	settings: {
-			// 			windowResize: true,
-			// 			writeHystory: true
-			// 	}
-			// }
-			// var sj2 = new SJ(SJ_setiings);
 		}
 		if (link == "#needed") {
 			var galleryThumbs = new Swiper('.gallery-thumbs', {
@@ -122,11 +108,6 @@ $(document).ready(function () {
 			});
 
 		}
-		// var $page = $('html, body');
-		// $page.animate({
-		// 	scrollTop: ($('.hr-child.hr-full').offset().top - 80)
-		// }, 400);
-		// $(window).scrollTop($('.hr-child.hr-full').offset().top - 80);
 	});
 
 
@@ -220,11 +201,10 @@ $(document).ready(function () {
 		var mess = $(this).closest(".newprogressbarwrapper").find('.push-content');
 		var txt = $(this).find('.txt').html();
 		mess.html(txt);
-		//mess.stop().fadeTo(100, 1);
+		mess.show();
 		mess.stop().animate({
 			opacity: '1'
 		}, { duration: 200, queue: false });
-		//$(this).append('<div class="polygon"></div>');
 		$(this).find('.polygon').stop().animate({
 			opacity: '1'
 		}, { duration: 250, queue: false });
@@ -244,7 +224,7 @@ $(document).ready(function () {
 		$('.push-content').stop().animate({
 			opacity: '0'
 		}, { duration: 200, queue: false });
-
+		$('.push-content').hide();
 	});
 
 	// if ($('.news').length) {
