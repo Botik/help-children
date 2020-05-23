@@ -10,6 +10,7 @@ use DateTime;
 use Exception;
 use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -51,7 +52,7 @@ class NewsController extends AbstractController
     {
         return $this->render('news/list.twig',
             [
-                'news' => $this->getDoctrine()->getRepository(News::class)->findBy([], ['createdat' => 'DESC'])
+                'news' => $this->getDoctrine()->getRepository(News::class)->findBy(['hidden'=>0], ['createdat' => 'DESC'])
             ]);
     }
 
@@ -65,14 +66,16 @@ class NewsController extends AbstractController
      */
     public function p_edit(int $id, FileUploader $fileUploader, Request $request)
     {
+        $ben=$request->get('_route')=='account_news_edit';
         $childs = [' ' => -1];
-        foreach ($this->getDoctrine()->getRepository(Child::class)
-                     ->findAll() as $child) $childs[$child->getName()] = $child->getId();
-
+        if (!$ben) {
+            foreach ($this->getDoctrine()->getRepository(Child::class)
+                         ->findAll() as $child) $childs[$child->getName()] = $child->getId();
+        }
         $n = $this->getDoctrine()
             ->getRepository(News::class)
             ->find($id);
-
+        if ($ben and $n and ($n->getAuthor()!=$this->getUser() or !$n->getHidden())) $this->denyAccessUnlessGranted('ROLE_ADMINN',null,'Нет доступа к новости');
         if (!$n) {
             $n = new News();
             $n->setCreatedat(new DateTime());
@@ -107,25 +110,6 @@ class NewsController extends AbstractController
             ->add('descr', TextareaType::class, [
                 'required' => false
             ])
-            ->add('createdAt', DateTimeType::class, [
-                'required' => false,
-                'date_widget' => 'single_text',
-                'time_widget' => 'single_text',
-            ])
-            ->add(
-                'child', ChoiceType::class, [
-                    'choices' => $childs,
-                    "expanded" => false,
-                    "multiple" => false
-                ]
-            )
-            ->add(
-                'trg', ChoiceType::class, [
-                    'choices' => $trgs,
-                    "expanded" => false,
-                    "multiple" => false
-                ]
-            )
             ->add('photos', FileType::class, [
                 'multiple' => true,
                 'required' => false,
@@ -151,8 +135,39 @@ class NewsController extends AbstractController
                 'attr' => [
                     'class' => 'btn btn-primary'
                 ]
-            ])->getForm();
-        // echo json_encode($oldimages)."\n";
+            ]);
+
+
+
+            if (!$ben) $form->add(
+                'child', ChoiceType::class, [
+                    'choices' => $childs,
+                    "expanded" => false,
+                    "multiple" => false
+                ]
+            )
+            ->add(
+                'trg', ChoiceType::class, [
+                    'choices' => $trgs,
+                    "expanded" => false,
+                    "multiple" => false
+                ]
+            )
+            ->add('createdAt', DateTimeType::class, [
+                'required' => false,
+                'date_widget' => 'single_text',
+                'time_widget' => 'single_text',
+            ]);
+            if ($this->isGranted("ROLE_ADMIN") and !$ben and $n->getAuthor()!=null)
+                $form->add(
+                    'hidden', CheckboxType::class, [
+                        "false_values"=>[0,null],
+                        "label"=>"Скрыть из новостей ",
+                        "required"=>false
+                    ]
+                );
+
+            $form=$form->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -167,14 +182,19 @@ class NewsController extends AbstractController
 
             $n->setPhotos(json_encode($arrayImg));
             $n->setCreatedat($n->getCreatedat() ?? new DateTime());
+            if ($ben){
+                $n->setAuthor($this->getUser());
+                $n->setChild($this->getUser()->getChild()->getId());
+                $n->setHidden(1);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($n);
             $entityManager->flush();
-            return $this->p_list();
+            return $ben ? $this->redirectToRoute("account_news"):$this->p_list();
         }
 
         return $this->render(
-            'panel/news/edit.twig',
+            $ben ? 'account/news_edit.twig':'panel/news/edit.twig',
             [
                 'n' => $n,
                 'form' => $form->createView(),
@@ -207,21 +227,25 @@ class NewsController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $n = $entityManager->getRepository(News::class)->find($id);
+        $ben=$request->get('_route')=='account_news_edit';
+        if ($ben and $n and ($n->getAuthor()!=$this->getUser() or !$n->getHidden())) $this->denyAccessUnlessGranted('ROLE_ADMINN',null,'Нет доступа к новости');
 
         if (null !== $n) {
             $entityManager->remove($n);
             $entityManager->flush();
         }
-        return $this->p_list();
+        return $ben ? 'ok' :$this->p_list();
     }
 
     public function delimg(int $id, $img, Request $request)
     {
         $n = $this->getDoctrine()->getRepository(News::class)->find($id);
+        $ben=$request->get('_route')=='account_news_edit';
+        if ($ben and $n and ($n->getAuthor()!=$this->getUser() or !$n->getHidden())) $this->denyAccessUnlessGranted('ROLE_ADMINN',null,'Нет доступа к новости');
         $nar = $n->getArPhotos();
         unset($nar[$img]);
         $n->setPhotos(json_encode($nar));
         $this->getDoctrine()->getManager()->flush();
-        return $this->p_list();
+        return $ben ? 'ok' :$this->p_list();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Child;
 use App\Entity\SendGridSchedule;
 use App\Entity\User;
 use App\Repository\UserRepository;
@@ -45,6 +46,8 @@ class UserController extends AbstractController
         /** @var UserRepository $repository */
         $repository = $this->getDoctrine()->getRepository(User::class);
         $userList = $repository->findUserSelecting($id);
+        $repositoryc = $this->getDoctrine()->getRepository(Child::class);
+        $childList = $repositoryc->findAll();
 
         $userData = $repository->find($id);
 
@@ -53,7 +56,6 @@ class UserController extends AbstractController
                 'Нет пользователя с id ' . $id
             );
         }
-
         $form = $this->createFormBuilder($userData)
             ->add(
                 'id',
@@ -127,9 +129,20 @@ class UserController extends AbstractController
                 [
                     'choices' => [
                         'ROLE_ADMIN' => 'ROLE_ADMIN',
-                        'ROLE_USER' => 'ROLE_USER'
+                        'ROLE_USER' => 'ROLE_USER',
+                        'ROLE_BEN' => 'ROLE_BEN'
                     ],
                     'multiple' => true
+                ]
+            )
+            ->add(
+                'child', ChoiceType::class, [
+                    'choices' =>  $childList,
+                    'choice_label' => function ($child) {
+                        return $child->getName();
+                    },
+                    "expanded" => false,
+                    "multiple"=>false
                 ]
             )
             ->add(
@@ -160,6 +173,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+//            $userData->setChild($entityManager->find('App:Child', $userData->getChild()));
             $entityManager->persist($userData);
             $entityManager->flush();
         }

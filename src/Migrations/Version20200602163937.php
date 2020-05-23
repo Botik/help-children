@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191017171112 extends AbstractMigration
+final class Version20200602163937 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,12 @@ final class Version20191017171112 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-//        $this->addSql('ALTER TABLE recurring_payments ADD del_at DATETIME DEFAULT NULL');
+        $this->addSql('ALTER TABLE users ADD child_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE news ADD author_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE news ADD hidden INT DEFAULT 0');
+        $this->addSql('UPDATE news SET hidden = 0');
+
+        $this->addSql('DROP TABLE counters');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +35,6 @@ final class Version20191017171112 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE recurring_payments DROP del_at');
+        $this->addSql('ALTER TABLE users DROP child_id');
     }
 }
