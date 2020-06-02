@@ -404,10 +404,15 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
+            <div class="container container--small">
+                <div class="donate-form-wrapper mainpage-wrapper">
+                    {% include 'components/donate_form.twig' %}
+                </div>
+            </div>
         </section>
 
     </main>
-    <div class='WantHelpButtonBlock' id='WantHelpButtonBlock'>
+    {# <div class='WantHelpButtonBlock' id='WantHelpButtonBlock'>
         <a href='{{ path('donate') }}'><div class='WantHelpButton'><span>Хочу помочь</span><span class='icon icon-arrow-right'></span></div></a>
-    </div>
+    </div> #}
 {% endblock %}
