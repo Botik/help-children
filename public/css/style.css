@@ -2034,13 +2034,21 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
     transform: translateX(-27rem);
 }
 
+.sleep-child {
+	max-width:48rem; width:100%; padding-left:4rem;
+}
+
 @media screen and (max-width:992px) {
+	.sleep-child {
+		padding-left:0;
+	}
 	.how-help-container .how-help-wrapper {
 		flex-direction:column;
 		align-items: center;
 	}
 	.how-help-container .how-help-wrapper .wrapper-item {
 		margin-bottom:10rem;
+		width:60%;
 	}
 	.how-help-container .how-help-wrapper .wrapper-item:last-child {
 		margin-bottom:0;
@@ -2207,16 +2215,6 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .donate-form-wrapper.mainpage-wrapper .donate-form-title {
 	color:#000000;
-}
-
-.sleep-child {
-	max-width:48rem; width:100%; padding-left:4rem;
-}
-
-@media screen and (max-width:992px) {
-	.sleep-child {
-		padding-left:0;
-	}
 }
 
 @media screen and (max-width: 1440px) {

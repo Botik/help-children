@@ -410,6 +410,14 @@ $(document).ready(function () {
 			},
 		});
 	}
+
+	$('.gift-link').click(function(){
+		event.preventDefault();
+		var $page = $('html, body');
+		$page.animate({
+			scrollTop: $('.section.mission.gift-section').offset().top
+		}, 400);
+	});
 });
 
 
