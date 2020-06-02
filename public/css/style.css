@@ -1650,15 +1650,15 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 .main-swiper .swiper-content .headline {
 	font-family: Borsok, sans-serif;
 	color:#ffffff;
-	font-size: 48px;
+	font-size: 4.8rem;
 	line-height: 128.27%;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .main-swiper .swiper-content .subline {
 	font-weight: 500;
-	font-size: 16px;
-	line-height: 19px;
+	font-size: 1.6rem;
+	line-height: 1.9rem;
 	padding:25px 0;
     font-family: MuseoSansCyrl, sans-serif;
 	color: #7E694A;
@@ -1666,8 +1666,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 .main-swiper .swiper-content .swiper-back-img {
 	position: absolute;
 	bottom:0;
-	width:478px;
-    transform: translateX(460px);
+	width:47rem;
+    transform: translateX(46rem);
 }
 
 .main-swiper.swiper-container-horizontal>.swiper-pagination-bullets {
@@ -1692,11 +1692,11 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 
 .dcp-reasons {
-	margin-top:50px;
+	margin-top:50px;	
 }
 .dcp-reasons .title {
-	font-size: 18px;
-	line-height: 22px;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
 	font-weight: bold;
 }
 .dcp-reasons .reasons-wrapper {
@@ -1724,22 +1724,27 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .dcp-reasons .reasons-wrapper .reason-item .right {
 	font-weight:300;
-	font-size: 16px;
-	line-height: 19px;
+	font-size: 1.6rem;
+	line-height: 1.9rem;
 }
 
 .mission-description .line {
 	position:absolute;
 	left:18%;
 }
+@media screen and (max-width:1440px) {
+	.mission-description .line {
+		left:22%;
+	}
+}
 .how-we-help {
-	padding-bottom:85px;
+	padding-bottom:8.5rem;
 }
 .how-we-help .subtitle {
 	font-weight: 300;
-	font-size: 18px;
-	line-height: 22px;
-	padding:40px 0;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+	padding:4rem 0;
 	text-align:center;
 }
 
@@ -1758,8 +1763,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .how-we-help-wrapper .wrapper-item .right {
 	font-weight: 300;
-	font-size: 18px;
-	line-height: 22px;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
 	padding-left:40px;
 	color: #543381;
 }
@@ -1769,8 +1774,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .how-we-help-wrapper .wrapper-item .right a {
 	font-weight: 300;
-	font-size: 18px;
-	line-height: 22px;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
 	color: #543381;
 	text-decoration:dashed;
 	border-bottom: 1px dotted #543381;
@@ -1791,8 +1796,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .gift-dream-container .text-small {
 	font-weight: 300;
-	font-size: 18px;
-	line-height: 22px;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
 	color: #B6A888;
 	z-index:2;
 	position:relative;
@@ -1803,12 +1808,12 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .gift-dream-container .subtitle {
 	font-weight: 300;
-	font-size: 18px;
-	line-height: 22px;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
 }
 .dream-swiper.swiper-container {
-	padding:50px;
-	margin-bottom:50px;
+	padding:5rem;
+	margin-bottom:5Rem;
 }
 .dream-swiper .swiper-slide {
 	/* width:330px !important; */
@@ -1821,12 +1826,12 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	background: #FFFFFF;
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
 	border-radius: 10px;
-	width:330px;
+	width:33rem;
 	margin:0 22px;
 }
 .dream-swiper .slide-content .dream-img {
-	width:250px;
-	height:190px;
+	width:25rem;
+	height:19rem;
 	display:flex;
 	align-items: center;
 	justify-content: center;
@@ -1838,22 +1843,22 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	width:initial;
 }
 .dream-swiper .dream-name {
-	margin-top:30px;
+	margin-top:3rem;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 1.8rem;
 	line-height: 128.27%;
 }
 .dream-swiper .dream-progress-bar {
 	background: #E8E8E8;
 	border-radius: 10px;
-	height:8px;
+	height:0.8rem;
 	width:100%;
 	overflow:hidden;
 	margin-top: 10px;
 }
 .dream-swiper .dream-progress-bar .progress-bar-done {
 	background: #562AA9;
-	height:8px;
+	height:0.8rem;
 	border-radius: 10px;
 }
 
@@ -1864,38 +1869,38 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .dream-swiper .amount-block .text{
 	font-weight: 500;
-	font-size: 14px;
+	font-size: 1.4rem;
 	line-height: 128.27%;
 }
 .dream-swiper .amount-block .amount-sum {
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 1.8rem;
 	line-height: 128.27%;
 }
 
 .dream-swiper .child-info-block img {
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
 	border-radius: 145px;
-	width:50px;
-	height:50px;
+	width:5rem;
+	height:5rem;
 	object-fit: cover;
 }
 .dream-swiper .child-info-block {
 	display:flex;
-	margin-top:35px;
+	margin-top:3.5rem;
 }
 .dream-swiper .child-info-block .right {
 	padding-left:20px;
 }
 .dream-swiper .child-info-block .right .child-name {
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 1.6rem;
 	line-height: 128.27%;
 }
 .dream-swiper .child-info-block .right .child-infuence {
 	font-weight: 300;
-	font-size: 14px;
-	line-height: 17px;
+	font-size: 1.4rem;
+	line-height: 1.7rem;
 }
 .dream-swiper .swiper-pagination-bullet {
 	background:#C4C4C4;
@@ -1918,13 +1923,21 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 .how-help-container .how-help-wrapper .wrapper-item {
 	position:relative;
 	text-align:center;
+	width:30%;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+.how-help-container .how-help-wrapper .wrapper-item img {
+	max-width:100%;
+	object-fit: contain;
 }
 .how-help-container .how-help-wrapper .item-number {
 	font-weight: bold;
-	font-size: 36px;
-	line-height: 43px;
-	width:65px;
-	height:65px;
+	font-size: 3.6rem;
+	line-height: 4.3rem;
+	width:6.5rem;
+	height:6.5rem;
 	background: #FFFFFF;
 	box-shadow: 10px 10px 30px rgba(160, 160, 160, 0.25);
 	border-radius:50%;
@@ -1932,18 +1945,17 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	align-items:center;
 	justify-content: center;
 	position:absolute;
-	top: -15px;
-    left: -20px;
+	top: 0px;
+    left: 15%;
 }
 .how-help-container .how-help-wrapper .img-container {
-	height:190px;
-	width:300px;
+	height:19rem;
+	width:30rem;
 	display: flex;
     justify-content: center;
 }
-.how-help-container .how-help-wrapper .img-container img{
-	/* max-height:100%;
-	max-width:100%; */
+.how-help-container .how-help-wrapper:last-child .img-container img{
+	margin-top:4rem;
 }
 .how-help-container .how-help-wrapper .title {
 	font-weight: bold;
@@ -1966,20 +1978,22 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	position:absolute;
 }
 .how-help-line.line1{
-	transform: translateX(-140%);
-    top: 20px;
+	transform: translateX(-50rem);
+	top: 2rem;
+	width:36rem;
 }
 .how-help-line.line2{
-	transform: translateX(42%);
-    top: 20px;
+	transform: translateX(15rem);
+	top: 2rem;
+	width:28rem;
 }
 .how-help-line.line3{
-    top: 40px;
-    transform: translateX(-105%);
+    top: 4rem;
+    transform: translateX(-27rem);
 }
 
 .reviews.section .section-title {
-	font-size: 36px;
+	font-size: 3.6rem;
 	line-height: 128.27%;
 	text-align:center;
 	color: #FFFFFF;
@@ -1987,8 +2001,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .reviews.section .subtitle {
 	font-weight: 300;
-	font-size: 16px;
-	line-height: 19px;
+	font-size: 1.6rem;
+	line-height: 1.9rem;
 	color: #E8D8FF;
 	text-align:center;
 	max-width:660px;
@@ -1996,7 +2010,23 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 
 .reviews-swiper {
-	padding:100px 0 !important;
+	padding:10rem 2rem !important;
+}
+
+.reviews-swiper.oneslide {
+	display:none;
+}
+
+@media screen and (max-width:1070px) {
+	.reviews-swiper {
+		display:none;
+	}
+	.reviews-swiper.oneslide {
+		display:block;
+	}
+	.reviews-swiper.oneslide .slide-content {
+		justify-content: center;
+	}
 }
 
 .reviews-swiper.swiper-container-horizontal>.swiper-pagination-bullets {
@@ -2023,13 +2053,13 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	display:flex;
 	align-items: center;
 	max-width:300px;
-	margin-left:40px;
-	margin-top:35px;
+	margin-left:4rem;
+	margin-top:3.5rem;
 }
 
 .reviews-swiper .review-item .child-info-block img {
-	width:50px;
-	height:50px;
+	width:5rem;
+	height:5rem;
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
 	border-radius: 145px;
 	object-fit: cover;
@@ -2039,39 +2069,44 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .review-item .child-info-block .child-name {
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 1.6rem;
 	line-height: 128.27%;
 }
 .review-item .child-info-block .child-influence {
 	font-weight: 300;
-	font-size: 14px;
-	line-height: 17px;
+	font-size: 1.4rem;
+	line-height: 1.7rem;
 }
 .reviews-swiper .review-item {
-	width:405px;
+	width:40.5rem;
 }
 .review-item .review-boble {
-	background-image:url('/images/review-boble.svg');
+	background-image:url('../newimages/review-boble.svg');
 	background-repeat:no-repeat;
 	background-position:0 0;
-	padding:30px 30px 50px 40px;
-	background-size:cover;
+	padding:3rem 3rem 5rem 4rem;
+	background-size:100%;
 	border-radius:10px;
 	/* background:#ffffff;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); */
 }
 .review-item .review-boble .text {
 	font-weight: 300;
-	font-size: 16px;
-	line-height: 19px;
+	font-size: 1.6rem;
+	line-height: 1.9rem;
 	color:#000000;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .review-item .review-boble a{
 	color: #5F21B4;
 	text-decoration-line: underline;
 	font-weight: 300;
-	font-size: 16px;
+	font-size: 1.6rem;
 	line-height: 128.27%;
 	display:block;
 	width:fit-content;
@@ -2087,17 +2122,19 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	height: fit-content;
 	margin-top: 15px;
 	display: flex;
+	position:relative;
+	z-index:2;
 }
-
+  
 .rating_block span {
 	width: 20px;
 	height: 20px;
-	background: url("/images/gray-star.svg") no-repeat 50% 0;
+	background: url("../newimages/gray-star.svg") no-repeat 50% 0;
 	background-size: 100% 100%;
 }
-
+  
 .rating_block span.active {
-	background: url("/images/gold-star.svg") no-repeat 50% 0;
+	background: url("../newimages/gold-star.svg") no-repeat 50% 0;
 	background-size: 100% 100%;
 }
 

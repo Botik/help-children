@@ -98,11 +98,11 @@
                             </div>
 
                             <div class="line">
-                                <img src="/images/line-1.svg">
+                                <img src="/images/line-1.svg" style="height:20rem">
                             </div>
                         </div>
                         <div class="mission-description-col mission-description-col-image">
-                            <img src="/images/child-sleep.png" width="480" alt="статистика и причины">
+                            <img src="/images/child-sleep.png" style="width:48rem" alt="статистика и причины">
                         </div>
                     </div>
 
@@ -252,11 +252,11 @@
                 <div class="how-help-wrapper">
 
                     <div class="wrapper-item">
-                        <div class="item-number" style="left:20px;">
+                        <div class="item-number" style="left:8rem;">
                             <div>1</div>
                         </div>
                         <div class="img-container">
-                            <img src="/images/how-help1.png" width="218" height="134" alt="Платежная система" style="margin-top:30px;">
+                            <img src="/images/how-help1.png" alt="Платежная система" style="width:21.8rem; height:13.4rem">
                         </div>
                         <div class="title">Платежная система</div>
                         <div class="subtitle">
@@ -269,7 +269,7 @@
                             <div>2</div>
                         </div>
                         <div class="img-container">
-                            <img src="/images/how-help2.png" width="305" height="186" alt="Платежная система">
+                            <img src="/images/how-help2.png" style="width:30.5rem" alt="Платежная система">
                         </div>
                         <div class="title">Банковская карта</div>
                         <div class="subtitle">
@@ -282,7 +282,7 @@
                             <div>3</div>
                         </div>
                         <div class="img-container">
-                            <img src="/images/how-help3.png" height="142" alt="Платежная система" style="margin-top:40px;">
+                            <img src="/images/how-help3.png" style="height:14.2rem" alt="Платежная система">
                         </div>
                         <div class="title">СМС - помощь</div>
                         <div class="subtitle">
@@ -364,6 +364,40 @@
                                 </div>
                             </div>
                             {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="swiper-container reviews-swiper oneslide">
+                <div class="swiper-wrapper">
+                    {% for i in 0..9 %}
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <div class="review-item">
+                                <div class="review-boble">
+                                    <div class="text">А мышка бежала, хвостиком махнула, яичко упало и разбилось. Плачет дед, плачет баба и говорит им Курочка Ряба: - Не плачь, дед, не плачь, баба: снесу вам новое.</div>
+                                    <a href="#">Открыть карту ребенка</a>
+                                    <div class="rating_block">
+                                        <span class='active'></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="child-info-block">
+                                    <div class="left">
+                                        <img src="newimages/dasha.jpeg">
+                                    </div>
+                                    <div class="right">
+                                        <div class="child-name">Даша Карпеева, 9 мая</div>
+                                        <div class="child-influence">ДЦП, спастическая диплегия GMFCS III уровень</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}

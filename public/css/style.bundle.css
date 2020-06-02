@@ -4443,7 +4443,7 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 .mission-title {
 	text-align: center;
 	color: #333333;
-	font-size: 36px;
+	font-size: 3.6rem;
 	line-height: 128.27%;
 }
 
@@ -4459,8 +4459,7 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 }
 
 .mission-description.new-mission {
-	padding-top:7rem;
-	padding-bottom:15rem;
+	padding:7rem 3rem 15rem 3rem;
 }
 
 @media (max-width: 992px) {
@@ -4513,13 +4512,12 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 
 .mission-description-text {
 	margin: 1.4rem 0;
-	font-size: 1.6rem;
 	font-weight: 300;
 	/* text-indent: 2rem; */
 	color: #000000;
 	max-width:410px;
-	font-size: 18px;
-	line-height: 22px;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
 }
 
 .mission-description-notice {

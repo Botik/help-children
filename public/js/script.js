@@ -381,6 +381,8 @@ $(document).ready(function () {
 
 	if($('.main-swiper').length) {
 		var mainswiper = new Swiper('.main-swiper', {
+			slidesPerView:1,
+			spaceBetween:100,
 			pagination: {
 			  el: '.swiper-pagination',
 			  clickable:true,
@@ -391,6 +393,8 @@ $(document).ready(function () {
 
 		// $('.dream-swiper').css('padding','50px '+((screenWidth - 1080)/2)+"px");
 		var dreamswiper = new Swiper('.dream-swiper', {
+			slidesPerView:1,
+			spaceBetween:100,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable:true,
@@ -398,6 +402,8 @@ $(document).ready(function () {
 		});
 
 		var reviewswiper = new Swiper('.reviews-swiper', {
+			slidesPerView:1,
+			spaceBetween:100,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable:true,
