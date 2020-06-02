@@ -394,7 +394,7 @@ $(document).ready(function () {
 		// $('.dream-swiper').css('padding','50px '+((screenWidth - 1080)/2)+"px");
 		var dreamswiper = new Swiper('.dream-swiper', {
 			slidesPerView:1,
-			spaceBetween:100,
+			spaceBetween:200,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable:true,

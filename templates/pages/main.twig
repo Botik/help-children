@@ -102,7 +102,7 @@
                             </div>
                         </div>
                         <div class="mission-description-col mission-description-col-image">
-                            <img src="/images/child-sleep.png" style="width:48rem" alt="статистика и причины">
+                            <img src="/images/child-sleep.png" style="width:48rem; padding-left:4rem;" alt="статистика и причины">
                         </div>
                     </div>
 
@@ -240,6 +240,40 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
+                <div class="swiper-container dream-swiper oneslide">
+                    <div class="swiper-wrapper">
+                        {% for i in 0..9 %}
+                        <div class="swiper-slide">
+                            <div class="slide-content">
+                                <div class="dream-img">
+                                    <img src="newimages/svosh.png">
+                                </div>
+                                <div class="dream-name">Аппарат СВОШ</div>
+                                <div class="dream-progress-bar">
+                                    <div class="progress-bar-done" style="width:50%">
+
+                                    </div>
+                                </div>
+                                <div class="amount-block">
+                                    <div class="text">Осталось собрать</div>
+                                    <div class="amount-sum">23 000 руб</div>
+                                </div>
+
+                                <div class="child-info-block">
+                                    <div class="left">
+                                        <img src="newimages/dasha.jpeg">
+                                    </div>
+                                    <div class="right">
+                                        <div class="child-name">Даша Карпеева, 9 мая</div>
+                                        <div class="child-infuence">ДЦП, спастическая диплегия GMFCS III уровень</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
         </section>
         <section class="section mission" id="section-mission" style="/* padding-top: 0px; */background-color: #F6F5FC;">
             <div class="container container--small" style="/* height: 400px; */text-align: center; position:relative">
@@ -252,10 +286,10 @@
                 <div class="how-help-wrapper">
 
                     <div class="wrapper-item">
-                        <div class="item-number" style="left:8rem;">
-                            <div>1</div>
-                        </div>
                         <div class="img-container">
+                            <div class="item-number" style="left:2rem;">
+                                <div>1</div>
+                            </div>
                             <img src="/images/how-help1.png" alt="Платежная система" style="width:21.8rem; height:13.4rem">
                         </div>
                         <div class="title">Платежная система</div>
@@ -265,10 +299,10 @@
                     </div>
 
                     <div class="wrapper-item">
-                        <div class="item-number">
-                            <div>2</div>
-                        </div>
                         <div class="img-container">
+                            <div class="item-number">
+                                <div>2</div>
+                            </div>
                             <img src="/images/how-help2.png" style="width:30.5rem" alt="Платежная система">
                         </div>
                         <div class="title">Банковская карта</div>
@@ -278,10 +312,10 @@
                     </div>
 
                     <div class="wrapper-item">
-                        <div class="item-number">
-                            <div>3</div>
-                        </div>
                         <div class="img-container">
+                            <div class="item-number">
+                                <div>3</div>
+                            </div>
                             <img src="/images/how-help3.png" style="height:14.2rem" alt="Платежная система">
                         </div>
                         <div class="title">СМС - помощь</div>
