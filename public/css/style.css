@@ -1692,7 +1692,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 
 .dcp-reasons {
-	margin-top:50px;	
+	margin-top:50px;
 }
 .dcp-reasons .title {
 	font-size: 18px;
@@ -2051,7 +2051,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	width:405px;
 }
 .review-item .review-boble {
-	background-image:url('../newimages/review-boble.svg');
+	background-image:url('/images/review-boble.svg');
 	background-repeat:no-repeat;
 	background-position:0 0;
 	padding:30px 30px 50px 40px;
@@ -2088,16 +2088,16 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	margin-top: 15px;
 	display: flex;
 }
-  
+
 .rating_block span {
 	width: 20px;
 	height: 20px;
-	background: url("../newimages/gray-star.svg") no-repeat 50% 0;
+	background: url("/images/gray-star.svg") no-repeat 50% 0;
 	background-size: 100% 100%;
 }
-  
+
 .rating_block span.active {
-	background: url("../newimages/gold-star.svg") no-repeat 50% 0;
+	background: url("/images/gold-star.svg") no-repeat 50% 0;
 	background-size: 100% 100%;
 }
 
