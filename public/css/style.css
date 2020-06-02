@@ -2209,6 +2209,16 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	color:#000000;
 }
 
+.sleep-child {
+	max-width:48rem; width:100%; padding-left:4rem;
+}
+
+@media screen and (max-width:992px) {
+	.sleep-child {
+		padding-left:0;
+	}
+}
+
 @media screen and (max-width: 1440px) {
 	.btn.btn-dark.btn--big.child-help-form__submit.js-child-help-form-button-submit.kid-cart {
 		width: fit-content;
