@@ -378,6 +378,32 @@ $(document).ready(function () {
 	$('.header-mobile .nav-links__item-link, .header-mobile .nav-links-submenu__item').click(function () {
 		$('.js-mobile-menu-button').trigger('click');
 	});
+
+	if($('.main-swiper').length) {
+		var mainswiper = new Swiper('.main-swiper', {
+			pagination: {
+			  el: '.swiper-pagination',
+			  clickable:true,
+			},
+		  });
+
+		// var screenWidth = $(window).width();
+
+		// $('.dream-swiper').css('padding','50px '+((screenWidth - 1080)/2)+"px");
+		var dreamswiper = new Swiper('.dream-swiper', {
+			pagination: {
+				el: '.swiper-pagination',
+				clickable:true,
+			},
+		});
+
+		var reviewswiper = new Swiper('.reviews-swiper', {
+			pagination: {
+				el: '.swiper-pagination',
+				clickable:true,
+			},
+		});
+	}
 });
 
 

@@ -4126,6 +4126,13 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 	min-height: 400px
 }
 
+.hero-new {
+	background-repeat: no-repeat;
+	background: linear-gradient(328.4deg, #F8E9D2 24.46%, #B8AA94 78.93%);
+	background-size: cover;
+	min-height: 400px
+}
+
 .hero-row {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -4170,7 +4177,9 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 .hero-col__right {
 	padding-top: 135px
 }
-
+.hero-col__absolute {
+	position:absolute;
+}
 @media (max-width: 768px) {
 	.hero-col__right {
 		display: none
@@ -4433,7 +4442,9 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 
 .mission-title {
 	text-align: center;
-	color: #2c2c2c
+	color: #333333;
+	font-size: 36px;
+	line-height: 128.27%;
 }
 
 .mission-description {
@@ -4443,7 +4454,13 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
-	padding-bottom: 2rem
+	padding-bottom: 2rem;
+	position:relative;
+}
+
+.mission-description.new-mission {
+	padding-top:7rem;
+	padding-bottom:15rem;
 }
 
 @media (max-width: 992px) {
@@ -4498,8 +4515,11 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 	margin: 1.4rem 0;
 	font-size: 1.6rem;
 	font-weight: 300;
-	text-indent: 2rem;
-	color: #4e4e4e
+	/* text-indent: 2rem; */
+	color: #000000;
+	max-width:410px;
+	font-size: 18px;
+	line-height: 22px;
 }
 
 .mission-description-notice {
