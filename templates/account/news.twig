@@ -39,7 +39,7 @@
                                         <tr  class="referrals-list-table__row">
                                             <td {% if news.hidden %}onclick="location='{{ path('account_news_edit',{"id": news.id }) }}'"  style="cursor: pointer" {% endif %}class="referrals-list-table__body-col">{{ news.title}}</td>
                                             <td {% if news.hidden %}onclick="location='{{ path('account_news_edit',{"id": news.id }) }}'"  style="cursor: pointer" {% endif %}class="referrals-list-table__body-col">{{ news.descr }}</td>
-                                            <td class="referrals-list-table__body-col" onclick="$.get('/account/news/{{ news.id }}/del');$(this).parent().remove()" style="cursor: pointer; font-size: 2rem;"><i class="icon-trash"></i></td>
+                                            {% if news.hidden %}<td class="referrals-list-table__body-col" onclick="$.get('/account/news/{{ news.id }}/del');$(this).parent().remove()" style="cursor: pointer; font-size: 2rem;"><i class="icon-trash"></i></td> {% else %} <td  class="referrals-list-table__body-col" ></td> {% endif %}
                                             <td {% if news.hidden %}onclick="location='{{ path('account_news_edit',{"id": news.id }) }}'"  style="cursor: pointer" {% endif %}class="referrals-list-table__body-col">{{ news.createdAt|date('d m Y') }}</td>
                                         </tr>
                                     {% endfor %}

@@ -227,25 +227,26 @@ class NewsController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $n = $entityManager->getRepository(News::class)->find($id);
-        $ben=$request->get('_route')=='account_news_edit';
+        $ben=$request->get('_route')=='account_news_delete';
+//        echo json_encode([$ben==true, $n==true, $n->getAuthor()!=$this->getUser(),!$n->getHidden()]);
         if ($ben and $n and ($n->getAuthor()!=$this->getUser() or !$n->getHidden())) $this->denyAccessUnlessGranted('ROLE_ADMINN',null,'Нет доступа к новости');
 
         if (null !== $n) {
             $entityManager->remove($n);
             $entityManager->flush();
         }
-        return $ben ? 'ok' :$this->p_list();
+        return $ben ? new Response('ok') :$this->p_list();
     }
 
     public function delimg(int $id, $img, Request $request)
     {
         $n = $this->getDoctrine()->getRepository(News::class)->find($id);
-        $ben=$request->get('_route')=='account_news_edit';
-        if ($ben and $n and ($n->getAuthor()!=$this->getUser() or !$n->getHidden())) $this->denyAccessUnlessGranted('ROLE_ADMINN',null,'Нет доступа к новости');
+        $ben=$request->get('_route')=='account_news_img_delete';
+        if ($ben and $n and ($n->getAuthor()!=$this->getUser() or !$n->getHidden()))  $this->denyAccessUnlessGranted('ROLE_ADMINN',null,'Нет доступа к новости');
         $nar = $n->getArPhotos();
         unset($nar[$img]);
         $n->setPhotos(json_encode($nar));
         $this->getDoctrine()->getManager()->flush();
-        return $ben ? 'ok' :$this->p_list();
+        return $ben ? new Response('ok') :$this->p_list();
     }
 }
