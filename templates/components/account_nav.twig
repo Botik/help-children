@@ -26,11 +26,6 @@
             <li class="account-links__item{{ path == 'account_refe' ? ' account-links__item--active' }}">
                 <a href="{{ path('account_referrals') }}" class="account-links__item-link">Поможем вместе</a>
             </li>
-            {% if is_granted('ROLE_BEN') %}
-            <li class="account-links__item{{ path == 'account_news' ? ' account-links__item--active' }}">
-                <a href="{{ path('account_news') }}" class="account-links__item-link">Новости ребенка</a>
-            </li>
-            {% endif %}
             <li class="account-links__item{{ path == 'account_recu' ? ' account-links__item--active' }}">
                 <a href="{{ path('account_recurrent') }}" class="account-links__item-link">Регулярные платежи</a>
             </li>

@@ -34,5 +34,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/panel, roles: ROLE_ADMIN }
-        - { path: ^/account/news, roles: ROLE_BEN }
         - { path: ^/account, roles: ROLE_USER }

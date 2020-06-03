@@ -22,8 +22,8 @@ final class Version20200204222614 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-//        $this->addSql('CREATE TABLE news (id INT AUTO_INCREMENT NOT NULL, category VARCHAR(255) DEFAULT NULL, title VARCHAR(255) NOT NULL, descr LONGTEXT DEFAULT NULL, child INT DEFAULT NULL, photos VARCHAR(65356) DEFAULT NULL, video VARCHAR(255) DEFAULT NULL, createdat DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
-//        $this->addSql('ALTER TABLE ch_target CHANGE descr descr VARCHAR(65500) DEFAULT NULL, CHANGE attach attach VARCHAR(65500) DEFAULT NULL, CHANGE allowclose allowclose TINYINT(1) NOT NULL');
+        $this->addSql('CREATE TABLE news (id INT AUTO_INCREMENT NOT NULL, category VARCHAR(255) DEFAULT NULL, title VARCHAR(255) NOT NULL, descr LONGTEXT DEFAULT NULL, child INT DEFAULT NULL, photos VARCHAR(65356) DEFAULT NULL, video VARCHAR(255) DEFAULT NULL, createdat DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE ch_target CHANGE descr descr VARCHAR(65500) DEFAULT NULL, CHANGE attach attach VARCHAR(65500) DEFAULT NULL, CHANGE allowclose allowclose TINYINT(1) NOT NULL');
     }
 
     public function down(Schema $schema) : void

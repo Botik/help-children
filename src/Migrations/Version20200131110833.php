@@ -22,8 +22,8 @@ final class Version20200131110833 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-//        $this->addSql('DROP TABLE children_requests');
-//        $this->addSql('ALTER TABLE ch_target CHANGE rehabilitation rehabilitation TINYINT(1) NOT NULL, CHANGE descr descr TEXT(65500) DEFAULT NULL, CHANGE attach attach TEXT(65500) DEFAULT NULL');
+        $this->addSql('DROP TABLE children_requests');
+        $this->addSql('ALTER TABLE ch_target CHANGE rehabilitation rehabilitation TINYINT(1) NOT NULL, CHANGE descr descr TEXT(65500) DEFAULT NULL, CHANGE attach attach TEXT(65500) DEFAULT NULL');
         // php bin/console doctrine:query:sql "ALTER TABLE ch_target CHANGE rehabilitation rehabilitation TINYINT(1) NOT NULL, CHANGE descr descr TEXT(65500) DEFAULT NULL, CHANGE attach attach TEXT(65500) DEFAULT NULL"
     }
 

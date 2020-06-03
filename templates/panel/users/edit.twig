@@ -38,21 +38,16 @@
                 </div>
                 <div class="form-group" style='margin-left: 20px'>
                     {{ form_widget(form.fundraiser, {'attr': {'class':'form-check-input', 'required':false}}) }}
-                    {{ form_label(form.fundraiser,  'Фандрайзер', {'label_attr': {'class':'form-check-label'}}) }}
+                    {{ form_label(form.fundraiser,  'Фандрайзер', {'label_attr': {'class':'form-check-label'}}) }}                    
                 </div>
                 <div class="form-group">
-                    {{ form_label(form.roles, 'Уровни доступа') }}
+                    {{ form_label(form.roles, 'Roles') }}
+                    <label for="exampleFormControlSelect2">Уровни доступа</label>
                     {{ form_widget(form.roles, {'attr': {'class':'form-control'}}) }}
                 </div>
-
                 <div class="form-group">
-                    {{ form_label(form.child, 'Ребенок') }}
-                    {{ form_widget(form.child, {'attr': {'class':'form-control'}}) }}
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.rewardSum, 'Реферал') }}
                     {{ form_widget(form.referrer, {'attr': {'class':'form-control'}}) }}
-                </div>
+                </div>                
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">Дата
                         создания: {{ user.createdAt|date("Y-m-d h:i:s") }}</label>
@@ -87,16 +82,5 @@
             });
         }
         document.addEventListener("DOMContentLoaded", ready);
-
-
-        $("select").first().change(function(){
-            if($.inArray("ROLE_BEN",$(this).val())>-1) {
-                $("#form_child").parent().show();
-            }
-            else {
-                $("#form_child").parent().hide();
-                $("#form_child").val("")
-            }
-        }).trigger('change');
     </script>
 {% endblock %}

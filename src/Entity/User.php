@@ -2,13 +2,11 @@
 
 namespace App\Entity;
 
-use App\Controller\ChildController;
 use App\Controller\UserController;
 use App\Form\ResetPasswordFormType;
 use DateTime;
 use DateTimeImmutable;
 use DateTimeInterface;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 use Exception;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -31,15 +29,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
-     * @ORM\JoinColumn(name="roles")
      */
     private $roles = ['ROLE_USER'];
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Child", fetch="LAZY")
-     * @ORM\JoinColumn(name="child_id")
-     */
-    private $child = null;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -170,15 +161,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getChild()
-    {
-        return $this->child;
-    }
-    public function setChild( $child): self
-    {
-        $this->child = $child;
-        return $this;
-    }
     public function getFirstName(): string
     {
         return $this->meta['firstName'] ?? '';

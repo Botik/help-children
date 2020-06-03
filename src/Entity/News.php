@@ -17,11 +17,6 @@ class News
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", fetch="LAZY")
-     * @ORM\JoinColumn(name="author_id")
-     */
-    private $author = null;
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $category;
@@ -40,11 +35,6 @@ class News
      * @ORM\Column(type="integer", nullable=true)
      */
     private $child;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $hidden;
 
     /**
      * @ORM\Column(type="string", length=65356, nullable=true)
@@ -103,18 +93,6 @@ class News
     public function setDescr(?string $descr): self
     {
         $this->descr = $descr;
-
-        return $this;
-    }
-
-    public function getHidden()
-    {
-        return $this->hidden==true;
-    }
-
-    public function setHidden($hidden): self
-    {
-        $this->hidden = $hidden;
 
         return $this;
     }
@@ -179,18 +157,6 @@ class News
     public function setCreatedat($createdat): self
     {
         $this->createdat = $createdat;
-
-        return $this;
-    }
-
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    public function setAuthor($author): self
-    {
-        $this->author = $author;
 
         return $this;
     }
