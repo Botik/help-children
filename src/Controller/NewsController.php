@@ -84,8 +84,9 @@ class NewsController extends AbstractController
         $trgs = [' ' => -1];
         if (!$ben) foreach ($this->getDoctrine()->getRepository(ChTarget::class)
                      ->findBy([], ['id' => 'DESC']) as $trg)
-            if ($trg and $trg->getChild()) $trgs['#' . $trg->getId() . ' ' . $trg->getName() . ' — ' . $this->getDoctrine()->getRepository(Child::class)
-            ->findOneById($trg->getChild())->getName()] = $trg->getId();
+            if ($trg and $this->getDoctrine()->getRepository(Child::class)->findOneById($trg->getChild()))
+                $trgs['#' . $trg->getId() . ' ' . $trg->getName() . ' — ' . $this->getDoctrine()->getRepository(Child::class)
+                    ->findOneById($trg->getChild())->getName()] = $trg->getId();
 
         $oldimages = $n->getArPhotos();
 //        if ($request->get('copy') and $request->isMethod('POST')) $n = new News();
