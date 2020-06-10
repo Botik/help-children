@@ -22,7 +22,7 @@ class FileUploader
     public function upload(UploadedFile $file)
     {
         $fileName = md5(uniqid()).'.'.$file->guessExtension();
-//        error_log($this->getTargetDirectory());
+        var_dump($this->getTargetDirectory());
         try {
             $file->move($this->getTargetDirectory(), $fileName);
         } catch (FileException $e) {

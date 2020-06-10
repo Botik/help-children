@@ -192,7 +192,7 @@ class NewsController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($n);
             $entityManager->flush();
-            return $ben ? $this->redirectToRoute("account_news"):$this->p_list();
+            return '';//$ben ? $this->redirectToRoute("account_news"):$this->p_list();
         }
 
         return $this->render(
