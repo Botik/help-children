@@ -85,7 +85,7 @@ class NewsController extends AbstractController
         if (!$ben) foreach ($this->getDoctrine()->getRepository(ChTarget::class)
                      ->findBy([], ['id' => 'DESC']) as $trg)
             var_dump($trg);
-            if ($trg) $trgs['#' . $trg->getId() . ' ' . $trg->getName() . ' — ' . $this->getDoctrine()->getRepository(Child::class)
+            if ($trg and $trg->getChild()) $trgs['#' . $trg->getId() . ' ' . $trg->getName() . ' — ' . $this->getDoctrine()->getRepository(Child::class)
             ->findOneById($trg->getChild())->getName()] = $trg->getId();
 
         $oldimages = $n->getArPhotos();
