@@ -22,7 +22,7 @@
                     </thead>
                     <tbody>
                     {% for n in news %}
-                        <tr {% if n.author %} style="background: rgba(0,255,0,0.07){% endif %}">
+                        <tr {% if n.author and n.hidden%} style="background: rgba(0,255,0,0.07){% endif %}">
                             <th scope="row">{{ n.id }}</th>
                             <th scope="row">{{ n.author.email ?? '' }}</th>
                             <td>{{ (n.child == -1) ? 'Фонд' : c[n.child] }}</td>
