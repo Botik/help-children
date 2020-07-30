@@ -1070,6 +1070,7 @@
         </div>
         <div class="swiper-container dream-swiper">
             <div class="swiper-wrapper">
+                {% for i in 0..3 %}
                 <div class="swiper-slide">
                     <div class="slide-content">
                         <div class="dream-img">
@@ -1149,12 +1150,14 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
         </div>
 
         <div class="swiper-container dream-swiper oneslide">
             <div class="swiper-wrapper">
+                {% for i in 0..9 %}
                 <div class="swiper-slide">
                     <div class="slide-content">
                         <div class="dream-img">
@@ -1182,6 +1185,7 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -1290,8 +1294,10 @@
 
         <div class="swiper-container reviews-swiper">
             <div class="swiper-wrapper">
+                {% for i in 0..3 %}
                 <div class="swiper-slide">
                     <div class="slide-content">
+                        {% for j in 0..2 %}
                         <div class="review-item">
                             <div class="review-boble">
                                 <div class="text">А мышка бежала, хвостиком махнула, яичко упало и разбилось. Плачет
@@ -1316,14 +1322,17 @@
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
         </div>
 
         <div class="swiper-container reviews-swiper oneslide">
             <div class="swiper-wrapper">
+                {% for i in 0..9 %}
                 <div class="swiper-slide">
                     <div class="slide-content">
                         <div class="review-item">
@@ -1352,6 +1361,7 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
         </div>
