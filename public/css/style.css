@@ -2110,7 +2110,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	padding-top:10px;
 }
 .fixed-animation-block .carts-block {
-	perspective: 500px;
+	perspective: 2000px;
 }
 .mainanimation .list_item {
 	display:flex;
