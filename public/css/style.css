@@ -26,6 +26,12 @@
 		width: 98%;
 		position: sticky;
 	}
+	.payment-type-fieldgroup .toggle-field__text {
+		line-height:50px;
+	}
+	.toggle-field__input:checked + .toggle-field__text {
+		height:50px;
+	}
 }
 
 @media (max-width: 769px) {
@@ -3504,17 +3510,24 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 		align-items: center;
 		flex-direction: column;
 
-		padding: 0 3rem;
+		padding: 0 6rem;
+		padding-top:1rem;
+		
 	}
 	.main-swiper .swiper-content .headline br{
 		display:none;
 		
 	}
 	.main-swiper .swiper-content .subline >div {
-		width:50%;
-	}
-	.main-swiper .swiper-content .subline >div:first-child {
 		width:100%;
+	}
+	.main-swiper .swiper-content .btn.orange-btn {
+		position:relative;
+	}
+	.main-swiper .swiper-content .subline .mobile-medved {
+		width:75%;
+		position: relative;
+		bottom: -20px;
 	}
 	.dcp-reasons .reasons-wrapper {
 		flex-direction: column;
