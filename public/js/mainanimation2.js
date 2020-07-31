@@ -169,44 +169,6 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5,duration:1},'stage3+=10.5')
         .fromTo('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=9.5')
         .to('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5,duration:1},'stage3+=11')
-        // .fromTo('.fixed-animation-block .right-half .elem2',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=8')
-        // .to('.fixed-animation-block .right-half .elem2',{opacity:0,scale:0.5,duration:1},'stage3+=9.5')
-        // .fromTo('.fixed-animation-block .right-half .elem3',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=8.5')
-        // .to('.fixed-animation-block .right-half .elem3',{opacity:0,scale:0.5,duration:1},'stage3+=10')
-        // .fromTo('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=9')
-        // .to('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5,duration:1},'stage3+=10.5')
-        // .fromTo('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=9.5')
-        // .to('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5,duration:1},'stage3+=11')
-
-        // .fromTo('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=10')
-        // .to('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5,duration:1},'stage3+=11.5')
-        // .fromTo('.fixed-animation-block .right-half .elem2',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=10.5')
-        // .to('.fixed-animation-block .right-half .elem2',{opacity:0,scale:0.5,duration:1},'stage3+=12')
-        // .fromTo('.fixed-animation-block .right-half .elem3',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=11')
-        // .to('.fixed-animation-block .right-half .elem3',{opacity:0,scale:0.5,duration:1},'stage3+=12.5')
-        // .fromTo('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=11.5')
-        // .to('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5,duration:1},'stage3+=13')
-        // .fromTo('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=12')
-        // .to('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5,duration:1},'stage3+=13.5')
-        // .fromTo('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=12.5')
-        // .to('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5,duration:1},'stage3+=14')
-        // .fromTo('.fixed-animation-block .right-half .elem2',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=13')
-        // .to('.fixed-animation-block .right-half .elem2',{opacity:0,scale:0.5,duration:1},'stage3+=14.5')
-        // .fromTo('.fixed-animation-block .right-half .elem3',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=13.5')
-        // .to('.fixed-animation-block .right-half .elem3',{opacity:0,scale:0.5,duration:1},'stage3+=15')
-        // .fromTo('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=14')
-        // .to('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5,duration:1},'stage3+=15.5')
-        // .fromTo('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=14.5')
-        // .to('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5,duration:1},'stage3+=16')
-
-        // .fromTo('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=15')
-        // .to('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5,duration:1},'stage3+=16.5')
-        // .fromTo('.fixed-animation-block .right-half .elem2',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=15.5')
-        // .to('.fixed-animation-block .right-half .elem2',{opacity:0,scale:0.5,duration:1},'stage3+=17')
-        // .fromTo('.fixed-animation-block .right-half .elem3',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=16')
-        // .to('.fixed-animation-block .right-half .elem3',{opacity:0,scale:0.5,duration:1},'stage3+=17.5')
-        // .fromTo('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=16.5')
-        // .to('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5,duration:1},'stage3+=18')
 
         .to('.empty-cart.with-cont .progress-bar.bar1 .progress-bar-done',{width:'100%',duration:9},'stage3+=2')
         .to(obj1,9,{
@@ -299,7 +261,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list .line',{height:'210px',duration:0.3},'stage4+=7')
         .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=6')
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:1.5})
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
 
 
         .addLabel('stage5')
@@ -420,7 +382,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .needed-block',{opacity:0,duration:0})
         .to('.empty-cart.with-cont .level',{opacity:0,duration:0})
         .to('.empty-cart.with-cont .GMFCS',{background:'#ffffff',fontWeight:'bold',boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.07)',position:'absolute',duration:0})
-        .to('.empty-cart.with-cont .GMFCS',{padding:'1rem 4.59rem',
+        .to('.empty-cart.with-cont .GMFCS',{padding:'1rem 4rem',
         borderRadius: '30px',translateX:'1rem',translateY:'-5rem',scale:'1.5',width:'24rem',duration:1})
 
         .to('.empty-cart.with-cont .GMFCS .arrow-img',{display:'inline-block',duration:0})
