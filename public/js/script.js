@@ -1,4 +1,16 @@
 $(document).ready(function () {
+	$('.how-we-help-wrapper .wrapper-item a').click(function(){
+		var $page = $('html, body');
+		if($(this).hasClass('dolg-opeka')) {
+			$page.animate({
+				scrollTop: ($('.dolg-opeka-item').offset().top - ((window.innerWidth < 771) ? 100 : 180))
+			}, 400);
+		} else {
+			$page.animate({
+				scrollTop: ($('.gift-section').offset().top - ((window.innerWidth < 771) ? 100 : 180))
+			}, 400);
+		}
+	});
 	var SJ_setiings = {
 		options: {
 			hlw: true, // Height as width

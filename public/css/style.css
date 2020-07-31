@@ -3397,7 +3397,9 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	display:none;
 }
 @media screen and (max-width:500px) {
-
+	.partners-main-list__item {
+		padding:3rem 2rem;
+	}
 	.section.mainanimation {
 		display:none;
 	}
