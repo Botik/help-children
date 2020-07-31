@@ -3,11 +3,11 @@ $(document).ready(function () {
 		var $page = $('html, body');
 		if($(this).hasClass('dolg-opeka')) {
 			$page.animate({
-				scrollTop: ($('.dolg-opeka-item').offset().top - 80
+				scrollTop: ($('.dolg-opeka-item').offset().top - 80)
 			}, 400);
 		} else {
 			$page.animate({
-				scrollTop: ($('.gift-section').offset().top - 80
+				scrollTop: ($('.gift-section').offset().top - 80)
 			}, 400);
 		}
 	});
