@@ -6,9 +6,9 @@ $(document).ready(function () {
 				scrollTop: ($('.dolg-opeka-item').offset().top - ((window.innerWidth < 771) ? 100 : 180))
 			}, 400);
 		} else {
-			$page.animate({
-				scrollTop: ($('.gift-section').offset().top - ((window.innerWidth < 771) ? 100 : 180))
-			}, 400);
+			// $page.animate({
+			// 	scrollTop: ($('.gift-section').offset().top - ((window.innerWidth < 771) ? 100 : 180))
+			// }, 400);
 		}
 	});
 	var SJ_setiings = {
