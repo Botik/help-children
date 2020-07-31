@@ -4610,7 +4610,7 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 }
 
 .how {
-	padding-top: 100px;
+	padding-top: 65px;
 	background-image: url(../images/bg-purple.png);
 	background-size: cover;
 	color: #fff;
@@ -4764,7 +4764,8 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 }
 
 .partners-main-container {
-	padding-top: 120px;
+	/* padding-top: 120px; */
+	padding-top: 60px;
 	padding-bottom: 60px;
 	-webkit-transition: -webkit-filter .3s linear;
 	transition: -webkit-filter .3s linear;
@@ -4834,7 +4835,7 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 }
 
 .partners-main-list__item {
-	padding: 3rem 2rem
+	padding: 3rem 6rem
 }
 
 .kids {

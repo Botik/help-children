@@ -319,6 +319,8 @@ $(document).ready(function(){
         .to('.empty-cart.with-cont .amount-block .text',{opacity:1, display:"flex",duration:0})
         .to('.empty-cart.with-cont .amount-block .amount-sum',{opacity:1, display:"block",duration:0})
         .to('.empty-cart.with-cont .amount-block .text2',{opacity:0, display:"none",duration:0})
+        .to('.empty-cart.with-cont .needed-block .need1',{display:'none',duration:0})
+        .to('.empty-cart.with-cont .needed-block .need2',{display:'block',duration:0})
         .to('.empty-cart.with-cont .progress-bar.bar2 ',{display:'block', opacity:'1',duration:0.5})
 
         .to(obj8,1,{
@@ -328,6 +330,8 @@ $(document).ready(function(){
             }
         })
         .to('.empty-cart.with-cont .progress-bar.bar2 .progress-bar-done ',{width:'100%',duration:1},'-=1')
+        .to('.empty-cart.with-cont .needed-block .need2',{display:'none',duration:0})
+        .to('.empty-cart.with-cont .needed-block .need3',{display:'block',duration:0})
         .to('.empty-cart.with-cont .progress-bar.bar3 ',{display:'block', opacity:'1',duration:0.5})
         .to(obj9,1,{
             value:0, 
@@ -336,6 +340,8 @@ $(document).ready(function(){
             }
         })
         .to('.empty-cart.with-cont .progress-bar.bar3 .progress-bar-done ',{width:'100%',duration:1},'-=1')
+        .to('.empty-cart.with-cont .needed-block .need3',{display:'none',duration:0})
+        .to('.empty-cart.with-cont .needed-block .need4',{display:'block',duration:0})
         .to('.empty-cart.with-cont .progress-bar.bar4 ',{display:'block', opacity:'1',duration:0.5})
         .to(obj10,1,{
             value:0, 
@@ -344,6 +350,8 @@ $(document).ready(function(){
             }
         })
         .to('.empty-cart.with-cont .progress-bar.bar4 .progress-bar-done ',{width:'100%',duration:1},'-=1')
+        .to('.empty-cart.with-cont .needed-block .need4',{display:'none',duration:0})
+        .to('.empty-cart.with-cont .needed-block .need5',{display:'block',duration:0})
         .to('.empty-cart.with-cont .progress-bar.bar5 ',{display:'block', opacity:'1',duration:0.5})
         .to(obj11,1,{
             value:0, 

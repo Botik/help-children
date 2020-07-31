@@ -2483,7 +2483,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 
 .reviews-swiper {
-	padding:10rem 2rem !important;
+	padding:10rem 2rem 6rem 2rem !important;
 }
 
 .reviews-swiper.oneslide {
@@ -2762,6 +2762,9 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	position:absolute;
 	bottom:1rem;
 	right:0;
+}
+.need2,.need3,.need4,.need5 {
+	display:none;
 }
 
 @media screen and (max-width: 1440px) {
