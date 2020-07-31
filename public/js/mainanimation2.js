@@ -135,7 +135,6 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FF9E00',duration:1},'stage3+=0.5')
         .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FF9E00',duration:1},'stage3+=0.5')
         .to('.fixed-animation-block .list_item:nth-child(3) .text',{opacity:1,duration:0.5},'stage3+=1.5')
-        .fromTo('.empty-cart.with-cont .reabilitation-block',{opacity:0},{opacity:1,duration:0.5},'stage3+=2')
 
         .fromTo('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=2')
         .to('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5,duration:1},'stage3+=3.5')
@@ -244,6 +243,7 @@ $(document).ready(function(){
             element5.innerHTML = Math.round(obj5.value).toLocaleString('ru');
             }
         },'stage3+=6')
+        .fromTo('.empty-cart.with-cont .reabilitation-block',{opacity:0},{opacity:1,duration:0.5},'stage3+=6')
 
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:1,duration:0.5},'stage3+=6.5')
         .to('.empty-cart.with-cont .reabilitation-block .time',{opacity:0, display:"none",duration:0},'stage3+=10')
@@ -284,8 +284,8 @@ $(document).ready(function(){
 
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img1',{opacity:0,duration:0.5},'stage4+=2')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img2',{opacity:1,duration:0.5},'stage4+=2.5')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .title',{opacity:0,display:'none',duration:0.5},'stage4+=2')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .days',{opacity:0,display:'none',duration:0.5},'stage4+=2')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .title',{opacity:0,display:'none',duration:0.5},'stage4+=2.5')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .days',{opacity:0,display:'none',duration:0.5},'stage4+=2.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .reabGone',{opacity:1,display:'flex',duration:0.5},'stage4+=2.5')
 
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=2.5')
