@@ -1377,6 +1377,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js"></script>
     <script src="js/mainanimation2.js"></script>
+    <script>
+        $(document).ready(function(){
+            var swiper = new Swiper('.swiper-container.swiper-animation', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable:true,
+                    renderBullet: function (index, className) {
+                    return '<span class="' + className + '"><div>' + (index + 1) + '</div></span>';
+                    },
+                },
+            });
+        });
+    </script>
 </main>
 {# <div class='WantHelpButtonBlock' id='WantHelpButtonBlock'>
         <a href='{{ path('donate') }}'><div class='WantHelpButton'><span>Хочу помочь</span><span class='icon icon-arrow-right'></span></div></a>
