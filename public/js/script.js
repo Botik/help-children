@@ -3,11 +3,11 @@ $(document).ready(function () {
 		var $page = $('html, body');
 		if($(this).hasClass('dolg-opeka')) {
 			$page.animate({
-				scrollTop: ($('.dolg-opeka-item').offset().top - ((window.innerWidth < 771) ? 100 : 180))
+				scrollTop: ($('.dolg-opeka-item').offset().top - 80
 			}, 400);
 		} else {
 			$page.animate({
-				scrollTop: ($('.gift-section').offset().top - ((window.innerWidth < 771) ? 100 : 180))
+				scrollTop: ($('.gift-section').offset().top - 80
 			}, 400);
 		}
 	});
@@ -427,7 +427,7 @@ $(document).ready(function () {
 	// 	event.preventDefault();
 	// 	var $page = $('html, body');
 	// 	$page.animate({
-	// 		scrollTop: $('.section.mission.gift-section').offset().top
+	// 		scrollTop: $('.section.mission.gift-section').offset().top - 80
 	// 	}, 400);
 	// });
 });
