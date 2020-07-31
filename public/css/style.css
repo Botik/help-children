@@ -1641,7 +1641,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 275px 0 210px 0;
+	padding: 250px 0 150px 0;
 	text-align:center;
 	position:relative;
 }
@@ -1678,7 +1678,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 
 .main-swiper.swiper-container-horizontal>.swiper-pagination-bullets {
-	bottom:150px;
+	bottom:100px;
 }
 .main-swiper .swiper-pagination-bullet-active {
 	background: #A39580;
@@ -3495,10 +3495,15 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 		font-size:3.2rem;
 		padding:0 3rem;
 	}
+	.desk-br {
+		display:none;
+	}
 	.main-swiper .swiper-content .subline {
 		display:flex;
 		justify-content: center;
 		align-items: center;
+		flex-direction: column;
+
 		padding: 0 3rem;
 	}
 	.main-swiper .swiper-content .headline br{
@@ -3507,6 +3512,9 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	}
 	.main-swiper .swiper-content .subline >div {
 		width:50%;
+	}
+	.main-swiper .swiper-content .subline >div:first-child {
+		width:100%;
 	}
 	.dcp-reasons .reasons-wrapper {
 		flex-direction: column;
