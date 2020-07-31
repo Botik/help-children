@@ -6,9 +6,9 @@ $(document).ready(function () {
 				scrollTop: ($('.dolg-opeka-item').offset().top - ((window.innerWidth < 771) ? 100 : 180))
 			}, 400);
 		} else {
-			// $page.animate({
-			// 	scrollTop: ($('.gift-section').offset().top - ((window.innerWidth < 771) ? 100 : 180))
-			// }, 400);
+			$page.animate({
+				scrollTop: ($('.gift-section').offset().top - ((window.innerWidth < 771) ? 100 : 180))
+			}, 400);
 		}
 	});
 	var SJ_setiings = {
@@ -423,13 +423,13 @@ $(document).ready(function () {
 		});
 	}
 
-	$('.gift-link').click(function(){
-		event.preventDefault();
-		var $page = $('html, body');
-		$page.animate({
-			scrollTop: $('.section.mission.gift-section').offset().top
-		}, 400);
-	});
+	// $('.gift-link').click(function(){
+	// 	event.preventDefault();
+	// 	var $page = $('html, body');
+	// 	$page.animate({
+	// 		scrollTop: $('.section.mission.gift-section').offset().top
+	// 	}, 400);
+	// });
 });
 
 
