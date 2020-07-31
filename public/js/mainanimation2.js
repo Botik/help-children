@@ -123,7 +123,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(2) .romb',{background:'#FCFAF5',duration:1},'stage2+=9.2')
         .to('.fixed-animation-block .list_item:nth-child(2)',{background:'transparent',duration:0},'stage2+=10.2')
         .to('.fixed-animation-block .list_item:nth-child(2) .romb',{background:'transparent',duration:0},'stage2+=10.2')
-        .to('.fixed-animation-block .list .line',{height:'70px',duration:0.3},'stage2+=10.2')
+        .to('.fixed-animation-block .list .line',{height:'70px',duration:1},'stage2+=10.2')
         .to('.fixed-animation-block .list_item:nth-child(2) .text',{color:'#000000',duration:1},'stage2+=10.2')
         .to('.fixed-animation-block .list_item:nth-child(2) .text',{duration:1.5},'stage2+=10.2')
         // Третий пункт
@@ -230,7 +230,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FCFAF5',duration:1},'stage3+=15.5')
         .to('.fixed-animation-block .list_item:nth-child(3)',{background:'transparent',duration:0},'stage3+=16.5')
         .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'transparent',duration:0},'stage3+=16.5')
-        .to('.fixed-animation-block .list .line',{height:'140px',duration:0.3},'stage3+=16.5')
+        .to('.fixed-animation-block .list .line',{height:'140px',duration:1},'stage3+=16.5')
         .to('.fixed-animation-block .list_item:nth-child(3) .text',{color:'#000000',duration:1},'stage3+=15.5')
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo2',{opacity:0,duration:0.5},'stage3+=16.5')
         
@@ -258,7 +258,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FCFAF5',duration:1},'stage4+=6')
         .to('.fixed-animation-block .list_item:nth-child(4)',{background:'transparent',duration:0},'stage4+=7')
         .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'transparent',duration:0},'stage4+=7')
-        .to('.fixed-animation-block .list .line',{height:'210px',duration:0.3},'stage4+=7')
+        .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=7')
         .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=6')
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=6')
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
@@ -292,8 +292,8 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(5) .romb',{background:'#FCFAF5',duration:1},'-=1')
         .to('.fixed-animation-block .list_item:nth-child(5)',{background:'transparent',duration:0})
         .to('.fixed-animation-block .list_item:nth-child(5) .romb',{background:'transparent',duration:0})
-        .to('.fixed-animation-block .list .line',{height:'280px',duration:0.3})
-        .to('.fixed-animation-block .list_item:nth-child(5) .text',{color:'#000000',duration:1},'-=1.3')
+        .to('.fixed-animation-block .list .line',{height:'280px',duration:1})
+        .to('.fixed-animation-block .list_item:nth-child(5) .text',{color:'#000000',duration:1},'-=2')
         .to('.fixed-animation-block .list_item:nth-child(5) .subinfo2',{opacity:0,duration:0.5},'-=1')
 
         .addLabel('stage6')
@@ -407,8 +407,8 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(6) .text',{color:'#000000',duration:1},'-=1')
         .to('.fixed-animation-block .list_item:nth-child(6)',{background:'transparent',duration:0})
         .to('.fixed-animation-block .list_item:nth-child(6) .romb',{background:'transparent',duration:0})
-        .to('.fixed-animation-block .list .line',{height:'350px',duration:0.3})
-        .to('.fixed-animation-block .last-info',{opacity:1,duration:0.5},'-=0.3')
+        .to('.fixed-animation-block .list .line',{height:'350px',duration:1})
+        .to('.fixed-animation-block .last-info',{opacity:1,duration:0.5},'-=1')
 
         .addLabel('stage7')
         ;
