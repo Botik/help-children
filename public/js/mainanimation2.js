@@ -273,7 +273,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(5) .text',{opacity:1,duration:0.5},'stage5+=1.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block',{opacity:0,duration:0.5})
 
-        .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'0'},{rotationY:'90deg', duration:0.5})
+        .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'0'},{rotationY:'86deg', duration:0.5})
         .to('.fixed-animation-block .right-half .empty-cart.with-cont',{opacity:0,duration:0})
         .to('.fixed-animation-block .right-half .empty-cart.reab-result',{opacity:1,duration:0})
         .fromTo('.fixed-animation-block .right-half .empty-cart.reab-result',{rotationY:'270deg'},{rotateY:'360deg',duration:0.5})
