@@ -50,24 +50,24 @@ $(document).ready(function(){
             opacity:0,
         },{
             opacity:1,
-            duration:1.5
+            duration:0.5
         },'stage1+=1.5')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px'},{x:'0',y:'0',duration:0.5},'stage1+=3')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px'},{x:'-30px',y:'-30px',opacity:1,duration:0.5},'stage1+=3.1')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px'},{x:'-60px',y:'-60px',opacity:0.78,duration:0.5},'stage1+=3.2')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0},{opacity:0.7,duration:0.5},'stage1+=3.3')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px'},{x:'0',y:'0',duration:0.5},'stage1+=2')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px'},{x:'-30px',y:'-30px',opacity:1,duration:0.5},'stage1+=2.1')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px'},{x:'-60px',y:'-60px',opacity:0.78,duration:0.5},'stage1+=2.2')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0},{opacity:0.7,duration:0.5},'stage1+=2.3')
 
-        .to('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px', opacity:1, duration:0},'stage1+=3.8')
-        .to('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px', opacity:0.78, duration:0},'stage1+=3.8')
-        .to('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px',opacity:0.7, duration:0},'stage1+=3.8')
-        .to('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0, duration:0},'stage1+=3.8')
+        .to('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px', opacity:1, duration:0},'stage1+=2.8')
+        .to('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px', opacity:0.78, duration:0},'stage1+=2.8')
+        .to('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px',opacity:0.7, duration:0},'stage1+=2.8')
+        .to('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0, duration:0},'stage1+=2.8')
 
         .to('.fixed-animation-block .right-half .empty-cart.second img, .fixed-animation-block .right-half .empty-cart.second .cart-text',{
             opacity:0,
             duration:0,
-        },'stage1+=3.8')
+        },'stage1+=2.8')
 
-        .fromTo('.fixed-animation-block .right-half .empty-cart.first',{y:'0',opacity:1},{y:'55rem',opacity:0,duration: 1.5},'stage1+=3.8')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.first',{y:'0',opacity:1},{y:'55rem',opacity:0,duration: 1.5},'stage1+=2.8')
         .fromTo('.fixed-animation-block .right-half .empty-cart.second img, .fixed-animation-block .right-half .empty-cart.second .cart-text',{
             opacity:0,
         },{
