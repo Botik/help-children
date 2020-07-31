@@ -1650,7 +1650,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 250px 0 150px 0;
+	padding: 150px 0 150px 0;
 	text-align:center;
 	position:relative;
 }
@@ -2249,6 +2249,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 .fixed-animation-block .right-half {
 	display:flex;
 	justify-content: center;
+	transform:translateY(80px);
 }
 .fixed-animation-block .right-half .empty-cart {
 	background: #FFFFFF;

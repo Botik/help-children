@@ -72,12 +72,12 @@ $(document).ready(function(){
             opacity:0,
         },{
             opacity:1,
-            duration:1.5
+            duration:0.5
         },'stage1+=5.3')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px'},{x:'0',y:'0',duration:0.5},'stage1+=6.8')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px'},{x:'-30px',y:'-30px',opacity:1,duration:0.5},'stage1+=6.9')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px'},{x:'-60px',y:'-60px',opacity:0.78,duration:0.5},'stage1+=7')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0},{opacity:0.7,duration:0.5},'stage1+=7.1')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px'},{x:'0',y:'0',duration:0.5},'stage1+=5.8')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px'},{x:'-30px',y:'-30px',opacity:1,duration:0.5},'stage1+=5.9')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px'},{x:'-60px',y:'-60px',opacity:0.78,duration:0.5},'stage1+=6')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0},{opacity:0.7,duration:0.5},'stage1+=6.1')
 
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(1) .text',{width:'44px'},{width:'auto',duration:1},'stage1+=3.8')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(1) .romb',{right:'-15px',duration:1},'stage1+=3.8')
