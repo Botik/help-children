@@ -4346,15 +4346,18 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 @media (max-width: 768px) {
 	.donate-form-submit {
 		padding: 0 20px;
-		line-height: 50px;
+		line-height: 50px !important;
 		font-size: 2rem;
 		font-weight:bold;
 		width:calc(100% - 20px);
 	}
-
+	.toggle-field__text {
+		line-height:50px;
+	}
 	.donate-form-submit > .icon-arrow-right {
 		width: 23px;
 		height: 17px;
+		transform: translateY(-2px);
 	}
 }
 
