@@ -2308,7 +2308,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .empty-cart.with-cont .kid-name {
 	font-weight: bold;
-	font-size: 2rem;
+	font-size: 2.2rem;
 	line-height: 128.27%;
 }
 .empty-cart.with-cont .diagnos {
@@ -2372,11 +2372,11 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	padding-top:1rem;
+	padding-top:1.5rem;
 }
 .empty-cart.with-cont .amount-block>div.text {
-	font-weight: 500;
-	font-size: 1.2rem;
+	font-weight: 300;
+	font-size: 1.4rem;
 }
 .empty-cart.with-cont .amount-block>div.text.text2{
 	display:none;
@@ -2389,8 +2389,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	display:flex;
 	justify-content: space-between;
 	align-items: center;
-	font-weight: 500;
-	font-size: 1.2rem;
+	font-weight: 300;
+	font-size: 1.4rem;
 	padding-top:2rem;
 }
 .empty-cart.with-cont .needed-block>div:last-child {
@@ -2752,6 +2752,11 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	font-size: 1.4rem;
 	line-height: 128.27%;
 	margin-bottom:2rem;
+	display:flex;
+	align-items: flex-start;
+}
+.empty-cart.reab-result .result-list .item span {
+	padding-left:1rem;
 }
 .empty-cart.reab-result .pechat {
 	position:absolute;
