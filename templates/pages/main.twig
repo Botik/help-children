@@ -156,7 +156,7 @@
                     </div>
 
                     <div class="line">
-                        <img src="/newimages/line-1.svg" style="height:20rem">
+                        <img src="/newimages/line-1.svg" style="height:17rem">
                     </div>
                 </div>
                 <div class="mission-description-col mission-description-col-image">
@@ -442,7 +442,7 @@
                                     <span>Улучшилась подвижность мышц стопы</span>
                                 </div>
                             </div>
-                            <img class='pechat' src="/newimages/pechat.png">
+                            <img class='pechat' src="/newimages/pechat.svg">
                         </div>
                     </div>
 
@@ -872,7 +872,7 @@
                                         <span>Улучшилась подвижность мышц стопы</span>
                                     </div>
                                 </div>
-                                <img class='pechat' src="/newimages/pechat.png">
+                                <img class='pechat' src="/newimages/pechat.svg">
                             </div>
                             <div class="empty-cart second">
                             </div>
@@ -1207,11 +1207,10 @@
 
                 <div class="wrapper-item">
                     <div class="img-container">
-                        <div class="item-number" style="left:2rem;">
+                        <div class="item-number">
                             <div>1</div>
                         </div>
-                        <img src="/newimages/how-help1.png" style="width:21.8rem; height:13.4rem" alt="Платежная система"
-                            style="margin-top:30px;">
+                        <img src="/newimages/how-help1.png" style="" alt="Платежная система">
                     </div>
                     <div class="title">Платежная система</div>
                     <div class="subtitle">
@@ -1224,7 +1223,7 @@
                         <div class="item-number">
                             <div>2</div>
                         </div>
-                        <img src="/newimages/how-help2.png" style="width:30.5rem" alt="Платежная система">
+                        <img src="/newimages/how-help2.png" alt="Платежная система">
                     </div>
                     <div class="title">Банковская карта</div>
                     <div class="subtitle">
@@ -1237,8 +1236,7 @@
                         <div class="item-number">
                             <div>3</div>
                         </div>
-                        <img src="/newimages/how-help3.png" style="height:14.2rem" alt="Платежная система"
-                            style="margin-top:40px;">
+                        <img src="/newimages/how-help3.png" alt="Платежная система" style="left:2rem">
                     </div>
                     <div class="title">СМС - помощь</div>
                     <div class="subtitle">
@@ -1248,12 +1246,13 @@
 
             </div>
         </div>
-        <div class="container container--small" style="/* height: 400px; */text-align: center;">
+        <div class="container container--small" style="/* height: 400px; */text-align: center;padding: 0 30px;
+    line-height: 50px;">
             <p style="padding-bottom: 50px;">
                 <a class="donate-form-row__col btn btn-dark donate-form-submit js-donate-form-submit "
                     href="/dist/online-help.html?sum-other=200" style='text-decoration:none;'>
                     <span class="donate-form-submit__text">Помочь детям</span>
-                    <span class="icon icon-arrow-right"></span>
+                    <span class="icon icon-arrow-right" style="transform:translateY(-2px)"></span>
                 </a>
             </p>
         </div>
@@ -1298,74 +1297,209 @@
 
         <div class="swiper-container reviews-swiper">
             <div class="swiper-wrapper">
-                {% for i in 0..3 %}
                 <div class="swiper-slide">
                     <div class="slide-content">
-                        {% for j in 0..2 %}
                         <div class="review-item">
                             <div class="review-boble">
-                                <div class="text">А мышка бежала, хвостиком махнула, яичко упало и разбилось. Плачет
-                                    дед, плачет баба и говорит им Курочка Ряба: - Не плачь, дед, не плачь, баба: снесу
-                                    вам новое.</div>
+                                <div class="text">Хотим от души поблагодарить за оказанную помощь.Спасибо Вам за участие в жизни Платона, 
+                                за готовность всегда прийти на помощь.Искренне благодарим за усилия и старания ради нашего сына, за беспокойство и понимание. 
+                                Дай бог Вам крепкого здоровья!</div>
                                 <a href="#">Открыть карту ребенка</a>
-                                <div class="rating_block">
+                                {# <div class="rating_block">
                                     <span class='active'></span>
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                     <span></span>
-                                </div>
+                                </div> #}
                             </div>
                             <div class="child-info-block">
                                 <div class="left">
-                                    <img src="/newimages/dasha.jpeg">
+                                    <img src="/newimages/larisa.png">
                                 </div>
                                 <div class="right">
-                                    <div class="child-name">Даша Карпеева, 9 мая</div>
-                                    <div class="child-influence">ДЦП, спастическая диплегия GMFCS III уровень</div>
+                                    <div class="child-name">Лариса Викторовна</div>
+                                    <div class="child-influence">Мама Платона Борисова</div>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Спасибо за оказанную помощь вашему фонду. Приобритение вертикализатора послужит дальнейшем толчком в лечнии для моего ребёнка.</div>
+                                <a href="#">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/olga.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Ольга Артемьевна</div>
+                                    <div class="child-influence">Мама Кузьмина Ивана</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">От всей нашей дружной семьи благодарим фонд «Помогите детям» за оплату лечения в РЦ «Добрые руки». Желаем успехов и больших побед в вашем нелёгком деле!</div>
+                                <a href="#">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/anna.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Анна Севировна</div>
+                                    <div class="child-influence">Мама Михайловой Ангелины</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Выражаем огромную благодарность БФ "Помогите детям" за материальную помощь в приобретении детского школьного уголка. Благодаря вам мы готовы к новому учебному году.</div>
+                                <a href="#">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/rausha.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Раушания Сахипяновна</div>
+                                    <div class="child-influence">Мама Раиля Гильмутдинова</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
         </div>
 
         <div class="swiper-container reviews-swiper oneslide">
             <div class="swiper-wrapper">
-                {% for i in 0..9 %}
                 <div class="swiper-slide">
                     <div class="slide-content">
                         <div class="review-item">
                             <div class="review-boble">
-                                <div class="text">А мышка бежала, хвостиком махнула, яичко упало и разбилось. Плачет
-                                    дед, плачет баба и говорит им Курочка Ряба: - Не плачь, дед, не плачь, баба: снесу
-                                    вам новое.</div>
+                                <div class="text">Хотим от души поблагодарить за оказанную помощь.Спасибо Вам за участие в жизни Платона, 
+                                за готовность всегда прийти на помощь.Искренне благодарим за усилия и старания ради нашего сына, за беспокойство и понимание. 
+                                Дай бог Вам крепкого здоровья!</div>
                                 <a href="#">Открыть карту ребенка</a>
-                                <div class="rating_block">
+                                {# <div class="rating_block">
                                     <span class='active'></span>
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                     <span></span>
-                                </div>
+                                </div> #}
                             </div>
                             <div class="child-info-block">
                                 <div class="left">
-                                    <img src="/newimages/dasha.jpeg">
+                                    <img src="/newimages/larisa.png">
                                 </div>
                                 <div class="right">
-                                    <div class="child-name">Даша Карпеева, 9 мая</div>
-                                    <div class="child-influence">ДЦП, спастическая диплегия GMFCS III уровень</div>
+                                    <div class="child-name">Лариса Викторовна</div>
+                                    <div class="child-influence">Мама Платона Борисова</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Спасибо за оказанную помощь вашему фонду. Приобритение вертикализатора послужит дальнейшем толчком в лечнии для моего ребёнка.</div>
+                                <a href="#">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/olga.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Ольга Артемьевна</div>
+                                    <div class="child-influence">Мама Кузьмина Ивана</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">От всей нашей дружной семьи благодарим фонд «Помогите детям» за оплату лечения в РЦ «Добрые руки». Желаем успехов и больших побед в вашем нелёгком деле!</div>
+                                <a href="#">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/anna.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Анна Севировна</div>
+                                    <div class="child-influence">Мама Михайловой Ангелины</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Выражаем огромную благодарность БФ "Помогите детям" за материальную помощь в приобретении детского школьного уголка. Благодаря вам мы готовы к новому учебному году.</div>
+                                <a href="#">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/rausha.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Раушания Сахипяновна</div>
+                                    <div class="child-influence">Мама Раиля Гильмутдинова</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -1391,6 +1525,7 @@
                     return '<span class="' + className + '"><div>' + (index + 1) + '</div></span>';
                     },
                 },
+                loop:true,
             });
         });
     </script>
