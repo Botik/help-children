@@ -50,8 +50,8 @@ $(document).ready(function(){
             opacity:0,
         },{
             opacity:1,
-            duration:0.5
-        },'stage1+=1.5')
+            duration:0
+        },'stage1')
         .fromTo('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px'},{x:'0',y:'0',duration:0.5},'stage1+=2')
         .fromTo('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px'},{x:'-30px',y:'-30px',opacity:1,duration:0.5},'stage1+=2.1')
         .fromTo('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px'},{x:'-60px',y:'-60px',opacity:0.78,duration:0.5},'stage1+=2.2')
@@ -72,8 +72,8 @@ $(document).ready(function(){
             opacity:0,
         },{
             opacity:1,
-            duration:0.5
-        },'stage1+=4.3')
+            duration:0
+        },'stage1+=2.8')
         .fromTo('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px'},{x:'0',y:'0',duration:0.5},'stage1+=4.8')
         .fromTo('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px'},{x:'-30px',y:'-30px',opacity:1,duration:0.5},'stage1+=4.9')
         .fromTo('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px'},{x:'-60px',y:'-60px',opacity:0.78,duration:0.5},'stage1+=5')
@@ -84,8 +84,8 @@ $(document).ready(function(){
         .fromTo('.fixed-animation-block .list_item:first-child .points',{opacity:1},{opacity:0,duration:0.5},'stage1+=2.3')
         .to('.fixed-animation-block .list_item:first-child',{background:'#FF9E00',duration:1},'stage1+=2.8')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(1) .romb',{background:'#FF9E00',duration:1},'stage1+=2.8')
-        .fromTo('.fixed-animation-block .list_item:first-child .text',{opacity:0},{opacity:1,duration:1},'stage1+=2.8')
-        .fromTo('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0},{opacity:1,duration:0.5},'stage1+=3.8')
+        .fromTo('.fixed-animation-block .list_item:first-child .text',{opacity:0},{opacity:1,duration:0.5},'stage1+=3.8')
+        .fromTo('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0},{opacity:1,duration:0.5},'stage1+=4.8')
 
         .fromTo('.fixed-animation-block .right-half .empty-cart.second',{rotationY:'0'},{rotationY:'86deg',duration:0.5},'stage1+=5.6')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont',{display:'block',duration:0},'stage1+=6.1')

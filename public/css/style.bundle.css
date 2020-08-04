@@ -4226,7 +4226,8 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 	background: #fff;
 	-webkit-box-shadow: 0 19px 46px rgba(137, 55, 25, .17);
 	box-shadow: 0 19px 46px rgba(137, 55, 25, .17);
-	border-radius: 30px 10px 10px 10px;
+	/* border-radius: 30px 10px 10px 10px; */
+	border-radius:20px;
 	z-index: 5
 }
 
@@ -4781,8 +4782,8 @@ li.dropdown:nth-child(2) > div:nth-child(2) {
 
 .partners-main-container {
 	/* padding-top: 120px; */
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 90px;
+    padding-bottom: 100px;
 	-webkit-transition: -webkit-filter .3s linear;
 	transition: -webkit-filter .3s linear;
 	transition: filter .3s linear;
