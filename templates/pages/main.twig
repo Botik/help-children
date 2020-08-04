@@ -5,7 +5,9 @@
 {% block keywords %}Главная{% endblock %}
 
 {% block content %}
-<main>
+    {% set mnths = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'] %}
+    {{ dump(pmj) }}
+    <main>
     <section class="section hero-new">
         <div class="swiper-container main-swiper">
             <div class="swiper-wrapper">
@@ -1074,121 +1076,73 @@
         </div>
         <div class="swiper-container dream-swiper">
             <div class="swiper-wrapper">
-                {% for i in 0..3 %}
                 <div class="swiper-slide">
-                    <div class="slide-content">
+                {% for child in pmj %}
+                    <div class="slide-content" onclick="location='/children/{{ child.id }}#needed'">
                         <div class="dream-img">
-                            <img src="/newimages/svosh.png">
+                            <img src="{{ asset('uploads/images/' ~ (child.targets|last).first_photo) }}">
                         </div>
-                        <div class="dream-name">Аппарат СВОШ</div>
+                        <div class="dream-name">{{ (child.targets|last).name }}</div>
                         <div class="dream-progress-bar">
-                            <div class="progress-bar-done" style="width:50%">
+                            <div class="progress-bar-done" style="width:{{ 100*(child.targets|last).collected/(child.targets|last).goal }}%">
 
                             </div>
                         </div>
                         <div class="amount-block">
                             <div class="text">Осталось собрать</div>
-                            <div class="amount-sum">23 000 руб</div>
+                            <div class="amount-sum">{{ (child.targets|last).goal - (child.targets|last).collected }} руб</div>
                         </div>
 
                         <div class="child-info-block">
                             <div class="left">
-                                <img src="/newimages/dasha.jpeg">
+                                <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
                             </div>
                             <div class="right">
-                                <div class="child-name">Даша Карпеева, 9 мая</div>
-                                <div class="child-infuence">ДЦП, спастическая диплегия GMFCS III уровень</div>
+                                <div class="child-name">{{ child.name}}, {{ (child.targets|last).totime|date("d") }} {{ mnths[(child.targets|last).totime|date("n")] }}</div>
+                                <div class="child-infuence">{{child.diagnosis}}</div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="slide-content">
-                        <div class="dream-img">
-                            <img src="/newimages/svosh.png">
-                        </div>
-                        <div class="dream-name">Аппарат СВОШ</div>
-                        <div class="dream-progress-bar">
-                            <div class="progress-bar-done" style="width:50%">
-
-                            </div>
-                        </div>
-                        <div class="amount-block">
-                            <div class="text">Осталось собрать</div>
-                            <div class="amount-sum">23 000 руб</div>
-                        </div>
-
-                        <div class="child-info-block">
-                            <div class="left">
-                                <img src="/newimages/dasha.jpeg">
-                            </div>
-                            <div class="right">
-                                <div class="child-name">Даша Карпеева, 9 мая</div>
-                                <div class="child-infuence">ДЦП, спастическая диплегия GMFCS III уровень</div>
-                            </div>
-                        </div>
+                    {% if(loop.index%3==0 and loop.index!=(pmj|length)) %}
                     </div>
-
-                    <div class="slide-content">
-                        <div class="dream-img">
-                            <img src="/newimages/svosh.png">
-                        </div>
-                        <div class="dream-name">Аппарат СВОШ</div>
-                        <div class="dream-progress-bar">
-                            <div class="progress-bar-done" style="width:50%">
-
-                            </div>
-                        </div>
-                        <div class="amount-block">
-                            <div class="text">Осталось собрать</div>
-                            <div class="amount-sum">23 000 руб</div>
-                        </div>
-
-                        <div class="child-info-block">
-                            <div class="left">
-                                <img src="/newimages/dasha.jpeg">
-                            </div>
-                            <div class="right">
-                                <div class="child-name">Даша Карпеева, 9 мая</div>
-                                <div class="child-infuence">ДЦП, спастическая диплегия GMFCS III уровень</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="swiper-slide">
+                    {% endif %}
                 {% endfor %}
+            </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
 
         <div class="swiper-container dream-swiper oneslide">
             <div class="swiper-wrapper">
-                {% for i in 0..9 %}
-                <div class="swiper-slide">
-                    <div class="slide-content">
-                        <div class="dream-img">
-                            <img src="/newimages/svosh.png">
-                        </div>
-                        <div class="dream-name">Аппарат СВОШ</div>
-                        <div class="dream-progress-bar">
-                            <div class="progress-bar-done" style="width:50%">
-
+                {% for child in pmj %}
+                    <div class="swiper-slide" onclick="location='/children/{{ child.id }}#needed'">
+                        <div class="slide-content">
+                            <div class="dream-img">
+                                <img src="{{ asset('uploads/images/' ~ (child.targets|last).first_photo) }}">
                             </div>
-                        </div>
-                        <div class="amount-block">
-                            <div class="text">Осталось собрать</div>
-                            <div class="amount-sum">23 000 руб</div>
-                        </div>
+                            <div class="dream-name">{{ (child.targets|last).name }}</div>
+                            <div class="dream-progress-bar">
+                                <div class="progress-bar-done" style="width:{{ 100*(child.targets|last).collected/(child.targets|last).goal }}%">
 
-                        <div class="child-info-block">
-                            <div class="left">
-                                <img src="/newimages/dasha.jpeg">
+                                </div>
                             </div>
-                            <div class="right">
-                                <div class="child-name">Даша Карпеева, 9 мая</div>
-                                <div class="child-infuence">ДЦП, спастическая диплегия GMFCS III уровень</div>
+                            <div class="amount-block">
+                                <div class="text">Осталось собрать</div>
+                                <div class="amount-sum">{{ (child.targets|last).goal - (child.targets|last).collected }} руб</div>
+                            </div>
+
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">{{ child.name}}, {{ (child.targets|last).totime|date("d") }} {{ mnths[(child.targets|last).totime|date("n")] }}</div>
+                                    <div class="child-infuence">{{child.diagnosis}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
@@ -1370,7 +1324,7 @@
             <div class="swiper-pagination"></div>
         </div>
 
-        
+
         <div class="container container--small">
             <div class="donate-form-wrapper mainpage-wrapper">
                 {% include 'components/donate_form.twig' %}

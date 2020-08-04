@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Child;
 use App\Entity\Document;
 use App\Entity\User;
 use LogicException;
@@ -19,7 +20,9 @@ class MainController extends AbstractController
      */
     public function main()
     {
-        return $this->render('pages/main.twig');
+        return $this->render('pages/main.twig',[
+            'pmj' => $this->getDoctrine()->getRepository(Child::class)->getCurCh('pmj'),
+        ]);
     }
 
     /**
