@@ -109,15 +109,6 @@ class ChildRepository extends ServiceEntityRepository
             else $c[$key]['targets'][0]['first_photo']=$child['targets'][0]['first_photo'];
         }
             $c = array_values($c);
-        $c[]=$c[0];
-        $c[]=$c[0];
-        $c[]=$c[0];
-        $c[]=$c[0];
-        $c[]=$c[0];
-        $c[]=$c[0];
-        $c[]=$c[0];
-        $c[]=$c[0];
-        $c[]=$c[0];
         return $c;
     }
     /**
