@@ -5,7 +5,6 @@
 {% block keywords %}Главная{% endblock %}
 
 {% block content %}
-    {% set mnths = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'] %}
     <main>
     <section class="section hero-new">
         <div class="swiper-container main-swiper">
@@ -1097,7 +1096,7 @@
                                 <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
                             </div>
                             <div class="right">
-                                <div class="child-name">{{ child.name}}, {{ (child.targets|last).totime|date("d") }} {{ mnths[(child.targets|last).totime|date("n")] }}</div>
+                                <div class="child-name">{{ child.name}}, {{ child.age }} лет</div>
                                 <div class="child-infuence">{{child.diagnosis}}</div>
                             </div>
                         </div>
@@ -1136,7 +1135,7 @@
                                     <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
                                 </div>
                                 <div class="right">
-                                    <div class="child-name">{{ child.name}}, {{ (child.targets|last).totime|date("d") }} {{ mnths[(child.targets|last).totime|date("n")] }}</div>
+                                    <div class="child-name">{{ child.name}}, {{ child.age }} лет</div>
                                     <div class="child-infuence">{{child.diagnosis}}</div>
                                 </div>
                             </div>

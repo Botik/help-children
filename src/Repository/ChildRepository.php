@@ -90,6 +90,7 @@ class ChildRepository extends ServiceEntityRepository
             $rows[$key]['requisites']=$body->requisites;
             $rows[$key]['contacts']=$body->contacts;
             $rows[$key]['city']=$body->city;
+            $rows[$key]['age']=(new \DateTime())->diff(new \DateTime($child['birthdate']))->y;
             $sql=<<<sql
              SELECT * FROM ch_target WHERE child = :state
             sql;
