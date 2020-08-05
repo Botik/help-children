@@ -1479,6 +1479,7 @@
     <script>
         $(document).ready(function(){
             var swiper = new Swiper('.swiper-container.swiper-animation', {
+                loop:true,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable:true,
@@ -1486,7 +1487,6 @@
                     return '<span class="' + className + '"><div>' + (index + 1) + '</div></span>';
                     },
                 },
-                loop:true,
             });
         });
     </script>
