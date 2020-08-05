@@ -418,6 +418,7 @@ $(document).ready(function () {
 		var reviewswiper = new Swiper('.reviews-swiper', {
 			slidesPerView:1,
 			spaceBetween:100,
+			loop:true,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable:true,
