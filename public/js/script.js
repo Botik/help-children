@@ -395,6 +395,7 @@ $(document).ready(function () {
 		var mainswiper = new Swiper('.main-swiper', {
 			slidesPerView:1,
 			spaceBetween:100,
+			loop:true,
 			pagination: {
 			  el: '.swiper-pagination',
 			  clickable:true,
@@ -407,6 +408,7 @@ $(document).ready(function () {
 		var dreamswiper = new Swiper('.dream-swiper', {
 			slidesPerView:1,
 			spaceBetween:200,
+			loop:true,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable:true,
