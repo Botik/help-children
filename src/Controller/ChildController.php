@@ -305,7 +305,7 @@ class ChildController extends AbstractController
         $form = $this->createForm(EditChildTypes::class, $childData);
         $oldimages = $childData->getImages();
         $form->handleRequest($request);
-
+        dump($form->getErrors(true));
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $childData->getImages();
             $arrayImg = [];
