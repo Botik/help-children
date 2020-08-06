@@ -425,7 +425,7 @@ $(document).ready(function(){
 
         let st = ScrollTrigger.create({
             trigger: ".section.mission.mainanimation",
-            start: "top bottom-=25%",
+            start: "top bottom-=30%",
             //endTrigger: "#otherID",
             // end: "top top",
             onToggle: self => {
