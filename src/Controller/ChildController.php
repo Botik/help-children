@@ -14,6 +14,8 @@ use App\Service\SendGridService;
 use Exception;
 use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -303,12 +305,15 @@ class ChildController extends AbstractController
         $form = $this->createForm(EditChildTypes::class, $childData);
         $oldimages = $childData->getImages();
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $childData->getImages();
             $arrayImg = [];
             if (!is_string($images)) foreach ($images as $image) {
-                $arrayImg[] = $fileUploader->upload($image);
+                try {
+                    $arrayImg[] = $fileUploader->upload($image);
+                } catch (FileException $e) {
+                    $form->get('images')->addError(new FormError($e->getMessage()));
+                }
             }
             if (!is_string($oldimages)) foreach ($oldimages as $image) {
                 $arrayImg[] = $image;
