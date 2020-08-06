@@ -88,6 +88,7 @@ $(document).ready(function(){
         .fromTo('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0},{opacity:1,duration:0.5},'stage1+=4.8')
 
         .fromTo('.fixed-animation-block .right-half .empty-cart.second',{rotationY:'0'},{rotationY:'86deg',duration:0.5},'stage1+=5.6')
+        .to('.fixed-animation-block .right-half .empty-cart.second',{opacity:0,duration:0},'stage1+=6.1')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont',{display:'block',duration:0},'stage1+=6.1')
         .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'270deg'},{rotationY:'360deg',duration:0.5},'stage1+=6.1')
 
@@ -424,7 +425,7 @@ $(document).ready(function(){
 
         let st = ScrollTrigger.create({
             trigger: ".section.mission.mainanimation",
-            start: "top bottom-=20%",
+            start: "top bottom-=50%",
             //endTrigger: "#otherID",
             // end: "top top",
             onToggle: self => {

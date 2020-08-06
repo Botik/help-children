@@ -14,7 +14,7 @@
                         <img class="swiper-back-img" src="/newimages/medved.png" alt="Мишка">
                         <div class="headline">Помогаем детям с ДЦП <br>сделать первый шаг</div>
                         <div class="subline">
-                            <div>Сбор средств осуществляется электронными<br class='desk-br'> способами приема платежей.</div>
+                            <div>Сбор средств осуществляется электронными<br class='desk-br'> способами приема платежей</div>
                             <div class="mobile-medved"><img src="/newimages/medved.png" alt="Мишка"></div>
                         </div>
                         <a href="/children" class="btn orange-btn">Программы помощи</a>
@@ -25,7 +25,7 @@
                     <div class="swiper-content">
                         <img class="swiper-back-img" src="/newimages/medved.png" alt="Мишка">
                         <div class="headline">Помогаем детям с ДЦП <br>сделать первый шаг</div>
-                        <div class="subline">Сбор средств осуществляется электронными<br>способами приема платежей.
+                        <div class="subline">Сбор средств осуществляется электронными<br>способами приема платежей
                         </div>
                         <a href="/children" class="btn orange-btn">Программы помощи</a>
                     </div>
@@ -35,7 +35,7 @@
                     <div class="swiper-content">
                         <img class="swiper-back-img" src="/newimages/medved.png" alt="Мишка">
                         <div class="headline">Помогаем детям с ДЦП <br>сделать первый шаг</div>
-                        <div class="subline">Сбор средств осуществляется электронными<br>способами приема платежей.
+                        <div class="subline">Сбор средств осуществляется электронными<br>способами приема платежей
                         </div>
                         <a href="/children" class="btn orange-btn">Программы помощи</a>
                     </div>
@@ -1135,7 +1135,7 @@
                                     <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
                                 </div>
                                 <div class="right">
-                                    <div class="child-name">{{ child.name}}, {{ child.age }} лет</div>
+                                    <div class="child-name">{{ child.name}},<br>{{ child.age }} лет</div>
                                     <div class="child-infuence">{{child.diagnosis}}</div>
                                 </div>
                             </div>
@@ -1188,7 +1188,7 @@
                         <div class="item-number">
                             <div>3</div>
                         </div>
-                        <img src="/newimages/how-help3.png" alt="Платежная система" style="left:2rem">
+                        <img src="/newimages/how-help3.png" alt="Платежная система" style="left:2rem;margin-top: 2rem;">
                     </div>
                     <div class="title">СМС - помощь</div>
                     <div class="subtitle">
@@ -1242,9 +1242,9 @@
     <section class="section how reviews">
         <div class="container">
             <h2 class="how-title section-title">Отзывы РОДИТЕЛЕЙ</h2>
-            <div class="subtitle">Отзывы от мам, дети которых проходят лечение на долгосрочной основе с размещением в
+            {# <div class="subtitle">Отзывы от мам, дети которых проходят лечение на долгосрочной основе с размещением в
                 каждом отзыве ссылки на карту ребенка, чтобы обеспечить переходы на детей, посмотреть динамику в истории
-                реабилитаций и совершить пожертвование.</div>
+                реабилитаций и совершить пожертвование.</div> #}
         </div>
 
         <div class="swiper-container reviews-swiper">
@@ -1271,7 +1271,7 @@
                                 </div>
                                 <div class="right">
                                     <div class="child-name">Лариса Викторовна</div>
-                                    <div class="child-influence">Мама Платона Борисова</div>
+                                    <div class="child-influence">Мама Борисова Платона</div>
                                 </div>
                             </div>
                         </div>
@@ -1381,6 +1381,25 @@
                                 <div class="right">
                                     <div class="child-name">Елена Юрьевна</div>
                                     <div class="child-influence">Мама Никиты Захарова</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Урра! Огромное спасибо фонду и всем кто помог осуществить мечту нашей дочери! Для Машеньки это новые интересы и навыки! Мечтайте ,и пусть ваши мечты тоже сбываются.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/14">Открыть карту ребенка</a>
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/marina.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Марина Юрьевна</div>
+                                    <div class="child-influence">Мама Маши Анисивомой</div>
                                 </div>
                             </div>
                         </div>
@@ -1414,7 +1433,7 @@
                                 </div>
                                 <div class="right">
                                     <div class="child-name">Лариса Викторовна</div>
-                                    <div class="child-influence">Мама Платона Борисова</div>
+                                    <div class="child-influence">Мама Борисова Платона</div>
                                 </div>
                             </div>
                         </div>
@@ -1569,12 +1588,31 @@
                         </div>
                     </div>
                 </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Урра! Огромное спасибо фонду и всем кто помог осуществить мечту нашей дочери! Для Машеньки это новые интересы и навыки! Мечтайте ,и пусть ваши мечты тоже сбываются.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/14">Открыть карту ребенка</a>
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/marina.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Марина Юрьевна</div>
+                                    <div class="child-influence">Мама Маши Анисивомой</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
 
 
-        <div class="container container--small">
+        <div class="container container--small mainpage-danateform">
             <div class="donate-form-wrapper mainpage-wrapper">
                 {% include 'components/donate_form.twig' %}
             </div>
