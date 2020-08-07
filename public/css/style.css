@@ -1748,6 +1748,9 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	position:absolute;
 	left:21%;
 }
+.mission-description .line2 {
+	display:none;
+}
 @media screen and (max-width:1440px) {
 	.mission-description .line {
 		left:25%;
@@ -1766,6 +1769,10 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	}
 	.mission-description .line img {
 		height:10rem !important;
+	}
+	.mission-description .line2 {
+		display:block;
+		position:absolute;
 	}
 }
 .how-we-help {
