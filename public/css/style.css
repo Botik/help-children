@@ -1773,6 +1773,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.how-we-help .line2 {
 		display:block;
 		position:absolute;
+		bottom: 0;
 	}
 }
 .how-we-help {
@@ -1801,6 +1802,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	background: #F6F5FC;
 	border-radius: 10px;
 	width:45%;
+	position:relative;
 }
 .how-we-help-wrapper .wrapper-item .right {
 	font-weight: 300;
