@@ -417,6 +417,16 @@ $(document).ready(function () {
 
 		// var padding = $(window).width()/2 
 		// $('.reviews-swiper.oneslide').css('padding')
+		var reviewswiper = new Swiper('.reviews-swiper.multislide', {
+			slidesPerView:1,
+			spaceBetween:100,
+			loop:true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable:true,
+			},
+			centeredSlides:true,
+		});
 		var reviewswiper = new Swiper('.reviews-swiper.oneslide', {
 			slidesPerView:"auto",
 			spaceBetween:25,
