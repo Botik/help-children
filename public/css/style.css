@@ -2599,6 +2599,23 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	text-overflow: ellipsis;
 }
 
+.review-item .review-boble {
+	background-image:none;
+	background:#ffffff;
+	margin-bottom:3rem;
+}
+.review-item .review-boble:before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	border-left: 24px solid #fff;
+	border-right: 12px solid transparent;
+	border-top: 12px solid #fff;
+	border-bottom: 20px solid transparent;
+	left: 50px;
+
+
 .review-item .review-boble a{
 	color: #5F21B4;
 	text-decoration-line: underline;
