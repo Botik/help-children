@@ -1762,6 +1762,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.mission-description .line {
 		left:12%;
 		bottom:0;
+		display:block;
 	}
 	.mission-description .line img {
 		height:10rem !important;
