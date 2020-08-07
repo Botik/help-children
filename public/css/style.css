@@ -3908,7 +3908,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.review-item .review-boble .text {
 		-webkit-line-clamp:8;
 	}
-	.reviews-swiper.oneslide .slide-content {
+	.reviews-swiper.oneslide .swiper-slide{
 		width:250px;
 	}
 	.reviews-swiper .review-item .child-info-block {
