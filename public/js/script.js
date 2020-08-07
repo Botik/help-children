@@ -415,6 +415,8 @@ $(document).ready(function () {
 			},
 		});
 
+		// var padding = $(window).width()/2 
+		// $('.reviews-swiper.oneslide').css('padding')
 		var reviewswiper = new Swiper('.reviews-swiper.oneslide', {
 			slidesPerView:"auto",
 			spaceBetween:25,
@@ -423,7 +425,9 @@ $(document).ready(function () {
 				el: '.swiper-pagination',
 				clickable:true,
 			},
+			centerInsufficientSlides:true,
 		});
+
 	}
 
 	// $('.gift-link').click(function(){
