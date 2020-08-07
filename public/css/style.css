@@ -1758,6 +1758,15 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 		display: none;
 	}
 }
+@media screen and (max-width:500px) {
+	.mission-description .line {
+		left:12%;
+		bottom:0;
+	}
+	.mission-description .line img {
+		height:10rem !important;
+	}
+}
 .how-we-help {
 	padding-bottom:8.5rem;
 }
@@ -3879,6 +3888,22 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.empty-cart.with-cont .want-help-button.gray {
 		top:-5px;
 	}
+	.review-item .review-boble {
+		background-image:none;
+		background:#ffffff;
+	}
+	.review-item .review-boble:before {
+		content: "";
+		width: 0px;
+		height: 0px;
+		position: absolute;
+		border-left: 24px solid #fff;
+		border-right: 12px solid transparent;
+		border-top: 12px solid #fff;
+		border-bottom: 20px solid transparent;
+		left: 32px;
+		bottom: -24px;
+	  }
 }
 
 
