@@ -2697,11 +2697,11 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	position:relative;
 	top:-25px;
 }
-.mainanimation .donate-elem.elem1,.mainanimation .donate-elem.elem5 {
+.mainanimation .donate-elem.elem1,.mainanimation .donate-elem.elem5, .mainanimation .donate-elem.elem10 {
 	top: -5rem;
     left: 18rem;
 }
-.mainanimation .donate-elem.elem2,.mainanimation .donate-elem.elem6 {
+.mainanimation .donate-elem.elem2,.mainanimation .donate-elem.elem6, .mainanimation .donate-elem.elem11 {
 	top: -11rem;
     right: 0rem;
 }
