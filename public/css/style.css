@@ -2680,6 +2680,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	align-items: center;
 	position:absolute;
 	z-index:3;
+	opacity:0;
 }
 .mainanimation .donate-elem .img-block img {
 	width:85px;
@@ -2696,22 +2697,22 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	position:relative;
 	top:-25px;
 }
-.mainanimation .donate-elem.elem1 {
+.mainanimation .donate-elem.elem1,.mainanimation .donate-elem.elem5 {
 	top: -5rem;
     left: 18rem;
 }
-.mainanimation .donate-elem.elem2 {
+.mainanimation .donate-elem.elem2,.mainanimation .donate-elem.elem6 {
 	top: -11rem;
     right: 0rem;
 }
-.mainanimation .donate-elem.elem3{
+.mainanimation .donate-elem.elem3,.mainanimation .donate-elem.elem7{
 	top: 40rem;
     right: -6rem;
 }
-.mainanimation .donate-elem.elem4{
+.mainanimation .donate-elem.elem4,.mainanimation .donate-elem.elem8{
 	top:33rem;
 }
-.mainanimation .donate-elem.elem5 {
+.mainanimation .donate-elem.elem5,.mainanimation .donate-elem.elem9 {
 	top: 10rem;
     right: -8rem;
 }
