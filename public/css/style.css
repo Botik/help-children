@@ -2575,6 +2575,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .reviews-swiper .review-item {
 	width:40.5rem;
+	position:relative;
 }
 .review-item .review-boble {
 	background-image:url('../newimages/review-boble.svg');
@@ -2613,7 +2614,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	border-right: 12px solid transparent;
 	border-top: 12px solid #fff;
 	border-bottom: 20px solid transparent;
-	left: 50px;
+	bottom: 65px;
+	left: 60px;
 }
 
 .review-item .review-boble a{
@@ -3919,7 +3921,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 		border-right: 12px solid transparent;
 		border-top: 12px solid #fff;
 		border-bottom: 20px solid transparent;
-		left: 50px;
+		left: 25px;
     	bottom: 55px;
 	}
 	.review-item .review-boble .text {
