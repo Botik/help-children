@@ -415,9 +415,9 @@ $(document).ready(function () {
 			},
 		});
 
-		var reviewswiper = new Swiper('.reviews-swiper', {
+		var reviewswiper = new Swiper('.reviews-swiper.oneslide', {
 			slidesPerView:1,
-			spaceBetween:100,
+			spaceBetween:25,
 			loop:true,
 			pagination: {
 				el: '.swiper-pagination',

@@ -3891,6 +3891,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.review-item .review-boble {
 		background-image:none;
 		background:#ffffff;
+		margin-bottom:3rem;
 	}
 	.review-item .review-boble:before {
 		content: "";
@@ -3901,9 +3902,12 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 		border-right: 12px solid transparent;
 		border-top: 12px solid #fff;
 		border-bottom: 20px solid transparent;
-		left: 32px;
-		bottom: -24px;
-	  }
+		left: 50px;
+    	bottom: 55px;
+	}
+	.review-item .review-boble .text {
+		-webkit-line-clamp:8;
+	}
 }
 
 
