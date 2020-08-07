@@ -425,7 +425,7 @@ $(document).ready(function () {
 				el: '.swiper-pagination',
 				clickable:true,
 			},
-			centerInsufficientSlides:true,
+			centeredSlides:true,
 		});
 
 	}
