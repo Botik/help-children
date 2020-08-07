@@ -1748,7 +1748,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	position:absolute;
 	left:21%;
 }
-.mission-description .line2 {
+.how-we-help .line2 {
 	display:none;
 }
 @media screen and (max-width:1440px) {
@@ -1770,13 +1770,14 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.mission-description .line img {
 		height:10rem !important;
 	}
-	.mission-description .line2 {
+	.how-we-help .line2 {
 		display:block;
 		position:absolute;
 	}
 }
 .how-we-help {
 	padding-bottom:8.5rem;
+	position:relative;
 }
 .how-we-help .subtitle {
 	font-weight: 300;
