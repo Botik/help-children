@@ -3908,6 +3908,12 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.review-item .review-boble .text {
 		-webkit-line-clamp:8;
 	}
+	.reviews-swiper.oneslide .slide-content {
+		width:250px;
+	}
+	.reviews-swiper .review-item .child-info-block {
+		margin-left:1rem;
+	}
 }
 
 
