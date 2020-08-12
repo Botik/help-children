@@ -3637,9 +3637,6 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.mission-description.new-mission {
 		padding:0 0 5rem 0 !important;
 	}
-	.gift-dream-container {
-		margin-top:0;
-	}
 	.gift-dream-container .number-img {
 		width:70px !important;
 	}
@@ -3681,6 +3678,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	.gift-dream-container .line5 {
 		display:block;
 		position:absolute;
+		top: -110px;
+    	left: 15%;
 	}
 	.how-help-container .how-help-wrapper .wrapper-item {
 		width:90%;
