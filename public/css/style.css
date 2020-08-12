@@ -1753,6 +1753,11 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .how-we-help .line3 {
 	position:absolute;
+	left:2%;
+}
+.dream-container .line4 {
+	position:absolute;
+	left:2%;
 }
 @media screen and (max-width:1440px) {
 	.mission-description .line {
