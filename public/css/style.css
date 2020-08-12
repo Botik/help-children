@@ -1760,6 +1760,9 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
     top: -212px;
     left: 2%;
 }
+.gift-dream-container .line5 {
+	display:none;
+}
 @media screen and (max-width:1440px) {
 	.mission-description .line {
 		left:25%;
@@ -3667,6 +3670,17 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	}
 	.gift-dream-container .subtitle br{
 		display:none;
+	}
+
+	.how-we-help .line3 {
+		display:none;
+	}
+	.gift-dream-container .line4 {
+		display:none;
+	}
+	.gift-dream-container .line5 {
+		display:block;
+		position:absolute;
 	}
 	.how-help-container .how-help-wrapper .wrapper-item {
 		width:90%;
