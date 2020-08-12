@@ -1950,9 +1950,10 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	margin-top:10px;
 	display:flex;
 	justify-content: space-between;
+	align-items: center;
 }
 .dream-swiper .amount-block .text{
-	font-weight: 500;
+	font-weight: 300;
 	font-size: 1.4rem;
 	line-height: 128.27%;
 }
@@ -2463,7 +2464,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	width:90%;
 	margin:0 auto;
 	margin-top:1.7rem;
-	height:4rem;
+	height:4.5rem;
 	pointer-events: none;
 }
 .empty-cart.with-cont .want-help-button.gray{
@@ -2530,7 +2531,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 
 .reviews-swiper {
-	padding:10rem 2rem 6rem 2rem !important;
+	padding:5rem 2rem 4rem 2rem !important;
 }
 
 .reviews-swiper.oneslide {
@@ -2551,7 +2552,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 
 .reviews-swiper.swiper-container-horizontal>.swiper-pagination-bullets {
 	bottom:initial;
-	top:50px;
+	top:5px;
 }
 .reviews-swiper .swiper-pagination-bullet {
 	background:#C4C4C4;
@@ -2605,10 +2606,10 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	background-image:url('../newimages/review-boble.svg');
 	background-repeat:no-repeat;
 	background-position:0 0;
-	padding:3rem 3rem 7rem 4rem;
+	padding:3rem;
 	background-size:100%;
 	border-radius:10px;
-	height: 205px;
+	height: 20.5rem;
 	/* background:#ffffff;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); */
 }
@@ -2651,6 +2652,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	display:block;
 	width:fit-content;
 	margin-top:10px;
+	position:absolute;
+	bottom:11.4rem;
 }
 
 .rating_block {

@@ -1160,7 +1160,7 @@
                         </div>
                         <div class="amount-block">
                             <div class="text">Осталось собрать</div>
-                            <div class="amount-sum">{{ (child.targets|last).goal - (child.targets|last).collected }} руб</div>
+                            <div class="amount-sum">{{ ((child.targets|last).goal - (child.targets|last).collected)|number_format(0, '', ' ') }} руб</div>
                         </div>
 
                         <div class="child-info-block">
@@ -1168,7 +1168,7 @@
                                 <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
                             </div>
                             <div class="right">
-                                <div class="child-name">{{ child.name}},<br>{{ child.age }} лет</div>
+                                <div class="child-name">{{ child.name}}</div>
                                 <div class="child-infuence">{{child.diagnosis}}</div>
                             </div>
                         </div>
@@ -1199,7 +1199,7 @@
                             </div>
                             <div class="amount-block">
                                 <div class="text">Осталось собрать</div>
-                                <div class="amount-sum">{{ (child.targets|last).goal - (child.targets|last).collected }} руб</div>
+                                <div class="amount-sum">{{ ((child.targets|last).goal - (child.targets|last).collected)|number_format(0, '', ' ') }} руб</div>
                             </div>
 
                             <div class="child-info-block">
@@ -1207,7 +1207,7 @@
                                     <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
                                 </div>
                                 <div class="right">
-                                    <div class="child-name">{{ child.name}},<br>{{ child.age }} лет</div>
+                                    <div class="child-name">{{ child.name}}</div>
                                     <div class="child-infuence">{{child.diagnosis}}</div>
                                 </div>
                             </div>
@@ -1325,8 +1325,8 @@
                     <div class="slide-content">
                         <div class="review-item">
                             <div class="review-boble">
-                                <div class="text">Хотим от души поблагодарить за оказанную помощь.Спасибо Вам за участие в жизни Платона,
-                                за готовность всегда прийти на помощь.Искренне благодарим за усилия и старания ради нашего сына, за беспокойство и понимание.</div>
+                                <div class="text">Хотим от души поблагодарить за оказанную помощь. Спасибо Вам за участие в жизни Платона,
+                                за готовность всегда прийти на помощь. Искренне благодарим за усилия и старания ради нашего сына, за беспокойство и понимание.</div>
                                 <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/11">Открыть карту ребенка</a>
                                 {# <div class="rating_block">
                                     <span class='active'></span>
@@ -1486,8 +1486,8 @@
                     <div class="slide-content">
                         <div class="review-item">
                             <div class="review-boble">
-                                <div class="text">Хотим от души поблагодарить за оказанную помощь.Спасибо Вам за участие в жизни Платона,
-                                за готовность всегда прийти на помощь.Искренне благодарим за усилия и старания ради нашего сына, за беспокойство и понимание.</div>
+                                <div class="text">Хотим от души поблагодарить за оказанную помощь. Спасибо Вам за участие в жизни Платона,
+                                за готовность всегда прийти на помощь. Искренне благодарим за усилия и старания ради нашего сына, за беспокойство и понимание.</div>
                                 <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/11">Открыть карту ребенка</a>
                                 {# <div class="rating_block">
                                     <span class='active'></span>
