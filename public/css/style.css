@@ -1884,11 +1884,15 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .dream-swiper.swiper-container {
 	padding:5rem;
-	padding-bottom:7rem;
-	margin-bottom:5rem;
+	padding-bottom:12rem;
+	margin-bottom:0rem;
 }
 .dream-swiper.swiper-container.oneslide {
 	display:none;
+}
+
+.dream-swiper.swiper-container>.swiper-pagination-bullets {
+	bottom:6rem;
 }
 
 @media screen and (max-width:992px) {
