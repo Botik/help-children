@@ -1755,9 +1755,10 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	position:absolute;
 	left:2%;
 }
-.dream-container .line4 {
-	position:absolute;
-	left:2%;
+.gift-dream-container .line4 {
+	position: absolute;
+    top: -212px;
+    left: 2%;
 }
 @media screen and (max-width:1440px) {
 	.mission-description .line {
@@ -1853,6 +1854,7 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	position:relative;
 	text-align:center;
 	padding-top:80px;
+	margin-top:100px;
 }
 .gift-dream-container .number-img {
 	position:absolute;
@@ -3631,6 +3633,9 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 	}
 	.mission-description.new-mission {
 		padding:0 0 5rem 0 !important;
+	}
+	.gift-dream-container {
+		margin-top:0;
 	}
 	.gift-dream-container .number-img {
 		width:70px !important;
