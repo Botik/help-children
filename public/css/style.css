@@ -1751,6 +1751,9 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 .how-we-help .line2 {
 	display:none;
 }
+.how-we-help .line3 {
+	position:absolute;
+}
 @media screen and (max-width:1440px) {
 	.mission-description .line {
 		left:25%;
