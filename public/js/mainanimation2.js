@@ -83,10 +83,10 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px', opacity:0.78, duration:0},'stage1+=5.6')
         .to('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px',opacity:0.7, duration:0},'stage1+=5.6')
         .to('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0, duration:0},'stage1+=5.6')
-        .to('.fixed-animation-block .right-half .empty-cart.second img, .fixed-animation-block .right-half .empty-cart.second .cart-text',{
-            opacity:0,
-            duration:0,
-        },'stage1+=5.6')
+        // .to('.fixed-animation-block .right-half .empty-cart.second img, .fixed-animation-block .right-half .empty-cart.second .cart-text',{
+        //     opacity:0,
+        //     duration:0,
+        // },'stage1+=5.6')
 
         .fromTo('.fixed-animation-block .right-half .empty-cart.first',{y:'0',opacity:1},{y:'55rem',opacity:0,duration: 1.5},'stage1+=5.6')
         .fromTo('.fixed-animation-block .right-half .empty-cart.second img, .fixed-animation-block .right-half .empty-cart.second .cart-text',{
