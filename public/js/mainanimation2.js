@@ -120,6 +120,20 @@ $(document).ready(function(){
 
         // Второй пункт
         .addLabel('stage2','+=1')
+        .call(function(){
+            obj1 = {value:83000};
+            obj2 = {value:30};
+            obj3 = {value:23};
+            obj4 = {value:59};
+            obj5 = {value:59};
+            obj6 = {value:10};
+            obj7 = {value:8};
+            obj8= {value:83000};
+            obj8= {value:83000};
+            obj9= {value:83000};
+            obj10= {value:83000};
+            obj11= {value:83000};
+        })
         .fromTo('.fixed-animation-block .list_item:nth-child(2)',{opacity:0},{opacity:1,duration:0.5},'stage2')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(2) .text',{width:0},{width:'auto',duration:1},'stage2+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(2) .romb',{right:'-15px',duration:1},'stage2+=0.5')
@@ -149,6 +163,20 @@ $(document).ready(function(){
         // Третий пункт
         // Поставить паузу в 1.5с
         .addLabel('stage3')
+        .call(function(){
+            obj1 = {value:83000};
+            obj2 = {value:30};
+            obj3 = {value:23};
+            obj4 = {value:59};
+            obj5 = {value:59};
+            obj6 = {value:10};
+            obj7 = {value:8};
+            obj8= {value:83000};
+            obj8= {value:83000};
+            obj9= {value:83000};
+            obj10= {value:83000};
+            obj11= {value:83000};
+        })
         .fromTo('.fixed-animation-block .list_item:nth-child(3)',{opacity:0},{opacity:1,duration:1},'stage3')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(3) .text',{width:0},{width:'auto',duration:1},'stage3+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(3) .romb',{right:'-15px',duration:1},'stage3+=0.5')
@@ -257,6 +285,20 @@ $(document).ready(function(){
 
         // Паузу
         .addLabel('stage4')
+        .call(function(){
+            obj1 = {value:83000};
+            obj2 = {value:30};
+            obj3 = {value:23};
+            obj4 = {value:59};
+            obj5 = {value:59};
+            obj6 = {value:10};
+            obj7 = {value:8};
+            obj8= {value:83000};
+            obj8= {value:83000};
+            obj9= {value:83000};
+            obj10= {value:83000};
+            obj11= {value:83000};
+        })
         .fromTo('.fixed-animation-block .list_item:nth-child(4)',{opacity:0},{opacity:1,duration:1},'stage4')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(4) .text',{width:0},{width:'auto',duration:1},'stage4+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(4) .romb',{right:'-15px',duration:1},'stage4+=0.5')
@@ -285,6 +327,20 @@ $(document).ready(function(){
 
 
         .addLabel('stage5')
+        .call(function(){
+            obj1 = {value:83000};
+            obj2 = {value:30};
+            obj3 = {value:23};
+            obj4 = {value:59};
+            obj5 = {value:59};
+            obj6 = {value:10};
+            obj7 = {value:8};
+            obj8= {value:83000};
+            obj8= {value:83000};
+            obj9= {value:83000};
+            obj10= {value:83000};
+            obj11= {value:83000};
+        })
         .fromTo('.fixed-animation-block .list_item:nth-child(5)',{opacity:0},{opacity:1,duration:1},'stage5')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(5) .text',{width:0},{width:'auto',duration:1},'stage5+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(5) .romb',{right:'-15px',duration:1},'stage5+=0.5')
@@ -317,6 +373,20 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(5) .subinfo2',{opacity:0,duration:0.5},'-=1')
 
         .addLabel('stage6')
+        .call(function(){
+            obj1 = {value:83000};
+            obj2 = {value:30};
+            obj3 = {value:23};
+            obj4 = {value:59};
+            obj5 = {value:59};
+            obj6 = {value:10};
+            obj7 = {value:8};
+            obj8= {value:83000};
+            obj8= {value:83000};
+            obj9= {value:83000};
+            obj10= {value:83000};
+            obj11= {value:83000};
+        })
         .fromTo('.fixed-animation-block .list_item:nth-child(6)',{opacity:0},{opacity:1,duration:1},'stage6')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(6) .text',{width:0},{width:'auto',duration:1},'stage6+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(6) .romb',{right:'-15px',duration:1},'stage6+=0.5')
