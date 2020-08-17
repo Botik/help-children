@@ -79,6 +79,10 @@ $(document).ready(function(){
         .fromTo('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px'},{x:'-60px',y:'-60px',opacity:0.78,duration:0.5},'stage1+=5')
         .fromTo('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0},{opacity:0.7,duration:0.5},'stage1+=5.1')
         
+        .to('.fixed-animation-block .right-half .empty-cart.second',{x:'-30px',y:'-30px', opacity:1, duration:0},'stage1+=5.6')
+        .to('.fixed-animation-block .right-half .empty-cart.third',{x:'-60px',y:'-60px', opacity:0.78, duration:0},'stage1+=5.6')
+        .to('.fixed-animation-block .right-half .empty-cart.fourth',{x:'-90px',y:'-90px',opacity:0.7, duration:0},'stage1+=5.6')
+        .to('.fixed-animation-block .right-half .empty-cart.fiveth',{opacity:0, duration:0},'stage1+=5.6')
         .to('.fixed-animation-block .right-half .empty-cart.second img, .fixed-animation-block .right-half .empty-cart.second .cart-text',{
             opacity:0,
             duration:0,
