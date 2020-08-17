@@ -115,12 +115,12 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .empty-cart.with-cont',{display:'block',duration:0},'stage1+=8.9')
         .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'270deg'},{rotationY:'360deg',duration:0.5},'stage1+=8.9')
 
-        .to('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0,duration:1},'stage1+=8.6')
-        .to('.fixed-animation-block .list_item:nth-child(1)',{background:'#FCFAF5',duration:1},'stage1+=8.6')
-        .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'#FCFAF5',duration:1},'stage1+=8.6')
-        .to('.fixed-animation-block .list_item:nth-child(1)',{background:'transparent',duration:0},'stage1+=9.6')
-        .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'transparent',duration:0},'stage1+=9.6')
-        .to('.fixed-animation-block .list_item:nth-child(1) .text',{color:'#000000',duration:1},'stage1+=8.6')
+        .to('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0,duration:1},'stage1+=11.4')
+        .to('.fixed-animation-block .list_item:nth-child(1)',{background:'#FCFAF5',duration:1},'stage1+=11.4')
+        .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'#FCFAF5',duration:1},'stage1+=11.4')
+        .to('.fixed-animation-block .list_item:nth-child(1)',{background:'transparent',duration:0},'stage1+=12.4')
+        .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'transparent',duration:0},'stage1+=12.4')
+        .to('.fixed-animation-block .list_item:nth-child(1) .text',{color:'#000000',duration:1},'stage1+=11.4')
 
         // Второй пункт
         .addLabel('stage2','+=1')
