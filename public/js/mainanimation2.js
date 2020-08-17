@@ -191,7 +191,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .elem7',{opacity:0,scale:0.5,duration:1},'stage3+=11')
 
         .to('.empty-cart.with-cont .progress-bar.bar1 .progress-bar-done',{width:'100%',duration:9},'stage3+=2')
-        .to(obj1,9,{
+        .to({value:83000},9,{
             value:0, 
             onUpdate:function() {
             element1.innerHTML = Math.round(obj1.value).toLocaleString('ru');
@@ -467,18 +467,18 @@ $(document).ready(function(){
         $('.mainanimation .list_item').click(function(){
             // if($(this).css('opacity') == "1") {
                 
-                obj1 = {value:83000};
-                obj2 = {value:30};
-                obj3 = {value:23};
-                obj4 = {value:59};
-                obj5 = {value:59};
-                obj6 = {value:10};
-                obj7 = {value:8};
-                obj8 = {value:83000};
-                obj8 = {value:83000};
-                obj9 = {value:83000};
-                obj10 = {value:83000};
-                obj11 = {value:83000};
+                // obj1 = {value:83000};
+                // obj2 = {value:30};
+                // obj3 = {value:23};
+                // obj4 = {value:59};
+                // obj5 = {value:59};
+                // obj6 = {value:10};
+                // obj7 = {value:8};
+                // obj8 = {value:83000};
+                // obj8 = {value:83000};
+                // obj9 = {value:83000};
+                // obj10 = {value:83000};
+                // obj11 = {value:83000};
                 tl3.seek('stage'+$(this).attr('data-stage'));
             // }
         });
