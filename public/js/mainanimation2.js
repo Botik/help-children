@@ -106,10 +106,10 @@ $(document).ready(function(){
         .fromTo('.fixed-animation-block .list_item:first-child .text',{opacity:0},{opacity:1,duration:0.5},'stage1+=3.8')
         .fromTo('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0},{opacity:1,duration:0.5},'stage1+=4.8')
 
-        .fromTo('.fixed-animation-block .right-half .empty-cart.second',{rotationY:'0'},{rotationY:'86deg',duration:0.5},'stage1+=5.6')
-        .to('.fixed-animation-block .right-half .empty-cart.second',{opacity:0,duration:0},'stage1+=6.1')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont',{display:'block',duration:0},'stage1+=6.1')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'270deg'},{rotationY:'360deg',duration:0.5},'stage1+=6.1')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.second',{rotationY:'0'},{rotationY:'86deg',duration:0.5},'stage1+=8.4')
+        .to('.fixed-animation-block .right-half .empty-cart.second',{opacity:0,duration:0},'stage1+=8.9')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont',{display:'block',duration:0},'stage1+=8.9')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'270deg'},{rotationY:'360deg',duration:0.5},'stage1+=8.9')
 
         .to('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0,duration:1},'stage1+=8.6')
         .to('.fixed-animation-block .list_item:nth-child(1)',{background:'#FCFAF5',duration:1},'stage1+=8.6')
