@@ -117,7 +117,6 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(1)',{background:'transparent',duration:0},'stage1+=12.4')
         .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'transparent',duration:0},'stage1+=12.4')
         .to('.fixed-animation-block .list_item:nth-child(1) .text',{color:'#000000',duration:1},'stage1+=11.4')
-        // .to('.fixed-animation-block .list_item:nth-child(1) .text',{duration:1},'stage1+=12.4')
 
         // Второй пункт
         .addLabel('stage2','+=1')
@@ -145,8 +144,8 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(2)',{background:'transparent',duration:0},'stage2+=9.2')
         .to('.fixed-animation-block .list_item:nth-child(2) .romb',{background:'transparent',duration:0},'stage2+=9.2')
         .to('.fixed-animation-block .list .line',{height:'70px',duration:1},'stage2+=9.2')
-        .to('.fixed-animation-block .list_item:nth-child(2) .text',{color:'#000000',duration:1},'stage2+=9.2')
-        .to('.fixed-animation-block .list_item:nth-child(2) .text',{duration:1.5},'stage2+=9.2')
+        .to('.fixed-animation-block .list_item:nth-child(2) .text',{color:'#000000',duration:1},'stage2+=8.2')
+        .to('.fixed-animation-block .list_item:nth-child(2) .text',{duration:2.5},'stage2+=9.2')
         // Третий пункт
         // Поставить паузу в 1.5с
         .addLabel('stage3')
