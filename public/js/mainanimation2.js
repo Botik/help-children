@@ -279,6 +279,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .reabGone',{opacity:1,display:'flex',duration:0.5},'stage4+=0.5')
 
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=1.5')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:1.5})
 
 // stage4 +=2
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=4')
@@ -289,7 +290,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=5')
         .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=4')
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=4')
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
+        // .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
 
 
         .addLabel('stage5')
