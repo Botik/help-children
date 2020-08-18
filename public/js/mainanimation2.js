@@ -246,6 +246,7 @@ $(document).ready(function(){
         .to('.empty-cart.with-cont .want-help-button.gray',{opacity:1, display:"block",duration:0})
         .to(obj6,5,{
             value:1, 
+            ease:Linear.easeNone,
             onUpdate:function() {
                 element2.innerHTML = Math.round(obj6.value).toLocaleString('ru');
             }
