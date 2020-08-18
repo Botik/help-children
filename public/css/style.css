@@ -2365,8 +2365,8 @@ body > main > section.section.child.section-with-bghearts > div > div > div > fo
 }
 .empty-cart.with-cont .diagnos {
 	font-weight: 300;
-	font-size: 1.4rem;
-	line-height:1.6rem;
+	font-size: 14px;
+	line-height:16px;
 	padding-top:1rem;
 	position:relative;
 }
