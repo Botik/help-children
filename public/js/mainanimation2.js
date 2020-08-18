@@ -205,6 +205,7 @@ $(document).ready(function(){
         },'stage3+=2')
         .to(obj2,4,{
         value:10, 
+        ease:Linear.easeNone,
         onUpdate:function() {
             element2.innerHTML = Math.round(obj2.value).toLocaleString('ru');
         }
