@@ -250,7 +250,7 @@ $(document).ready(function(){
             onUpdate:function() {
                 element2.innerHTML = Math.round(obj6.value).toLocaleString('ru');
             }
-        },'stage3+=10')
+        },'stage3+=9')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .time',{opacity:0,display:'none',duration:0})
 
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:0,duration:1},'stage3+=14')
