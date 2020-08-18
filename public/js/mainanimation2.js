@@ -244,7 +244,7 @@ $(document).ready(function(){
         .to('.empty-cart.with-cont .want-help-button',{opacity:0, display:"none",duration:0})
         .to('.empty-cart.with-cont .want-help-button.gray',{opacity:1, display:"block",duration:0})
         .to('.empty-cart.with-cont .want-help-button.gray',{opacity:1, display:"block",duration:0})
-        .to(obj6,5,{
+        .to(obj6,4,{
             value:1, 
             ease:Linear.easeNone,
             onUpdate:function() {
