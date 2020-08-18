@@ -327,6 +327,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(5) .subinfo2',{opacity:0,duration:0.5},'-=1')
 
         .addLabel('stage6')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont',{opacity:0,duration:0},'stage6')
         .call(function(){
             $('#animnumber').text('83 000');
         })
@@ -345,7 +346,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .want-help-button',{display:'block',opacity:1,duration:0},'stage6+=2.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .want-help-button.gray',{display:'none',duration:0},'stage6+=2.5')
         .to('.empty-cart.with-cont .needed-block',{opacity:1, duration:0},'stage6+=2.5')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont',{opacity:'1',duration:0},'stage6+=2.5')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont',{opacity:1,duration:0},'stage6+=2.5')
         .to('.empty-cart.with-cont .progress-list .progress-bar.bar1',{flex:1,duration:0},'stage6+=2.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:0,duration:0.5},'stage6+=2.5')
 
