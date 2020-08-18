@@ -422,7 +422,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .amount-block .amount-sum',{display:'none',duration:0})
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .amount-block .text2',{display:'block',opacity:1,duration:0})
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .needed-block',{opacity:0,duration:0})
-        .to('.empty-cart.with-cont .level',{opacity:0,duration:0})
+        .to('.empty-cart.with-cont .level',{padding:'0 0 0 62px',duration:0})
         .to('.empty-cart.with-cont .GMFCS',{background:'#ffffff',fontWeight:'bold',boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.07)',position:'absolute',duration:0})
         .to('.empty-cart.with-cont .GMFCS',{padding:'10px 36px',
         borderRadius: '30px',translateX:'10px',translateY:'-50px',scale:'1.5',width:'239px',duration:1})
@@ -442,7 +442,7 @@ $(document).ready(function(){
         .to('.empty-cart.with-cont .GMFCS',{textAlign:'left',duration:0})
         .to('.empty-cart.with-cont .GMFCS',{padding:'0 0',translateX:'0',translateY:'0',scale:'1',fontWeight:'normal',boxShadow: 'none',duration:1})
         .to('.empty-cart.with-cont .GMFCS',{position:'relative',duration:0})
-        .to('.empty-cart.with-cont .level',{opacity:1,duration:0})
+        .to('.empty-cart.with-cont .level',{padding:'0 0 0 0',duration:0})
         .to('.fixed-animation-block .list_item:nth-child(6) .subinfo',{opacity:0,duration:1})
         .to('.fixed-animation-block .list_item:nth-child(6)',{background:'#FCFAF5',duration:1},'-=1')
         .to('.fixed-animation-block .list_item:nth-child(6) .romb',{background:'#FCFAF5',duration:1},'-=1')
