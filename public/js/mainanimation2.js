@@ -191,12 +191,12 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .elem4',{opacity:0,scale:0.5,duration:1},'stage3+=9.5')
         .fromTo('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=8.5')
         .to('.fixed-animation-block .right-half .elem5',{opacity:0,scale:0.5,duration:1},'stage3+=10')
-        .fromTo('.fixed-animation-block .right-half .elem6',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=9')
-        .to('.fixed-animation-block .right-half .elem6',{opacity:0,scale:0.5,duration:1},'stage3+=10.5')
-        .fromTo('.fixed-animation-block .right-half .elem7',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=9.5')
-        .to('.fixed-animation-block .right-half .elem7',{opacity:0,scale:0.5,duration:1},'stage3+=11')
+        // .fromTo('.fixed-animation-block .right-half .elem6',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=9')
+        // .to('.fixed-animation-block .right-half .elem6',{opacity:0,scale:0.5,duration:1},'stage3+=10.5')
+        // .fromTo('.fixed-animation-block .right-half .elem7',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=9.5')
+        // .to('.fixed-animation-block .right-half .elem7',{opacity:0,scale:0.5,duration:1},'stage3+=11')
 
-        .to('.empty-cart.with-cont .progress-bar.bar1 .progress-bar-done',{width:'100%',duration:9},'stage3+=2')
+        .to('.empty-cart.with-cont .progress-bar.bar1 .progress-bar-done',{width:'100%',duration:8},'stage3+=2')
         .to(obj1,7,{
             value:0, 
             onUpdate:function() {
