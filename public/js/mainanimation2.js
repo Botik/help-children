@@ -264,7 +264,7 @@ $(document).ready(function(){
         
 
         // Паузу
-        .addLabel('stage4','-=1.5')
+        .addLabel('stage4','-=2.5')
         .fromTo('.fixed-animation-block .list_item:nth-child(4)',{opacity:0},{opacity:1,duration:1},'stage4')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(4) .text',{width:0},{width:'auto',duration:1},'stage4+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(4) .romb',{right:'-15px',duration:1},'stage4+=0.5')
