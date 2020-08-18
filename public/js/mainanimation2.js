@@ -197,7 +197,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .elem7',{opacity:0,scale:0.5,duration:1},'stage3+=11')
 
         .to('.empty-cart.with-cont .progress-bar.bar1 .progress-bar-done',{width:'100%',duration:9},'stage3+=2')
-        .to(obj1,7,{
+        .to(obj1,5,{
             value:0, 
             onUpdate:function() {
             element1.innerHTML = Math.round(obj1.value).toLocaleString('ru');
