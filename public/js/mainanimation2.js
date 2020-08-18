@@ -120,9 +120,6 @@ $(document).ready(function(){
 
         // Второй пункт
         .addLabel('stage2','+=1')
-        .call(function(){
-            $('#animnumber').text('83 000');
-        },'stage2')
         .fromTo('.fixed-animation-block .list_item:nth-child(2)',{opacity:0},{opacity:1,duration:0.5},'stage2')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(2) .text',{width:0},{width:'auto',duration:1},'stage2+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(2) .romb',{right:'-15px',duration:1},'stage2+=0.5')
@@ -136,6 +133,9 @@ $(document).ready(function(){
         // .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont .diagnos',{fontSize:'1.4rem'},{fontSize:'1.2rem',duration:1},'stage2+=4')
         .fromTo('.empty-cart.with-cont .progress-list .progress-bar.bar1',{width:0,flex:'initial'},{width:'100%',duration:0.5},'stage2+=4')
         .fromTo('.empty-cart.with-cont .progress-list',{opacity:0},{opacity:1,duration:0.5},'stage2+=4')
+        .call(function(){
+            $('#animnumber').text('83 000');
+        },'stage2+=4.5')
         .fromTo('.empty-cart.with-cont .amount-block',{opacity:0},{opacity:1,duration:0.5},'stage2+=4.5')
         .fromTo('.empty-cart.with-cont .needed-block',{opacity:0},{opacity:1,duration:0.5},'stage2+=5')
         .fromTo('.empty-cart.with-cont .want-help-button',{opacity:0},{opacity:1,duration:0.01},'stage2+=5.5')
