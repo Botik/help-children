@@ -235,7 +235,7 @@ $(document).ready(function(){
         .fromTo('.empty-cart.with-cont .reabilitation-block',{opacity:0},{opacity:1,duration:0.5},'stage3+=5')
 
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:1,duration:0.5},'stage3+=6.5')
-        .to('.empty-cart.with-cont .reabilitation-block .time',{opacity:0, display:"none",duration:0},'stage3+=10')
+        .to('.empty-cart.with-cont .reabilitation-block .time',{opacity:0, display:"none",duration:0},'stage3+=9')
 
         .to('.empty-cart.with-cont .amount-block .text',{opacity:0, display:"none",duration:0})
         .to('.empty-cart.with-cont .amount-block .amount-sum',{opacity:0, display:"none",duration:0})
