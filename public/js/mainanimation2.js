@@ -250,7 +250,7 @@ $(document).ready(function(){
             onUpdate:function() {
                 element2.innerHTML = Math.round(obj6.value).toLocaleString('ru');
             }
-        },'stage3+=11')
+        },'stage3+=10')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .time',{opacity:0,display:'none',duration:0})
 
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:0,duration:1},'stage3+=15.5')
@@ -264,7 +264,7 @@ $(document).ready(function(){
         
 
         // Паузу
-        .addLabel('stage4','-=1')
+        .addLabel('stage4','-=1.5')
         .fromTo('.fixed-animation-block .list_item:nth-child(4)',{opacity:0},{opacity:1,duration:1},'stage4')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(4) .text',{width:0},{width:'auto',duration:1},'stage4+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(4) .romb',{right:'-15px',duration:1},'stage4+=0.5')
@@ -272,23 +272,23 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FF9E00',duration:1},'stage4+=0.5')
         .to('.fixed-animation-block .list_item:nth-child(4) .text',{opacity:1,duration:0.5},'stage4+=1.5')
 
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img1',{opacity:0,duration:0.5},'stage4+=2')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img2',{opacity:1,duration:0.5},'stage4+=2.5')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .title',{opacity:0,display:'none',duration:0.5},'stage4+=2')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .days',{opacity:0,display:'none',duration:0.5},'stage4+=2')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .reabGone',{opacity:1,display:'flex',duration:0.5},'stage4+=2.5')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img1',{opacity:0,duration:0.5},'stage4')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img2',{opacity:1,duration:0.5},'stage4+=0.5')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .title',{opacity:0,display:'none',duration:0.5},'stage4')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .days',{opacity:0,display:'none',duration:0.5},'stage4')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .reabGone',{opacity:1,display:'flex',duration:0.5},'stage4+=0.5')
 
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=2.5')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=0.5')
 
 // stage4 +=2
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'#FCFAF5',duration:1},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FCFAF5',duration:1},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'transparent',duration:0},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'transparent',duration:0},'stage4+=7')
-        .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=6')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=4')
+        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'#FCFAF5',duration:1},'stage4+=4')
+        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FCFAF5',duration:1},'stage4+=4')
+        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'transparent',duration:0},'stage4+=5')
+        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'transparent',duration:0},'stage4+=5')
+        .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=5')
+        .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=4')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=4')
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
 
 
