@@ -197,7 +197,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .elem7',{opacity:0,scale:0.5,duration:1},'stage3+=11')
 
         .to('.empty-cart.with-cont .progress-bar.bar1 .progress-bar-done',{width:'100%',duration:9},'stage3+=2')
-        .to(obj1,9,{
+        .to(obj1,7,{
             value:0, 
             onUpdate:function() {
             element1.innerHTML = Math.round(obj1.value).toLocaleString('ru');
@@ -235,7 +235,7 @@ $(document).ready(function(){
         .fromTo('.empty-cart.with-cont .reabilitation-block',{opacity:0},{opacity:1,duration:0.5},'stage3+=6')
 
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:1,duration:0.5},'stage3+=6.5')
-        .to('.empty-cart.with-cont .reabilitation-block .time',{opacity:0, display:"none",duration:0},'stage3+=10')
+        .to('.empty-cart.with-cont .reabilitation-block .time',{opacity:0, display:"none",duration:0},'stage3+=8')
 
         .to('.empty-cart.with-cont .amount-block .text',{opacity:0, display:"none",duration:0})
         .to('.empty-cart.with-cont .amount-block .amount-sum',{opacity:0, display:"none",duration:0})
