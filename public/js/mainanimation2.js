@@ -253,14 +253,14 @@ $(document).ready(function(){
         },'stage3+=9')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .time',{opacity:0,display:'none',duration:0})
 
-        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:0,duration:1},'stage3+=14')
-        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FCFAF5',duration:1},'stage3+=14')
-        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FCFAF5',duration:1},'stage3+=14')
-        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'transparent',duration:0},'stage3+=15')
-        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'transparent',duration:0},'stage3+=15')
-        .to('.fixed-animation-block .list .line',{height:'140px',duration:1},'stage3+=15')
-        .to('.fixed-animation-block .list_item:nth-child(3) .text',{color:'#000000',duration:1},'stage3+=14')
-        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo2',{opacity:0,duration:0.5},'stage3+=15')
+        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:0,duration:1},'stage3+=16')
+        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FCFAF5',duration:1},'stage3+=16')
+        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FCFAF5',duration:1},'stage3+=16')
+        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'transparent',duration:0},'stage3+=14')
+        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'transparent',duration:0},'stage3+=14')
+        .to('.fixed-animation-block .list .line',{height:'140px',duration:1},'stage3+=14')
+        .to('.fixed-animation-block .list_item:nth-child(3) .text',{color:'#000000',duration:1},'stage3+=13')
+        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo2',{opacity:0,duration:0.5},'stage3+=14')
         
 
         // Паузу
