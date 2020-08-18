@@ -424,7 +424,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .needed-block',{opacity:0,duration:0})
         .to('.empty-cart.with-cont .level',{opacity:0,duration:0})
         .to('.empty-cart.with-cont .GMFCS',{background:'#ffffff',fontWeight:'bold',boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.07)',position:'absolute',duration:0})
-        .to('.empty-cart.with-cont .GMFCS',{padding:'10px 36.6px',
+        .to('.empty-cart.with-cont .GMFCS',{padding:'10px 34px',
         borderRadius: '30px',translateX:'1rem',translateY:'-5rem',scale:'1.5',width:'240px',duration:1})
 
         .to('.empty-cart.with-cont .GMFCS .arrow-img',{display:'inline-block',duration:0})
