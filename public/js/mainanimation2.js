@@ -129,13 +129,13 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(2) .subinfo',{opacity:1,duration:0.5},'stage2+=3.5')
 
         .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont .img-block',{height:'44rem'},{height:'30rem',duration:1},'stage2+=3.5')
+        .call(function(){
+            $('#animnumber').text('83 000');
+        })
         // .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont .kid-name',{fontSize:'2rem'},{fontSize:'1.8rem',duration:1},'stage2+=4')
         // .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont .diagnos',{fontSize:'1.4rem'},{fontSize:'1.2rem',duration:1},'stage2+=4')
         .fromTo('.empty-cart.with-cont .progress-list .progress-bar.bar1',{width:0,flex:'initial'},{width:'100%',duration:0.5},'stage2+=4')
         .fromTo('.empty-cart.with-cont .progress-list',{opacity:0},{opacity:1,duration:0.5},'stage2+=4')
-        .call(function(){
-            $('#animnumber').text('83 000');
-        },'stage2+=4.5')
         .fromTo('.empty-cart.with-cont .amount-block',{opacity:0},{opacity:1,duration:0.5},'stage2+=4.5')
         .fromTo('.empty-cart.with-cont .needed-block',{opacity:0},{opacity:1,duration:0.5},'stage2+=5')
         .fromTo('.empty-cart.with-cont .want-help-button',{opacity:0},{opacity:1,duration:0.01},'stage2+=5.5')
