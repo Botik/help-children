@@ -209,14 +209,14 @@ $(document).ready(function(){
         onUpdate:function() {
             element2.innerHTML = Math.round(obj2.value).toLocaleString('ru');
         }
-        },'stage3+=6')
+        },'stage3+=4')
         .to(obj3,2,{
             value:0, 
             onUpdate:function() {
             element3.innerHTML = Math.round(obj3.value).toLocaleString('ru');
             },
             repeat:1
-        },'stage3+=6')
+        },'stage3+=4')
 
         .to(obj4,1,{
             value:0,
@@ -224,15 +224,15 @@ $(document).ready(function(){
             onUpdate:function() {
             element4.innerHTML = Math.round(obj4.value).toLocaleString('ru');
             }
-        },'stage3+=6')
+        },'stage3+=4')
         .to(obj5,1,{
             value:0,
             repeat:3, 
             onUpdate:function() {
             element5.innerHTML = Math.round(obj5.value).toLocaleString('ru');
             }
-        },'stage3+=6')
-        .fromTo('.empty-cart.with-cont .reabilitation-block',{opacity:0},{opacity:1,duration:0.5},'stage3+=6')
+        },'stage3+=4')
+        .fromTo('.empty-cart.with-cont .reabilitation-block',{opacity:0},{opacity:1,duration:0.5},'stage3+=4')
 
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:1,duration:0.5},'stage3+=6.5')
         .to('.empty-cart.with-cont .reabilitation-block .time',{opacity:0, display:"none",duration:0},'stage3+=10')
