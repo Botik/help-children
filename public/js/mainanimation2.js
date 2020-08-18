@@ -323,6 +323,9 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(5) .subinfo2',{opacity:0,duration:0.5},'-=1')
 
         .addLabel('stage6')
+        .call(function(){
+            $('#animnumber').text('83 000');
+        })
         .fromTo('.fixed-animation-block .list_item:nth-child(6)',{opacity:0},{opacity:1,duration:1},'stage6')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(6) .text',{width:0},{width:'auto',duration:1},'stage6+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(6) .romb',{right:'-15px',duration:1},'stage6+=0.5')
