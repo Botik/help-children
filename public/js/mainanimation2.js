@@ -122,7 +122,7 @@ $(document).ready(function(){
         .addLabel('stage2','+=1')
         .call(function(){
             $('#animnumber').text('83 000');
-        },'stage2-=1')
+        },'stage2')
         .fromTo('.fixed-animation-block .list_item:nth-child(2)',{opacity:0},{opacity:1,duration:0.5},'stage2')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(2) .text',{width:0},{width:'auto',duration:1},'stage2+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(2) .romb',{right:'-15px',duration:1},'stage2+=0.5')
