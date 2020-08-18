@@ -255,6 +255,9 @@ $(document).ready(function(){
 
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:0,duration:1},'stage3+=13')
         .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FCFAF5',duration:1},'stage3+=13')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block',{opacity:0,duration:0.5},'stage3+=14')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .title',{opacity:0,display:'none',duration:0.5},'stage3+=14')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .days',{opacity:0,display:'none',duration:0.5},'stage3+=14')
         .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FCFAF5',duration:1},'stage3+=13')
         .to('.fixed-animation-block .list_item:nth-child(3)',{background:'transparent',duration:0},'stage3+=14')
         .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'transparent',duration:0},'stage3+=13')
@@ -274,9 +277,6 @@ $(document).ready(function(){
 
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img1',{opacity:0,duration:0.5},'stage4')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img2',{opacity:1,duration:0.5},'stage4+=0.5')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block',{opacity:0,duration:0.5},'stage4')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .title',{opacity:0,display:'none',duration:0.5},'stage4')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .days',{opacity:0,display:'none',duration:0.5},'stage4')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .reabGone',{opacity:1,display:'flex',duration:0.5},'stage4+=0.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block',{opacity:1,duration:0.5},'stage4+=1.5')
 
