@@ -253,18 +253,18 @@ $(document).ready(function(){
         },'stage3+=10')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .time',{opacity:0,display:'none',duration:0})
 
-        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:0,duration:1},'stage3+=15.5')
-        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FCFAF5',duration:1},'stage3+=15.5')
-        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FCFAF5',duration:1},'stage3+=15.5')
-        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'transparent',duration:0},'stage3+=16.5')
-        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'transparent',duration:0},'stage3+=16.5')
-        .to('.fixed-animation-block .list .line',{height:'140px',duration:1},'stage3+=16.5')
-        .to('.fixed-animation-block .list_item:nth-child(3) .text',{color:'#000000',duration:1},'stage3+=15.5')
-        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo2',{opacity:0,duration:0.5},'stage3+=16.5')
+        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:0,duration:1},'stage3+=14')
+        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FCFAF5',duration:1},'stage3+=14')
+        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FCFAF5',duration:1},'stage3+=14')
+        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'transparent',duration:0},'stage3+=15')
+        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'transparent',duration:0},'stage3+=15')
+        .to('.fixed-animation-block .list .line',{height:'140px',duration:1},'stage3+=15')
+        .to('.fixed-animation-block .list_item:nth-child(3) .text',{color:'#000000',duration:1},'stage3+=14')
+        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo2',{opacity:0,duration:0.5},'stage3+=15')
         
 
         // Паузу
-        .addLabel('stage4','-=2')
+        .addLabel('stage4')
         .fromTo('.fixed-animation-block .list_item:nth-child(4)',{opacity:0},{opacity:1,duration:1},'stage4')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(4) .text',{width:0},{width:'auto',duration:1},'stage4+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(4) .romb',{right:'-15px',duration:1},'stage4+=0.5')
