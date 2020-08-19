@@ -119,7 +119,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(1) .text',{color:'#000000',duration:1},'stage1+=10.9')
 
         // Второй пункт
-        .addLabel('stage2','-=0.5')
+        .addLabel('stage2')
         .fromTo('.fixed-animation-block .list_item:nth-child(2)',{opacity:0},{opacity:1,duration:0.5},'stage2')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(2) .text',{width:0},{width:'auto',duration:0.5},'stage2+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(2) .romb',{right:'-15px',duration:0.5},'stage2+=0.5')
