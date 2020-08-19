@@ -119,7 +119,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(1) .text',{color:'#000000',duration:1},'stage1+=10.9')
 
         // Второй пункт
-        .addLabel('stage2','+=1')
+        .addLabel('stage2','-=0.5')
         .fromTo('.fixed-animation-block .list_item:nth-child(2)',{opacity:0},{opacity:1,duration:0.5},'stage2')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(2) .text',{width:0},{width:'auto',duration:0.5},'stage2+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(2) .romb',{right:'-15px',duration:0.5},'stage2+=0.5')
@@ -151,7 +151,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(2) .text',{duration:1.5},'stage2+=12.2')
         // Третий пункт
         // Поставить паузу в 1.5с
-        .addLabel('stage3')
+        .addLabel('stage3','-=0.5')
         .call(function(){
             $('#animnumber').text('83 000');
         })
@@ -267,7 +267,7 @@ $(document).ready(function(){
         
 
         // Четвертый пункт
-        .addLabel('stage4')
+        .addLabel('stage4','-=0.5')
         .fromTo('.fixed-animation-block .list_item:nth-child(4)',{opacity:0},{opacity:1,duration:0.5},'stage4')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(4) .text',{width:0},{width:'auto',duration:0.5},'stage4+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(4) .romb',{right:'-15px',duration:0.5},'stage4+=0.5')
@@ -295,7 +295,7 @@ $(document).ready(function(){
 
 
         // Пятый пункт
-        .addLabel('stage5')
+        .addLabel('stage5','-=0.5')
         .fromTo('.fixed-animation-block .list_item:nth-child(5)',{opacity:0},{opacity:1,duration:1},'stage5')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(5) .text',{width:0},{width:'auto',duration:0.5},'stage5+=0.5')
         .to('.fixed-animation-block .left-half .list .list_item:nth-child(5) .romb',{right:'-15px',duration:0.5},'stage5+=0.5')
@@ -327,7 +327,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(5) .text',{color:'#000000',duration:1},'-=2')
         .to('.fixed-animation-block .list_item:nth-child(5) .subinfo2',{opacity:0,duration:0.5},'-=1')
 
-        .addLabel('stage6')
+        .addLabel('stage6','-=0.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont',{opacity:0,duration:0},'stage6')
         .call(function(){
             $('#animnumber').text('83 000');
