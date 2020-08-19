@@ -283,14 +283,14 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=2')
 
 // stage4 +=2
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'#FCFAF5',duration:1},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FCFAF5',duration:1},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'transparent',duration:0},'stage4+=8')
-        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'transparent',duration:0},'stage4+=8')
-        .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=8')
-        .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=8')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=8')
+        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'#FCFAF5',duration:1},'stage4+=8')
+        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FCFAF5',duration:1},'stage4+=8')
+        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'transparent',duration:0},'stage4+=9')
+        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'transparent',duration:0},'stage4+=9')
+        .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=9')
+        .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=8')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=9')
         // .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
 
 
