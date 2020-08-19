@@ -126,7 +126,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(2)',{background:'#FF9E00',duration:1},'stage2+=0.5')
         .to('.fixed-animation-block .list_item:nth-child(2) .romb',{background:'#FF9E00',duration:1},'stage2+=0.5')
         .to('.fixed-animation-block .list_item:nth-child(2) .text',{opacity:1,duration:0.5},'stage2+=1.5')
-        .to('.fixed-animation-block .list_item:nth-child(2) .subinfo',{opacity:1,duration:0.5},'stage2+=3.5')
+        .to('.fixed-animation-block .list_item:nth-child(2) .subinfo',{opacity:1,duration:0.5},'stage2+=2.5')
 
         .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont .img-block',{height:'44rem'},{height:'30rem',duration:1},'stage2+=3.5')
         .call(function(){
@@ -161,6 +161,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FF9E00',duration:1},'stage3+=0.5')
         .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FF9E00',duration:1},'stage3+=0.5')
         .to('.fixed-animation-block .list_item:nth-child(3) .text',{opacity:1,duration:0.5},'stage3+=1.5')
+        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:1,duration:0.5},'stage3+=2.5')
 
         .fromTo('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=2')
         .to('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5,duration:1},'stage3+=3.5')
@@ -234,7 +235,6 @@ $(document).ready(function(){
         },'stage3+=5')
         .fromTo('.empty-cart.with-cont .reabilitation-block',{opacity:0},{opacity:1,duration:0.5},'stage3+=5')
 
-        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:1,duration:0.5},'stage3+=6.5')
         .to('.empty-cart.with-cont .reabilitation-block .time',{opacity:0, display:"none",duration:0},'stage3+=9')
 
         .to('.empty-cart.with-cont .amount-block .text',{opacity:0, display:"none",duration:0},'-=1')
@@ -280,7 +280,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .reabGone',{opacity:1,display:'flex',duration:0.5},'stage4+=0.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block',{opacity:1,duration:0.5},'stage4+=1.5')
 
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=1.5')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=2.5')
 
 // stage4 +=2
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=7')
@@ -290,7 +290,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'transparent',duration:0},'stage4+=8')
         .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=8')
         .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=7')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=8')
         // .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
 
 
@@ -316,7 +316,7 @@ $(document).ready(function(){
         .fromTo('.fixed-animation-block .right-half .empty-cart.reab-result .pechat',{opacity:'0'},{opacity:'1',duration:0.5})
 
 
-        .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:1,duration:0.5},'+=1.5')
+        .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:1,duration:0.5},'+=2.5')
         .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:0,duration:1},'+=4')
         .to('.fixed-animation-block .list_item:nth-child(5)',{background:'#FCFAF5',duration:1},'-=1')
         .to('.fixed-animation-block .list_item:nth-child(5) .romb',{background:'#FCFAF5',duration:1},'-=1')
