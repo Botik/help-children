@@ -316,7 +316,7 @@ $(document).ready(function(){
         .fromTo('.fixed-animation-block .right-half .empty-cart.reab-result .pechat',{opacity:'0'},{opacity:'1',duration:0.5})
 
 
-        .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:1,duration:0.5},'+=2.5')
+        .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:1,duration:0.5},'stage5+=2.5')
         .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:0,duration:1},'+=4')
         .to('.fixed-animation-block .list_item:nth-child(5)',{background:'#FCFAF5',duration:1},'-=1')
         .to('.fixed-animation-block .list_item:nth-child(5) .romb',{background:'#FCFAF5',duration:1},'-=1')
