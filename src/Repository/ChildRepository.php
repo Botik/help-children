@@ -90,22 +90,24 @@ class ChildRepository extends ServiceEntityRepository
             $rows[$key]['requisites']=$body->requisites;
             $rows[$key]['contacts']=$body->contacts;
             $rows[$key]['city']=$body->city;
+            $rows[$key]['age']=(new \DateTime())->diff(new \DateTime($child['birthdate']))->y;
             $sql=<<<sql
-         SELECT * FROM ch_target WHERE child = :state
-        sql;
-        $Q = $DB->prepare($sql);
-        $Q->execute(['state' => $child['id']]);
-        $trg = $Q->fetchAll(\Doctrine\DBAL\FetchMode::ASSOCIATIVE);
+             SELECT * FROM ch_target WHERE child = :state
+            sql;
+            $Q = $DB->prepare($sql);
+            $Q->execute(['state' => $child['id']]);
+            $trg = $Q->fetchAll(\Doctrine\DBAL\FetchMode::ASSOCIATIVE);
             $rows[$key]['targets']=$trg;
-
         }
         $c=$rows;
         foreach ($rows as $key => $child) {
             $lst=end($child['targets']);
+            $child['targets'][0]['first_photo']=@json_decode($child['targets'][0]['attach'])[0];
             if (($lst['collected'] >= $lst['goal']) and $lst['allowclose'] == 0) {
                 $c[]=$child;
                 unset($c[$key]);
             }
+            else $c[$key]['targets'][0]['first_photo']=$child['targets'][0]['first_photo'];
         }
             $c = array_values($c);
         return $c;

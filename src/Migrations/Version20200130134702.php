@@ -22,9 +22,9 @@ final class Version20200130134702 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE ch_target ADD name VARCHAR(255) DEFAULT NULL, ADD descr VARCHAR(65500) DEFAULT NULL, ADD attach VARCHAR(65500) DEFAULT NULL');
+//        $this->addSql('ALTER TABLE ch_target ADD name VARCHAR(255) DEFAULT NULL, ADD descr VARCHAR(65500) DEFAULT NULL, ADD attach VARCHAR(65500) DEFAULT NULL');
         // php bin/console doctrine:query:sql "ALTER TABLE ch_target ADD name VARCHAR(255) DEFAULT NULL, ADD descr TEXT(65500) DEFAULT NULL, ADD attach TEXT(65500) DEFAULT NULL"
-        /* php bin/console doctrine:query:sql "INSERT INTO ch_target (id, child, rehabilitation, goal, collected, totime, name, descr, attach) VALUES 
+        /* php bin/console doctrine:query:sql "INSERT INTO ch_target (id, child, rehabilitation, goal, collected, totime, name, descr, attach) VALUES
         (NULL, '1', '0', '15960', '15960', '2020-01-29 00:00:00', 'Подарок', 'Описание', NULL),
         (NULL, '2', '1', '63300', '63300', '2020-01-29 00:00:00', 'Реабилитация', 'Описание', NULL),
         (NULL, '12', '1', '48500', '750', '2020-01-29 00:00:00', 'Реабилитация', 'Описание', NULL),

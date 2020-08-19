@@ -94,7 +94,6 @@ class RegistrationController extends AbstractController
                     $formm->addError(new FormError('Такой номер телефона уже существует'));
                 }
             }
-            dd($form->getErrors(true));
             if ($valid) {
                 // encode the plain password
                 $user->setPass(

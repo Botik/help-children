@@ -1,4 +1,16 @@
 $(document).ready(function () {
+	$('.how-we-help-wrapper .wrapper-item a').click(function(){
+		var $page = $('html, body');
+		if($(this).hasClass('dolg-opeka')) {
+			$page.animate({
+				scrollTop: ((window.innerWidth < 771) ? ($('.dolg-opeka-item-mob').offset().top) : ($('.dolg-opeka-item-desk').offset().top - 80))
+			}, 400);
+		} else {
+			$page.animate({
+				scrollTop: ($('.gift-section').offset().top - ((window.innerWidth < 771) ? 0 : 80))
+			}, 400);
+		}
+	});
 	var SJ_setiings = {
 		options: {
 			hlw: true, // Height as width
@@ -358,6 +370,63 @@ $(document).ready(function () {
 	$('.header-mobile .nav-links__item-link, .header-mobile .nav-links-submenu__item').click(function () {
 		$('.js-mobile-menu-button').trigger('click');
 	});
+
+	if($('.main-swiper').length) {
+		var mainswiper = new Swiper('.main-swiper', {
+			slidesPerView:1,
+			spaceBetween:100,
+			loop:true,
+			pagination: {
+			  el: '.swiper-pagination',
+			  clickable:true,
+			},
+		  });
+
+		// var screenWidth = $(window).width();
+
+		// $('.dream-swiper').css('padding','50px '+((screenWidth - 1080)/2)+"px");
+		var dreamswiper = new Swiper('.dream-swiper', {
+			slidesPerView:1,
+			spaceBetween:200,
+			loop:true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable:true,
+			},
+		});
+
+		// var padding = $(window).width()/2 
+		// $('.reviews-swiper.oneslide').css('padding')
+		var reviewswiper = new Swiper('.reviews-swiper.multislide', {
+			slidesPerView:1,
+			spaceBetween:100,
+			loop:true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable:true,
+			},
+			centeredSlides:true,
+		});
+		var reviewswiper = new Swiper('.reviews-swiper.oneslide', {
+			slidesPerView:"auto",
+			spaceBetween:25,
+			loop:true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable:true,
+			},
+			centeredSlides:true,
+		});
+
+	}
+
+	// $('.gift-link').click(function(){
+	// 	event.preventDefault();
+	// 	var $page = $('html, body');
+	// 	$page.animate({
+	// 		scrollTop: $('.section.mission.gift-section').offset().top - 80
+	// 	}, 400);
+	// });
 });
 
 

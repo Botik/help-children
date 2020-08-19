@@ -129,32 +129,32 @@ class EditChildTypes extends AbstractType
                     ]
                 ]
             )
-            ->add(
-                'collected',
-                NumberType::class,
-                [
-                    'constraints' => [
-                        new NotBlank(),
-                        new Range([
-                            'min' => 0,
-                            'max' => 10000000
-                        ])
-                    ]
-                ]
-            )
-            ->add(
-                'goal',
-                NumberType::class,
-                [
-                    'constraints' => [
-                        new NotBlank(),
-                        new Range([
-                            'min' => 1,
-                            'max' => 10000000
-                        ])
-                    ]
-                ]
-            )
+//            ->add(
+//                'collected',
+//                NumberType::class,
+//                [
+//                    'constraints' => [
+//                        new NotBlank(),
+//                        new Range([
+//                            'min' => 0,
+//                            'max' => 10000000
+//                        ])
+//                    ]
+//                ]
+//            )
+//            ->add(
+//                'goal',
+//                NumberType::class,
+//                [
+//                    'constraints' => [
+//                        new NotBlank(),
+//                        new Range([
+//                            'min' => 1,
+//                            'max' => 10000000
+//                        ])
+//                    ]
+//                ]
+//            )
             ->add(
                 'save',
                 SubmitType::class,

@@ -5,166 +5,1714 @@
 {% block keywords %}Главная{% endblock %}
 
 {% block content %}
-    <main>
-        <section class="section hero">
-            <div class="container page-padding">
-                <div class="hero-row">
-                    <div class="hero-col">
-                        <img class="hero__title img-responsive"
-                             src="/images/main-title.png"
-                             alt="Помоги детям сейчас, безопасно"/>
-                        <div class="hero-col__col">
-                            <p class="hero__notice">
-                                Преимущественным отличием Фонда является проект долгосрочной опеки, который
-                                предусматривает регулярную
-                                оплату и систематическое прохождение реабилитаций.
-                                <br>
-                                <br>
-                                Сбор средств осуществляется только электронными способами приема платежей для
-                                обеспечения полной
-                                прозрачности деятельности Фонда. </p>
-                            <a class="btn btn--big hero-programs-button" href="{{ path('children_list') }}">Программы
-                                помощи</a>
+    <main>                                                   
+                     
+    <section class="section hero-new">
+        <div class="swiper-container main-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-content">
+                        <img class="swiper-back-img" src="/newimages/medved.png" alt="Мишка">
+                        <div class="headline">Помогаем детям с ДЦП <br>сделать первый шаг</div>
+                        <div class="subline">
+                            <div>Сбор средств осуществляется электронными<br class='desk-br'> способами приема платежей</div>
+                            <div class="mobile-medved"><img src="/newimages/medved.png" alt="Мишка"></div>
                         </div>
-                    </div>
-                    <div class="hero-col hero-col__right">
-                        <img class="img-responsive" src="/images/children.png" alt="Дети">
+                        <a href="/children" class="btn orange-btn">Программы помощи</a>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="section donate">
-            <div class="container container--small">
-                <div class="donate-form-wrapper">
-                    {% include 'components/donate_form.twig' %}
-                </div>
-            </div>
-        </section>
-        <section class="section mission" id="section-mission" style='padding-top:30px;'>
-            <div class="container container--small">
-                <h2 class="mission-title section-title">Миссия нашего фонда</h2>
-                <div class="mission-description">
-                    <div class="mission-description-col mission-description-col-left">
-                        <p class="mission-description-text">
-                            Cтатистика ДЦП в Российской Федерации по данным Всемирной организации здравоохранения демонстрирует повышенный процент больных детей и оценивается в размере 6-8 случаев на 1000 новорожденных и при этом постепенно растет, в то время как в развитых западных странах таких случаев в два раза меньше. Детский церебральный паралич требует проведения регулярного реабилитационного лечения. В среднем одна реабилитация стоит 100 тысяч рублей, которую желательно проходить 3-4 раза в год.
-                        </p>
-                    </div>
-                    <div class="mission-description-col mission-description-col-image">
-                        <img src="/images/child-stats.png" width="275" alt="6-8 случаев из 1000 новорожденных">
-                    </div>
-                    <div class="mission-description-col mission-description-col-right">
-                        <p class="mission-description-text">
-                            Большинство семей в нашей стране не могут позволить себе такие суммы.<br>Благотворительный фонд «Помогите детям» решает данную проблему, обеспечивая каждого ребенка необходимыми средствами для прохождения реабилитаций. Долгосрочное оказание помощи позволяет значительно облегчить жизнь ребенка в будущем и обеспечить ему максимальную независимость.
-                        </p>
-                    </div>
-                </div>
-                <ul class="mission-list">
-                    <li class="mission-list__item bg-circle">
-                        <h3 class="mission-list__item-title">Задача</h3>
-                        <p class="mission-list__item-notice">Адресный сбор средств для оказания материальной помощи детям с ДЦП из малообеспеченных и неполных семей.</p>
-                    </li>
-                    <li class="mission-list__item bg-heart">
-                        <h3 class="mission-list__item-title">Принцип</h3>
-                        <p class="mission-list__item-notice">Электронное пожертвование - ваше спокойствие, наша
-                            прозрачность.</p>
-                    </li>
-                    <li class="mission-list__item bg-plus">
-                        <h3 class="mission-list__item-title">Цель</h3>
-                        <p class="mission-list__item-notice">Адаптация, социализация и интеграция в общество детей с ДЦП. Предоставление максимальной независимости во взрослой жизни.</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="section mission" id="section-mission" style="/* padding-top: 0px; */background-color: #f5f9fc;">
-            <div class="container container--small" style="/* height: 400px; */text-align: center;">
-                <h2 class="mission-title section-title">Важно. Безопасно. Просто.</h2> <p>Вы когда-нибудь задумывались о том, сколько денег вы тратите на ненужные вещи?</p>
-                <div class="mission-description" style="/* padding-bottom: 70px; */">
 
-                    <div class="mission-description-col mission-description-col-image" style="width: 100%;height: 400px;">
-               <iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/B1AMoRNPm80" frameborder="0" allowfullscreen="" style="width: 100%;height: 400px;">
-                    &amp;amp;amp;amp;lt;/div&amp;amp;amp;amp;gt;</iframe></div>
+                <div class="swiper-slide">
+                    <div class="swiper-content">
+                        <img class="swiper-back-img" src="/newimages/medved.png" alt="Мишка">
+                        <div class="headline">Помогаем детям с ДЦП <br>сделать первый шаг</div>
+                        <div class="subline">Сбор средств осуществляется электронными<br>способами приема платежей
+                        </div>
+                        <a href="/children" class="btn orange-btn">Программы помощи</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="swiper-content">
+                        <img class="swiper-back-img" src="/newimages/medved.png" alt="Мишка">
+                        <div class="headline">Помогаем детям с ДЦП <br>сделать первый шаг</div>
+                        <div class="subline">Сбор средств осуществляется электронными<br>способами приема платежей
+                        </div>
+                        <a href="/children" class="btn orange-btn">Программы помощи</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <section class="section donate">
+        <div class="container container--small">
+            <div class="donate-form-wrapper">
+                <form action="/dist/online-help.html" method="GET" class="donate-form">
+                    <div class="donate-form-row">
+                        <div class="donate-form-title">Я хочу помочь</div>
+                        <div class="donate-form-row__col donate-sum-fieldgroup toggle-fieldgroup">
+                            <label class="donate-sum-fieldgroup__label toggle-field">
+                                <input class="toggle-field__input" type="radio" name="sum" value="300" checked>
+                                <span class="toggle-field__text">300 Р</span>
+                            </label>
+                            <label class="donate-sum-fieldgroup__label toggle-field">
+                                <input class="toggle-field__input" type="radio" name="sum" value="500">
+                                <span class="toggle-field__text">500 Р</span>
+                            </label>
+                            <label class="donate-sum-fieldgroup__label toggle-field">
+                                <input class="toggle-field__input" type="radio" name="sum" value="700">
+                                <span class="toggle-field__text">700 Р</span>
+                            </label>
+                            <label class="donate-sum-fieldgroup__label">
+                                <input class="donate-text-field" type="text" name="sum-other" value=""
+                                    placeholder="Другая сумма" autocomplete="off" />
+                            </label>
+                        </div>
+                        <button class="donate-form-row__col btn btn-dark donate-form-submit js-donate-form-submit"
+                            style="padding: 0 20px;">
+                            <span class="donate-form-submit__text">Пожертвовать</span>
+                            <span class="icon icon-arrow-right"></span>
+                        </button>
+                    </div>
+                    <div class="donate-form-row" style="margin: 0 auto;">
+                        <div class="donate-form-payment-systems" style="height: 40px; margin: 0 auto;">
+                            <div class="donate-form-payment-systems__cards" style="width: 300px; margin: 0;">
+                                <div id="paymentByVisa" class="toggle-field__text"
+                                    style="opacity: 0.7; border-right: none; padding-left: 0; text-align: center; font-size: 1.2rem; color: #707070 !important; text-transform: none; cursor: auto;">
+                                    <div style="padding-left: 10px; padding-right: 10px;">Оплата с карт</div><img
+                                        class="toggle-field__text-image" src="/images/Apple_Pay.png" width="50"><img
+                                        class="toggle-field__text-image" src="/images/Google_Pay.png" width="50"><img
+                                        class="toggle-field__text-image" src="/images/mastercard.png" width="30"><img
+                                        class="toggle-field__text-image" src="/images/visa.png" width="40">
+                                </div>
+                            </div>
+                            <div class="donate-form-payment-systems__notice">
+                                <div class="icon-wrapper">
+                                    <span class="icon icon-lock"></span>
+                                </div>
+                                <span>
+                                    Все сделки защищены SSL, PSI DSS,<br>
+                                    Персональные данные конфиденциальны.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="section mission" id="section-mission" style='padding-top:30px;'>
+        <div class="container container--small" style="background: url(/newimages/hearth-back2.svg);
+                                                        background-size: 40%;
+                                                        background-repeat: no-repeat;
+                                                        background-position: 0px -190px;">
+            <h2 class="mission-title section-title">статистика и причины Дцп</h2>
+            <div class="mission-description new-mission">
+                <div class="mission-description-col mission-description-col-left">
+                    <p class="mission-description-text">
+                        Каждый день в нашей стране рождается более 30 малышей с ограниченными возможностями здоровья.
+                        При этом данный показатель растет.
+                    </p>
+
+                    <img src="/newimages/child-sleep.png" class="sleep-child mobile" alt="статистика и причины">
+
+                    <div class="dcp-reasons">
+                        <div class="title">
+                            Основные причины ДЦП:
+                        </div>
+
+                        <div class="reasons-wrapper">
+                            <div class="reason-item">
+                                <div class="left">
+                                    <div class="reason-img">
+                                        <img src="/newimages/puso.svg" alt="Живот">
+                                    </div>
+                                </div>
+                                <div class="right">Неправильно <br>проведённые <br>роды</div>
+                            </div>
+                            <div class="reason-item">
+                                <div class="left">
+                                    <div class="reason-img">
+                                        <img src="/newimages/brain2.svg" alt="мозг">
+                                    </div>
+                                </div>
+                                <div class="right">Травмы <br>головного <br>мозга</div>
+                            </div>
+                            <div class="reason-item">
+                                <div class="left">
+                                    <div class="reason-img">
+                                        <img src="/newimages/brain1.svg" alt="мозг">
+                                    </div>
+                                </div>
+                                <div class="right">Нарушение в <br>структуре <br>головного мозга</div>
+                            </div>
+                            <div class="reason-item">
+                                <div class="left">
+                                    <div class="reason-img">
+                                        <img src="/newimages/bacteria.svg" alt="мозг">
+                                    </div>
+                                </div>
+                                <div class="right">Кислородное голодание при беременности</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <img src="/newimages/line-1.svg" style="height:17rem">
+                    </div>
+                </div>
+                <div class="mission-description-col mission-description-col-image">
+                    <img src="/newimages/child-sleep.png" class="sleep-child" alt="статистика и причины">
+                </div>
+            </div>
+
+            <div class="how-we-help">
+                <div class="line2">
+                    <img src="/newimages/line2.svg" style="height: 290px;">
+                </div>
+                <h2 class="mission-title section-title">Как мы помогаем?</h2>
+                <p class="subtitle">
+                    При работе с ДЦП важен системный подход к лечению.<br>Поэтому мы разработали две программы помощи:
+                </p>
+                <div class="how-we-help-wrapper">
+                    <div class="wrapper-item">
+                        <div class="left">
+                            <div class="item-img">
+                                <img src="/newimages/calendar-icon.svg">
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="title">Долгосрочная опека</div>
+                            <div class="text">комплексное прохождение серии курсов реабилитаций<br>в медицинском центре.
+                            </div>
+                            <a href="#dolg-opeka" class='dolg-opeka' >Подробнее</a>
+                        </div>
+                    </div>
+
+                    <div class="wrapper-item">
+                        <div class="left">
+                            <div class="item-img">
+                                <img src="/newimages/gift-icon.svg">
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="title">Подарки и мечты</div>
+                            <div class="text">приобретение необходимого оборудования и тренажёров для занятий дома.
+                            </div>
+                            <a href="#gift-link" class="gift-link">Подробнее</a>
+                        </div>
+                    </div>
 
                 </div>
-                <p style="padding-bottom: 50px;">
-                     <a class="donate-form-row__col btn btn-dark donate-form-submit js-donate-form-submit" href="/dist/online-help.html?sum-other=200" style='text-decoration:none;'>
-                         <span class="donate-form-submit__text">Пожертвовать 200 рублей</span>
-                         <span class="icon icon-arrow-right"></span>
-                     </a>
-                 </p>
+                <div class="line3">
+                    <img src="/newimages/line3.svg" style="height: 190px;">
+                </div>
             </div>
-        </section>
-        <section class="section how">
-            <div class="container">
-                <div class="how-row">
-                    <div class="how-col how-col-project">
-                        <p class="how-col-project__notice">
-                            Фандрайзер - специалист по привлечению средств и ресурсов. </p>
-                        <div class="how-col-project__image-container">
-                            <img class="how-col-project__image-container-image"
-                                 src="/images/fandrajzer.png"
-                                 alt="Фандрайзер">
+        </div>
+    </section>
+    <section class="section mission mainanimation dolg-opeka-item-desk" style="background-image: url(/newimages/hearth-back2.svg);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center center;">
+        <div class="container container--small animContainer1">
+            <div class="fixed-animation-block">
+                <div class="left-half">
+                    <div class="back-number">
+                        <img src="/newimages/number-1.svg">
+                    </div>
+                    <div class="title">программа помощи</div>
+                    <div class="headline">"Долгосрочная опека"</div>
+                    <div class="subtitle">Оказание системной помощи детям<br>со средней степенью тяжести ДЦП*<br>из
+                        малообеспеченных и неполных семей.</div>
+
+                    <div class="list">
+                        <div class="list_item" data-stage='1'>
+                            <div class="line"></div>
+                            <div class="left">
+                                <div class="circle">1</div>
+                            </div>
+                            <div class="right">
+                                <span class='points'><img src="/newimages/3point.svg"></span>
+                                <span class='text'>Принимаем ребёнка под опеку</span>
+                            </div>
+                            <div class="romb"></div>
+                            <div class="subinfo">Проверяем все документы, учитываем форму и<br>степень тяжести ДЦП,
+                                желание и инициативность<br>родителей работать с ребёнком.</div>
+                        </div>
+
+                        <div class="list_item" data-stage='2'>
+                            <div class="left">
+                                <div class="circle">2</div>
+                            </div>
+                            <div class="right">
+                                <span class='text'>Открываем сбор средств</span>
+                            </div>
+                            <div class="romb"></div>
+                            <div class="subinfo">Отправляем документы в реабилитационный<br>центр, проводим консультацию
+                                с неврологом.<br>Ставим конкретные цели, которые<br>необходимо достичь к концу
+                                реабилитации.</div>
+                        </div>
+
+                        <div class="list_item" data-stage='3'>
+                            <div class="left">
+                                <div class="circle">3</div>
+                            </div>
+                            <div class="right">
+                                <span class='text'>Собираем необходимые средства</span>
+                            </div>
+                            <div class="romb"></div>
+                            <div class="subinfo">Сбор средств осуществляется только <br>электронными способами приёма
+                                платежей.</div>
+                            <div class="subinfo2">Осуществляется перевод денежных средств<br>в реабилитационный центр.
+                            </div>
+                        </div>
+
+                        <div class="list_item" data-stage='4'>
+                            <div class="left">
+                                <div class="circle">4</div>
+                            </div>
+                            <div class="right">
+                                <span class='text'>Проводим курс реабилитации</span>
+                            </div>
+                            <div class="romb"></div>
+                            <div class="subinfo">С ребёнком работают опытные специалисты:<br>невролог, реабилитолог,
+                                логопед-дефектолог,<br>массажист и другие коррекционные педагоги.</div>
+                        </div>
+
+                        <div class="list_item" data-stage='5'>
+                            <div class="left">
+                                <div class="circle">5</div>
+                            </div>
+                            <div class="right">
+                                <span class='text'>Предоставляем отчёт благотворителям</span>
+                            </div>
+                            <div class="romb"></div>
+                            <div class="subinfo">У каждого благотворителя есть возможность следить за<br>достижениями и
+                                успехами ребёнка в личной карте. <span style="font-weight:bold">Новой<br>информацией делится мама малыша в реальном
+                                времени.</span></div>
+                        </div>
+
+                        <div class="list_item" data-stage='6'>
+                            <div class="left">
+                                <div class="circle">6</div>
+                            </div>
+                            <div class="right">
+                                <span class='text'>Проводим дальнейшее лечение</span>
+                            </div>
+                            <div class="romb"></div>
+                            <div class="subinfo">Систематическое проведение реабилитаций<br>позволяет добиваться
+                                значительно лучших<br>результатов в лечении, чем единоразовая помощь.</div>
+                        </div>
+
+                        <div class="last-info">
+                            Долгосрочное оказание помощи облегчает<br>жизнь ребёнка и обеспечивает ему<br>максимальную
+                            независимость.
                         </div>
                     </div>
-                    <div class="how-col">
-                        <h2 class="how-title section-title">ФАНДРАЙЗИНГ</h2>
-                        <div class="how-notice">
-                            <p class="how-notice-indent">
-                                Благотворительный фонд “Помогите детям" привлекает спонсорскую и благотворительную
-                                помощь от
-                                юридических и физических лиц. Основным способом привлечения денежных средств является
-                                метод прямого
-                                диалога по технологии “Face-2-Face”. Наших фандрайзеров вы можете встретить на улицах
-                                города, в
-                                торговых и офисных центрах. Фандрайзерам категорически запрещено брать наличные денежные
-                                средства. У
-                                каждого фандрайзера в обязательном порядке имеется индивидуальный бейдж с фотографией и
-                                личными
-                                данными, а также электронный планшет через который можно оформить подписку на
-                                пожертвование, как на
-                                регулярной, так и на единоразовой основе, используя персональный QR-код. </p>
-                            <p class="how-notice-indent">
-                                Пожертвования на регулярной основе позволяют заблаговременно планировать бюджет,
-                                своевременно
-                                проходить курсы реабилитаций и добиваться значительно лучших результатов в лечении. </p>
+
+
+                </div>
+                <div class="right-half">
+                    <div class="carts-block">
+                        <div class="empty-cart fiveth">
+                            <div class="img-block">
+                                <img src="/newimages/pijama.svg">
+                            </div>
+                            <div class="cart-text">
+                                Просьба<br>о помощи
+                            </div>
                         </div>
-                        <div class="how-view-children-wrapper">
-                            <a class="btn btn-light view-children-button" href="{{ path('children_list') }}">
-                                <span class="view-children-button__text">Программы помощи</span>
-                                <span class="icon icon-arrow-right-dark"></span>
-                            </a>
+                        <div class="empty-cart fourth">
+                            <div class="img-block">
+                                <img src="/newimages/pijama.svg">
+                            </div>
+                            <div class="cart-text">
+                                Просьба<br>о помощи
+                            </div>
+                        </div>
+                        <div class="empty-cart third">
+                            <div class="img-block">
+                                <img src="/newimages/pijama.svg">
+                            </div>
+                            <div class="cart-text">
+                                Просьба<br>о помощи
+                            </div>
+                        </div>
+                        <div class="empty-cart second">
+                            <div class="img-block">
+                                <img src="/newimages/pijama.svg">
+                            </div>
+                            <div class="cart-text">
+                                Просьба<br>о помощи
+                            </div>
+                        </div>
+                        <div class="empty-cart first">
+                            <div class="img-block">
+                                <img src="/newimages/pijama.svg">
+                            </div>
+                            <div class="cart-text">
+                                Просьба<br>о помощи
+                            </div>
+                        </div>
+                        <div class="empty-cart with-cont">
+                            <div class="reabilitation-block">
+                                <div class="title">
+                                    Реабилитация<br>через
+                                </div>
+                                <div class='days'>
+                                    <span id='animdays'>30</span> дней
+                                </div>
+                                <div class='time'>
+                                    <span id='animhours'>23</span>:<span id='animmin'>59</span>:<span
+                                        id='animsec'>59</span>
+                                </div>
+                                <div class="reabGone">
+                                    <div class="img-reab">
+                                        <img src="/images/anim/reabil.svg">
+                                    </div>
+                                    <div class="text">
+                                        Проходит<br>реабилитацию
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="img-block">
+                                <img class='kid-img' src="/newimages/dasha.jpeg">
+                                <img class='kid-img2' src="/newimages/dasha2.png">
+                            </div>
+                            <div class="kid-info">
+                                <div class="kid-name">Даша Карпеева</div>
+                                <div class="diagnos">ДЦП, спастическая диплегия<br>
+                                    <span class="GMFCS"><span class='txt1'>GMFCS III</span>
+                                        <img class='arrow-img' style="display:none;"
+                                            src="/newimages/black-arrow-right.svg">
+                                        <span class='txt2' style="display:none;">
+                                            GMFCS II
+                                        </span>
+                                    </span><span class='level'> уровень</span></div>
+                                <div class="progress-list">
+                                    <div class="progress-bar bar1">
+                                        <div class="progress-bar-done" style="width:8px"></div>
+                                    </div>
+                                    <div class="progress-bar bar2">
+                                        <div class="progress-bar-done" style="width:8px"></div>
+                                    </div>
+                                    <div class="progress-bar bar3">
+                                        <div class="progress-bar-done" style="width:8px"></div>
+                                    </div>
+                                    <div class="progress-bar bar4">
+                                        <div class="progress-bar-done" style="width:8px"></div>
+                                    </div>
+                                    <div class="progress-bar bar5">
+                                        <div class="progress-bar-done" style="width:8px"></div>
+                                    </div>
+                                </div>
+
+                                <div class="amount-block">
+                                    <div class="text">Осталось собрать:</div>
+                                    <div class="amount-sum"><span id="animnumber">83 000</span> руб</div>
+                                    <div class="text text2">Сбор на текущую реабилитацию закрыт</div>
+                                </div>
+                                <div class="needed-block">
+                                    <div>Необходимо:</div>
+                                    <div class='need-item need1'>Первый курс реабилитации в РЦ "Добрые руки"</div>
+                                    <div class='need-item need2'>Второй курс реабилитации в РЦ "Добрые руки"</div>
+                                    <div class='need-item need3'>Третий курс реабилитации в РЦ "Добрые руки"</div>
+                                    <div class='need-item need4'>Четвертый курс реабилитации в РЦ "Добрые руки"</div>
+                                    <div class='need-item need5'>Пятый курс реабилитации в РЦ "Добрые руки"</div>
+                                </div>
+                                <div class="want-help-button">
+                                    <button>Хочу помочь!</button>
+                                </div>
+                                <div class="want-help-button gray">
+                                    <button>Сбор закрыт</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="empty-cart reab-result">
+                            <div class="title">
+                                Результаты текущей реабилитации
+                            </div>
+                            <div class="img-block">
+                                <img src="/newimages/dasha3.png">
+                            </div>
+                            <div class="result-list">
+                                <div class="item">
+                                    <img src="/newimages/accept-orange.svg">
+                                    <span>Поставили звуки «С», «Т»</span>
+                                </div>
+                                <div class="item">
+                                    <img src="/newimages/accept-orange.svg">
+                                    <span>Увеличилась дистанция ходьбы</span>
+                                </div>
+                                <div class="item">
+                                    <img src="/newimages/accept-orange.svg">
+                                    <span>Окрепли мышцы спины</span>
+                                </div>
+                                <div class="item">
+                                    <img src="/newimages/accept-orange.svg">
+                                    <span>Улучшилась подвижность мышц стопы</span>
+                                </div>
+                            </div>
+                            <img class='pechat' src="/newimages/pechat.svg">
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem1">
+                        <div class="img-block">
+                            <img src="/images/anim/hum1.jpg">
+                        </div>
+                        <div class="donatesum">
+                            150Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem2">
+                        <div class="img-block">
+                            <img src="/images/anim/hum2.jpg">
+                        </div>
+                        <div class="donatesum">
+                            320Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem3">
+                        <div class="img-block">
+                            <img src="/images/anim/hum3.jpg">
+                        </div>
+                        <div class="donatesum">
+                            500Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem4">
+                        <div class="img-block">
+                            <img src="/images/anim/hum4.jpg">
+                        </div>
+                        <div class="donatesum">
+                            1200Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem5">
+                        <div class="img-block">
+                            <img src="/images/anim/hum5.png">
+                        </div>
+                        <div class="donatesum">
+                            250Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem6">
+                        <div class="img-block">
+                            <img src="/images/anim/hum6.png">
+                        </div>
+                        <div class="donatesum">
+                            600Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem7">
+                        <div class="img-block">
+                            <img src="/images/anim/hum7.png">
+                        </div>
+                        <div class="donatesum">
+                            150Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem8">
+                        <div class="img-block">
+                            <img src="/images/anim/hum8.png">
+                        </div>
+                        <div class="donatesum">
+                            320Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem9">
+                        <div class="img-block">
+                            <img src="/images/anim/hum9.png">
+                        </div>
+                        <div class="donatesum">
+                            700Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem10">
+                        <div class="img-block">
+                            <img src="/images/anim/hum10.png">
+                        </div>
+                        <div class="donatesum">
+                            350Р
+                        </div>
+                    </div>
+
+                    <div class="donate-elem elem11">
+                        <div class="img-block">
+                            <img src="/images/anim/hum11.png">
+                        </div>
+                        <div class="donatesum">
+                            500Р
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {# <div class="animContainer anim1"></div>
+        <div class="animContainer anim2"></div>
+                <div class="animContainer anim3"></div>
+                <div class="animContainer anim4"></div>
+                <div class="animContainer anim5"></div> #}
+    </section>
+
+
+    <section class="section mission mainanimation mobile dolg-opeka-item-mob" style='padding-top:30px;'>
+        <div class="container container--small">
+            <div class="top-block">
+                <div class="back-number">
+                    <img src="/newimages/number-1.svg">
+                </div>
+                <div class="title">программа помощи</div>
+                <div class="headline">"Долгосрочная опека"</div>
+                <div class="subtitle">Оказание системной помощи детям со средней степенью тяжести ДЦП* из
+                    малообеспеченных и неполных семей.</div>
+            </div>
+        </div>
+        <div class="swiper-container swiper-animation">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="top-info">
+                            <div class="list_item">
+                                <div class="left">
+                                    <div class="circle">1</div>
+                                </div>
+                                <div class="right">
+                                    <span class='text'>Принимаем ребёнка<br>под опеку</span>
+                                </div>
+                                <div class="romb"></div>
+                            </div>
+                            <div class="subinfo">Проверяем все документы, учитываем форму и степень тяжести ДЦП, желание
+                                и инициативность родителей работать с ребёнком.</div>
+                        </div>
+                        <div class="kid-cards">
+                            <div class="empty-cart with-cont">
+                                <div class="img-block">
+                                    <img class='kid-img' src="/newimages/dasha.jpeg">
+                                </div>
+                                <div class="kid-info">
+                                    <div class="kid-name">Даша Карпеева</div>
+                                    <div class="diagnos">ДЦП, спастическая диплегия<br>GMFCS III уровень</div>
+                                </div>
+                            </div>
+                            <div class="empty-cart second">
+                            </div>
+                            <div class="empty-cart third">
+                            </div>
+                        </div>
+                        <div class="bottom-info">
+                            * II-IV уровень моторных функций<br>по шкале <span>GMFCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="top-info">
+                            <div class="list_item">
+                                <div class="left">
+                                    <div class="circle">2</div>
+                                </div>
+                                <div class="right">
+                                    <span class='text'>Открываем сбор<br>средств</span>
+                                </div>
+                                <div class="romb"></div>
+                            </div>
+                            <div class="subinfo">Отправляем документы в реабилитационный центр, проводим консультацию с
+                                неврологом. Ставим конкретные цели, которые необходимо достичь к концу реабилитации.
+                            </div>
+                        </div>
+                        <div class="kid-cards">
+                            <div class="empty-cart with-cont second-slide">
+                                <div class="img-block">
+                                    <img class='kid-img' src="/newimages/dasha.jpeg">
+                                </div>
+                                <div class="kid-info">
+                                    <div class="kid-name">Даша Карпеева</div>
+                                    <div class="diagnos">ДЦП, спастическая диплегия<br>GMFCS III уровень</div>
+                                    <div class="progress-list">
+                                        <div class="progress-bar bar1">
+                                            <div class="progress-bar-done" style="width:8px"></div>
+                                        </div>
+                                    </div>
+                                    <div class="amount-block">
+                                        <div class="text">Осталось собрать:</div>
+                                        <div class="amount-sum"><span id="animnumber">83 000</span> руб</div>
+                                        <div class="text text2">Сбор на текущую реабилитацию закрыт</div>
+                                    </div>
+                                    <div class="needed-block">
+                                        <div>Необходимо:</div>
+                                        <div class='need-item'>Первый курс реабилитации в РЦ "Добрые руки"</div>
+                                    </div>
+                                    <div class="want-help-button">
+                                        <button>Хочу помочь!</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-cart second">
+                            </div>
+                            <div class="empty-cart third">
+                            </div>
+                        </div>
+                        <div class="bottom-info">
+                            * II-IV уровень моторных функций<br>по шкале <span>GMFCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="top-info">
+                            <div class="list_item">
+                                <div class="left">
+                                    <div class="circle">3</div>
+                                </div>
+                                <div class="right">
+                                    <span class='text'>Собираем необходимые<br>средства</span>
+                                </div>
+                                <div class="romb"></div>
+                            </div>
+                            <div class="subinfo">Пользователи начинают осуществлять пожертвования. Сбор средств
+                                осуществляется только электронными способами приёма платежей.</div>
+                        </div>
+                        <div class="kid-cards">
+                            <div class="empty-cart with-cont second-slide">
+                                <div class="reabilitation-block">
+                                    <div class="title">
+                                        Реабилитация<br>через
+                                    </div>
+                                    <div class='days'>
+                                        <span id='animdays'>19</span> дней
+                                    </div>
+                                    <div class='time'>
+                                        <span id='animhours'>20</span>:<span id='animmin'>57</span>:<span
+                                            id='animsec'>23</span>
+                                    </div>
+                                </div>
+                                <div class="img-block">
+                                    <img class='kid-img' src="/newimages/dasha.jpeg">
+                                </div>
+                                <div class="kid-info">
+                                    <div class="kid-name">Даша Карпеева</div>
+                                    <div class="diagnos">ДЦП, спастическая диплегия<br>GMFCS III уровень</div>
+                                    <div class="progress-list">
+                                        <div class="progress-bar bar1">
+                                            <div class="progress-bar-done" style="width:50%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="amount-block">
+                                        <div class="text">Осталось собрать:</div>
+                                        <div class="amount-sum"><span id="animnumber">41 500</span> руб</div>
+                                        <div class="text text2">Сбор на текущую реабилитацию закрыт</div>
+                                    </div>
+                                    <div class="needed-block">
+                                        <div>Необходимо:</div>
+                                        <div class='need-item'>Первый курс реабилитации в РЦ "Добрые руки"</div>
+                                    </div>
+                                    <div class="want-help-button">
+                                        <button>Хочу помочь!</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-cart second">
+                            </div>
+                            <div class="empty-cart third">
+                            </div>
+
+                            <div class="donate-elem elem1">
+                                <div class="img-block">
+                                    <img src="/images/anim/hum1.jpg">
+                                </div>
+                                <div class="donatesum">
+                                    600Р
+                                </div>
+                            </div>
+
+                            <div class="donate-elem elem2">
+                                <div class="img-block">
+                                    <img src="/images/anim/hum2.jpg">
+                                </div>
+                                <div class="donatesum">
+                                    800Р
+                                </div>
+                            </div>
+
+                            <div class="donate-elem elem3">
+                                <div class="img-block">
+                                    <img src="/images/anim/hum3.jpg">
+                                </div>
+                                <div class="donatesum">
+                                    1000Р
+                                </div>
+                            </div>
+
+                            <div class="donate-elem elem4">
+                                <div class="img-block">
+                                    <img src="/images/anim/hum4.jpg">
+                                </div>
+                                <div class="donatesum">
+                                    1200Р
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-info">
+                            * II-IV уровень моторных функций<br>по шкале <span>GMFCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="top-info">
+                            <div class="list_item">
+                                <div class="left">
+                                    <div class="circle">4</div>
+                                </div>
+                                <div class="right">
+                                    <span class='text'>Ожидаем прохождения<br>реабилитации</span>
+                                </div>
+                                <div class="romb"></div>
+                            </div>
+                            <div class="subinfo">Пользователи помогли собрать нужную сумму, ребёнок ждёт начала
+                                реабилитации.</div>
+                        </div>
+                        <div class="kid-cards">
+                            <div class="empty-cart with-cont second-slide">
+                                <div class="reabilitation-block">
+                                    <div class="title">
+                                        Реабилитация<br>через
+                                    </div>
+                                    <div class='days'>
+                                        <span id='animdays'>10</span> дней
+                                    </div>
+                                    <div class='time'>
+                                        <span id='animhours'>20</span>:<span id='animmin'>57</span>:<span
+                                            id='animsec'>23</span>
+                                    </div>
+                                </div>
+                                <div class="img-block">
+                                    <img class='kid-img' src="/newimages/dasha.jpeg">
+                                </div>
+                                <div class="kid-info">
+                                    <div class="kid-name">Даша Карпеева</div>
+                                    <div class="diagnos">ДЦП, спастическая диплегия<br>GMFCS III уровень</div>
+                                    <div class="progress-list">
+                                        <div class="progress-bar bar1">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="amount-block">
+                                        <div class="text">Сбор на текущую реабилитацию закрыт</div>
+                                        {# <div class="amount-sum"><span id="animnumber">41 500</span> руб</div>
+                                                <div class="text text2"></div> #}
+                                    </div>
+                                    <div class="needed-block" style="opacity:0">
+                                        <div>Необходимо:</div>
+                                        <div>Полный курс реабилитации в РЦ "Добрые руки"</div>
+                                    </div>
+                                    <div class="want-help-button gray" style="display:block">
+                                        <button>Сбор закрыт</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-cart second">
+                            </div>
+                            <div class="empty-cart third">
+                            </div>
+                        </div>
+                        <div class="bottom-info">
+                            * II-IV уровень моторных функций<br>по шкале <span>GMFCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="top-info">
+                            <div class="list_item">
+                                <div class="left">
+                                    <div class="circle">5</div>
+                                </div>
+                                <div class="right">
+                                    <span class='text'>Проводим курс<br>реабилитации</span>
+                                </div>
+                                <div class="romb"></div>
+                            </div>
+                            <div class="subinfo">С ребёнком работают опытные специалисты: невролог, реабилитолог,
+                                логопед-дефектолог, массажист и другие коррекционные педагоги.</div>
+                        </div>
+                        <div class="kid-cards">
+                            <div class="empty-cart with-cont second-slide">
+                                <div class="reabilitation-block">
+                                    <div class="reabGone">
+                                        <div class="img-reab">
+                                            <img src="/images/anim/reabil.svg">
+                                        </div>
+                                        <div class="text">
+                                            Проходит<br>реабилитацию
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img-block">
+                                    <img class='kid-img' src="/newimages/dasha2.png">
+                                </div>
+                                <div class="kid-info">
+                                    <div class="kid-name">Даша Карпеева</div>
+                                    <div class="diagnos">ДЦП, спастическая диплегия<br>GMFCS III уровень</div>
+                                    <div class="progress-list">
+                                        <div class="progress-bar bar1">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="amount-block">
+                                        <div class="text">Сбор на текущую реабилитацию закрыт</div>
+                                        {# <div class="amount-sum"><span id="animnumber">41 500</span> руб</div>
+                                                <div class="text text2"></div> #}
+                                    </div>
+                                    <div class="needed-block" style="opacity:0">
+                                        <div>Необходимо:</div>
+                                        <div>Полный курс реабилитации в РЦ "Добрые руки"</div>
+                                    </div>
+                                    <div class="want-help-button gray" style="display:block">
+                                        <button>Сбор закрыт</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-cart second">
+                            </div>
+                            <div class="empty-cart third">
+                            </div>
+                        </div>
+                        <div class="bottom-info">
+                            * II-IV уровень моторных функций<br>по шкале <span>GMFCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="top-info">
+                            <div class="list_item">
+                                <div class="left">
+                                    <div class="circle">6</div>
+                                </div>
+                                <div class="right">
+                                    <span class='text'>Предоставляем отчёт<br>благотворителям</span>
+                                </div>
+                                <div class="romb"></div>
+                            </div>
+                            <div class="subinfo">У каждого благотворителя есть возможность следить за достижениями и
+                                успехами ребёнка в личной карте. <span style="font-weight:bold">Новой информацией делится мама малыша в реальном
+                                времени.</span></div>
+                        </div>
+                        <div class="kid-cards">
+                            <div class="empty-cart with-cont reab-result">
+                                <div class="title">
+                                    Результаты текущей реабилитации:
+                                </div>
+                                <div class="img-block">
+                                    <img src="/newimages/dasha3.png">
+                                </div>
+                                <div class="result-list">
+                                    <div class="item">
+                                        <img src="/newimages/accept-orange.svg">
+                                        <span>Поставили звуки «С», «Т»</span>
+                                    </div>
+                                    <div class="item">
+                                        <img src="/newimages/accept-orange.svg">
+                                        <span>Увеличилась дистанция ходьбы</span>
+                                    </div>
+                                    <div class="item">
+                                        <img src="/newimages/accept-orange.svg">
+                                        <span>Окрепли мышцы спины</span>
+                                    </div>
+                                    <div class="item">
+                                        <img src="/newimages/accept-orange.svg">
+                                        <span>Улучшилась подвижность мышц стопы</span>
+                                    </div>
+                                </div>
+                                <img class='pechat' src="/newimages/pechat.svg">
+                            </div>
+                            <div class="empty-cart second">
+                            </div>
+                            <div class="empty-cart third">
+                            </div>
+                        </div>
+                        <div class="bottom-info">
+                            * II-IV уровень моторных функций<br>по шкале <span>GMFCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="top-info">
+                            <div class="list_item">
+                                <div class="left">
+                                    <div class="circle">7</div>
+                                </div>
+                                <div class="right">
+                                    <span class='text'>Проводим дальнейшее<br>лечение</span>
+                                </div>
+                                <div class="romb"></div>
+                            </div>
+                            <div class="subinfo">Систематическое проведение реабилитаций позволяет добиваться
+                                значительно лучших результатов в лечении, чем единоразовая помощь.</div>
+                        </div>
+                        <div class="kid-cards">
+                            <div class="empty-cart with-cont second-slide">
+                                <div class="img-block">
+                                    <img class='kid-img' src="/newimages/dasha.jpeg">
+                                </div>
+                                <div class="kid-info">
+                                    <div class="kid-name">Даша Карпеева</div>
+                                    <div class="diagnos">ДЦП, спастическая диплегия<br>GMFCS III уровень</div>
+                                    <div class="progress-list">
+                                        <div class="progress-bar bar1">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                        <div class="progress-bar bar2">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                        <div class="progress-bar bar3">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                        <div class="progress-bar bar4">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                        <div class="progress-bar bar5">
+                                            <div class="progress-bar-done" style="width:50%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="amount-block">
+                                        <div class="text">Осталось собрать:</div>
+                                        <div class="amount-sum"><span id="animnumber">39 100</span> руб</div>
+                                        <div class="text text2">Сбор на текущую реабилитацию закрыт</div>
+                                    </div>
+                                    <div class="needed-block">
+                                        <div>Необходимо:</div>
+                                        <div class='need-item'>Пятый курс реабилитации в РЦ "Добрые руки"</div>
+                                    </div>
+                                    <div class="want-help-button">
+                                        <button>Хочу помочь!</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-cart second">
+                            </div>
+                            <div class="empty-cart third">
+                            </div>
+                            <div class="donate-elem elem1">
+                                <div class="img-block">
+                                    <img src="/images/anim/hum1.jpg">
+                                </div>
+                                <div class="donatesum">
+                                    600Р
+                                </div>
+                            </div>
+
+                            <div class="donate-elem elem2">
+                                <div class="img-block">
+                                    <img src="/images/anim/hum2.jpg">
+                                </div>
+                                <div class="donatesum">
+                                    800Р
+                                </div>
+                            </div>
+
+                            <div class="donate-elem elem3">
+                                <div class="img-block">
+                                    <img src="/images/anim/hum3.jpg">
+                                </div>
+                                <div class="donatesum">
+                                    1000Р
+                                </div>
+                            </div>
+
+                            <div class="donate-elem elem4">
+                                <div class="img-block">
+                                    <img src="/images/anim/hum4.jpg">
+                                </div>
+                                <div class="donatesum">
+                                    1200Р
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-info">
+                            * II-IV уровень моторных функций<br>по шкале <span>GMFCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="top-info">
+                            <div class="list_item">
+                                <div class="left">
+                                    <div class="circle">8</div>
+                                </div>
+                                <div class="right">
+                                    <span class='text'>Получаем результаты<br>долгосрочной опеки</span>
+                                </div>
+                                <div class="romb"></div>
+                            </div>
+                            <div class="subinfo">Долгосрочное оказание помощи облегчает жизнь ребенка и обеспечивает ему
+                                максимальную независимость</div>
+                        </div>
+                        <div class="kid-cards">
+                            <div class="empty-cart with-cont second-slide">
+                                <div class="img-block">
+                                    <img class='kid-img' src="/newimages/dasha.jpeg">
+                                </div>
+                                <div class="kid-info">
+                                    <div class="kid-name">Даша Карпеева</div>
+                                    <div class="diagnos">ДЦП, спастическая диплегия<br>GMFCS II уровень</div>
+                                    <div class="progress-list">
+                                        <div class="progress-bar bar1">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                        <div class="progress-bar bar2">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                        <div class="progress-bar bar3">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                        <div class="progress-bar bar4">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                        <div class="progress-bar bar5">
+                                            <div class="progress-bar-done" style="width:100%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="amount-block">
+                                        <div class="text">Всего собрано:</div>
+                                        <div class="amount-sum"><span id="animnumber">385 800</span> руб</div>
+                                        <div class="text text2">Сбор на текущую реабилитацию закрыт</div>
+                                    </div>
+                                    <div class="needed-block" style="opacity:0">
+                                        <div>Необходимо:</div>
+                                        <div>Полный курс реабилитации в РЦ "Добрые руки"</div>
+                                    </div>
+                                    <div class="want-help-button gray" style="display:block;">
+                                        <button>Сбор закрыт</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-block">
+                                <span>GMFCS III</span>
+                                <img class='arrow-img' style="display:inline-block;"
+                                    src="/newimages/black-arrow-right.svg">
+                                <span>GMFCS II</span>
+                            </div>
+                            <div class="empty-cart second">
+                            </div>
+                            <div class="empty-cart third">
+                            </div>
+                        </div>
+                        <div class="bottom-info">
+                            * II-IV уровень моторных функций<br>по шкале <span>GMFCS</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="section partners-main">
-            <div class="container partners-main-container">
-                <h2 class="partners-main-title section-title">Наши партнеры</h2>
-                <ul class="partners-main-list">
-                    <li class="partners-main-list__item" style="padding-left: 0">
-                        <img src="/images/partners-sgroup.png" width="100" alt="Логотип партнера SGroup"/>
-                    </li>
-                    <li class="partners-main-list__item" style="padding-left: 0">
-                        <img src="/images/partners-progorod.png" width="150" alt="Логотип партнера PRO-город"/>
-                    </li>
-                    <li class="partners-main-list__item" style="padding-left: 0; padding-right: 0;">
-                        <img src="/images/partners-dobrye-ruki.png" width="120" alt="Партнер Реабилитационный центр Добрые руки"/>
-                    </li>
-                    <li class="partners-main-list__item">
-                        <img src="/images/partners-autoradio.png" width="110" alt="Логотип партнера Авторадио"/>
-                    </li>
-                    <li class="partners-main-list__item">
-                        <img src="/images/partners-kaysarow.png" width="110" alt="Партнер KAYSAROW">
-                    </li>
-                </ul>
+            <div class="swiper-pagination">
+
             </div>
-            <div class="partners-main-button">
-                <a class="btn btn-dark partners-main-button__btn" href="{{ path('partners') }}">Подробнее о наших
-                    партнерах</a>
+        </div>
+    </section>
+    <section class="section mission gift-section" id="section-mission" style='padding-top:30px;background: url(/newimages/hearth-back2.svg);
+    background-size: 670px;
+    background-repeat: no-repeat;
+    background-position: center 580px;'>
+        <div class="container container--small">
+            <div class="gift-dream-container">
+                <div class="line4">
+                    <img src="/newimages/line4.svg" style="height: 200px;">
+                </div>
+
+                <div class="line5">
+                    <img src="/newimages/line5.svg" style="height: 105px;">
+                </div>
+                
+                <img class='number-img' src="/newimages/number-2.svg">
+                <div class="text-small">программа помощи</div>
+                <h2 class="mission-title section-title">“Подарки и мечты”</h2>
+                <div class="subtitle">
+                    Покупка реабилитационного оборудования, спортивных тренажеров, <br>учебной и ортопедической мебели
+                    для детей с ДЦП.
+                </div>
             </div>
-        </section>
-    </main>
-    <div class='WantHelpButtonBlock' id='WantHelpButtonBlock'>
+
+        </div>
+        <div class="swiper-container dream-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                {% for child in pmj %}
+                    <div class="slide-content" onclick="location='/children/{{ child.id }}#needed'">
+                        <div class="dream-img">
+                            <img src="{{ asset('uploads/images/' ~ (child.targets|last).first_photo) }}">
+                        </div>
+                        <div class="dream-name">{{ (child.targets|last).name }}</div>
+                        <div class="dream-progress-bar">
+                            <div class="progress-bar-done" style="width:{{ 100*(child.targets|last).collected/(child.targets|last).goal }}%">
+
+                            </div>
+                        </div>
+                        <div class="amount-block">
+                            <div class="text">Осталось собрать</div>
+                            <div class="amount-sum">{{ ((child.targets|last).goal - (child.targets|last).collected)|number_format(0, '', ' ') }} руб</div>
+                        </div>
+
+                        <div class="child-info-block">
+                            <div class="left">
+                                <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
+                            </div>
+                            <div class="right">
+                                <div class="child-name">{{ child.name}}</div>
+                                <div class="child-infuence">{{child.diagnosis}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if(loop.index%3==0 and loop.index!=(pmj|length)) %}
+                    </div>
+                    <div class="swiper-slide">
+                    {% endif %}
+                {% endfor %}
+            </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-container dream-swiper oneslide">
+            <div class="swiper-wrapper">
+                {% for child in pmj %}
+                    <div class="swiper-slide" onclick="location='/children/{{ child.id }}#needed'">
+                        <div class="slide-content">
+                            <div class="dream-img">
+                                <img src="{{ asset('uploads/images/' ~ (child.targets|last).first_photo) }}">
+                            </div>
+                            <div class="dream-name">{{ (child.targets|last).name }}</div>
+                            <div class="dream-progress-bar">
+                                <div class="progress-bar-done" style="width:{{ 100*(child.targets|last).collected/(child.targets|last).goal }}%">
+
+                                </div>
+                            </div>
+                            <div class="amount-block">
+                                <div class="text">Осталось собрать</div>
+                                <div class="amount-sum">{{ ((child.targets|last).goal - (child.targets|last).collected)|number_format(0, '', ' ') }} руб</div>
+                            </div>
+
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="{{ asset('uploads/images/' ~ child.images.0) }}">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">{{ child.name}}</div>
+                                    <div class="child-infuence">{{child.diagnosis}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section class="section mission" id="section-mission" style="/* padding-top: 0px; */background-color: #F6F5FC;">
+        <div class="container container--small" style="/* height: 400px; */text-align: center; position:relative">
+            <h2 class="mission-title section-title">Как помочь?</h2>
+            <img class='how-help-line line1' src="/newimages/want-help-line1.svg">
+            <img class='how-help-line line2' src="/newimages/want-help-line2.svg">
+            <img class='how-help-line line3' src="/newimages/want-help-line3.svg">
+        </div>
+        <div class="how-help-container">
+            <div class="how-help-wrapper">
+
+                <div class="wrapper-item">
+                    <div class="img-container">
+                        <div class="item-number">
+                            <div>1</div>
+                        </div>
+                        <img src="/newimages/how-help1.png" style="" alt="Платежная система">
+                    </div>
+                    <div class="title">Платежная система</div>
+                    <div class="subtitle">
+                        Самый удобный и безопасный<br>способ перевода пожертвования.
+                    </div>
+                </div>
+
+                <div class="wrapper-item">
+                    <div class="img-container">
+                        <div class="item-number">
+                            <div>2</div>
+                        </div>
+                        <img src="/newimages/how-help2.png" alt="Платежная система">
+                    </div>
+                    <div class="title">Банковская карта</div>
+                    <div class="subtitle">
+                        Visa, MasterCard, Maestro, Мир.
+                    </div>
+                </div>
+
+                <div class="wrapper-item">
+                    <div class="img-container">
+                        <div class="item-number">
+                            <div>3</div>
+                        </div>
+                        <img src="/newimages/how-help3.png" alt="Платежная система" style="left:2rem;margin-top: 2rem;">
+                    </div>
+                    <div class="title">СМС - помощь</div>
+                    <div class="subtitle">
+                        Списание денежных средств осуществляется с <br>баланса мобильного телефона. Без комиссии.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container container--small" style="/* height: 400px; */text-align: center;padding: 0 30px;
+    line-height: 50px;">
+            <p style="padding-bottom: 50px;">
+                <a class="donate-form-row__col btn btn-dark donate-form-submit js-donate-form-submit "
+                    href="/dist/online-help.html?sum-other=200" style='text-decoration:none;'>
+                    <span class="donate-form-submit__text">Помочь детям</span>
+                    <span class="icon icon-arrow-right" style="transform:translateY(-2px)"></span>
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section partners-main">
+        <div class="container partners-main-container">
+            <h2 class="partners-main-title section-title" style="font-size:3.6rem;">Наши партнеры</h2>
+            <ul class="partners-main-list">
+                <li class="partners-main-list__item" style="padding-left: 0">
+                    <img src="/images/partners-sgroup.png" width="100" alt="Логотип партнера SGroup" />
+                </li>
+                <li class="partners-main-list__item" style="padding-left: 0">
+                    <img src="/images/partners-progorod.png" width="150" alt="Логотип партнера PRO-город" />
+                </li>
+                <li class="partners-main-list__item" style="padding-left: 0; padding-right: 0;">
+                    <img src="/images/partners-dobrye-ruki.png" width="120"
+                        alt="Партнер Реабилитационный центр Добрые руки" />
+                </li>
+                <li class="partners-main-list__item">
+                    <img src="/images/partners-autoradio.png" width="110" alt="Логотип партнера Авторадио" />
+                </li>
+                <li class="partners-main-list__item">
+                    <img src="/images/partners-kaysarow.png" width="110" alt="Партнер KAYSAROW">
+                </li>
+            </ul>
+        </div>
+        <div class="partners-main-button">
+            <a class="btn btn-dark partners-main-button__btn" href="{{ path('partners') }}">Подробнее о наших
+                партнерах</a>
+        </div>
+    </section>
+
+
+    <section class="section how reviews">
+        <div class="container">
+            <h2 class="how-title section-title">Отзывы РОДИТЕЛЕЙ</h2>
+            {# <div class="subtitle">Отзывы от мам, дети которых проходят лечение на долгосрочной основе с размещением в
+                каждом отзыве ссылки на карту ребенка, чтобы обеспечить переходы на детей, посмотреть динамику в истории
+                реабилитаций и совершить пожертвование.</div> #}
+        </div>
+
+        <div class="swiper-container reviews-swiper multislide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Хотим от души поблагодарить за оказанную помощь. Спасибо Вам за участие в жизни Платона,
+                                за готовность всегда прийти на помощь. Искренне благодарим за усилия и старания ради нашего сына, за беспокойство и понимание.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/11">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/larisa.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Лариса Викторовна</div>
+                                    <div class="child-influence">Мама Борисова Платона</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Спасибо за оказанную помощь вашему фонду. Приобритение вертикализатора послужит дальнейшем толчком в лечнии для моего ребёнка.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/1">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/olga.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Ольга Артемьевна</div>
+                                    <div class="child-influence">Мама Кузьмина Ивана</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">От всей нашей дружной семьи благодарим фонд «Помогите детям» за оплату лечения в РЦ «Добрые руки». Желаем успехов и больших побед в вашем нелёгком деле!</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/2">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/anna.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Анна Севировна</div>
+                                    <div class="child-influence">Мама Михайловой Ангелины</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Выражаем огромную благодарность БФ "Помогите детям" за материальную помощь в приобретении детского школьного уголка. Благодаря вам мы готовы к новому учебному году.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/12">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/rausha.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Раушания Сахипяновна</div>
+                                    <div class="child-influence">Мама Раиля Гильмутдинова</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Мы сердечно благодарны вам за вашу доброту, за то, что вы даёте нашим особенным детям надежду и веру в светлое будущее. Благодаря таким благотворительным фондам дети верят в чудеса и в то, что мечты сбываются!</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/4">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/yana.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Яна Викторовна</div>
+                                    <div class="child-influence">Мама Карпеевой Даши</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Спасибо большое всему коллективу БФ «Помогите детям» за помощь в приобретение аппарата swash для моего ребенка, больного ДЦП. Спасибо, что оказываете реальную помощь и не остаетесь равнодушными к чужой беде!</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/3">Открыть карту ребенка</a>
+
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/elena.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Елена Юрьевна</div>
+                                    <div class="child-influence">Мама Никиты Захарова</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item" style="margin:0 auto;">
+                            <div class="review-boble">
+                                <div class="text">Урра! Огромное спасибо фонду и всем кто помог осуществить мечту нашей дочери! Для Машеньки это новые интересы и навыки! Мечтайте ,и пусть ваши мечты тоже сбываются.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/14">Открыть карту ребенка</a>
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/marina.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Марина Юрьевна</div>
+                                    <div class="child-influence">Мама Маши Анисивомой</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-container reviews-swiper oneslide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Хотим от души поблагодарить за оказанную помощь. Спасибо Вам за участие в жизни Платона,
+                                за готовность всегда прийти на помощь. Искренне благодарим за усилия и старания ради нашего сына, за беспокойство и понимание.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/11">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/larisa.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Лариса Викторовна</div>
+                                    <div class="child-influence">Мама Борисова Платона</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Спасибо за оказанную помощь вашему фонду. Приобритение вертикализатора послужит дальнейшем толчком в лечнии для моего ребёнка.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/1">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/olga.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Ольга Артемьевна</div>
+                                    <div class="child-influence">Мама Кузьмина Ивана</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">От всей нашей дружной семьи благодарим фонд «Помогите детям» за оплату лечения в РЦ «Добрые руки». Желаем успехов и больших побед в вашем нелёгком деле!</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/2">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/anna.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Анна Севировна</div>
+                                    <div class="child-influence">Мама Михайловой Ангелины</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Выражаем огромную благодарность БФ "Помогите детям" за материальную помощь в приобретении детского школьного уголка. Благодаря вам мы готовы к новому учебному году.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/12">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/rausha.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Раушания Сахипяновна</div>
+                                    <div class="child-influence">Мама Раиля Гильмутдинова</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Мы сердечно благодарны вам за вашу доброту, за то, что вы даёте нашим особенным детям надежду и веру в светлое будущее. Благодаря таким благотворительным фондам дети верят в чудеса и в то, что мечты сбываются!</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/4">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/yana.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Яна Викторовна</div>
+                                    <div class="child-influence">Мама Карпеевой Даши</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Мы сердечно благодарны вам за вашу доброту, за то, что вы даёте нашим особенным детям надежду и веру в светлое будущее. Благодаря таким благотворительным фондам дети верят в чудеса и в то, что мечты сбываются!</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/4">Открыть карту ребенка</a>
+                                {# <div class="rating_block">
+                                    <span class='active'></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div> #}
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/yana.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Яна Викторовна</div>
+                                    <div class="child-influence">Мама Карпеевой Даши</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Спасибо большое всему коллективу БФ «Помогите детям» за помощь в приобретение аппарата swash для моего ребенка, больного ДЦП. Спасибо, что оказываете реальную помощь и не остаетесь равнодушными к чужой беде!</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/3">Открыть карту ребенка</a>
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/elena.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Елена Юрьевна</div>
+                                    <div class="child-influence">Мама Никиты Захарова</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="review-item">
+                            <div class="review-boble">
+                                <div class="text">Урра! Огромное спасибо фонду и всем кто помог осуществить мечту нашей дочери! Для Машеньки это новые интересы и навыки! Мечтайте ,и пусть ваши мечты тоже сбываются.</div>
+                                <a href="https://xn--c1accbmwfjbh2bd3o.xn--p1ai/children/14">Открыть карту ребенка</a>
+                            </div>
+                            <div class="child-info-block">
+                                <div class="left">
+                                    <img src="/newimages/marina.png">
+                                </div>
+                                <div class="right">
+                                    <div class="child-name">Марина Юрьевна</div>
+                                    <div class="child-influence">Мама Маши Анисивомой</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+        <div class="container container--small mainpage-danateform">
+            <div class="donate-form-wrapper mainpage-wrapper">
+                {% include 'components/donate_form.twig' %}
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js"></script>
+    <script src="js/mainanimation2.js"></script>
+    <script>
+        $(document).ready(function(){
+            var swiper = new Swiper('.swiper-container.swiper-animation', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable:true,
+                    renderBullet: function (index, className) {
+                    return '<span class="' + className + '"><div>' + (index + 1) + '</div></span>';
+                    },
+                },
+            });
+        });
+    </script>
+</main>
+{# <div class='WantHelpButtonBlock' id='WantHelpButtonBlock'>
         <a href='{{ path('donate') }}'><div class='WantHelpButton'><span>Хочу помочь</span><span class='icon icon-arrow-right'></span></div></a>
-    </div>
+    </div>#}
 {% endblock %}
