@@ -16,19 +16,16 @@ class FileUploader
 
     /**
      * @param UploadedFile $file
-     *
      * @return string
      */
     public function upload(UploadedFile $file)
     {
         $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-        try {
+//        try {
             $file->move($this->getTargetDirectory(), $fileName);
-        } catch (FileException $e) {
+//        } catch (FileException $e) {
             // ... handle exception if something happens during file upload
-        }
-
+//        }
         return $fileName;
     }
 

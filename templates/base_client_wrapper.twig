@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/foopicker.css">
     <link rel="stylesheet" href="/css/swiper.min.css">
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/fontello.css') }}">
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -181,7 +182,7 @@ fbq('track', 'PageView');
                                 alt="Помогите детям">
                         </a>
                     </div>
-                    <span class="header-mobile__notice">Благотворительный фонд помощи детям с ДЦП</span>
+                    {# <span class="header-mobile__notice">Благотворительный фонд помощи детям с ДЦП</span> #}
                 </div>
                 <a class="header-mobile__lk" href="{{ path(is_granted('IS_AUTHENTICATED_FULLY') ? 'account_main' : 'app_login') }}">
                     <span class="icon icon-user"></span>
@@ -443,6 +444,7 @@ fbq('track', 'PageView');
     <script src="/js/bundle.js"></script>
     <script src="/js/validate.js"></script>
     <script src="/js/foopicker.js"></script>
+    <script src="/js/swiper.min.js"></script>
     <script src="/js/stickjaw.js"></script>
     <script src="/js/script.js"></script>
 {% endblock %}

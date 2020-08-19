@@ -1,0 +1,65 @@
+{% extends 'base_client_wrapper.twig' %}
+
+{% block title %}БФ “Помогите Детям” | Новости{% endblock %}
+{% block desciption %}БФ “Помогите Детям” | Новости{% endblock %}
+{% block keywords %}Новости{% endblock %}
+
+{% block content %}
+    <main>
+        {% include 'components/account_title.twig' %}
+        <div class="bg-purple-line"></div>
+        <section class="section account section-with-bghearts">
+            <div class="container container--small">
+                <div class="account-wrapper">
+                    {% include 'components/account_nav.twig' %}
+                    <div class="account-content referrals" style="overflow:hidden">
+                        <h1 class="account-content__title referrals-title account-content-padding">Редактор новостей</h1>
+
+                        <br>
+                        <div class="referrals-wrapper account-content-padding">
+
+
+                            {{ form_start(form) }}
+                            {{ form_widget(form.id, {'value': n ? n.id}) }}
+
+                            <div class="form-group">
+                                <div class="err_list form-text text-muted">{{ form_errors(form.title) }}</div>
+                                {{ form_widget(form.title, {'attr': {'class':'form-control', 'placeholder': 'Название', 'value': n ? n.title }}) }}
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="err_list form-text text-muted">{{ form_errors(form.descr) }}</div>
+                                {{ form_widget(form.descr, {'attr': {'class':'form-control', 'rows': 6, 'placeholder': 'Описание', 'value': n.descr }}) }}
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="err_list form-text text-muted">{{ form_errors(form.photos) }}</div>
+                                {{ form_label(form.photos, 'Загрузить фото') }}
+                                {{ form_widget(form.photos, {'attr': {'class':'form-control', 'style':'display:none', 'placeholder': 'Изображение' }}) }}
+
+
+                                {% if imgs %}Нажмите на изображение для удаления<br>{% for img in imgs %}
+                                    <img src="/uploads/images/{{img}}" width="300px" onclick="fetch('/account/news/{{n.id}}/img{{loop.index0}}'); this.style.display='none'" style="cursor:pointer;">
+                                {% endfor %}{% endif %}
+                            </div>
+                            <div class="form-group">
+                                <div class="err_list form-text text-muted">{{ form_errors(form.video) }}</div>
+                                {{ form_widget(form.video, {'attr': {'class':'form-control', 'placeholder': 'Ссылка на видео', 'value': n ? n.video }}) }}
+                            </div>
+
+                            {{ form_widget(form.save, {'attr': {'class':'btn btn-dark  add-recurrents-button neededbutton js-add-recurrents'}}) }}
+
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    </div>
+
+{% endblock %}

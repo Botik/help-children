@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Child;
+use App\Entity\News;
 use App\Entity\RecurringPayment;
 use App\Entity\SendGridSchedule;
 use App\Entity\User;
@@ -171,6 +172,17 @@ class AccountController extends AbstractController
                 . idn_to_utf8($request->getHost())
                 . $generator->generate('referral', ['id' => $this->getUser()->getId()])
         ]);
+    }
+
+    public function news()
+    {
+        $nRepo = $this->getDoctrine()->getRepository(News::class);
+        $news = $nRepo->findByAuthor($this->getUser());
+        $f=function ($n){ return strlen($n)>35 ? substr($n,0,strpos($n,' ',35)).(strpos($n,' ',35) ? '...':''): $n;};
+        array_map(function ($n) use ($f) {$n->setTitle($f($n->getTitle()));$n->setDescr($f($n->getDescr()));},$news);
+        return $this->render('account/news.twig', [
+            'newsList' => $news,
+            ]);
     }
 
     /**
