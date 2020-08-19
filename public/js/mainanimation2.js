@@ -98,35 +98,35 @@ $(document).ready(function(){
 
 
 
-        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(1) .text',{width:'44px'},{width:'auto',duration:1},'stage1+=2.8')
-        .to('.fixed-animation-block .left-half .list .list_item:nth-child(1) .romb',{right:'-15px',duration:1},'stage1+=2.8')
+        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(1) .text',{width:'44px'},{width:'auto',duration:0.5},'stage1+=2.8')
+        .to('.fixed-animation-block .left-half .list .list_item:nth-child(1) .romb',{right:'-15px',duration:0.5},'stage1+=2.8')
         .fromTo('.fixed-animation-block .list_item:first-child .points',{opacity:1},{opacity:0,duration:0.5},'stage1+=2.3')
-        .to('.fixed-animation-block .list_item:first-child',{background:'#FF9E00',duration:1},'stage1+=2.8')
-        .to('.fixed-animation-block .left-half .list .list_item:nth-child(1) .romb',{background:'#FF9E00',duration:1},'stage1+=2.8')
-        .fromTo('.fixed-animation-block .list_item:first-child .text',{opacity:0},{opacity:1,duration:0.5},'stage1+=3.8')
-        .fromTo('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0},{opacity:1,duration:0.5},'stage1+=4.8')
+        .to('.fixed-animation-block .list_item:first-child',{background:'#FF9E00',duration:0.5},'stage1+=2.8')
+        .to('.fixed-animation-block .left-half .list .list_item:nth-child(1) .romb',{background:'#FF9E00',duration:0.5},'stage1+=2.8')
+        .fromTo('.fixed-animation-block .list_item:first-child .text',{opacity:0},{opacity:1,duration:0.5},'stage1+=3.3')
+        .fromTo('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0},{opacity:1,duration:0.5},'stage1+=4.3')
 
-        .fromTo('.fixed-animation-block .right-half .empty-cart.second',{rotationY:'0'},{rotationY:'86deg',duration:0.5},'stage1+=8.4')
-        .to('.fixed-animation-block .right-half .empty-cart.second',{opacity:0,duration:0},'stage1+=8.9')
-        .to('.fixed-animation-block .right-half .empty-cart.with-cont',{display:'block',duration:0},'stage1+=8.9')
-        .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'270deg'},{rotationY:'360deg',duration:0.5},'stage1+=8.9')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.second',{rotationY:'0'},{rotationY:'86deg',duration:0.5},'stage1+=7.9')
+        .to('.fixed-animation-block .right-half .empty-cart.second',{opacity:0,duration:0},'stage1+=8.4')
+        .to('.fixed-animation-block .right-half .empty-cart.with-cont',{display:'block',duration:0},'stage1+=8.4')
+        .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'270deg'},{rotationY:'360deg',duration:0.5},'stage1+=8.4')
 
-        .to('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0,duration:1},'stage1+=11.4')
-        .to('.fixed-animation-block .list_item:nth-child(1)',{background:'#FCFAF5',duration:1},'stage1+=11.4')
-        .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'#FCFAF5',duration:1},'stage1+=11.4')
-        .to('.fixed-animation-block .list_item:nth-child(1)',{background:'transparent',duration:0},'stage1+=12.4')
-        .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'transparent',duration:0},'stage1+=12.4')
-        .to('.fixed-animation-block .list_item:nth-child(1) .text',{color:'#000000',duration:1},'stage1+=11.4')
+        .to('.fixed-animation-block .list_item:first-child .subinfo',{opacity:0,duration:1},'stage1+=10.9')
+        .to('.fixed-animation-block .list_item:nth-child(1)',{background:'#FCFAF5',duration:1},'stage1+=10.9')
+        .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'#FCFAF5',duration:1},'stage1+=10.9')
+        .to('.fixed-animation-block .list_item:nth-child(1)',{background:'transparent',duration:0},'stage1+=11.9')
+        .to('.fixed-animation-block .list_item:nth-child(1) .romb',{background:'transparent',duration:0},'stage1+=11.9')
+        .to('.fixed-animation-block .list_item:nth-child(1) .text',{color:'#000000',duration:1},'stage1+=10.9')
 
         // Второй пункт
         .addLabel('stage2','+=1')
         .fromTo('.fixed-animation-block .list_item:nth-child(2)',{opacity:0},{opacity:1,duration:0.5},'stage2')
-        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(2) .text',{width:0},{width:'auto',duration:1},'stage2+=0.5')
-        .to('.fixed-animation-block .left-half .list .list_item:nth-child(2) .romb',{right:'-15px',duration:1},'stage2+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(2)',{background:'#FF9E00',duration:1},'stage2+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(2) .romb',{background:'#FF9E00',duration:1},'stage2+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(2) .text',{opacity:1,duration:0.5},'stage2+=1.5')
-        .to('.fixed-animation-block .list_item:nth-child(2) .subinfo',{opacity:1,duration:0.5},'stage2+=2.5')
+        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(2) .text',{width:0},{width:'auto',duration:0.5},'stage2+=0.5')
+        .to('.fixed-animation-block .left-half .list .list_item:nth-child(2) .romb',{right:'-15px',duration:0.5},'stage2+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(2)',{background:'#FF9E00',duration:0.5},'stage2+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(2) .romb',{background:'#FF9E00',duration:0.5},'stage2+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(2) .text',{opacity:1,duration:0.5},'stage2+=1')
+        .to('.fixed-animation-block .list_item:nth-child(2) .subinfo',{opacity:1,duration:0.5},'stage2+=2')
 
         .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont .img-block',{height:'44rem'},{height:'30rem',duration:1},'stage2+=5.5')
         .call(function(){
@@ -155,13 +155,13 @@ $(document).ready(function(){
         .call(function(){
             $('#animnumber').text('83 000');
         })
-        .fromTo('.fixed-animation-block .list_item:nth-child(3)',{opacity:0},{opacity:1,duration:1},'stage3')
-        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(3) .text',{width:0},{width:'auto',duration:1},'stage3+=0.5')
-        .to('.fixed-animation-block .left-half .list .list_item:nth-child(3) .romb',{right:'-15px',duration:1},'stage3+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FF9E00',duration:1},'stage3+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FF9E00',duration:1},'stage3+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(3) .text',{opacity:1,duration:0.5},'stage3+=1.5')
-        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:1,duration:0.5},'stage3+=2.5')
+        .fromTo('.fixed-animation-block .list_item:nth-child(3)',{opacity:0},{opacity:1,duration:0.5},'stage3')
+        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(3) .text',{width:0},{width:'auto',duration:0.5},'stage3+=0.5')
+        .to('.fixed-animation-block .left-half .list .list_item:nth-child(3) .romb',{right:'-15px',duration:0.5},'stage3+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(3)',{background:'#FF9E00',duration:0.5},'stage3+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(3) .romb',{background:'#FF9E00',duration:0.5},'stage3+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(3) .text',{opacity:1,duration:0.5},'stage3+=1')
+        .to('.fixed-animation-block .list_item:nth-child(3) .subinfo',{opacity:1,duration:0.5},'stage3+=2')
 
         .fromTo('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1},'stage3+=2')
         .to('.fixed-animation-block .right-half .elem1',{opacity:0,scale:0.5,duration:1},'stage3+=3.5')
@@ -268,19 +268,19 @@ $(document).ready(function(){
 
         // Четвертый пункт
         .addLabel('stage4')
-        .fromTo('.fixed-animation-block .list_item:nth-child(4)',{opacity:0},{opacity:1,duration:1},'stage4')
-        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(4) .text',{width:0},{width:'auto',duration:1},'stage4+=0.5')
-        .to('.fixed-animation-block .left-half .list .list_item:nth-child(4) .romb',{right:'-15px',duration:1},'stage4+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'#FF9E00',duration:1},'stage4+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FF9E00',duration:1},'stage4+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(4) .text',{opacity:1,duration:0.5},'stage4+=1.5')
+        .fromTo('.fixed-animation-block .list_item:nth-child(4)',{opacity:0},{opacity:1,duration:0.5},'stage4')
+        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(4) .text',{width:0},{width:'auto',duration:0.5},'stage4+=0.5')
+        .to('.fixed-animation-block .left-half .list .list_item:nth-child(4) .romb',{right:'-15px',duration:0.5},'stage4+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'#FF9E00',duration:0.5},'stage4+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FF9E00',duration:0.5},'stage4+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(4) .text',{opacity:1,duration:0.5},'stage4+=1')
 
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img1',{opacity:0,duration:0.5},'stage4')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .kid-img2',{opacity:1,duration:0.5},'stage4+=0.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block .reabGone',{opacity:1,display:'flex',duration:0.5},'stage4+=0.5')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block',{opacity:1,duration:0.5},'stage4+=1.5')
 
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=2.5')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=2')
 
 // stage4 +=2
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=7')
@@ -294,13 +294,14 @@ $(document).ready(function(){
         // .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
 
 
+        // Пятый пункт
         .addLabel('stage5')
         .fromTo('.fixed-animation-block .list_item:nth-child(5)',{opacity:0},{opacity:1,duration:1},'stage5')
-        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(5) .text',{width:0},{width:'auto',duration:1},'stage5+=0.5')
-        .to('.fixed-animation-block .left-half .list .list_item:nth-child(5) .romb',{right:'-15px',duration:1},'stage5+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(5)',{background:'#FF9E00',duration:1},'stage5+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(5) .romb',{background:'#FF9E00',duration:1},'stage5+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(5) .text',{opacity:1,duration:0.5},'stage5+=1.5')
+        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(5) .text',{width:0},{width:'auto',duration:0.5},'stage5+=0.5')
+        .to('.fixed-animation-block .left-half .list .list_item:nth-child(5) .romb',{right:'-15px',duration:0.5},'stage5+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(5)',{background:'#FF9E00',duration:0.5},'stage5+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(5) .romb',{background:'#FF9E00',duration:0.5},'stage5+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(5) .text',{opacity:1,duration:0.5},'stage5+=1')
         .to('.fixed-animation-block .right-half .empty-cart.with-cont .reabilitation-block',{opacity:0,duration:0.5})
 
         .fromTo('.fixed-animation-block .right-half .empty-cart.with-cont',{rotationY:'0'},{rotationY:'86deg', duration:0.5})
@@ -316,7 +317,7 @@ $(document).ready(function(){
         .fromTo('.fixed-animation-block .right-half .empty-cart.reab-result .pechat',{opacity:'0'},{opacity:'1',duration:0.5})
 
 
-        .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:1,duration:0.5},'stage5+=2.5')
+        .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:1,duration:0.5},'stage5+=2')
         .to('.fixed-animation-block .list_item:nth-child(5) .subinfo',{opacity:0,duration:1},'+=4')
         .to('.fixed-animation-block .list_item:nth-child(5)',{background:'#FCFAF5',duration:1},'-=1')
         .to('.fixed-animation-block .list_item:nth-child(5) .romb',{background:'#FCFAF5',duration:1},'-=1')
@@ -331,14 +332,14 @@ $(document).ready(function(){
         .call(function(){
             $('#animnumber').text('83 000');
         })
-        .fromTo('.fixed-animation-block .list_item:nth-child(6)',{opacity:0},{opacity:1,duration:1},'stage6')
-        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(6) .text',{width:0},{width:'auto',duration:1},'stage6+=0.5')
-        .to('.fixed-animation-block .left-half .list .list_item:nth-child(6) .romb',{right:'-15px',duration:1},'stage6+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(6)',{background:'#FF9E00',duration:1},'stage6+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(6) .romb',{background:'#FF9E00',duration:1},'stage6+=0.5')
-        .to('.fixed-animation-block .list_item:nth-child(6) .text',{opacity:1,duration:0.5},'stage6+=1.5')
+        .fromTo('.fixed-animation-block .list_item:nth-child(6)',{opacity:0},{opacity:1,duration:0.5},'stage6')
+        .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(6) .text',{width:0},{width:'auto',duration:0.5},'stage6+=0.5')
+        .to('.fixed-animation-block .left-half .list .list_item:nth-child(6) .romb',{right:'-15px',duration:0.5},'stage6+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(6)',{background:'#FF9E00',duration:0.5},'stage6+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(6) .romb',{background:'#FF9E00',duration:0.5},'stage6+=0.5')
+        .to('.fixed-animation-block .list_item:nth-child(6) .text',{opacity:1,duration:0.5},'stage6+=1')
 
-        .to('.fixed-animation-block .list_item:nth-child(6) .subinfo',{opacity:1,duration:0.5},'stage6+=2.5')
+        .to('.fixed-animation-block .list_item:nth-child(6) .subinfo',{opacity:1,duration:0.5},'stage6+=2')
 
 
         .fromTo('.fixed-animation-block .right-half .empty-cart.reab-result',{rotationY:'360deg'},{rotationY:'270deg',duration:0.5},'stage6+=2')
