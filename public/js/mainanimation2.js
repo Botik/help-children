@@ -266,7 +266,7 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(3) .subinfo2',{opacity:0,duration:0.5},'stage3+=14')
         
 
-        // Паузу
+        // Четвертый пункт
         .addLabel('stage4')
         .fromTo('.fixed-animation-block .list_item:nth-child(4)',{opacity:0},{opacity:1,duration:1},'stage4')
         .fromTo('.fixed-animation-block .left-half .list .list_item:nth-child(4) .text',{width:0},{width:'auto',duration:1},'stage4+=0.5')
@@ -283,14 +283,14 @@ $(document).ready(function(){
         .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:1,duration:0.5},'stage4+=1.5')
 
 // stage4 +=2
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'#FCFAF5',duration:1},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FCFAF5',duration:1},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'transparent',duration:0},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'transparent',duration:0},'stage4+=7')
-        .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=7')
-        .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=6')
-        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=6')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo',{opacity:0,duration:1},'stage4+=7')
+        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'#FCFAF5',duration:1},'stage4+=7')
+        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'#FCFAF5',duration:1},'stage4+=7')
+        .to('.fixed-animation-block .list_item:nth-child(4)',{background:'transparent',duration:0},'stage4+=8')
+        .to('.fixed-animation-block .list_item:nth-child(4) .romb',{background:'transparent',duration:0},'stage4+=8')
+        .to('.fixed-animation-block .list .line',{height:'210px',duration:1},'stage4+=8')
+        .to('.fixed-animation-block .list_item:nth-child(4) .text',{color:'#000000',duration:1},'stage4+=7')
+        .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{opacity:0,duration:0.5},'stage4+=7')
         // .to('.fixed-animation-block .list_item:nth-child(4) .subinfo2',{duration:2.5})
 
 
